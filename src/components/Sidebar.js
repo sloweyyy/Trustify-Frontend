@@ -173,7 +173,7 @@ const Sidebar = () => {
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, justifyContent: openSideBar ? 'flex-start' : 'center' }}>
           {openSideBar && (
             <Typography variant="h6" sx={{ flexGrow: 1, ml: 2, color: dark[700] }}>
-              .ASE
+              Trustify
             </Typography>
           )}
           <IconButton

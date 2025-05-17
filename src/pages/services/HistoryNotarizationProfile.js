@@ -56,9 +56,13 @@ const HistoryNotarizationProfile = () => {
     try {
       setLoadingStatus(true);
       const response = await NotarizationService.getHistory();
-      setFullData(response);
+      // Ensure data is sorted by createdAt from newest to oldest
+      const sortedResponse = Array.isArray(response)
+        ? response.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+        : response;
+      setFullData(sortedResponse);
 
-      const formattedData = response.map((item, index) => {
+      const formattedData = sortedResponse.map((item, index) => {
         const date = new Date(item.createdAt);
         const notaryDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
         const statusMap = {

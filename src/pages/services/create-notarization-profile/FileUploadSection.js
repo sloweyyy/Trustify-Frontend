@@ -118,7 +118,14 @@ const FileUploadSection = ({
                 Chọn từ ví tài liệu
               </MenuItem>
             </Menu>
-            <input type="file" hidden multiple ref={inputRef} onChange={handleCurrentFileChange} accept="image/*,application/pdf" />
+            <input
+              type="file"
+              hidden
+              multiple
+              ref={inputRef}
+              onChange={handleCurrentFileChange}
+              accept="image/*,application/pdf"
+            />
             <Typography sx={{ fontSize: 12, textTransform: 'capitalize', color: black[900] }}>
               ({totalFiles} files đã đăng tải)
             </Typography>
@@ -244,7 +251,7 @@ const FileUploadSection = ({
                 textDecoration: 'underline',
               },
             }}
-            onClick={() => window.open(file.document.tokenURI, '_blank')}
+            onClick={() => window.open(file.document.ipfsLink, '_blank')}
           >
             <Typography sx={{ display: 'list-item', ml: '1rem', fontSize: 14, color: black[500] }}>
               {file.document.filename}

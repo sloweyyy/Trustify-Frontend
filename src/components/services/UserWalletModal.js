@@ -99,7 +99,7 @@ const UserWalletModal = ({ open, onClose, handleDocumentWalletFileChange }) => {
                     }}
                     onClick={(e) => {
                       e.stopPropagation();
-                      window.open(document.tokenURI);
+                      window.open(document.ipfsLink);
                     }}
                   >
                     {document.filename.endsWith('pdf') ? (
