@@ -57,7 +57,7 @@ const getAllUsers = async (role = 'user', sortBy = null, limit, page) => {
     }
     return error.message;
   }
-}
+};
 
 const createUserAccount = async (user) => {
   try {
@@ -69,7 +69,7 @@ const createUserAccount = async (user) => {
     }
     return error.message;
   }
-}
+};
 
 const UserService = {
   getUserById,
