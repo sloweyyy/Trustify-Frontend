@@ -1,7 +1,7 @@
 import { Avatar, Box, Button, Divider, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { black, gray, white } from '../../config/theme/themePrimitives';
-import { CalendarToday, Info, Schedule } from '@mui/icons-material';
+import { CalendarToday, Info, Schedule, GestureRounded } from '@mui/icons-material';
 import DetailDocumentModal from './DetailDocumentModal';
 import DetailHistoryDocumentModal from './DetailHistoryDocumentModal';
 
@@ -135,22 +135,41 @@ const NotaryDocumentCard = ({ document }) => {
         >
           GHI CHÚ
         </Typography>
-        <Typography
+        <Box
           sx={{
-            display: '-webkit-box',
-            '-webkit-box-orient': 'vertical',
-            '-webkit-line-clamp': 1,
-            overflow: 'hidden',
-            color: white[900],
-            textOverflow: 'ellipsis',
-            fontSize: 12,
-            fontWeight: 500,
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 1,
           }}
         >
-          {document?.documentId?.notarizationField.name}
-          <br />
-          {document?.documentId?.notarizationService.name}
-        </Typography>
+          <Typography
+            sx={{
+              display: '-webkit-box',
+              '-webkit-box-orient': 'vertical',
+              '-webkit-line-clamp': 1,
+              overflow: 'hidden',
+              color: white[900],
+              textOverflow: 'ellipsis',
+              fontSize: 12,
+              fontWeight: 500,
+            }}
+          >
+            {document?.documentId?.notarizationField.name}
+            <br />
+            {document?.documentId?.notarizationService.name}
+          </Typography>
+          {document?.status === 'readyToSign' && document?.signatureImage && (
+            <GestureRounded
+              sx={{
+                color: black[500],
+                fontSize: 16,
+                verticalAlign: 'middle',
+              }}
+              titleAccess="Có chữ ký"
+            />
+          )}
+        </Box>
       </Box>
 
       <Button

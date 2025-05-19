@@ -247,8 +247,9 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
 
     const currentUserEmail = user.email;
     const currentUserInSession = session.users.find((sessionUser) => sessionUser.email === currentUserEmail);
+    const isCreator = currentUserEmail === session.creator.email;
 
-    if (currentUserInSession && currentUserInSession.status === 'accepted') {
+    if ((currentUserInSession && currentUserInSession.status === 'accepted') || isCreator) {
       setIsUploading(true);
       try {
         const sessionId = session._id;
@@ -291,9 +292,11 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
 
       const response = await SessionService.uploadSessionDocument(sessionId, formData);
 
+      // If user is creator, they shouldn't need to accept invitation
       if (
         response.status === 403 &&
-        response.message === 'You must accept the session invitation before uploading documents'
+        response.message === 'You must accept the session invitation before uploading documents' &&
+        !isCreator
       ) {
         toast.error('Bạn cần chấp nhận lời mời trước khi tải lên tài liệu');
         setShowJoinSessionModal(true);

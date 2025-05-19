@@ -78,10 +78,14 @@ const uploadSessionDocument = async (sessionId, document) => {
       return { status: 404, message: 'Session not found' };
     }
 
-    const currentUserInfo = userSession.users.find((user) => user.status === 'accepted');
+    const isCreator = userSession.creator && userSession.creator.email === axiosConfig.defaults.headers.common['email'];
 
-    if (!currentUserInfo) {
-      return { status: 403, message: 'You must accept the session invitation before uploading documents' };
+    if (!isCreator) {
+      const currentUserInfo = userSession.users.find((user) => user.status === 'accepted');
+
+      if (!currentUserInfo) {
+        return { status: 403, message: 'You must accept the session invitation before uploading documents' };
+      }
     }
 
     const response = await axiosConfig.post(`${SESSION_ENDPOINT}/upload-session-document/${sessionId}`, document);
