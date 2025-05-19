@@ -9,6 +9,7 @@ const ProcessingNotarizationDocuments = () => {
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(false);
   const [pageIndex, setPageIndex] = useState(1);
+  const [pagination, setPagination] = useState({});
 
   const fetchProcessingDocuments = async (page) => {
     setLoading(true);
@@ -18,6 +19,7 @@ const ProcessingNotarizationDocuments = () => {
       limit: 6,
     });
     setDocuments(response.documents);
+    setPagination(response.pagination);
     setLoading(false);
   };
 
@@ -106,7 +108,13 @@ const ProcessingNotarizationDocuments = () => {
           justifyContent: 'flex-end',
         }}
       >
-        <Pagination count={10} page={pageIndex} onChange={handlePageChange} color="primary" shape="rounded" />
+        <Pagination
+          count={pagination?.totalPages !== 0 ? pagination?.totalPages : 1}
+          page={pageIndex}
+          onChange={handlePageChange}
+          color="primary"
+          shape="rounded"
+        />
       </Box>
     </Box>
   );

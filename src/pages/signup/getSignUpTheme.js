@@ -223,7 +223,7 @@ export default function getSignUpTheme(mode) {
                   size: 'small',
                 },
                 style: {
-                  height: '2rem', // 32px
+                  height: '2rem',
                   padding: '0 0.5rem',
                 },
               },
@@ -394,10 +394,7 @@ export default function getSignUpTheme(mode) {
                   ...theme.applyStyles('dark', {
                     border: `1px solid ${alpha(gray[700], 0.4)}`,
                     boxShadow: 'none',
-                    background: `linear-gradient(to bottom, ${gray[900]}, ${alpha(
-                      gray[800],
-                      0.5,
-                    )})`,
+                    background: `linear-gradient(to bottom, ${gray[900]}, ${alpha(gray[800], 0.5)})`,
                   }),
                 },
               },
@@ -408,11 +405,7 @@ export default function getSignUpTheme(mode) {
       MuiCheckbox: {
         defaultProps: {
           disableRipple: true,
-          icon: (
-            <CheckBoxOutlineBlankRoundedIcon
-              sx={{ color: 'hsla(210, 0%, 0%, 0.0)' }}
-            />
-          ),
+          icon: <CheckBoxOutlineBlankRoundedIcon sx={{ color: 'hsla(210, 0%, 0%, 0.0)' }} />,
           checkedIcon: <CheckRoundedIcon sx={{ height: 14, width: 14 }} />,
         },
         styleOverrides: {

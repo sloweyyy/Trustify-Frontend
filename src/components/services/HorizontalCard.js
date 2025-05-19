@@ -1,30 +1,23 @@
 import React, { useState } from 'react';
-import { Box, Button, Divider, Typography } from '@mui/material';
+import { Box, Button, Divider, Typography, CircularProgress } from '@mui/material';
 import { black, gray, red, white, yellow } from '../../config/theme/themePrimitives';
 import { Add, Info, OpenInNew } from '@mui/icons-material';
 import { PictureAsPdf, Image } from '@mui/icons-material';
 import TransferModal from './TransferModal';
 import PurchaseModal from './PurchaseModal';
+import FilePreviewModal from './FilePreviewModal';
+import IPFSService from '../../services/ipfs.service';
 
 const HorizontalCard = ({ document }) => {
   const isPDF = document.filename.split('.').pop() === 'pdf';
   const [open, setOpen] = useState(false);
   const [openPurchase, setOpenPurchase] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [openPreview, setOpenPreview] = useState(false);
 
   const handleOpenIPFS = (e) => {
     e.stopPropagation();
-    try {
-      const link = document.createElement('a');
-      link.href = document.ipfsLink;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error('Error opening IPFS link:', error);
-      window.open(document.ipfsLink, '_blank', 'noopener,noreferrer');
-    }
+    setOpenPreview(true);
   };
 
   return (
@@ -273,15 +266,22 @@ const HorizontalCard = ({ document }) => {
             },
             marginX: 2,
           }}
-          endIcon={<OpenInNew />}
+          endIcon={loading ? <CircularProgress size={16} color="inherit" /> : <OpenInNew />}
           onClick={handleOpenIPFS}
+          disabled={loading}
         >
-          Xem tài liệu
+          {loading ? 'Đang tải...' : 'Xem tài liệu'}
         </Button>
       </Box>
 
       <TransferModal open={open} onClose={() => setOpen(false)} document={document} />
       <PurchaseModal open={openPurchase} onClose={() => setOpenPurchase(false)} document={document} />
+      <FilePreviewModal
+        open={openPreview}
+        onClose={() => setOpenPreview(false)}
+        metadataUrl={document.ipfsLink}
+        filename={document.filename}
+      />
     </Box>
   );
 };
