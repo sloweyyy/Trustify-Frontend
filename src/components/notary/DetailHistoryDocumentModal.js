@@ -394,6 +394,60 @@ const DetailHistoryDocumentModal = ({ open, onClose, document }) => {
               justifyContent: 'flex-start',
             }}
           >
+            {/* Signature Image Section */}
+            {document?.status === 'readyToSign' && document?.signatureImage && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 2,
+                  padding: 2,
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: 14,
+                    fontWeight: 600,
+                    color: black[900],
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Chữ ký xác nhận
+                </Typography>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    border: `1px solid ${gray[200]}`,
+                    borderRadius: 1,
+                    padding: 2,
+                    bgcolor: white[50],
+                  }}
+                >
+                  <img
+                    src={document.signatureImage}
+                    alt="Signature"
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '200px',
+                      objectFit: 'contain',
+                    }}
+                  />
+                  <Typography
+                    sx={{
+                      fontSize: 12,
+                      fontWeight: 500,
+                      color: black[500],
+                      marginTop: 1,
+                    }}
+                  >
+                    Chữ ký của: {document?.documentId?.requesterInfo?.fullName}
+                  </Typography>
+                </Box>
+              </Box>
+            )}
+
             <Typography
               sx={{
                 fontSize: 14,
