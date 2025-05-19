@@ -1,31 +1,24 @@
 import React, { useState } from 'react';
-import { Box, Button, Divider, Typography } from '@mui/material';
+import { Box, Button, Divider, Typography, CircularProgress } from '@mui/material';
 import { black, gray, white } from '../../config/theme/themePrimitives';
 import { Add, Info, OpenInNew } from '@mui/icons-material';
 import { PictureAsPdf, Image } from '@mui/icons-material';
 import { red, yellow } from '@mui/material/colors';
 import TransferModal from './TransferModal';
 import PurchaseModal from './PurchaseModal';
+import FilePreviewModal from './FilePreviewModal';
+import IPFSService from '../../services/ipfs.service';
 
 const BoxCard = ({ document }) => {
   const isPDF = document.filename.split('.').pop() === 'pdf';
   const [open, setOpen] = useState(false);
   const [openPurchase, setOpenPurchase] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [openPreview, setOpenPreview] = useState(false);
 
   const handleOpenIPFS = (e) => {
     e.stopPropagation();
-    try {
-      const link = document.createElement('a');
-      link.href = document.ipfsLink;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error('Error opening IPFS link:', error);
-      window.open(document.ipfsLink, '_blank', 'noopener,noreferrer');
-    }
+    setOpenPreview(true);
   };
 
   return (
@@ -195,7 +188,6 @@ const BoxCard = ({ document }) => {
       >
         <Button
           sx={{
-            display: 'flex',
             width: '100%',
             backgroundColor: gray[900],
             color: white[50],
@@ -216,7 +208,6 @@ const BoxCard = ({ document }) => {
 
         <Button
           sx={{
-            display: 'flex',
             width: '100%',
             backgroundColor: gray[900],
             color: white[50],
@@ -237,7 +228,6 @@ const BoxCard = ({ document }) => {
 
         <Button
           sx={{
-            display: 'flex',
             width: '100%',
             backgroundColor: isPDF ? red[500] : yellow[600],
             color: white[50],
@@ -250,15 +240,22 @@ const BoxCard = ({ document }) => {
               backgroundColor: isPDF ? red[600] : yellow[700],
             },
           }}
-          endIcon={<OpenInNew />}
+          endIcon={loading ? <CircularProgress size={16} color="inherit" /> : <OpenInNew />}
           onClick={handleOpenIPFS}
+          disabled={loading}
         >
-          Xem tài liệu
+          {loading ? 'Đang tải...' : 'Xem tài liệu'}
         </Button>
       </Box>
 
       <TransferModal open={open} onClose={() => setOpen(false)} document={document} />
       <PurchaseModal open={openPurchase} onClose={() => setOpenPurchase(false)} document={document} />
+      <FilePreviewModal
+        open={openPreview}
+        onClose={() => setOpenPreview(false)}
+        metadataUrl={document.ipfsLink}
+        filename={document.filename}
+      />
     </Box>
   );
 };

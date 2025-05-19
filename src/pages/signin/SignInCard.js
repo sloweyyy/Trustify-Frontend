@@ -199,13 +199,7 @@ export default function SignInCard() {
           </Link>
         </Box>
         <ForgotPasswordModal open={open} handleClose={handleClose} />
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          onClick={handleSignIn} // Only pass the function here
-          disabled={loading} // Disable button while loading
-        >
+        <Button type="submit" fullWidth variant="contained" onClick={handleSignIn} disabled={loading}>
           {loading ? 'Đang đăng nhập...' : 'Đăng nhập'}
         </Button>
 
