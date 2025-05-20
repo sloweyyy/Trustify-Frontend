@@ -9,13 +9,15 @@ import SecurityIcon from '@mui/icons-material/Security';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PersonIcon from '@mui/icons-material/Person';
+import StoreIcon from '@mui/icons-material/Store';
 
 const ForIndividuals = () => {
   const benefits = [
     {
       icon: <SpeedIcon fontSize="large" sx={{ color: primary[500] }} />,
       title: 'Tiết kiệm thời gian',
-      description: 'Không cần đến văn phòng công chứng, thực hiện mọi thủ tục từ nhà hoặc bất cứ đâu, 24/7.',
+      description:
+        'Không cần trực tiếp đến văn phòng công chứng - hoàn tất các thủ tục trực tuyến thông qua văn phòng công chứng địa phương.',
     },
     {
       icon: <SecurityIcon fontSize="large" sx={{ color: primary[500] }} />,
@@ -29,8 +31,8 @@ const ForIndividuals = () => {
     },
     {
       icon: <SupportAgentIcon fontSize="large" sx={{ color: primary[500] }} />,
-      title: 'Hỗ trợ cá nhân hóa',
-      description: 'Đội ngũ chuyên viên tư vấn hỗ trợ bạn trong suốt quá trình công chứng.',
+      title: 'Hỗ trợ chuyên nghiệp',
+      description: 'Các chuyên viên công chứng sẽ hướng dẫn bạn trong suốt quá trình công chứng.',
     },
   ];
 
@@ -49,24 +51,24 @@ const ForIndividuals = () => {
 
   const steps = [
     {
-      title: 'Đăng ký và xác thực',
-      description: 'Tạo tài khoản và xác thực danh tính bằng CCCD/CMND hoặc hộ chiếu của bạn.',
+      title: 'Tìm văn phòng công chứng tham gia',
+      description: 'Tìm văn phòng công chứng trong khu vực của bạn cung cấp dịch vụ công chứng số của chúng tôi.',
     },
     {
-      title: 'Chọn dịch vụ công chứng',
-      description: 'Lựa chọn loại văn bản cần công chứng và cung cấp thông tin cần thiết.',
+      title: 'Đăng ký thông qua văn phòng công chứng',
+      description: 'Văn phòng công chứng sẽ giúp bạn đăng ký và xác thực danh tính.',
     },
     {
       title: 'Tải tài liệu lên',
-      description: 'Tải lên văn bản cần công chứng và các giấy tờ liên quan.',
+      description: 'Tải lên các tài liệu cần công chứng và các giấy tờ hỗ trợ liên quan.',
     },
     {
       title: 'Đặt lịch hẹn',
-      description: 'Chọn thời gian phù hợp cho phiên công chứng trực tuyến với công chứng viên.',
+      description: 'Chọn thời gian thuận tiện cho phiên công chứng trực tuyến.',
     },
     {
       title: 'Tham gia phiên công chứng',
-      description: 'Kết nối video với công chứng viên, xác minh danh tính và hoàn tất thủ tục.',
+      description: 'Kết nối qua video với công chứng viên, xác thực danh tính và hoàn tất thủ tục.',
     },
     {
       title: 'Nhận văn bản công chứng',
@@ -111,7 +113,7 @@ const ForIndividuals = () => {
             Dịch vụ công chứng trực tuyến cho cá nhân
           </Typography>
           <Typography variant="subtitle1" color={dark[500]} sx={{ maxWidth: 800, mx: 'auto', mb: 5 }}>
-            Giải pháp công chứng hiện đại, an toàn và tiện lợi cho mọi nhu cầu cá nhân
+            Giải pháp công chứng hiện đại, an toàn và tiện lợi thông qua các văn phòng công chứng tham gia
           </Typography>
           <PersonIcon sx={{ fontSize: 60, color: primary[300], mb: 4 }} />
           <Box>
@@ -129,8 +131,16 @@ const ForIndividuals = () => {
                 fontWeight: 600,
               }}
             >
-              Bắt đầu ngay
+              Tìm văn phòng công chứng
             </Button>
+          </Box>
+
+          <Box mt={4} p={2} bgcolor={primary[100]} borderRadius={2}>
+            <Typography variant="body1" color={dark[500]} fontWeight="medium">
+              <StoreIcon sx={{ verticalAlign: 'middle', mr: 1 }} />
+              Dịch vụ của chúng tôi chỉ khả dụng thông qua các văn phòng công chứng được ủy quyền. Phí văn bản: 10.000 VND
+              cho bản đầu tiên, 2.000 VND cho mỗi bản bổ sung.
+            </Typography>
           </Box>
         </Box>
       </Box>

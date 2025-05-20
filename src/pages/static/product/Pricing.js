@@ -18,54 +18,54 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 const Pricing = () => {
   const pricingPlans = [
     {
-      title: 'Cơ bản',
-      price: '199.000đ',
-      period: 'Văn bản',
-      description: 'Dành cho cá nhân có nhu cầu công chứng đơn giản',
+      title: 'Gói Tiêu chuẩn',
+      price: '$800 - $1,200',
+      period: '/năm',
+      description: 'Dành cho văn phòng công chứng nhỏ và vừa',
       features: [
-        'Công chứng đơn lẻ',
-        'Xác thực danh tính cơ bản',
-        'Hỗ trợ 8/5',
-        'Tư vấn qua email',
-        'Lưu trữ văn bản 1 năm',
-        'Bản điện tử và 01 bản gốc',
+        'Tính năng công chứng trực tuyến cơ bản',
+        'Hỗ trợ AI cơ bản',
+        'Số lượng NFT có giới hạn',
+        'Hỗ trợ tiêu chuẩn',
+        'Tùy chọn thanh toán theo giao dịch',
+        'Tối đa 5 tài khoản người dùng',
       ],
       buttonText: 'Đăng ký ngay',
       buttonVariant: 'outlined',
       popular: false,
     },
     {
-      title: 'Tiêu chuẩn',
-      price: '499.000đ',
-      period: 'Văn bản',
-      description: 'Dành cho cá nhân và doanh nghiệp nhỏ',
+      title: 'Gói Doanh nghiệp',
+      price: '$2,000 - $3,000',
+      period: '/năm',
+      description: 'Dành cho văn phòng công chứng khối lượng cao',
       features: [
-        'Tất cả tính năng của gói Cơ bản',
-        'Xác thực danh tính nâng cao',
-        'Hỗ trợ 24/7',
-        'Tư vấn qua điện thoại và email',
-        'Lưu trữ văn bản 5 năm',
-        'Bản điện tử và 03 bản gốc',
-        'Giao nhận tài liệu tận nơi',
+        'Tất cả tính năng cơ bản',
+        'Công cụ AI nâng cao',
+        'NFT không giới hạn',
+        'Hỗ trợ ưu tiên 24/7',
+        'Báo cáo toàn diện',
+        'Tài khoản người dùng không giới hạn',
+        'Xử lý tài liệu ưu tiên',
       ],
       buttonText: 'Đăng ký ngay',
       buttonVariant: 'contained',
       popular: true,
     },
     {
-      title: 'Doanh nghiệp',
+      title: 'Gói Tùy chỉnh',
       price: 'Liên hệ',
       period: 'Tùy chỉnh',
-      description: 'Dành cho doanh nghiệp lớn với nhu cầu cao',
+      description: 'Giải pháp tùy chỉnh cho nhu cầu chuyên biệt',
       features: [
-        'Tất cả tính năng của gói Tiêu chuẩn',
-        'Công chứng không giới hạn',
-        'API tích hợp hệ thống',
-        'Quản lý văn bản tập trung',
-        'Bảo mật nâng cao',
-        'Lưu trữ vĩnh viễn',
-        'Chuyên viên hỗ trợ riêng',
-        'Tùy chỉnh theo yêu cầu',
+        'Tất cả tính năng của gói Doanh nghiệp',
+        'Tích hợp API tùy chỉnh',
+        'Quản lý tài khoản chuyên biệt',
+        'Tùy chọn thương hiệu riêng',
+        'Tính năng bảo mật nâng cao',
+        'Báo cáo tùy chỉnh',
+        'Giải pháp white-label',
+        'Đào tạo tại chỗ',
       ],
       buttonText: 'Liên hệ tư vấn',
       buttonVariant: 'outlined',
@@ -75,28 +75,28 @@ const Pricing = () => {
 
   const additionalFees = [
     {
-      service: 'Xác thực sinh trắc học nâng cao',
-      fee: '50.000đ/lần',
+      service: 'Phí Văn bản cho Người dùng cuối',
+      fee: '10.000 VND cho bản đầu tiên',
     },
     {
-      service: 'Bản công chứng gốc bổ sung',
-      fee: '30.000đ/bản',
+      service: 'Bản sao Văn bản bổ sung',
+      fee: '2.000 VND mỗi bản',
+    },
+    {
+      service: 'Xử lý nhanh',
+      fee: '+ 50% phí dịch vụ',
+    },
+    {
+      service: 'Xác thực sinh trắc học nâng cao',
+      fee: '50.000 VND/lần',
     },
     {
       service: 'Dịch vụ giao nhận tài liệu',
-      fee: '70.000đ - 150.000đ (tùy khu vực)',
+      fee: '70.000 VND - 150.000 VND (tùy khu vực)',
     },
     {
       service: 'Lưu trữ mở rộng',
-      fee: '100.000đ/năm',
-    },
-    {
-      service: 'Công chứng khẩn',
-      fee: '+ 50% phí gói dịch vụ',
-    },
-    {
-      service: 'Công chứng ngoài giờ',
-      fee: '+ 30% phí gói dịch vụ',
+      fee: '100.000 VND/năm',
     },
   ];
 
@@ -104,11 +104,11 @@ const Pricing = () => {
     <Container maxWidth="lg" sx={{ py: 8 }}>
       <Box textAlign="center" mb={6}>
         <Typography variant="h3" component="h1" gutterBottom fontWeight="bold" color={dark[500]}>
-          Bảng giá dịch vụ
+          Bảng giá cho Văn phòng Công chứng
         </Typography>
         <Typography variant="subtitle1" color={dark[400]} sx={{ maxWidth: 700, mx: 'auto' }}>
-          Lựa chọn gói dịch vụ phù hợp với nhu cầu của bạn. Tất cả các gói đều bao gồm công nghệ xác thực tiên tiến và giá
-          trị pháp lý đầy đủ.
+          Lựa chọn gói dịch vụ phù hợp cho văn phòng công chứng của bạn. Tất cả các gói đều bao gồm công nghệ xác thực tiên
+          tiến và khả năng công chứng đầy đủ pháp lý cho khách hàng của bạn.
         </Typography>
       </Box>
 
@@ -153,7 +153,7 @@ const Pricing = () => {
                   {plan.price}
                 </Typography>
                 <Typography variant="subtitle1" color={dark[400]} sx={{ ml: 1 }}>
-                  /{plan.period}
+                  {plan.period}
                 </Typography>
               </Box>
               <Typography variant="body2" color={dark[400]} sx={{ mb: 3 }}>
@@ -188,10 +188,10 @@ const Pricing = () => {
 
       <Box sx={{ mt: 10 }}>
         <Typography variant="h4" component="h2" gutterBottom fontWeight="bold" color={dark[500]} textAlign="center">
-          Phí dịch vụ bổ sung
+          Phí Văn bản cho Người dùng cuối
         </Typography>
         <Typography variant="body1" sx={{ mb: 4, textAlign: 'center' }}>
-          Các dịch vụ bổ sung sau có thể được thêm vào bất kỳ gói nào khi cần thiết.
+          Các mức phí này áp dụng cho người dùng cuối (khách hàng của văn phòng công chứng) khi truy cập văn bản công chứng.
         </Typography>
         <Grid container spacing={3} sx={{ mt: 2 }}>
           {additionalFees.map((fee, index) => (
@@ -213,11 +213,11 @@ const Pricing = () => {
         <Grid container spacing={4} alignItems="center">
           <Grid item xs={12} md={8}>
             <Typography variant="h5" fontWeight="bold" color={dark[500]}>
-              Không tìm thấy gói phù hợp?
+              Cần giải pháp tùy chỉnh?
             </Typography>
             <Typography variant="body1" sx={{ mt: 1 }}>
-              Chúng tôi cung cấp các giải pháp tùy chỉnh cho các tổ chức với nhu cầu riêng biệt. Hãy liên hệ với đội ngũ tư
-              vấn để nhận được giải pháp phù hợp nhất với nhu cầu của bạn.
+              Chúng tôi cung cấp các giải pháp tùy chỉnh cho văn phòng công chứng với nhu cầu đặc biệt. Liên hệ với đội ngũ
+              tư vấn của chúng tôi để nhận được giải pháp phù hợp nhất với yêu cầu của bạn.
             </Typography>
           </Grid>
           <Grid item xs={12} md={4} textAlign="center">
@@ -230,10 +230,11 @@ const Pricing = () => {
 
       <Box textAlign="center" mt={8}>
         <Typography variant="body2" color={dark[400]}>
-          * Giá trên chưa bao gồm thuế VAT 10%. Bảng giá có thể thay đổi mà không báo trước.
+          * Giá chưa bao gồm 10% VAT. Bảng giá có thể thay đổi mà không báo trước.
         </Typography>
         <Typography variant="body2" color={dark[400]} sx={{ mt: 1 }}>
-          * Một số loại văn bản đặc biệt có thể có mức phí khác tùy theo quy định hiện hành.
+          * Dịch vụ của chúng tôi chỉ khả dụng thông qua các văn phòng công chứng được ủy quyền. Người dùng cuối không thể
+          mua trực tiếp.
         </Typography>
       </Box>
     </Container>
