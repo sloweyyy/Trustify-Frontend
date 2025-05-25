@@ -1,5 +1,8 @@
 import axiosConfig from '../utils/axiosConfig';
 import { API_BASE_URL } from './config';
+import Cookies from 'js-cookie';
+import TokenService from './token.service';
+import UserService from './user.service';
 
 const SESSION_ENDPOINT = `${API_BASE_URL}/session`;
 
@@ -78,7 +81,13 @@ const uploadSessionDocument = async (sessionId, document) => {
       return { status: 404, message: 'Session not found' };
     }
 
-    const isCreator = userSession.creator && userSession.creator.email === axiosConfig.defaults.headers.common['email'];
+    const token = Cookies.get('accessToken');
+    if (!token) {
+      return { status: 401, message: 'Access token is missing or invalid' };
+    }
+    const userId = TokenService.decodeToken(token).sub;
+    const currentUser = await UserService.getUserById(userId);
+    const isCreator = userSession.creator && userSession.creator.email === currentUser.email;
 
     if (!isCreator) {
       const currentUserInfo = userSession.users.find((user) => user.status === 'accepted');

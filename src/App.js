@@ -20,6 +20,7 @@ import ThirdParty from './pages/static/Loader';
 import Loader from './components/Loader';
 import ChatAssistant from './components/ChatAssistant';
 import ScrollToTop from './components/ScrollToTop';
+import PaymentRoute from './routes/PaymentRoute';
 
 // Static Pages
 import PrivacyPolicy from './pages/static/policy/PrivacyPolicy';
@@ -30,6 +31,7 @@ import DisputeResolution from './pages/static/policy/DisputeResolution';
 import Pricing from './pages/static/product/Pricing';
 import ForIndividuals from './pages/static/product/ForIndividuals';
 import ForNotaryOffices from './pages/static/product/ForNotaryOffices';
+import PaymentRedirectPage from './pages/services/PaymentRedirectPage';
 
 const Home = lazy(() => import('./pages/home/Home'));
 const Services = lazy(() => import('./pages/services/Services'));
@@ -227,6 +229,16 @@ function App() {
                 <Route path="/notary/awaiting-signature-documents" element={<AwaitingSignatureDocuments />} />
                 <Route path="/notary/notary-session-management" element={<SessionManagement />} />
               </Route>
+
+              {/* Payment Routes */}
+              <Route
+                path="/payment/redirect"
+                element={
+                  <PaymentRoute>
+                    <PaymentRedirectPage />
+                  </PaymentRoute>
+                }
+              />
 
               {/* Policy Pages */}
               <Route
