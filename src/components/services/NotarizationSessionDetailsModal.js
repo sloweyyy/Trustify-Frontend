@@ -465,6 +465,44 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
         return;
       }
       toast.success('Lưu chữ ký thành công');
+
+      const signatureUrl = URL.createObjectURL(signatureImageFile);
+
+      if (user.id === session.creator._id) {
+        session.signature = {
+          ...session.signature,
+          creator: {
+            ...session.signature?.creator,
+            approved: true,
+            signatureImage: signatureUrl,
+          },
+        };
+      } else {
+        const updatedUsers =
+          session.signature?.users?.map((sigUser) => {
+            if (sigUser._id === user.id) {
+              return {
+                ...sigUser,
+                signatureImage: signatureUrl,
+                approved: true,
+              };
+            }
+            return sigUser;
+          }) || [];
+
+        if (!updatedUsers.some((sigUser) => sigUser._id === user.id)) {
+          updatedUsers.push({
+            _id: user.id,
+            signatureImage: signatureUrl,
+            approved: true,
+          });
+        }
+
+        session.signature = {
+          ...session.signature,
+          users: updatedUsers,
+        };
+      }
     } catch (error) {
       setLoadingSignature(false);
       if (error.status === 409) {

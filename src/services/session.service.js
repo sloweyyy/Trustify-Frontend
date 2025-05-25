@@ -190,7 +190,6 @@ const SessionService = {
   getSessionsByUserId,
   deleteUserOutOfSession,
   addUser,
-  getSessionsByUserId,
   uploadSessionDocument,
   joinSession,
   deleteSessionFile,

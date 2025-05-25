@@ -32,7 +32,7 @@ const Section = ({ title, children }) => (
 );
 
 const HistoryDetailModal = ({ open, handleClose, data, notaryId }) => {
-  const notarizationData = data.find((item) => item._id === notaryId);
+  const [notarizationData, setNotarizationData] = useState(data.find((item) => item._id === notaryId));
   const [currentStep, setCurrentStep] = useState(0);
   const [loadingSignature, setLoadingSignature] = useState(false);
   const [documentFiles, setDocumentFiles] = useState([]);
@@ -48,6 +48,21 @@ const HistoryDetailModal = ({ open, handleClose, data, notaryId }) => {
     try {
       await NotarizationService.approveSignatureByUser(formData);
       toast.success('Lưu chữ ký thành công');
+
+      setNotarizationData((prev) => ({
+        ...prev,
+        signature: {
+          ...prev.signature,
+          approvalStatus: {
+            ...prev.signature?.approvalStatus,
+            user: {
+              ...prev.signature?.approvalStatus?.user,
+              approved: true,
+            },
+          },
+          signatureImage: URL.createObjectURL(signatureImageFile),
+        },
+      }));
     } catch (error) {
       setLoadingSignature(false);
       if (error.status === 409) {
@@ -135,6 +150,13 @@ const HistoryDetailModal = ({ open, handleClose, data, notaryId }) => {
       </Box>
     );
   };
+
+  useEffect(() => {
+    const foundData = data.find((item) => item._id === notaryId);
+    if (foundData) {
+      setNotarizationData(foundData);
+    }
+  }, [data, notaryId]);
 
   useEffect(() => {
     if (notarizationData?.files) {
