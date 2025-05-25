@@ -82,6 +82,9 @@ const uploadSessionDocument = async (sessionId, document) => {
     }
 
     const token = Cookies.get('accessToken');
+    if (!token) {
+      return { status: 401, message: 'Access token is missing or invalid' };
+    }
     const userId = TokenService.decodeToken(token).sub;
     const currentUser = await UserService.getUserById(userId);
     const isCreator = userSession.creator && userSession.creator.email === currentUser.email;

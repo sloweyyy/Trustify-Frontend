@@ -15,7 +15,7 @@ const updatePaymentStatus = async (orderCode, status) => {
     return response.data;
   } catch (error) {
     if (error.response) {
-      throw error.response.data.message || 'Failed to update payment status';
+      throw new Error(error.response.data.message || 'Failed to update payment status');
     }
     throw new Error('Network error while updating payment status');
   }
