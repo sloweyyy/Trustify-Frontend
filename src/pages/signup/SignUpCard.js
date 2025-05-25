@@ -14,6 +14,7 @@ import AuthService from '../../services/auth.service';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { signInWithGoogle } from '../../services/auth.service';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -155,7 +156,7 @@ export default function SignUpCard() {
       </Box>
       <Divider>hoặc</Divider>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-        <Button type="submit" fullWidth variant="outlined" startIcon={<GoogleIcon />}>
+        <Button type="submit" fullWidth variant="outlined" onClick={() => signInWithGoogle()} startIcon={<GoogleIcon />}>
           Đăng ký với Google
         </Button>
       </Box>

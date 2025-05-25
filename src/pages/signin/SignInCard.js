@@ -2,11 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import MuiCard from '@mui/material/Card';
-import Checkbox from '@mui/material/Checkbox';
 import Divider from '@mui/material/Divider';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -19,6 +17,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userLogin } from '../../stores/actions/authAction';
 import { API_BASE_URL } from '../../services/config';
+import { signInWithGoogle } from '../../services/auth.service';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import InputAdornment from '@mui/material/InputAdornment';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -44,12 +47,17 @@ export default function SignInCard() {
   const [open, setOpen] = React.useState(false);
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [showPassword, setShowPassword] = React.useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading } = useSelector((state) => state.auth);
 
-  const signInWithGoogle = () => {
-    window.open(`${API_BASE_URL}/auth/google`, '_self');
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
   };
 
   const handleSignIn = (e) => {
@@ -175,25 +183,36 @@ export default function SignInCard() {
             helperText={passwordErrorMessage}
             name="password"
             placeholder="••••••"
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             id="password"
             autoComplete="current-password"
-            autoFocus
             required
             fullWidth
             variant="outlined"
             color={passwordError ? 'error' : 'primary'}
             onChange={(e) => setPassword(e.target.value)}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
         </FormControl>
         <Box
           sx={{
-            justifyContent: 'space-between',
             display: 'flex',
-            alignItems: 'center',
+            justifyContent: 'flex-end',
           }}
         >
-          <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Ghi nhớ tôi" />
           <Link onClick={handleClickOpen} variant="body2" role="link" sx={{ cursor: 'pointer' }}>
             Quên mật khẩu?
           </Link>

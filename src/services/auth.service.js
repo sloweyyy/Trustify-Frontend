@@ -98,6 +98,10 @@ const resetPassword = async (token, password) => {
   }
 };
 
+export const signInWithGoogle = () => {
+  window.open(`${API_BASE_URL}/auth/google`, '_self');
+};
+
 const AuthService = {
   login,
   logout,

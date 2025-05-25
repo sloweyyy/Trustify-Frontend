@@ -11,6 +11,7 @@ const UserWalletModal = ({ open, onClose, handleDocumentWalletFileChange }) => {
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(false);
   const [previewDocument, setPreviewDocument] = useState(null);
+  const [showMintAddress, setShowMintAddress] = useState(false);
 
   const fetchDocumentWallet = useCallback(async () => {
     try {
@@ -43,6 +44,14 @@ const UserWalletModal = ({ open, onClose, handleDocumentWalletFileChange }) => {
     setPreviewDocument(document);
   };
 
+  const toggleDisplay = () => {
+    setShowMintAddress(!showMintAddress);
+  };
+
+  const cleanFilename = (filename) => {
+    return filename.replace(/^\d+-/, '');
+  };
+
   return (
     <>
       <Modal open={open} onClose={onClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
@@ -67,6 +76,12 @@ const UserWalletModal = ({ open, onClose, handleDocumentWalletFileChange }) => {
             Ví tài liệu
           </Typography>
           <Typography variant="body3">Tài liệu đã được công chứng</Typography>
+
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: 1 }}>
+            <Button variant="outlined" size="small" onClick={toggleDisplay} sx={{ fontSize: 12, padding: '4px 10px' }}>
+              {showMintAddress ? 'Show Filename' : 'Show Mint Address'}
+            </Button>
+          </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: 2 }}>
             {loading
@@ -149,16 +164,17 @@ const UserWalletModal = ({ open, onClose, handleDocumentWalletFileChange }) => {
                           color: black[300],
                         }}
                       >
-                        Tên tài liệu
+                        {showMintAddress ? 'Mint Address' : 'Tên tài liệu'}
                       </Typography>
                       <Typography
                         sx={{
                           fontWeight: 500,
                           fontSize: 14,
                           color: black[500],
+                          wordBreak: 'break-all',
                         }}
                       >
-                        {document.filename}
+                        {showMintAddress ? document.mintAddress : cleanFilename(document.filename)}
                       </Typography>
                     </Box>
                     {/* Date Section */}

@@ -42,6 +42,7 @@ const CreateNotarizationProfile = lazy(
   () => import('./pages/services/create-notarization-profile/CreateNotarizationProfile'),
 );
 const LookupNotarizationProfile = lazy(() => import('./pages/services/LookupNotarizationProfile'));
+const VerifyNotarizationProfile = lazy(() => import('./pages/services/VerifyNotarizationProfile'));
 const HistoryNotarizationProfile = lazy(() => import('./pages/services/HistoryNotarizationProfile'));
 const CreateNotarizationSession = lazy(() => import('./pages/services/CreateNotarizationSession'));
 const UserGuide = lazy(() => import('./pages/static/UserGuide'));
@@ -126,6 +127,8 @@ function App() {
                   </PublicRoute>
                 }
               />
+              {/* Direct route for verification - accessible to everyone */}
+              <Route path="/verify" element={<VerifyNotarizationProfile />} />
               <Route
                 path="/user-guide"
                 element={
@@ -216,7 +219,7 @@ function App() {
                 <Route path="/secretary/notary-session-management" element={<></>} />
               </Route>
 
-              {/* Profile Routes */}
+              {/* Shared Routes for All Authenticated Users */}
               <Route element={<PrivateRoute allowedRoles={['user', 'admin', 'secretary', 'notary']} />}>
                 <Route path="/profile" element={<UserProfile />} />
               </Route>

@@ -1,6 +1,6 @@
 import { ErrorRounded, FiberManualRecordRounded, HelpRounded, OpenInNewRounded, WarningRounded } from '@mui/icons-material';
 import { Box, Button, CircularProgress, Typography } from '@mui/material';
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
 import { red, black, white, yellow, gray } from '../../config/theme/themePrimitives';
 import { getDocumentNameByCode } from '../../utils/constants';
 import SignatureCanvas from 'react-signature-canvas';
@@ -11,6 +11,11 @@ const SessionFeedback = ({ signature, output, feedback, onSignatureSave, loading
   const { width } = useWindowSize();
   const sigCanvasRef = useRef(null);
   const { user } = useSelector((state) => state.user);
+  const [signatureData, setSignatureData] = useState(signature);
+
+  useEffect(() => {
+    setSignatureData(signature);
+  }, [signature]);
 
   const onClear = () => {
     sigCanvasRef.current.clear();
@@ -121,11 +126,11 @@ const SessionFeedback = ({ signature, output, feedback, onSignatureSave, loading
   };
 
   const renderSignaturePad = () => {
-    if (output.length > 0 && signature && signature.users) {
-      const isEmpty = signature.users.length === 0;
+    if (output.length > 0 && signatureData && signatureData.users) {
+      const isEmpty = signatureData.users.length === 0;
       const isCreator = createdBy === user.id;
-      const isCreatorApproved = signature.creator.approved;
-      const currentUser = signature.users.find((sigUser) => sigUser._id === user.id);
+      const isCreatorApproved = signatureData.creator.approved;
+      const currentUser = signatureData.users.find((sigUser) => sigUser._id === user.id);
 
       if (isCreator && !isCreatorApproved) {
         return (
@@ -138,7 +143,12 @@ const SessionFeedback = ({ signature, output, feedback, onSignatureSave, loading
                 canvasProps={{ width: width - 600, height: 300, className: 'sigCanvas' }}
               />
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1, gap: 1 }}>
+              <Button variant="text" onClick={onClear}>
+                <Typography sx={{ fontSize: 12, fontWeight: 500, color: black[900], textTransform: 'none' }}>
+                  Huỷ bỏ
+                </Typography>
+              </Button>
               <Button variant="contained" onClick={onSave}>
                 {loading ? (
                   <CircularProgress size={20} color="inherit" />
@@ -164,7 +174,12 @@ const SessionFeedback = ({ signature, output, feedback, onSignatureSave, loading
                 canvasProps={{ width: width - 600, height: 300, className: 'sigCanvas' }}
               />
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1, gap: 1 }}>
+              <Button variant="text" onClick={onClear}>
+                <Typography sx={{ fontSize: 12, fontWeight: 500, color: black[900], textTransform: 'none' }}>
+                  Huỷ bỏ
+                </Typography>
+              </Button>
               <Button variant="contained" onClick={onSave}>
                 {loading ? (
                   <CircularProgress size={20} color="inherit" />

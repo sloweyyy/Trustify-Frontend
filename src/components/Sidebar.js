@@ -1,6 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Box, Divider, Drawer, IconButton, List, Typography } from '@mui/material';
-import { Article, HistoryEdu, KeyboardDoubleArrowLeft, KeyboardDoubleArrowRight, Logout, Wallet } from '@mui/icons-material';
+import {
+  Article,
+  HistoryEdu,
+  KeyboardDoubleArrowLeft,
+  KeyboardDoubleArrowRight,
+  Logout,
+  Wallet,
+  VerifiedUser,
+} from '@mui/icons-material';
 import { dark, primary, white, red } from '../config/theme/themePrimitives';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -45,8 +53,11 @@ const Sidebar = () => {
   const handleSelectMenu = (menu) => {
     if (menu.type === MENUS.LOGOUT) {
       setOpenLogoutModal(true);
+    } else if (menu.type === 'verify') {
+      window.location.href = menu.href;
     } else {
       setSelectedMenu(menu.type);
+      console.log('Navigating to:', menu.href);
       navigate(menu.href);
     }
   };
@@ -75,6 +86,12 @@ const Sidebar = () => {
           title: 'Ví tài liệu',
           href: '/user/document-wallet',
         },
+        {
+          type: 'verify',
+          icon: <VerifiedUser />,
+          title: 'Xác minh hồ sơ',
+          href: '/verify',
+        },
       );
     } else if (role === 'admin') {
       items.push(
@@ -102,8 +119,20 @@ const Sidebar = () => {
           title: 'Quản lý công chứng',
           href: '/admin/notary-management',
         },
+        {
+          type: 'verify',
+          icon: <VerifiedUser />,
+          title: 'Xác minh hồ sơ',
+          href: '/verify',
+        },
       );
     } else if (role === 'secretary') {
+      items.push({
+        type: 'verify',
+        icon: <VerifiedUser />,
+        title: 'Xác minh hồ sơ',
+        href: '/verify',
+      });
     } else if (role === 'notary') {
       items.push(
         {
@@ -135,6 +164,12 @@ const Sidebar = () => {
           icon: <DocumentScanner />,
           title: 'Lịch sử công chứng',
           href: '/notary/notarization-history',
+        },
+        {
+          type: 'verify',
+          icon: <VerifiedUser />,
+          title: 'Xác minh hồ sơ',
+          href: '/verify',
         },
       );
     }

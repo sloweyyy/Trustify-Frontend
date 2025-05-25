@@ -1,6 +1,6 @@
 import { ErrorRounded, FiberManualRecordRounded, HelpRounded, OpenInNewRounded, WarningRounded } from '@mui/icons-material';
 import { Box, Button, CircularProgress, Typography } from '@mui/material';
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
 import { red, black, white, yellow, gray } from '../../config/theme/themePrimitives';
 import { getDocumentNameByCode } from '../../utils/constants';
 import SignatureCanvas from 'react-signature-canvas';
@@ -9,6 +9,12 @@ import useWindowSize from '../../hooks/useWindowSize';
 const NotaryFeedback = ({ signature, output, feedback, onSignatureSave, loading }) => {
   const { width } = useWindowSize();
   const sigCanvasRef = useRef(null);
+  const [signatureData, setSignatureData] = useState(signature);
+
+  // Update local state when signature prop changes
+  useEffect(() => {
+    setSignatureData(signature);
+  }, [signature]);
 
   const onClear = () => {
     sigCanvasRef.current.clear();
@@ -115,7 +121,7 @@ const NotaryFeedback = ({ signature, output, feedback, onSignatureSave, loading 
 
   const renderSignaturePad = () => {
     if (output.length > 0) {
-      if (!signature?.approvalStatus.user.approved) {
+      if (!signatureData?.approvalStatus.user.approved) {
         return (
           <Box sx={{ backgroundColor: gray[50], mt: 2, px: 2, py: 1, borderRadius: 1 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -146,12 +152,12 @@ const NotaryFeedback = ({ signature, output, feedback, onSignatureSave, loading 
             </Box>
           </Box>
         );
-      } else if (signature?.signatureImage !== null) {
+      } else if (signatureData?.signatureImage !== null) {
         return (
           <Box sx={{ backgroundColor: gray[50], mt: 2, px: 2, py: 1, borderRadius: 1 }}>
             <Typography sx={{ fontSize: 12, fontWeight: 500 }}>Chữ ký của bạn</Typography>
             <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
-              <img src={signature.signatureImage} alt="Your signature" />
+              <img src={signatureData.signatureImage} alt="Your signature" />
             </Box>
           </Box>
         );

@@ -1,77 +1,65 @@
 import React, { useState } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
-import { black, dark, gray, primary } from '../../config/theme/themePrimitives';
-import 'react-toastify/dist/ReactToastify.css';
-import StatusBox from '../../components/services/StatusBox';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import NotarizationService from '../../services/notarization.service';
+import { dark, primary, gray } from '../../config/theme/themePrimitives';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import SearchingDocumentModal from '../../components/modals/SearchingDocumentModal';
+import NFTService from '../../services/nft.service';
+import VerificationStatusBox from '../../components/services/VerificationStatusBox';
 
-const LookupNotarizationProfile = () => {
+const VerifyNotarizationProfile = () => {
   const [inputValue, setInputValue] = useState('');
   const [displayText, setDisplayText] = useState('');
-  const [searchLoading, setSearchLoading] = useState(false);
   const [status, setStatus] = useState({ notFound: false, searching: false, found: false });
-  const [document, setDocument] = useState(null);
-  const [openModal, setOpenModal] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(false);
+  const [nftData, setNftData] = useState(null);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
-  const handleOpenModal = () => {
-    setOpenModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setOpenModal(false);
-  };
-
   const handleSearchClick = async () => {
     if (inputValue === '') {
-      toast.error('Vui lòng nhập mã số hồ sơ công chứng');
+      toast.error('Vui lòng nhập địa chỉ mint NFT');
     } else {
       setDisplayText(inputValue);
       setStatus({ notFound: false, searching: true, found: false });
       setSearchLoading(true);
 
-      setTimeout(async () => {
-        try {
-          const response = await NotarizationService.getStatusById(inputValue);
+      try {
+        const response = await NFTService.getNFTMetadata(inputValue);
+        console.log('NFT Response:', response);
 
-          if (response.status === 200) {
-            setDisplayText(response.data.documentId);
-            setStatus({ notFound: false, searching: false, found: true });
-            setDocument(response.data);
+        if (response.mintAddress) {
+          setDisplayText(response.mintAddress);
+          setStatus({ notFound: false, searching: false, found: true });
+          setNftData(response);
+        } else {
+          // Any error response (404, 500, etc.) should show not found state
+          setStatus({ notFound: true, searching: false, found: false });
+          setNftData(response);
+          if (response.status !== 404) {
+            console.error('Error response:', response);
           }
-
-          if (response.status === 404) {
-            setStatus({ notFound: true, searching: false, found: false });
-          }
-
-          if (response.status === 500) {
-            toast.error('Đã xảy ra lỗi, vui lòng thử lại sau');
-          }
-          setSearchLoading(false);
-        } catch (error) {
-          setSearchLoading(false);
-          toast.error('Đã xảy ra lỗi, vui lòng thử lại sau');
         }
-      }, 1000);
+      } catch (error) {
+        console.error('Error fetching NFT metadata:', error);
+        setStatus({ notFound: true, searching: false, found: false });
+        setNftData({ status: 500, message: 'Lỗi kết nối' });
+      } finally {
+        setSearchLoading(false);
+      }
     }
   };
 
   const renderStatusBox = () => {
     if (status.notFound) {
-      return <StatusBox status={status} displayText={displayText} />;
+      return <VerificationStatusBox status={status} displayText={displayText} nftData={nftData} />;
     }
     if (status.searching) {
-      return <StatusBox status={status} displayText={displayText} />;
+      return <VerificationStatusBox status={status} displayText={displayText} />;
     }
     if (status.found) {
-      return <StatusBox status={status} displayText={displayText} document={document} onOpenModal={handleOpenModal} />;
+      return <VerificationStatusBox status={status} displayText={displayText} nftData={nftData} />;
     }
   };
 
@@ -98,7 +86,7 @@ const LookupNotarizationProfile = () => {
               fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
             }}
           >
-            Tra cứu trạng thái hồ sơ
+            Xác minh hồ sơ công chứng
           </Typography>
           <Typography
             variant="body1"
@@ -110,7 +98,7 @@ const LookupNotarizationProfile = () => {
               lineHeight: 1.6,
             }}
           >
-            Vui lòng nhập mã số hồ sơ công chứng để tra cứu trạng thái và thông tin chi tiết
+            Nhập địa chỉ mint NFT để xác minh tính xác thực và toàn vẹn của hồ sơ công chứng được lưu trữ trên blockchain
           </Typography>
         </Box>
 
@@ -127,7 +115,7 @@ const LookupNotarizationProfile = () => {
           <TextField
             variant="outlined"
             size="medium"
-            placeholder="Nhập mã số hồ sơ công chứng"
+            placeholder="Nhập địa chỉ mint NFT (ví dụ: HCisfveXe1PrqYTknbod9cvVMUYgmAwLZVaWGW18dj3z)"
             autoFocus
             value={inputValue}
             onChange={handleInputChange}
@@ -180,7 +168,7 @@ const LookupNotarizationProfile = () => {
             onClick={handleSearchClick}
           >
             <Typography variant="button" sx={{ fontSize: 14 }}>
-              Tra cứu
+              Xác minh
             </Typography>
           </Button>
         </Box>
@@ -200,9 +188,8 @@ const LookupNotarizationProfile = () => {
       >
         {renderStatusBox()}
       </Box>
-      <SearchingDocumentModal open={openModal} handleClose={handleCloseModal} document={document} />
     </Box>
   );
 };
 
-export default LookupNotarizationProfile;
+export default VerifyNotarizationProfile;
