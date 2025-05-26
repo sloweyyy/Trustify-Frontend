@@ -7,39 +7,39 @@ const Reviews = () => {
   const reviews = useMemo(
     () => [
       {
-        star: 4,
-        comment: 'Dễ dàng sử sử dụng.',
-        username: 'Nguyễn Thành Tài',
-        datetime: '2024-09-18T10:00:00Z',
-      },
-      {
         star: 4.5,
         comment: 'Dịch vụ tuyệt vời.',
         username: 'Trương Lê Vĩnh Phúc',
         datetime: '2024-09-01T10:00:00Z',
       },
       {
-        star: 4.5,
-        comment: 'Giao dịch nhanh chóng.',
-        username: 'Nguyễn Quốc Thắng',
-        datetime: '2024-09-05T14:00:00Z',
-      },
-      {
         star: 4,
         comment: 'Hỗ trợ khách hàng tốt.',
-        username: 'Trần Tuệ Tánh',
+        username: 'Trương Lê Vĩnh Phúc',
         datetime: '2024-09-10T16:00:00Z',
       },
       {
         star: 4.5,
         comment: 'Dễ dàng sử dụng.',
-        username: 'Huỳnh Gia Bảo',
+        username: 'Võ Gia Ân',
         datetime: '2024-09-15T18:00:00Z',
       },
       {
         star: 5,
         comment: '10 điểm.',
-        username: 'Nguyễn Trịnh Đông',
+        username: 'Trần Quốc Trung',
+        datetime: '2024-09-20T20:00:00Z',
+      },
+      {
+        star: 5,
+        comment: 'Dịch vụ tuyệt vời.',
+        username: 'Hoàng Tấn Phong',
+        datetime: '2024-09-20T20:00:00Z',
+      },
+      {
+        star: 5,
+        comment: 'Dịch vụ tuyệt vời.',
+        username: 'Hồ Khải Duy',
         datetime: '2024-09-20T20:00:00Z',
       },
     ],
