@@ -2,6 +2,12 @@
 
 This repository contains the frontend code for **Trustify**, a platform for online notarization services that leverages blockchain and NFT for document storage. This frontend interacts with the provided backend to facilitate the user experience.
 
+## Pitch Deck
+
+You can view the official Trustify Pitch Deck on Canva:
+
+👉 [View Pitch Deck on Canva](https://www.canva.com/design/DAGnFWahmVs/YdtYLPQEpEvYkGgjJCtqpg/view?utm_content=DAGnFWahmVs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 ## Features
 
 - **User Authentication:** Users can sign in or register to access platform services.
