@@ -5,7 +5,7 @@ All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:
 | Step | PR | Status | Updated | Summary |
 | --- | --- | --- | --- | --- |
 | Brand assets | #8 | Merged | 2026-10-25 | Approved Logo B, favicon and public brand assets. |
-| 01 — Tokens and MUI | #9 (superseded; successor pending) | Validation | 2026-10-25 | Existing implementation renamed to required design/01 branch; GitHub closed #9 on branch rename. Theme, auth composition, fonts, AA status colors; build/tests passed. Completing preview QA and review handoff. |
+| 01 — Tokens and MUI | #10 (supersedes #9) | Awaiting Claude | 2026-10-25 04:54 | Existing implementation renamed to required design/01 branch; GitHub closed #9 on branch rename. Theme, auth composition, fonts, AA status colors; build/tests passed. Build + 7 tests + CRA ESLint pass; 144 route screenshots and authenticated Vercel QA completed. |
 
 ## Remaining sequence
 

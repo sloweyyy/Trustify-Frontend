@@ -1,0 +1,82 @@
+[
+  {
+    "usage": "Nút chính / nền trắng",
+    "foreground": "#FFFFFF",
+    "background": "#AA1D39",
+    "ratio": 7.13,
+    "normalTextAA": true,
+    "largeTextAndUI": true
+  },
+  {
+    "usage": "Thương hiệu / giấy ấm",
+    "foreground": "#AA1D39",
+    "background": "#FAF8F5",
+    "ratio": 6.73,
+    "normalTextAA": true,
+    "largeTextAndUI": true
+  },
+  {
+    "usage": "Chữ chính",
+    "foreground": "#24262B",
+    "background": "#FAF8F5",
+    "ratio": 14.28,
+    "normalTextAA": true,
+    "largeTextAndUI": true
+  },
+  {
+    "usage": "Chữ phụ",
+    "foreground": "#5D6068",
+    "background": "#FFFFFF",
+    "ratio": 6.29,
+    "normalTextAA": true,
+    "largeTextAndUI": true
+  },
+  {
+    "usage": "Viền trường nhập",
+    "foreground": "#777A82",
+    "background": "#FFFFFF",
+    "ratio": 4.29,
+    "normalTextAA": false,
+    "largeTextAndUI": true
+  },
+  {
+    "usage": "Hoàn tất",
+    "foreground": "#196642",
+    "background": "#EAF5EF",
+    "ratio": 6.23,
+    "normalTextAA": true,
+    "largeTextAndUI": true
+  },
+  {
+    "usage": "Chờ xử lý / thanh toán",
+    "foreground": "#805300",
+    "background": "#FFF3D6",
+    "ratio": 6.04,
+    "normalTextAA": true,
+    "largeTextAndUI": true
+  },
+  {
+    "usage": "Đang xử lý",
+    "foreground": "#245C9A",
+    "background": "#EDF4FC",
+    "ratio": 6.17,
+    "normalTextAA": true,
+    "largeTextAndUI": true
+  },
+  {
+    "usage": "Chờ ký số",
+    "foreground": "#67429A",
+    "background": "#F3EEFA",
+    "ratio": 6.53,
+    "normalTextAA": true,
+    "largeTextAndUI": true
+  },
+  {
+    "usage": "Bị từ chối",
+    "foreground": "#B42318",
+    "background": "#FDEDEA",
+    "ratio": 5.78,
+    "normalTextAA": true,
+    "largeTextAndUI": true
+  }
+]
