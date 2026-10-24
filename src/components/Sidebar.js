@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Box, Divider, Drawer, IconButton, List, Typography } from '@mui/material';
+import { Box, Divider, Drawer, IconButton, List } from '@mui/material';
 import {
   Article,
   HistoryEdu,
@@ -25,6 +25,7 @@ import {
   WorkHistoryRounded,
 } from '@mui/icons-material';
 import SidebarItem from './static/SidebarItem';
+import BrandLogo from './BrandLogo';
 const MENUS = {
   LOGOUT: 'logout',
   PROFILE: 'profile',
@@ -207,9 +208,9 @@ const Sidebar = () => {
       <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', p: 2, backgroundColor: white[50] }}>
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, justifyContent: openSideBar ? 'flex-start' : 'center' }}>
           {openSideBar && (
-            <Typography variant="h6" sx={{ flexGrow: 1, ml: 2, color: dark[700] }}>
-              Trustify
-            </Typography>
+            <Box sx={{ flexGrow: 1, ml: 2 }}>
+              <BrandLogo width={144} />
+            </Box>
           )}
           <IconButton
             data-testid="sidebar-toggle"

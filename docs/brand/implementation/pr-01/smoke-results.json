@@ -1,0 +1,78 @@
+{
+  "productionBuildOrigin": "http://127.0.0.1:4174",
+  "images": [
+    {
+      "src": "/brand/logo-color.svg",
+      "loaded": true,
+      "width": 150,
+      "height": 40
+    },
+    {
+      "src": "/brand/logo-inverse.svg",
+      "loaded": true,
+      "width": 180,
+      "height": 48
+    }
+  ],
+  "assets": [
+    {
+      "path": "favicon.ico",
+      "status": 200,
+      "type": "image/x-icon"
+    },
+    {
+      "path": "favicon.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "logo192.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "path": "logo512.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "path": "brand/icon-maskable-512.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "path": "apple-touch-icon.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "path": "brand/logo-color.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "brand/logo-inverse.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "brand/logo-mono.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "brand/social-share.png",
+      "status": 200,
+      "type": "image/png"
+    }
+  ],
+  "checks": {
+    "homeLinkPreserved": true,
+    "authLinksPreserved": true,
+    "vietnameseDocumentLanguage": true,
+    "burgundyThemeColor": true,
+    "mobileMenuOpenClose": true,
+    "sidebarCollapseExpand": true
+  },
+  "productionPageErrors": []
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "role": "public",
+    "route": "/",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "file": "screenshots/after-public-home-desktop.png",
+    "url": "http://localhost:3001/"
+  },
+  {
+    "role": "public",
+    "route": "/",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "file": "screenshots/after-public-home-mobile.png",
+    "url": "http://localhost:3001/"
+  },
+  {
+    "role": "public",
+    "route": "/signin",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "file": "screenshots/after-public-signin-desktop.png",
+    "url": "http://localhost:3001/signin"
+  },
+  {
+    "role": "public",
+    "route": "/signin",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "file": "screenshots/after-public-signin-mobile.png",
+    "url": "http://localhost:3001/signin"
+  },
+  {
+    "role": "public",
+    "route": "/lookup",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "file": "screenshots/after-public-lookup-desktop.png",
+    "url": "http://localhost:3001/lookup"
+  },
+  {
+    "role": "public",
+    "route": "/lookup",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "file": "screenshots/after-public-lookup-mobile.png",
+    "url": "http://localhost:3001/lookup"
+  },
+  {
+    "role": "user",
+    "route": "/profile",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "file": "screenshots/after-user-profile-desktop.png",
+    "url": "http://localhost:3001/profile"
+  },
+  {
+    "role": "user",
+    "route": "/profile",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "file": "screenshots/after-user-profile-mobile.png",
+    "url": "http://localhost:3001/profile"
+  },
+  {
+    "role": "notary",
+    "route": "/profile",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "file": "screenshots/after-notary-profile-desktop.png",
+    "url": "http://localhost:3001/profile"
+  },
+  {
+    "role": "notary",
+    "route": "/profile",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "file": "screenshots/after-notary-profile-mobile.png",
+    "url": "http://localhost:3001/profile"
+  },
+  {
+    "role": "admin",
+    "route": "/profile",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "file": "screenshots/after-admin-profile-desktop.png",
+    "url": "http://localhost:3001/profile"
+  },
+  {
+    "role": "admin",
+    "route": "/profile",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "file": "screenshots/after-admin-profile-mobile.png",
+    "url": "http://localhost:3001/profile"
+  }
+]

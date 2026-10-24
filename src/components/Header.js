@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Typography, Button, Box, Menu, MenuItem, IconButton, u
 import MenuIcon from '@mui/icons-material/Menu';
 import { dark, white } from '../config/theme/themePrimitives';
 import Link from '@mui/material/Link';
+import BrandLogo from './BrandLogo';
 
 const Header = () => {
   const [elevated, setElevated] = useState(false);
@@ -68,10 +69,7 @@ const Header = () => {
             },
           }}
         >
-          <img src={require('../assets/images/ASE.png')} alt="logo" width={'32.8px'} height={'38.4px'} />
-          <Typography variant="h6" color={dark[500]} sx={{ ml: 2 }}>
-            Trustify
-          </Typography>
+          <BrandLogo />
         </Button>
 
         {isMobile ? (
