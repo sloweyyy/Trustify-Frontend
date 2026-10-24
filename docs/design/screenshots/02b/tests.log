@@ -1,0 +1,138 @@
+
+> trustify@0.1.0 test
+> react-scripts test --watchAll=false --runInBand --runTestsByPath src/config/theme/createTrustifyTheme.test.js src/tests/components/modals/LabeledTextField.test.js src/tests/components/modals/EditUserProfileModal.test.js src/components/shared/FormControlContracts.test.js src/components/shared/DateTimeFields.test.js
+
+PASS src/tests/components/modals/EditUserProfileModal.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      62 |
+      63 |   test('renders modal when open', () => {
+    > 64 |     render(
+         |           ^
+      65 |       <Provider store={store}>
+      66 |         <EditUserProfileModal open={true} handleClose={mockHandleClose} data-testid="profile-modal" />
+      67 |       </Provider>,
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/tests/components/modals/EditUserProfileModal.test.js:64:11)
+
+PASS src/components/shared/DateTimeFields.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      11 | test('Vietnamese date/time labels preserve Dayjs values and callback types', () => {
+      12 |   const onDate = jest.fn();
+    > 13 |   render(
+         |         ^
+      14 |     <ThemeProvider theme={createTrustifyTheme()}>
+      15 |       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="vi">
+      16 |         <DateTimeFields
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/components/shared/DateTimeFields.test.js:13:9)
+
+PASS src/components/shared/FormControlContracts.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      11 | test('the wizard still receives a native event with the unmodified passport/text value', () => {
+      12 |   let received;
+    > 13 |   render(view(<CustomTextField label="Số CMND/CCCD/Hộ chiếu" name="citizenId" onChange={event => {
+         |         ^
+      14 |     received = { name: event.target.name, value: event.target.value };
+      15 |   }} />));
+      16 |   fireEvent.change(screen.getByLabelText('Số CMND/CCCD/Hộ chiếu'), { target: { value: 'A00123456' } });
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/components/shared/FormControlContracts.test.js:13:9)
+
+PASS src/tests/components/modals/LabeledTextField.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+       9 | test('the associated phone label preserves the raw value and leading zero', () => {
+      10 |   const onChange = jest.fn();
+    > 11 |   render(view({ label: 'Số điện thoại', value: '', onChange, type: 'tel', inputMode: 'tel' }));
+         |         ^
+      12 |   fireEvent.change(screen.getByLabelText('Số điện thoại'), { target: { value: '0123456789' } });
+      13 |   expect(onChange).toHaveBeenCalledWith('0123456789');
+      14 | });
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/tests/components/modals/LabeledTextField.test.js:11:9)
+
+PASS src/config/theme/createTrustifyTheme.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      59 |
+      60 |   test('a destructive outlined button retains its intent color', () => {
+    > 61 |     render(<ThemeProvider theme={createTrustifyTheme()}><Button variant="outlined" color="error">Từ chối hồ sơ</Button></ThemeProvider>);
+         |           ^
+      62 |     expect(screen.getByRole('button', { name: 'Từ chối hồ sơ' })).toHaveStyle({ color: '#B42318', borderColor: '#B42318' });
+      63 |   });
+      64 |
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/config/theme/createTrustifyTheme.test.js:61:11)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+
+Test Suites: 5 passed, 5 total
+Tests:       22 passed, 22 total
+Snapshots:   0 total
+Time:        3.366 s, estimated 4 s
+Ran all test suites within paths "src/config/theme/createTrustifyTheme.test.js", "src/tests/components/modals/LabeledTextField.test.js", "src/tests/components/modals/EditUserProfileModal.test.js", "src/components/shared/FormControlContracts.test.js", "src/components/shared/DateTimeFields.test.js".
+Jest did not exit one second after the test run has completed.
+
+This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
+One of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it may break at any time.
+
+babel-preset-react-app is part of the create-react-app project, which
+is not maintianed anymore. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.

@@ -1,8 +1,9 @@
-import React from 'react';
-import { Box, TextField, Typography } from '@mui/material';
-import { black, red, white } from '../../../config/theme/themePrimitives';
+import React, { useId } from 'react';
+import { TextField } from '@mui/material';
+import FieldLabel from '../../../components/shared/FieldLabel';
 
-const CustomTextField = ({ label, name, value, placeholder, onChange, required, type }) => {
+const CustomTextField = ({ label, name, value, placeholder, onChange, required, type, error = false, helperText }) => {
+  const id = useId();
   const handleInput = (e) => {
     const { value } = e.target;
     if (type === 'number' && value < 0) {
@@ -16,48 +17,18 @@ const CustomTextField = ({ label, name, value, placeholder, onChange, required, 
     }
   };
 
+
   return (
-    <Box>
-      <Typography sx={{ fontSize: 14, fontWeight: 500, mb: 1 }}>
-        {label} {required && <span style={{ color: red[500] }}>*</span>}
-      </Typography>
+    <FieldLabel htmlFor={id} label={label} required={required} error={error}>
       <TextField
-        fullWidth
-        name={name}
-        variant="outlined"
-        sx={{
-          backgroundColor: white[50],
-          border: `1.2px solid ${black[100]}`,
-          '& fieldset': { border: 'none' },
-          borderRadius: 1,
-          '& .MuiOutlinedInput-root': {
-            '& input[type=number]': {
-              MozAppearance: 'textfield',
-            },
-            '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': {
-              WebkitAppearance: 'none',
-              margin: 0,
-            },
-            '&:hover fieldset': {
-              borderColor: black[900],
-            },
-            '&.Mui-focused fieldset': {
-              borderColor: black[900],
-              borderWidth: 1,
-            },
-          },
-        }}
-        onInput={handleInput}
-        onWheel={handleWheel}
-        value={value}
-        onChange={onChange}
-        inputProps={{
-          style: { fontSize: '0.875rem' },
-          placeholder: placeholder,
-        }}
-        type={type || 'text'}
+        id={id} fullWidth name={name} value={value} onChange={onChange} error={error} helperText={helperText}
+        FormHelperTextProps={{ sx: { fontSize: error ? '1rem' : '.875rem' } }}
+        onInput={handleInput} onWheel={handleWheel} type={type || 'text'} placeholder={placeholder}
+        autoComplete={{ fullName: 'name', phoneNumber: 'tel', email: 'email' }[name] || 'off'}
+        inputProps={{ 'aria-required': required || undefined, inputMode: type === 'number' ? 'numeric' : type === 'tel' ? 'tel' : undefined }}
+        sx={{ '& input[type=number]': { MozAppearance: 'textfield' }, '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': { WebkitAppearance: 'none', margin: 0 } }}
       />
-    </Box>
+    </FieldLabel>
   );
 };
 

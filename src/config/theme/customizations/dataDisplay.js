@@ -1,7 +1,18 @@
 import { viVN } from '@mui/x-data-grid/locales';
-import { severityStyle } from '../themeHelpers';
+import { severityStyle, focusRing } from '../themeHelpers';
 
 export const dataDisplayCustomizations = {
+  MuiDateCalendar: { styleOverrides: { root: { width: 352, maxWidth: '100%', height: 396, maxHeight: 396 } } },
+  MuiDayCalendar: { styleOverrides: {
+    weekDayLabel: { width: 44, margin: 0, fontSize: '.875rem' },
+    slideTransition: { minHeight: 288 },
+  } },
+  MuiPickersDay: { styleOverrides: { root: ({ theme }) => ({
+    width: 44, height: 44, margin: 0, fontSize: '1rem', lineHeight: 1.2,
+    '&.Mui-focusVisible': focusRing(theme),
+  }) } },
+  MuiPickersMonth: { styleOverrides: { monthButton: ({ theme }) => ({ minHeight: 44, fontSize: '1rem', '&:focus-visible': focusRing(theme) }) } },
+  MuiPickersYear: { styleOverrides: { yearButton: ({ theme }) => ({ minHeight: 44, fontSize: '1rem', '&:focus-visible': focusRing(theme) }) } },
   MuiChip: {
     styleOverrides: { root: ({ theme }) => ({
       minHeight: 32, height: 'auto', borderRadius: theme.trustify.radius.pill,

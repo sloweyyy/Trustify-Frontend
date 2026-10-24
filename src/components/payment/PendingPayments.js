@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Box, Button, Typography } from '@mui/material';
 import PaymentService from '../../services/payment.service';
 
-const formatVnd = (amount) => `${Number(amount || 0).toLocaleString('vi-VN')} VNĐ`;
+import formatVnd from '../../utils/formatVnd';
 
 // Lists the user's unpaid notarizations with a link to checkout (the same link is also emailed).
 const PendingPayments = () => {
@@ -27,7 +27,7 @@ const PendingPayments = () => {
           key={payment.id || payment.orderCode}
           severity="warning"
           action={
-            <Button color="inherit" size="small" variant="outlined" href={payment.checkoutUrl}>
+            <Button color="inherit" size="small" variant="outlined" href={payment.checkoutUrl} sx={{ whiteSpace: 'nowrap', flexShrink: 0, minWidth: 120 }}>
               Thanh toán
             </Button>
           }

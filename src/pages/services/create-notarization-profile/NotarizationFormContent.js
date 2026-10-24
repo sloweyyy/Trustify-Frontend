@@ -97,6 +97,7 @@ const NotarizationFormContent = ({
           <>
             <CustomAutocompleteField
               title={'Lĩnh vực công chứng'}
+              required
               options={fieldsAndServices.notarizationField}
               selectedOption={selectedField}
               setSelectedOption={setSelectedField}
@@ -106,6 +107,7 @@ const NotarizationFormContent = ({
 
             <CustomAutocompleteField
               title={'Dịch vụ công chứng'}
+              required
               options={fieldsAndServices.notarizationService}
               selectedOption={selectedService}
               setSelectedOption={setSelectedService}
@@ -291,6 +293,8 @@ const NotarizationFormContent = ({
             </Box>
           </>
         );
+      default:
+        return null;
     }
   };
 

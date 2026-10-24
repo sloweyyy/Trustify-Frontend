@@ -1,38 +1,23 @@
-import React from 'react';
-import { Autocomplete, Box, TextField, Typography } from '@mui/material';
-import { black, white } from '../../../config/theme/themePrimitives';
+import React, { useId } from 'react';
+import { Autocomplete, TextField } from '@mui/material';
+import FieldLabel from '../../../components/shared/FieldLabel';
 
-const CustomAutocompleteField = ({ title, options, selectedOption, setSelectedOption, fetchOptions, loadingOptions }) => {
+const CustomAutocompleteField = ({ title, options, selectedOption, setSelectedOption, fetchOptions, loadingOptions, required = false, error = false, helperText }) => {
+  const id = useId();
   return (
-    <Box>
-      <Typography sx={{ fontSize: 14, fontWeight: 500, textTransform: 'capitalize', color: black[900], mb: 1 }}>
-        {title}
-      </Typography>
+    <FieldLabel htmlFor={id} label={title} required={required} error={error}>
       <Autocomplete
-        loading={loadingOptions}
-        options={options}
+        clearText="Xóa lựa chọn" openText="Mở danh sách" closeText="Đóng danh sách"
+        loadingText="Đang tải…" noOptionsText="Không có lựa chọn phù hợp"
+        id={id} loading={loadingOptions} options={options}
         getOptionLabel={(option) => option.name}
-        onChange={(e, value) => setSelectedOption(value)}
-        sx={{
-          backgroundColor: white[50],
-          fontSize: '0.875rem',
-          border: `1.2px solid ${black[100]}`,
-          borderRadius: 1,
-        }}
+        onChange={(event, value) => setSelectedOption(value)}
         renderInput={(params) => (
-          <TextField
-            {...params}
-            sx={{
-              '& fieldset': { border: 'none' },
-            }}
-            placeholder={`Chọn ${title}`}
-            inputProps={{ ...params.inputProps, readOnly: true, style: { fontSize: '0.875rem' } }}
-          />
+          <TextField {...params} error={error} helperText={helperText} FormHelperTextProps={{ sx: { fontSize: error ? '1rem' : '.875rem' } }} placeholder={`Chọn ${title}`} inputProps={{ ...params.inputProps, readOnly: true, 'aria-required': required || undefined }} />
         )}
-        value={selectedOption}
-        onOpen={fetchOptions}
+        value={selectedOption} onOpen={fetchOptions}
       />
-    </Box>
+    </FieldLabel>
   );
 };
 

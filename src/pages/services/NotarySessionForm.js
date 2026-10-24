@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Box, Typography, TextField, IconButton, Button, Autocomplete, Modal, styled } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { black, gray, white } from '../../config/theme/themePrimitives';
-import { DatePicker, LocalizationProvider, TimePicker } from '@mui/x-date-pickers';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import DateTimePickerSection from '../../components/shared/DateTimeFields';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import 'dayjs/locale/vi';
@@ -12,6 +13,14 @@ import SessionService from '../../services/session.service';
 import UserService from '../../services/user.service';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+const debounce = (func, wait) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+};
 
 const CustomAutocomplete = ({ options, value, onChange, placeholder, loading, fetchOptions, isSubmitting }) => (
   <Autocomplete
@@ -29,7 +38,7 @@ const CustomAutocomplete = ({ options, value, onChange, placeholder, loading, fe
           backgroundColor: gray[50],
           borderRadius: 1,
           '& .MuiInputBase-input': {
-            fontSize: 14,
+            fontSize: '1rem',
           },
         }}
         placeholder={placeholder}
@@ -40,8 +49,8 @@ const CustomAutocomplete = ({ options, value, onChange, placeholder, loading, fe
         {...props}
         key={option.id}
         style={{
-          fontSize: '14px',
-          fontWeight: 'regular',
+          fontSize: '1rem',
+          fontWeight: 400,
         }}
       >
         {option.name}
@@ -50,57 +59,11 @@ const CustomAutocomplete = ({ options, value, onChange, placeholder, loading, fe
     value={value}
     onOpen={fetchOptions}
     disabled={isSubmitting}
-    loadingText={<Typography sx={{ fontSize: '14px', fontWeight: 'regular', color: gray[600] }}>Đang tải...</Typography>}
+    loadingText={<Typography sx={{ fontSize: '1rem', fontWeight: 400, color: gray[600] }}>Đang tải...</Typography>}
     noOptionsText={
-      <Typography sx={{ fontSize: '14px', fontWeight: 'regular', color: gray[600] }}>Không tìm thấy kết quả</Typography>
+      <Typography sx={{ fontSize: '1rem', fontWeight: 400, color: gray[600] }}>Không tìm thấy kết quả</Typography>
     }
   />
-);
-
-const DateTimePickerSection = ({ startDate, setStartDate, startTime, setStartTime, isSubmitting }) => (
-  <Box sx={{ display: 'flex', flexDirection: 'row', mb: 2, gap: 2 }}>
-    {/* Date Picker */}
-    <DatePicker
-      value={startDate}
-      onChange={(newValue) => setStartDate(newValue)}
-      slotProps={{
-        textField: {
-          variant: 'outlined',
-          fullWidth: true,
-          sx: {
-            '& fieldset': { border: 'none' },
-            mt: 1,
-            backgroundColor: gray[50],
-            borderRadius: 1,
-            '& .MuiInputBase-input': { fontSize: 14 },
-          },
-        },
-      }}
-      format="DD/MM/YYYY"
-      disabled={isSubmitting}
-    />
-    {/* Time Picker */}
-    <TimePicker
-      value={startTime}
-      onChange={(newValue) => setStartTime(newValue)}
-      ampm={false}
-      slotProps={{
-        textField: {
-          variant: 'outlined',
-          fullWidth: true,
-          sx: {
-            '& fieldset': { border: 'none' },
-            mt: 1,
-            backgroundColor: gray[50],
-            borderRadius: 1,
-            '& .MuiInputBase-input': { fontSize: 14 },
-          },
-        },
-      }}
-      format="HH:mm"
-      disabled={isSubmitting}
-    />
-  </Box>
 );
 
 const GuestSection = ({
@@ -140,7 +103,7 @@ const GuestSection = ({
             sx={{
               flexGrow: 1,
               '& fieldset': { border: 'none' },
-              '& .MuiInputBase-input': { fontSize: '14px' },
+              '& .MuiInputBase-input': { fontSize: '1rem' },
             }}
             onKeyDown={(event) => event.key === 'Enter' && handleAddGuest()}
           />
@@ -149,15 +112,15 @@ const GuestSection = ({
           <li
             {...props}
             key={typeof option === 'string' ? option : option.id}
-            style={{ fontSize: '14px', fontWeight: 'regular' }}
+            style={{ fontSize: '1rem', fontWeight: 400 }}
           >
             {typeof option === 'string' ? option : option.email}
           </li>
         )}
         disabled={isSubmitting}
-        loadingText={<Typography sx={{ fontSize: '14px', fontWeight: 'regular', color: gray[600] }}>Đang tải...</Typography>}
+        loadingText={<Typography sx={{ fontSize: '1rem', fontWeight: 400, color: gray[600] }}>Đang tải...</Typography>}
         noOptionsText={
-          <Typography sx={{ fontSize: '14px', fontWeight: 'regular', color: gray[600] }}>Không tìm thấy kết quả</Typography>
+          <Typography sx={{ fontSize: '1rem', fontWeight: 400, color: gray[600] }}>Không tìm thấy kết quả</Typography>
         }
       />
 
@@ -165,7 +128,7 @@ const GuestSection = ({
         size="small"
         variant="contained"
         onClick={handleAddGuest}
-        sx={{ fontSize: 14, backgroundColor: white[50], color: black[900], textTransform: 'none', mr: 1 }}
+        sx={{ fontSize: '1rem', backgroundColor: white[50], color: black[900], textTransform: 'none', mr: 1 }}
         disabled={isSubmitting}
       >
         Thêm
@@ -187,7 +150,7 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
   backgroundColor: gray[50],
   borderRadius: theme.shape.borderRadius,
   '& .MuiInputBase-input': {
-    fontSize: 14,
+    fontSize: '1rem',
   },
 }));
 
@@ -213,16 +176,8 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const debounce = (func, wait) => {
-    let timeout;
-    return (...args) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-  };
-
-  const fetchEmails = useCallback(
-    debounce(async (value) => {
+  const fetchEmails = useMemo(
+    () => debounce(async (value) => {
       setLoading(true);
       try {
         const trimmedValue = value.trim();
@@ -389,35 +344,34 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
   return (
     <Modal open={open} onClose={handleOnClose} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Box
+        role="dialog" aria-modal="true" aria-labelledby="session-form-title"
         sx={{
-          width: { xs: '90vw', sm: '80vw', md: '70vw' },
-          p: 4,
+          width: { xs: 'calc(100% - 32px)', sm: '80vw', md: '70vw' },
+          maxHeight: 'calc(100dvh - 32px)',
+          p: { xs: 2, sm: 4 },
           backgroundColor: white[50],
           borderRadius: 2,
           overflowY: 'auto',
-          '&::-webkit-scrollbar': {
-            display: 'none',
-          },
-          scrollbarWidth: 'none',
         }}
       >
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="vi">
           {/* Header */}
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-            <Typography variant="h6" sx={{ flexGrow: 1 }}>
-              Tạo Phiên Công Chứng
+            <Typography id="session-form-title" component="h2" variant="h6" sx={{ flexGrow: 1 }}>
+              Tạo phiên công chứng
             </Typography>
-            <IconButton onClick={handleOnClose} disabled={isSubmitting}>
+            <IconButton aria-label="Đóng tạo phiên công chứng" onClick={handleOnClose} disabled={isSubmitting}>
               <CloseIcon />
             </IconButton>
           </Box>
 
           {/* Notary Session Name */}
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', mb: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, flexWrap: 'wrap', mb: 2 }}>
             <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: 2 }}>
               <Typography variant="body2">Tên phiên công chứng</Typography>
               <CustomTextField
                 placeholder="Nhập tên phiên công chứng"
+                inputProps={{ 'aria-label': 'Tên phiên công chứng' }}
                 fullWidth
                 onChange={handleSessionNameChange}
                 disabled={isSubmitting}
@@ -435,7 +389,7 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
           </Box>
 
           {/* Notary Service and Field */}
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', mb: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, flexWrap: 'wrap', mb: 2 }}>
             <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: { xs: 2, sm: 0 } }}>
               <Typography variant="body2">Lĩnh vực công chứng</Typography>
               <CustomAutocomplete
@@ -462,7 +416,7 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
             </Box>
           </Box>
 
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', mb: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, flexWrap: 'wrap', mb: 2 }}>
             <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: { xs: 2, sm: 0 } }}>
               <Typography variant="body2">Thời gian bắt đầu</Typography>
               <DateTimePickerSection
@@ -513,8 +467,8 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
               sx={{
                 minWidth: 100,
                 mr: 2,
-                fontSize: 14,
-                fontWeight: 700,
+                fontSize: '1rem',
+                fontWeight: 600,
                 textTransform: 'none',
                 border: `1px solid ${black[50]}`,
                 color: black[400],
@@ -527,7 +481,7 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
             <Button
               variant="contained"
               color="primary"
-              sx={{ minWidth: 100, fontSize: 14, fontWeight: 700, textTransform: 'none' }}
+              sx={{ minWidth: 100, fontSize: '1rem', fontWeight: 600, textTransform: 'none' }}
               onClick={handleCreateSession}
               disabled={isSubmitting}
             >
