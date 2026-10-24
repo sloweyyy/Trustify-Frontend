@@ -1,6 +1,7 @@
 import { Box, Container, Typography, IconButton, List, ListItem, ListItemText } from '@mui/material';
 import { LinkedIn, Facebook, GitHub } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import BrandLogo from './BrandLogo';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -39,9 +40,9 @@ const Footer = () => {
         <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} spacing={5}>
           <Box flex={1} mb={{ xs: 4, md: 0 }}>
             <Box>
-              <img src={require('../assets/images/ASE-light.png')} alt="logo" width={'82px'} height={'96px'} />
+              <BrandLogo variant="inverse" width={180} />
               <Typography variant="h4" fontWeight="bold" color="white" mt={3} sx={{ cursor: 'default' }}>
-                Hiện đại bậc nhất.
+                Hồ sơ rõ ràng. An tâm từng bước.
               </Typography>
               <Typography variant="body1" color="white" mt={3} sx={{ cursor: 'default' }}>
                 Kết nối với chúng tôi:
