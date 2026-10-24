@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-25T04:54:26+07:00",
+  "preview": "https://trustify-notary-git-design-01-tokens-theme-sloweyyy.vercel.app",
+  "browser": "Existing signed-in Chrome profile; Vercel protected preview",
+  "checks": [
+    {
+      "role": "user",
+      "login": "passed",
+      "navigation": [
+        "create-notarization-profile",
+        "history"
+      ],
+      "observed": "History table and pending-payment link present"
+    },
+    {
+      "role": "notary",
+      "login": "passed",
+      "navigation": [
+        "dashboard",
+        "pending-notarization-documents"
+      ],
+      "observed": "Empty queue and pagination rendered"
+    },
+    {
+      "role": "admin",
+      "login": "passed",
+      "navigation": [
+        "dashboard",
+        "user-management"
+      ],
+      "observed": "Dashboard chart surfaces and management table rendered"
+    }
+  ],
+  "mutations": "QA sign in/out only; no document submission, signing, user edit, or payment"
+}
