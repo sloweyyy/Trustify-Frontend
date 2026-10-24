@@ -1,233 +1,46 @@
-import { alpha } from '@mui/material/styles';
-import { svgIconClasses } from '@mui/material/SvgIcon';
-import { typographyClasses } from '@mui/material/Typography';
-import { buttonBaseClasses } from '@mui/material/ButtonBase';
-import { chipClasses } from '@mui/material/Chip';
-import { iconButtonClasses } from '@mui/material/IconButton';
-import { gray, red, green } from '../themePrimitives';
+import { viVN } from '@mui/x-data-grid/locales';
+import { severityStyle } from '../themeHelpers';
 
-/* eslint-disable import/prefer-default-export */
 export const dataDisplayCustomizations = {
-  MuiList: {
-    styleOverrides: {
-      root: {
-        padding: '8px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 0,
-      },
-    },
-  },
-  MuiListItem: {
-    styleOverrides: {
-      root: ({ theme }) => ({
-        [`& .${svgIconClasses.root}`]: {
-          width: '1rem',
-          height: '1rem',
-          color: theme.palette.text.secondary,
-        },
-        [`& .${typographyClasses.root}`]: {
-          fontWeight: 500,
-        },
-        [`& .${buttonBaseClasses.root}`]: {
-          display: 'flex',
-          gap: 8,
-          padding: '2px 8px',
-          borderRadius: theme.shape.borderRadius,
-          opacity: 0.7,
-          '&.Mui-selected': {
-            opacity: 1,
-            backgroundColor: alpha(theme.palette.action.selected, 0.3),
-            [`& .${svgIconClasses.root}`]: {
-              color: theme.palette.text.primary,
-            },
-            '&:focus-visible': {
-              backgroundColor: alpha(theme.palette.action.selected, 0.3),
-            },
-            '&:hover': {
-              backgroundColor: alpha(theme.palette.action.selected, 0.5),
-            },
-          },
-          '&:focus-visible': {
-            backgroundColor: 'transparent',
-          },
-        },
-      }),
-    },
-  },
-  MuiListItemText: {
-    styleOverrides: {
-      primary: ({ theme }) => ({
-        fontSize: theme.typography.body2.fontSize,
-        fontWeight: 500,
-        lineHeight: theme.typography.body2.lineHeight,
-      }),
-      secondary: ({ theme }) => ({
-        fontSize: theme.typography.caption.fontSize,
-        lineHeight: theme.typography.caption.lineHeight,
-      }),
-    },
-  },
-  MuiListSubheader: {
-    styleOverrides: {
-      root: ({ theme }) => ({
-        backgroundColor: 'transparent',
-        padding: '4px 8px',
-        fontSize: theme.typography.caption.fontSize,
-        fontWeight: 500,
-        lineHeight: theme.typography.caption.lineHeight,
-      }),
-    },
-  },
-  MuiListItemIcon: {
-    styleOverrides: {
-      root: {
-        minWidth: 0,
-      },
-    },
-  },
   MuiChip: {
+    styleOverrides: { root: ({ theme }) => ({
+      minHeight: 32, height: 'auto', borderRadius: theme.trustify.radius.pill,
+      fontSize: '.875rem', fontWeight: 600, lineHeight: 1.6,
+      color: theme.palette.text.primary, backgroundColor: theme.trustify.subtle,
+      '&.MuiChip-clickable, &.MuiChip-deletable': { minHeight: 44 },
+      variants: ['info', 'warning', 'success', 'error'].map(color => ({ props: { color }, style: severityStyle(theme, color) })),
+    }), label: { whiteSpace: 'normal', padding: '5px 12px' }, icon: { fontSize: 18, color: 'inherit' } },
+  },
+  MuiList: { styleOverrides: { root: { padding: '8px 0' } } },
+  MuiListItem: { styleOverrides: { root: { minWidth: 0 } } },
+  MuiListItemText: { styleOverrides: { primary: { fontSize: '1rem', lineHeight: 1.6 }, secondary: { fontSize: '.875rem', lineHeight: 1.6 } } },
+  MuiListSubheader: { styleOverrides: { root: ({ theme }) => ({ fontSize: '.875rem', fontWeight: 600, color: theme.palette.text.secondary }) } },
+  MuiListItemIcon: { styleOverrides: { root: ({ theme }) => ({ minWidth: 32, color: theme.palette.text.secondary }) } },
+  MuiTableCell: { styleOverrides: {
+    root: ({ theme }) => ({ fontSize: '1rem', lineHeight: 1.6, padding: '14px 16px', borderColor: theme.palette.divider }),
+    head: ({ theme }) => ({ fontWeight: 600, color: theme.palette.text.primary, backgroundColor: theme.trustify.subtle }),
+  } },
+  MuiTableRow: { styleOverrides: { root: { minHeight: 56 } } },
+  MuiTablePagination: {
     defaultProps: {
-      size: 'small',
+      labelRowsPerPage: 'Số dòng mỗi trang:',
+      labelDisplayedRows: ({ from, to, count }) => `${from}–${to} trong ${count === -1 ? `hơn ${to}` : count}`,
+      getItemAriaLabel: (type) => ({ first: 'Trang đầu', last: 'Trang cuối', next: 'Trang sau', previous: 'Trang trước' }[type]),
     },
+    styleOverrides: { toolbar: { minHeight: 56, flexWrap: 'wrap', gap: 8 }, selectLabel: { fontSize: '.875rem' }, displayedRows: { fontSize: '.875rem' }, actions: { '& button': { minWidth: 44, minHeight: 44 } } },
+  },
+  MuiDataGrid: {
+    defaultProps: { localeText: viVN.components.MuiDataGrid.defaultProps.localeText },
     styleOverrides: {
       root: ({ theme }) => ({
-        border: '1px solid',
-        borderRadius: '999px',
-        [`& .${chipClasses.label}`]: {
-          fontWeight: 600,
-        },
-        variants: [
-          {
-            props: {
-              color: 'default',
-            },
-            style: {
-              borderColor: gray[200],
-              backgroundColor: gray[100],
-              [`& .${chipClasses.label}`]: {
-                color: gray[500],
-              },
-              [`& .${chipClasses.icon}`]: {
-                color: gray[500],
-              },
-              ...theme.applyStyles('dark', {
-                borderColor: gray[700],
-                backgroundColor: gray[800],
-                [`& .${chipClasses.label}`]: {
-                  color: gray[300],
-                },
-                [`& .${chipClasses.icon}`]: {
-                  color: gray[300],
-                },
-              }),
-            },
-          },
-          {
-            props: {
-              color: 'success',
-            },
-            style: {
-              borderColor: green[200],
-              backgroundColor: green[50],
-              [`& .${chipClasses.label}`]: {
-                color: green[500],
-              },
-              [`& .${chipClasses.icon}`]: {
-                color: green[500],
-              },
-              ...theme.applyStyles('dark', {
-                borderColor: green[800],
-                backgroundColor: green[900],
-                [`& .${chipClasses.label}`]: {
-                  color: green[300],
-                },
-                [`& .${chipClasses.icon}`]: {
-                  color: green[300],
-                },
-              }),
-            },
-          },
-          {
-            props: {
-              color: 'error',
-            },
-            style: {
-              borderColor: red[100],
-              backgroundColor: red[50],
-              [`& .${chipClasses.label}`]: {
-                color: red[500],
-              },
-              [`& .${chipClasses.icon}`]: {
-                color: red[500],
-              },
-              ...theme.applyStyles('dark', {
-                borderColor: red[800],
-                backgroundColor: red[900],
-                [`& .${chipClasses.label}`]: {
-                  color: red[200],
-                },
-                [`& .${chipClasses.icon}`]: {
-                  color: red[300],
-                },
-              }),
-            },
-          },
-          {
-            props: { size: 'small' },
-            style: {
-              maxHeight: 20,
-              [`& .${chipClasses.label}`]: {
-                fontSize: theme.typography.caption.fontSize,
-              },
-              [`& .${svgIconClasses.root}`]: {
-                fontSize: theme.typography.caption.fontSize,
-              },
-            },
-          },
-          {
-            props: { size: 'medium' },
-            style: {
-              [`& .${chipClasses.label}`]: {
-                fontSize: theme.typography.caption.fontSize,
-              },
-            },
-          },
-        ],
+        fontSize: '1rem', borderColor: theme.palette.divider, borderRadius: theme.trustify.radius.card,
+        backgroundColor: theme.palette.background.paper,
+        '--DataGrid-containerBackground': theme.trustify.subtle,
       }),
+      columnHeader: ({ theme }) => ({ backgroundColor: theme.trustify.subtle, fontWeight: 600 }),
+      cell: ({ theme }) => ({ borderColor: theme.palette.divider }),
+      overlay: ({ theme }) => ({ backgroundColor: theme.palette.background.paper, color: theme.palette.text.secondary }),
     },
   },
-  MuiTablePagination: {
-    styleOverrides: {
-      actions: {
-        display: 'flex',
-        gap: 8,
-        marginRight: 6,
-        [`& .${iconButtonClasses.root}`]: {
-          minWidth: 0,
-          width: 36,
-          height: 36,
-        },
-      },
-    },
-  },
-  MuiIcon: {
-    defaultProps: {
-      fontSize: 'small',
-    },
-    styleOverrides: {
-      root: {
-        variants: [
-          {
-            props: {
-              fontSize: 'small',
-            },
-            style: {
-              fontSize: '1rem',
-            },
-          },
-        ],
-      },
-    },
-  },
+  MuiTooltip: { styleOverrides: { tooltip: { fontSize: '.875rem', lineHeight: 1.6, padding: '8px 12px' } } },
 };

@@ -1,8 +1,9 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { lazy, Suspense, useEffect } from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import getDesignTokens from './config/theme/themePrimitives';
+import { lazy, Suspense, useEffect, useMemo } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import createTrustifyTheme from './config/theme/createTrustifyTheme';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
@@ -62,7 +63,7 @@ const SessionManagement = lazy(() => import('./pages/notary/SessionManagement'))
 
 function App() {
   const dispatch = useDispatch();
-  const theme = createTheme(getDesignTokens());
+  const theme = useMemo(() => createTrustifyTheme(), []);
   const { isAuthenticated } = useSelector((state) => state.auth);
   const { token, refreshToken } = TokenService.getAccessTokenFromURL(window.location.search);
   const resetPasswordToken = TokenService.getResetPasswordTokenFromURL(window.location.search);
@@ -96,6 +97,7 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <ScrollToTop />
         <Box display={'flex'}>
           {isAuthenticated && <Sidebar />}

@@ -1,113 +1,21 @@
-import { alpha } from '@mui/material/styles';
-import { gray } from '../themePrimitives';
-
-/* eslint-disable import/prefer-default-export */
 export const surfacesCustomizations = {
-  MuiAccordion: {
-    defaultProps: {
-      elevation: 0,
-      disableGutters: true,
-    },
-    styleOverrides: {
-      root: ({ theme }) => ({
-        padding: 4,
-        overflow: 'clip',
-        backgroundColor: theme.palette.background.default,
-        border: '1px solid',
-        borderColor: theme.palette.divider,
-        ':before': {
-          backgroundColor: 'transparent',
-        },
-        '&:not(:last-of-type)': {
-          borderBottom: 'none',
-        },
-        '&:first-of-type': {
-          borderTopLeftRadius: theme.shape.borderRadius,
-          borderTopRightRadius: theme.shape.borderRadius,
-        },
-        '&:last-of-type': {
-          borderBottomLeftRadius: theme.shape.borderRadius,
-          borderBottomRightRadius: theme.shape.borderRadius,
-        },
-      }),
-    },
-  },
-  MuiAccordionSummary: {
-    styleOverrides: {
-      root: ({ theme }) => ({
-        border: 'none',
-        borderRadius: 8,
-        '&:hover': { backgroundColor: gray[50] },
-        '&:focus-visible': { backgroundColor: 'transparent' },
-        ...theme.applyStyles('dark', {
-          '&:hover': { backgroundColor: gray[800] },
-        }),
-      }),
-    },
-  },
-  MuiAccordionDetails: {
-    styleOverrides: {
-      root: { mb: 20, border: 'none' },
-    },
-  },
-  MuiPaper: {
-    defaultProps: {
-      elevation: 0,
-    },
-  },
-  MuiCard: {
-    styleOverrides: {
-      root: ({ theme }) => {
-        return {
-          padding: 16,
-          gap: 16,
-          transition: 'all 100ms ease',
-          backgroundColor: gray[50],
-          borderRadius: theme.shape.borderRadius,
-          border: `1px solid ${theme.palette.divider}`,
-          boxShadow: 'none',
-          ...theme.applyStyles('dark', {
-            backgroundColor: gray[800],
-          }),
-          variants: [
-            {
-              props: {
-                variant: 'outlined',
-              },
-              style: {
-                border: `1px solid ${theme.palette.divider}`,
-                boxShadow: 'none',
-                background: 'hsl(0, 0%, 100%)',
-                ...theme.applyStyles('dark', {
-                  background: alpha(gray[900], 0.4),
-                }),
-              },
-            },
-          ],
-        };
-      },
-    },
-  },
-  MuiCardContent: {
-    styleOverrides: {
-      root: {
-        padding: 0,
-        '&:last-child': { paddingBottom: 0 },
-      },
-    },
-  },
-  MuiCardHeader: {
-    styleOverrides: {
-      root: {
-        padding: 0,
-      },
-    },
-  },
-  MuiCardActions: {
-    styleOverrides: {
-      root: {
-        padding: 0,
-      },
-    },
-  },
+  MuiCssBaseline: { styleOverrides: (theme) => ({
+    body: { backgroundColor: theme.palette.background.default, color: theme.palette.text.primary },
+    a: { textUnderlineOffset: '4px' },
+    '@media (prefers-reduced-motion: reduce)': { '*, *::before, *::after': { scrollBehavior: 'auto' } },
+  }) },
+  MuiPaper: { defaultProps: { elevation: 0 }, styleOverrides: { root: { backgroundImage: 'none' } } },
+  MuiCard: { styleOverrides: { root: ({ theme }) => ({
+    borderRadius: theme.trustify.radius.card, border: `1px solid ${theme.palette.divider}`,
+    backgroundColor: theme.palette.background.paper, backgroundImage: 'none', boxShadow: 'none',
+  }) } },
+  MuiCardContent: { styleOverrides: { root: { padding: 24, '&:last-child': { paddingBottom: 24 }, '@media (max-width:599px)': { padding: 16, '&:last-child': { paddingBottom: 16 } } } } },
+  MuiCardHeader: { styleOverrides: { root: { padding: '20px 24px' } } },
+  MuiCardActions: { styleOverrides: { root: { padding: '12px 24px', gap: 8, flexWrap: 'wrap' } } },
+  MuiAccordion: { defaultProps: { elevation: 0, disableGutters: true }, styleOverrides: { root: ({ theme }) => ({
+    border: `1px solid ${theme.palette.divider}`, backgroundColor: theme.palette.background.paper,
+    '&::before': { display: 'none' },
+  }) } },
+  MuiAccordionSummary: { styleOverrides: { root: ({ theme }) => ({ minHeight: 48, '&:hover': { backgroundColor: theme.trustify.subtle } }) } },
+  MuiAccordionDetails: { styleOverrides: { root: { padding: '8px 16px 20px' } } },
 };
