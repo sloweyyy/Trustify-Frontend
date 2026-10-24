@@ -64,8 +64,8 @@ describe('Trustify theme integration', () => {
 
   test('an informational alert no longer inherits warning colors, and small buttons remain touchable', () => {
     render(<ThemeProvider theme={createTrustifyTheme()}><Alert severity="info">Đang xử lý</Alert><Alert severity="warning">Chờ thanh toán</Alert><Button size="small">Tiếp tục</Button></ThemeProvider>);
-    expect(screen.getByText('Đang xử lý').closest('[role="alert"]')).toHaveStyle({ backgroundColor: '#EDF4FC', color: '#245C9A' });
-    expect(screen.getByText('Chờ thanh toán').closest('[role="alert"]')).toHaveStyle({ backgroundColor: '#FFF3D6', color: '#805300' });
+    expect(screen.getAllByRole('alert')[0]).toHaveStyle({ backgroundColor: '#EDF4FC', color: '#245C9A' });
+    expect(screen.getAllByRole('alert')[1]).toHaveStyle({ backgroundColor: '#FFF3D6', color: '#805300' });
     expect(screen.getByRole('button', { name: 'Tiếp tục' })).toHaveStyle({ minHeight: '44px' });
   });
 });

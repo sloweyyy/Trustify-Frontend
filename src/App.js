@@ -17,7 +17,6 @@ import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
 import { setUser } from './stores/slices/userSlice';
 import Settings from './pages/admin/Settings';
-import ThirdParty from './pages/static/Loader';
 import Loader from './components/Loader';
 import ChatAssistant from './components/ChatAssistant';
 import ScrollToTop from './components/ScrollToTop';
@@ -92,6 +91,8 @@ function App() {
       Cookies.set('resetPasswordToken', resetPasswordToken);
       window.history.replaceState({}, document.title, window.location.pathname);
     }
+    // Preserve the existing mount-only reset-token handling during this visual migration.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -1,0 +1,578 @@
+[
+  {
+    "role": "public",
+    "route": "/",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-home-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/"
+  },
+  {
+    "role": "public",
+    "route": "/",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-home-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/"
+  },
+  {
+    "role": "public",
+    "route": "/services",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-services-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/services"
+  },
+  {
+    "role": "public",
+    "route": "/services",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-services-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/services"
+  },
+  {
+    "role": "public",
+    "route": "/lookup",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-lookup-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/lookup"
+  },
+  {
+    "role": "public",
+    "route": "/lookup",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-lookup-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/lookup"
+  },
+  {
+    "role": "public",
+    "route": "/verify",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-verify-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/verify"
+  },
+  {
+    "role": "public",
+    "route": "/verify",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-verify-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/verify"
+  },
+  {
+    "role": "public",
+    "route": "/pricing",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-pricing-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/pricing"
+  },
+  {
+    "role": "public",
+    "route": "/pricing",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-pricing-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/pricing"
+  },
+  {
+    "role": "public",
+    "route": "/privacy-policy",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-privacy-policy-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/privacy-policy"
+  },
+  {
+    "role": "public",
+    "route": "/privacy-policy",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-privacy-policy-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/privacy-policy"
+  },
+  {
+    "role": "public",
+    "route": "/payment-security",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-payment-security-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/payment-security"
+  },
+  {
+    "role": "public",
+    "route": "/payment-security",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-payment-security-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/payment-security"
+  },
+  {
+    "role": "public",
+    "route": "/terms-of-service",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-terms-of-service-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/terms-of-service"
+  },
+  {
+    "role": "public",
+    "route": "/terms-of-service",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-terms-of-service-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/terms-of-service"
+  },
+  {
+    "role": "public",
+    "route": "/operating-regulations",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-operating-regulations-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/operating-regulations"
+  },
+  {
+    "role": "public",
+    "route": "/operating-regulations",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-operating-regulations-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/operating-regulations"
+  },
+  {
+    "role": "public",
+    "route": "/dispute-resolution",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-dispute-resolution-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/dispute-resolution"
+  },
+  {
+    "role": "public",
+    "route": "/dispute-resolution",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-dispute-resolution-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/dispute-resolution"
+  },
+  {
+    "role": "public",
+    "route": "/for-individuals",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-for-individuals-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/for-individuals"
+  },
+  {
+    "role": "public",
+    "route": "/for-individuals",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-for-individuals-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/for-individuals"
+  },
+  {
+    "role": "public",
+    "route": "/for-notary-offices",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-for-notary-offices-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/for-notary-offices"
+  },
+  {
+    "role": "public",
+    "route": "/for-notary-offices",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-for-notary-offices-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/for-notary-offices"
+  },
+  {
+    "role": "public",
+    "route": "/user-guide",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-user-guide-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user-guide"
+  },
+  {
+    "role": "public",
+    "route": "/user-guide",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-user-guide-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user-guide"
+  },
+  {
+    "role": "public",
+    "route": "/signin",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-signin-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/signin"
+  },
+  {
+    "role": "public",
+    "route": "/signin",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-signin-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/signin"
+  },
+  {
+    "role": "public",
+    "route": "/signup",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-signup-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/signup"
+  },
+  {
+    "role": "public",
+    "route": "/signup",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-signup-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/signup"
+  },
+  {
+    "role": "public",
+    "route": "/forgot-password",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-forgot-password-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/forgot-password"
+  },
+  {
+    "role": "public",
+    "route": "/forgot-password",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-forgot-password-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/forgot-password"
+  },
+  {
+    "role": "public",
+    "route": "/reset-password",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-reset-password-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/reset-password"
+  },
+  {
+    "role": "public",
+    "route": "/reset-password",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-reset-password-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/reset-password"
+  },
+  {
+    "role": "public",
+    "route": "/payment/redirect",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-payment-redirect-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/payment/redirect"
+  },
+  {
+    "role": "public",
+    "route": "/payment/redirect",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-payment-redirect-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/payment/redirect"
+  },
+  {
+    "role": "public",
+    "route": "/not-a-route",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-public-not-a-route-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/not-a-route"
+  },
+  {
+    "role": "public",
+    "route": "/not-a-route",
+    "width": 390,
+    "height": 844,
+    "file": "before-public-not-a-route-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/not-a-route"
+  },
+  {
+    "role": "user",
+    "route": "/user/create-notarization-profile",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-user-user-create-notarization-profile-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user/create-notarization-profile"
+  },
+  {
+    "role": "user",
+    "route": "/user/create-notarization-profile",
+    "width": 390,
+    "height": 844,
+    "file": "before-user-user-create-notarization-profile-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user/create-notarization-profile"
+  },
+  {
+    "role": "user",
+    "route": "/user/history",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-user-user-history-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user/history"
+  },
+  {
+    "role": "user",
+    "route": "/user/history",
+    "width": 390,
+    "height": 844,
+    "file": "before-user-user-history-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user/history"
+  },
+  {
+    "role": "user",
+    "route": "/user/document-wallet",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-user-user-document-wallet-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user/document-wallet"
+  },
+  {
+    "role": "user",
+    "route": "/user/document-wallet",
+    "width": 390,
+    "height": 844,
+    "file": "before-user-user-document-wallet-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user/document-wallet"
+  },
+  {
+    "role": "user",
+    "route": "/user/notarization-session",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-user-user-notarization-session-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user/notarization-session"
+  },
+  {
+    "role": "user",
+    "route": "/user/notarization-session",
+    "width": 390,
+    "height": 844,
+    "file": "before-user-user-notarization-session-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user/notarization-session"
+  },
+  {
+    "role": "user",
+    "route": "/profile",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-user-profile-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/profile"
+  },
+  {
+    "role": "user",
+    "route": "/profile",
+    "width": 390,
+    "height": 844,
+    "file": "before-user-profile-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/profile"
+  },
+  {
+    "role": "notary",
+    "route": "/notary/dashboard",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-notary-notary-dashboard-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/dashboard"
+  },
+  {
+    "role": "notary",
+    "route": "/notary/dashboard",
+    "width": 390,
+    "height": 844,
+    "file": "before-notary-notary-dashboard-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/dashboard"
+  },
+  {
+    "role": "notary",
+    "route": "/notary/pending-notarization-documents",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-notary-notary-pending-notarization-documents-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/pending-notarization-documents"
+  },
+  {
+    "role": "notary",
+    "route": "/notary/pending-notarization-documents",
+    "width": 390,
+    "height": 844,
+    "file": "before-notary-notary-pending-notarization-documents-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/pending-notarization-documents"
+  },
+  {
+    "role": "notary",
+    "route": "/notary/awaiting-signature-documents",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-notary-notary-awaiting-signature-documents-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/awaiting-signature-documents"
+  },
+  {
+    "role": "notary",
+    "route": "/notary/awaiting-signature-documents",
+    "width": 390,
+    "height": 844,
+    "file": "before-notary-notary-awaiting-signature-documents-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/awaiting-signature-documents"
+  },
+  {
+    "role": "notary",
+    "route": "/notary/notary-session-management",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-notary-notary-notary-session-management-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/notary-session-management"
+  },
+  {
+    "role": "notary",
+    "route": "/notary/notary-session-management",
+    "width": 390,
+    "height": 844,
+    "file": "before-notary-notary-notary-session-management-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/notary-session-management"
+  },
+  {
+    "role": "notary",
+    "route": "/notary/notarization-history",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-notary-notary-notarization-history-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/notarization-history"
+  },
+  {
+    "role": "notary",
+    "route": "/notary/notarization-history",
+    "width": 390,
+    "height": 844,
+    "file": "before-notary-notary-notarization-history-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/notarization-history"
+  },
+  {
+    "role": "notary",
+    "route": "/profile",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-notary-profile-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/profile"
+  },
+  {
+    "role": "notary",
+    "route": "/profile",
+    "width": 390,
+    "height": 844,
+    "file": "before-notary-profile-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/profile"
+  },
+  {
+    "role": "admin",
+    "route": "/admin/dashboard",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-admin-admin-dashboard-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/dashboard"
+  },
+  {
+    "role": "admin",
+    "route": "/admin/dashboard",
+    "width": 390,
+    "height": 844,
+    "file": "before-admin-admin-dashboard-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/dashboard"
+  },
+  {
+    "role": "admin",
+    "route": "/admin/employee-management",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-admin-admin-employee-management-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/employee-management"
+  },
+  {
+    "role": "admin",
+    "route": "/admin/employee-management",
+    "width": 390,
+    "height": 844,
+    "file": "before-admin-admin-employee-management-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/employee-management"
+  },
+  {
+    "role": "admin",
+    "route": "/admin/user-management",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-admin-admin-user-management-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/user-management"
+  },
+  {
+    "role": "admin",
+    "route": "/admin/user-management",
+    "width": 390,
+    "height": 844,
+    "file": "before-admin-admin-user-management-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/user-management"
+  },
+  {
+    "role": "admin",
+    "route": "/admin/notary-management",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-admin-admin-notary-management-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/notary-management"
+  },
+  {
+    "role": "admin",
+    "route": "/admin/notary-management",
+    "width": 390,
+    "height": 844,
+    "file": "before-admin-admin-notary-management-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/notary-management"
+  },
+  {
+    "role": "admin",
+    "route": "/admin/settings",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-admin-admin-settings-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/settings"
+  },
+  {
+    "role": "admin",
+    "route": "/admin/settings",
+    "width": 390,
+    "height": 844,
+    "file": "before-admin-admin-settings-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/settings"
+  },
+  {
+    "role": "admin",
+    "route": "/profile",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-admin-profile-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/profile"
+  },
+  {
+    "role": "admin",
+    "route": "/profile",
+    "width": 390,
+    "height": 844,
+    "file": "before-admin-profile-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/profile"
+  }
+]

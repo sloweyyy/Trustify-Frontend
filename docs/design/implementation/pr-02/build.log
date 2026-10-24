@@ -51,10 +51,6 @@ Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
 Compiled with warnings.
 
 [eslint]
-src/App.js
-  Line 19:8:  'ThirdParty' is defined but never used                                                                                 no-unused-vars
-  Line 94:6:  React Hook useEffect has a missing dependency: 'resetPasswordToken'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
-
 src/components/ChatAssistant.js
   Line 1:10:  'Box' is defined but never used  no-unused-vars
 
@@ -160,7 +156,7 @@ To ignore, add // eslint-disable-next-line to the line before.
 File sizes after gzip:
 
   753.81 kB          build/static/js/187.7ddbaf80.chunk.js
-  237.38 kB (+57 B)  build/static/js/main.8c52f35a.js
+  237.33 kB (-44 B)  build/static/js/main.16607907.js
   93.16 kB           build/static/js/470.2dda5671.chunk.js
   63.35 kB           build/static/js/787.87654acd.chunk.js
   60.33 kB           build/static/js/461.0d5f31c7.chunk.js
@@ -231,3 +227,4 @@ You may serve it with a static server:
 Find out more about deployment here:
 
   https://cra.link/deployment
+

@@ -1,6 +1,6 @@
 
 > trustify@0.1.0 test
-> react-scripts test --watchAll=false --runInBand --detectOpenHandles --runTestsByPath src/config/theme/createTrustifyTheme.test.js
+> react-scripts test --watchAll=false --runInBand --runTestsByPath src/config/theme/createTrustifyTheme.test.js
 
   console.error
     Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
@@ -27,61 +27,22 @@
 
 PASS src/config/theme/createTrustifyTheme.test.js
   Trustify theme integration
-    ✓ light keeps readable text and distinguishable control boundaries (3 ms)
+    ✓ light keeps readable text and distinguishable control boundaries (2 ms)
     ✓ dark keeps readable text and distinguishable control boundaries (1 ms)
     ✓ app and existing auth providers receive all five override groups (1 ms)
     ✓ creating another mode cannot mutate a previous theme or the spacing contract (1 ms)
-    ✓ default input modes stay light; raw lifecycle keys are preserved (2 ms)
-    ✓ a destructive outlined button retains its intent color (37 ms)
-    ✓ an informational alert no longer inherits warning colors, and small buttons remain touchable (12 ms)
+    ✓ default input modes stay light; raw lifecycle keys are preserved (1 ms)
+    ✓ a destructive outlined button retains its intent color (29 ms)
+    ✓ an informational alert no longer inherits warning colors, and small buttons remain touchable (13 ms)
 
 Test Suites: 1 passed, 1 total
 Tests:       7 passed, 7 total
 Snapshots:   0 total
-Time:        1.151 s
+Time:        1.008 s
 Ran all test suites within paths "src/config/theme/createTrustifyTheme.test.js".
+Jest did not exit one second after the test run has completed.
 
-Jest has detected the following 1 open handle potentially keeping Jest from exiting:
-
-  ●  Timeout
-
-      at Object.<anonymous> (node_modules/@babel/plugin-proposal-private-property-in-object/lib/index.js:11:3)
-      at module.exports (node_modules/babel-preset-react-app/create.js:168:9)
-      at apply (node_modules/babel-preset-react-app/index.js:19:10)
-      at sync (node_modules/@babel/core/src/gensync-utils/async.ts:31:25)
-      at sync (node_modules/gensync/index.js:182:19)
-      at factory (node_modules/gensync/index.js:210:24)
-      at node_modules/@babel/core/src/config/full.ts:271:23
-      at Function.<anonymous> (node_modules/@babel/core/src/gensync-utils/async.ts:10:3)
-      at evaluateSync (node_modules/gensync/index.js:251:28)
-      at Function.sync (node_modules/gensync/index.js:89:14)
-      at sync (node_modules/@babel/core/src/gensync-utils/async.ts:83:25)
-      at sync (node_modules/gensync/index.js:182:19)
-      at onFirstPause (node_modules/gensync/index.js:210:24)
-          at onFirstPause.next (<anonymous>)
-      at presetDescriptorLoader (node_modules/@babel/core/src/config/caching.ts:131:34)
-          at cachedFunction.next (<anonymous>)
-      at loadPresetDescriptor (node_modules/@babel/core/src/config/full.ts:482:12)
-          at loadPresetDescriptor.next (<anonymous>)
-      at fn (node_modules/@babel/core/src/config/full.ts:119:33)
-          at recursePresetDescriptors.next (<anonymous>)
-      at node_modules/@babel/core/src/config/full.ts:224:21
-      at loadFullConfig (node_modules/@babel/core/src/config/full.ts:167:4)
-          at loadFullConfig.next (<anonymous>)
-      at transform (node_modules/@babel/core/src/transform.ts:26:58)
-          at transform.next (<anonymous>)
-      at evaluateSync (node_modules/gensync/index.js:251:28)
-      at fn (node_modules/gensync/index.js:89:14)
-      at stopHiding - secret - don't use this - v1 (node_modules/@babel/core/src/errors/rewrite-stack-trace.ts:99:14)
-      at transformSync (node_modules/@babel/core/src/transform.ts:66:52)
-      at ScriptTransformer.transformSource (node_modules/@jest/transform/build/ScriptTransformer.js:619:31)
-      at ScriptTransformer._transformAndBuildScript (node_modules/@jest/transform/build/ScriptTransformer.js:765:40)
-      at ScriptTransformer.transform (node_modules/@jest/transform/build/ScriptTransformer.js:822:19)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
-
+This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
 One of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
@@ -93,3 +54,4 @@ is not maintianed anymore. It is thus unlikely that this bug will
 ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.
+

@@ -23,28 +23,28 @@ No route, role guard, Redux state, service, API contract, backend or dependency 
 
 ## Before / after
 
-32 full-page screenshots (16 matched pairs), same local app/API QA accounts and same viewports, before any theme edits and after implementation. Desktop1440×1000; mobile390×844. Existing horizontal overflow is preserved in screenshots rather than hidden.
+[Complete 144-image route gallery](../../screenshots/01/README.md) (72 matched pairs), same API QA accounts and viewports; production main before, local theme implementation after. The original representative comparisons below are retained. Desktop1440×1000; mobile390×844. Existing horizontal overflow is preserved in screenshots rather than hidden.
 
 [Desktop comparisons](desktop-comparison.png) · [Mobile comparisons](mobile-comparison.png). Thumbnails crop the top; full images are linked below.
 
 | Role / route | Viewport | Before | After |
 | --- | --- | --- | --- |
-| public `/signin` | 1440×1000 | [Before](screenshots/before-public-signin-desktop.png) | [After](screenshots/after-public-signin-desktop.png) |
-| public `/signin` | 390×844 | [Before](screenshots/before-public-signin-mobile.png) | [After](screenshots/after-public-signin-mobile.png) |
-| public `/signup` | 1440×1000 | [Before](screenshots/before-public-signup-desktop.png) | [After](screenshots/after-public-signup-desktop.png) |
-| public `/signup` | 390×844 | [Before](screenshots/before-public-signup-mobile.png) | [After](screenshots/after-public-signup-mobile.png) |
-| public `/lookup` | 1440×1000 | [Before](screenshots/before-public-lookup-desktop.png) | [After](screenshots/after-public-lookup-desktop.png) |
-| public `/lookup` | 390×844 | [Before](screenshots/before-public-lookup-mobile.png) | [After](screenshots/after-public-lookup-mobile.png) |
-| public `/verify` | 1440×1000 | [Before](screenshots/before-public-verify-desktop.png) | [After](screenshots/after-public-verify-desktop.png) |
-| public `/verify` | 390×844 | [Before](screenshots/before-public-verify-mobile.png) | [After](screenshots/after-public-verify-mobile.png) |
-| user `/user/create-notarization-profile` | 1440×1000 | [Before](screenshots/before-user-user-create-notarization-profile-desktop.png) | [After](screenshots/after-user-user-create-notarization-profile-desktop.png) |
-| user `/user/create-notarization-profile` | 390×844 | [Before](screenshots/before-user-user-create-notarization-profile-mobile.png) | [After](screenshots/after-user-user-create-notarization-profile-mobile.png) |
-| user `/user/history` | 1440×1000 | [Before](screenshots/before-user-user-history-desktop.png) | [After](screenshots/after-user-user-history-desktop.png) |
-| user `/user/history` | 390×844 | [Before](screenshots/before-user-user-history-mobile.png) | [After](screenshots/after-user-user-history-mobile.png) |
-| notary `/notary/pending-notarization-documents` | 1440×1000 | [Before](screenshots/before-notary-notary-pending-notarization-documents-desktop.png) | [After](screenshots/after-notary-notary-pending-notarization-documents-desktop.png) |
-| notary `/notary/pending-notarization-documents` | 390×844 | [Before](screenshots/before-notary-notary-pending-notarization-documents-mobile.png) | [After](screenshots/after-notary-notary-pending-notarization-documents-mobile.png) |
-| admin `/admin/dashboard` | 1440×1000 | [Before](screenshots/before-admin-admin-dashboard-desktop.png) | [After](screenshots/after-admin-admin-dashboard-desktop.png) |
-| admin `/admin/dashboard` | 390×844 | [Before](screenshots/before-admin-admin-dashboard-mobile.png) | [After](screenshots/after-admin-admin-dashboard-mobile.png) |
+| public `/signin` | 1440×1000 | [Before](../../screenshots/01/before-public-signin-desktop.png) | [After](../../screenshots/01/after-public-signin-desktop.png) |
+| public `/signin` | 390×844 | [Before](../../screenshots/01/before-public-signin-mobile.png) | [After](../../screenshots/01/after-public-signin-mobile.png) |
+| public `/signup` | 1440×1000 | [Before](../../screenshots/01/before-public-signup-desktop.png) | [After](../../screenshots/01/after-public-signup-desktop.png) |
+| public `/signup` | 390×844 | [Before](../../screenshots/01/before-public-signup-mobile.png) | [After](../../screenshots/01/after-public-signup-mobile.png) |
+| public `/lookup` | 1440×1000 | [Before](../../screenshots/01/before-public-lookup-desktop.png) | [After](../../screenshots/01/after-public-lookup-desktop.png) |
+| public `/lookup` | 390×844 | [Before](../../screenshots/01/before-public-lookup-mobile.png) | [After](../../screenshots/01/after-public-lookup-mobile.png) |
+| public `/verify` | 1440×1000 | [Before](../../screenshots/01/before-public-verify-desktop.png) | [After](../../screenshots/01/after-public-verify-desktop.png) |
+| public `/verify` | 390×844 | [Before](../../screenshots/01/before-public-verify-mobile.png) | [After](../../screenshots/01/after-public-verify-mobile.png) |
+| user `/user/create-notarization-profile` | 1440×1000 | [Before](../../screenshots/01/before-user-user-create-notarization-profile-desktop.png) | [After](../../screenshots/01/after-user-user-create-notarization-profile-desktop.png) |
+| user `/user/create-notarization-profile` | 390×844 | [Before](../../screenshots/01/before-user-user-create-notarization-profile-mobile.png) | [After](../../screenshots/01/after-user-user-create-notarization-profile-mobile.png) |
+| user `/user/history` | 1440×1000 | [Before](../../screenshots/01/before-user-user-history-desktop.png) | [After](../../screenshots/01/after-user-user-history-desktop.png) |
+| user `/user/history` | 390×844 | [Before](../../screenshots/01/before-user-user-history-mobile.png) | [After](../../screenshots/01/after-user-user-history-mobile.png) |
+| notary `/notary/pending-notarization-documents` | 1440×1000 | [Before](../../screenshots/01/before-notary-notary-pending-notarization-documents-desktop.png) | [After](../../screenshots/01/after-notary-notary-pending-notarization-documents-desktop.png) |
+| notary `/notary/pending-notarization-documents` | 390×844 | [Before](../../screenshots/01/before-notary-notary-pending-notarization-documents-mobile.png) | [After](../../screenshots/01/after-notary-notary-pending-notarization-documents-mobile.png) |
+| admin `/admin/dashboard` | 1440×1000 | [Before](../../screenshots/01/before-admin-admin-dashboard-desktop.png) | [After](../../screenshots/01/after-admin-admin-dashboard-desktop.png) |
+| admin `/admin/dashboard` | 390×844 | [Before](../../screenshots/01/before-admin-admin-dashboard-mobile.png) | [After](../../screenshots/01/after-admin-admin-dashboard-mobile.png) |
 
 ### Real MUI theme fixture
 
@@ -73,3 +73,9 @@ Existing fixed-width forms/tables/sidebars remain. At390px the legacy User histo
 Chart.js colors/fonts, signature canvas geometry, Toastify styling and responsive navigation/card composition are left to their owning component PRs. CSS theme overrides cannot safely rewrite those structures/handlers. The empty notary queue is captured without inventing or mutating live data.
 
 MUI v6 references: [theme components](https://v6.mui.com/material-ui/customization/theme-components/), [dark mode](https://v6.mui.com/material-ui/customization/dark-mode/). No MUI version change or additional UI kit.
+
+## Autonomous review-loop handoff
+
+Changed JS passes `ESLINT_USE_FLAT_CONFIG=false npx eslint` with the existing CRA configuration. The repository flat configuration cannot parse JSX. Removed unused imports; retained existing mount-only reset-token behavior with an explicit lint explanation. Theme tests now query alert roles directly. [ESLint log](eslint.log).
+
+Vercel preview is authenticated through the existing Chrome session. QA user creation → history → wallet, notary dashboard → pending queue, and admin dashboard → management are checked without submitting hồ sơ or modifying users. Screenshots are in the Design 01 gallery. No payment was completed.
