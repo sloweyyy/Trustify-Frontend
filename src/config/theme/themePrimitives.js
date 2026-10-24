@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import tokens from './tokens.json';
+import { DOCUMENT_STATES } from '../../utils/documentStatus';
 
 // Preserve direct imports until their owning screens migrate to semantic tokens.
 export { primary, dark, gray, green, red, yellow, blue, black, white } from './legacyPrimitives';
@@ -60,14 +61,7 @@ export const getDesignTokens = (requestedMode = 'light') => {
       ...colors, status,
       radius: { ...tokens.radius }, touch: { ...tokens.touch },
       surface: { subtle: colors.subtle },
-      documentStates: {
-        pending: { label: 'Chờ xử lý', tone: 'warning' },
-        processing: { label: 'Đang xử lý', tone: 'info' },
-        verification: { label: 'Đang xử lý', detail: 'Bước xác minh', tone: 'info' },
-        digitalSignature: { label: 'Chờ ký số', tone: 'signature' },
-        completed: { label: 'Hoàn tất', tone: 'success' },
-        rejected: { label: 'Bị từ chối', tone: 'error' },
-      },
+      documentStates: Object.fromEntries(Object.entries(DOCUMENT_STATES).map(([key, value]) => [key, { ...value }])),
     },
   };
 };

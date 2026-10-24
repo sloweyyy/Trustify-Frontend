@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "role": "user",
+      "route": "/user/history",
+      "total": 2,
+      "filterAndSearch": "passed",
+      "initialAutofocus": false
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notarization-history",
+      "total": 6,
+      "signing": 2,
+      "completed": 2,
+      "filter": "passed"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "total": 2,
+      "filter": "passed",
+      "initialAutofocus": false,
+      "toolbarFocus": "passed for document and session grids"
+    }
+  ],
+  "errors": [],
+  "checkedAt": "2026-10-24T22:23:15.115Z"
+}

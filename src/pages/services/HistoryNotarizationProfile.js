@@ -18,6 +18,7 @@ import {
 } from '@mui/icons-material';
 import { STATUS_TYPES } from '../../utils/constants';
 import PendingPayments from '../../components/payment/PendingPayments';
+import { getLegacyDocumentFilterValue } from '../../utils/documentStatus';
 
 const ICON_MAP = {
   [STATUS_TYPES.All]: <AppsRounded sx={{ height: '18px', width: '18px' }} />,
@@ -66,20 +67,12 @@ const HistoryNotarizationProfile = () => {
       const formattedData = sortedResponse.map((item, index) => {
         const date = new Date(item.createdAt);
         const notaryDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-        const statusMap = {
-          pending: 'Chờ xử lý',
-          processing: 'Đang xử lý',
-          verification: 'Đang xác minh',
-          digitalSignature: 'Sẵn sàng ký số',
-          completed: 'Hoàn tất',
-          rejected: 'Không hợp lệ',
-        };
         return createData(
           index + 1,
           item._id,
           notaryDate,
           item.requesterInfo.fullName,
-          statusMap[item.status.status],
+          getLegacyDocumentFilterValue(item.status.status),
           item.notarizationService.name,
         );
       });
@@ -99,17 +92,6 @@ const HistoryNotarizationProfile = () => {
     setStatusClicked(status);
   };
 
-  const getStatusStyles = (status) => {
-    const styles = {
-      'Chờ xử lý': { color: '#324155', backgroundColor: '#EBEDEF' },
-      'Đang xử lý': { color: '#FFAA00', backgroundColor: '#FFF7E6' },
-      'Đang xác minh': { color: '#7007C1', backgroundColor: '#F9F0FF' },
-      'Sẵn sàng ký số': { color: '#0095FF', backgroundColor: '#E6F4FF' },
-      'Hoàn tất': { color: '#43B75D', backgroundColor: '#ECF8EF' },
-      'Không hợp lệ': { color: '#EE443F', backgroundColor: '#FDECEC' },
-    };
-    return styles[status] || {};
-  };
 
   useEffect(() => {
     fetchHistory();
@@ -180,15 +162,15 @@ const HistoryNotarizationProfile = () => {
           <TextField
             variant="outlined"
             size="small"
-            placeholder="Tìm kiếm"
-            autoFocus
+            label="Tìm hồ sơ"
+            placeholder="Nhập từ khóa"
             onChange={(e) => setSearchText(e.target.value)}
             sx={{
               borderRadius: 1,
               width: { xs: '100%', sm: '100%', md: '20%' },
               minWidth: '150px',
               '& .MuiInputBase-input': {
-                fontSize: 14,
+                fontSize: '1rem',
               },
             }}
             InputProps={{
@@ -210,7 +192,6 @@ const HistoryNotarizationProfile = () => {
               rows={rows}
               headCells={HEAD_CELLS}
               statusTypes={STATUS_TYPES}
-              setStatusColor={getStatusStyles}
               data={fullData}
             />
           )}

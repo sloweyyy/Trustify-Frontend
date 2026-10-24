@@ -1,0 +1,74 @@
+[
+  {
+    "role": "user",
+    "route": "/user/history",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-user-user-history-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user/history",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "user",
+    "route": "/user/history",
+    "width": 390,
+    "height": 844,
+    "file": "before-user-user-history-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/user/history",
+    "scrollWidth": 1108
+  },
+  {
+    "role": "notary",
+    "route": "/notary/dashboard",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-notary-notary-dashboard-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/dashboard",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "notary",
+    "route": "/notary/dashboard",
+    "width": 390,
+    "height": 844,
+    "file": "before-notary-notary-dashboard-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/dashboard",
+    "scrollWidth": 552
+  },
+  {
+    "role": "notary",
+    "route": "/notary/notarization-history",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-notary-notary-notarization-history-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/notarization-history",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "notary",
+    "route": "/notary/notarization-history",
+    "width": 390,
+    "height": 844,
+    "file": "before-notary-notary-notarization-history-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/notary/notarization-history",
+    "scrollWidth": 554
+  },
+  {
+    "role": "admin",
+    "route": "/admin/notary-management",
+    "width": 1440,
+    "height": 1000,
+    "file": "before-admin-admin-notary-management-desktop.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/notary-management",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "admin",
+    "route": "/admin/notary-management",
+    "width": 390,
+    "height": 844,
+    "file": "before-admin-admin-notary-management-mobile.png",
+    "actualUrl": "https://trustify-notary.vercel.app/admin/notary-management",
+    "scrollWidth": 1440
+  }
+]

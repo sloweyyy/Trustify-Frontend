@@ -16,6 +16,7 @@ import {
 import React, { useState, useEffect } from 'react';
 import { black, gray, white } from '../../config/theme/themePrimitives';
 import HistoryCard from '../../components/notary/HistoryCard';
+import { getDocumentFilterLabel } from '../../utils/documentStatus';
 import NotarizationService from '../../services/notarization.service';
 import { FilterList } from '@mui/icons-material';
 
@@ -74,20 +75,6 @@ const NotarizedHistory = () => {
       });
   };
 
-  const setTextBaseOnStatus = (status) => {
-    switch (status) {
-      case 'processing':
-        return 'Đang xử lý';
-      case 'digitalSignature':
-        return 'Sẵn sàng ký số';
-      case 'completed':
-        return 'Hoàn thành';
-      case 'rejected':
-        return 'Không hợp lệ';
-      default:
-        return 'Không xác định';
-    }
-  };
 
   return (
     <Box sx={{ padding: { xs: 2, sm: 4 } }}>
@@ -269,7 +256,7 @@ const NotarizedHistory = () => {
               <MenuItem value="">Tất cả trạng thái</MenuItem>
               {status.map((statusName, index) => (
                 <MenuItem key={index} value={statusName}>
-                  {setTextBaseOnStatus(statusName)}
+                  {getDocumentFilterLabel(statusName)}
                 </MenuItem>
               ))}
             </Select>
