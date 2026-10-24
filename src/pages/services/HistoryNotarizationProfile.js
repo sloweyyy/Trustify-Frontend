@@ -17,6 +17,7 @@ import {
   SearchRounded,
 } from '@mui/icons-material';
 import { STATUS_TYPES } from '../../utils/constants';
+import PendingPayments from '../../components/payment/PendingPayments';
 
 const ICON_MAP = {
   [STATUS_TYPES.All]: <AppsRounded sx={{ height: '18px', width: '18px' }} />,
@@ -134,6 +135,8 @@ const HistoryNotarizationProfile = () => {
           <Typography variant="caption">Toàn bộ lịch sử công chứng của bạn sẽ hiển thị ở đây</Typography>
         </Box>
       </Box>
+
+      <PendingPayments />
 
       {/* Main */}
       <Box
