@@ -94,5 +94,53 @@
     "width": 390,
     "height": 844,
     "expectedWidth": 390
+  },
+  {
+    "file": "vercel-admin-management-desktop.png",
+    "width": 1440,
+    "height": 1000,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "vercel-admin-management-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
+  },
+  {
+    "file": "vercel-notary-dashboard-desktop.png",
+    "width": 1440,
+    "height": 1000,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "vercel-notary-dashboard-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
+  },
+  {
+    "file": "vercel-notary-history-desktop.png",
+    "width": 1440,
+    "height": 1000,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "vercel-notary-history-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
+  },
+  {
+    "file": "vercel-user-history-desktop.png",
+    "width": 1440,
+    "height": 1000,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "vercel-user-history-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
   }
 ]
