@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-25T05:32:35+07:00",
+  "sourceCommit": "54a9124",
+  "preview": "https://trustify-notary-git-design-02-status-components-sloweyyy.vercel.app",
+  "vercelDeployment": "https://vercel.com/sloweyyy/trustify-notary/A6hm2Vj61Tu8oansBfCDVEBv81rz",
+  "deploymentState": "Ready",
+  "browser": "Existing signed-in Chrome profile",
+  "roles": {
+    "user": {
+      "login": "passed",
+      "route": "/user/history",
+      "signatureFilterRecords": 0,
+      "completedFilterRecords": 2
+    },
+    "notary": {
+      "login": "passed",
+      "routes": [
+        "/notary/dashboard",
+        "/notary/notarization-history"
+      ],
+      "historyRecords": 6,
+      "signatureFilterRecords": 2
+    },
+    "admin": {
+      "login": "passed",
+      "route": "/admin/notary-management",
+      "completedFilterRecords": 2,
+      "rejectedFilterRecords": 0,
+      "documentSearch": "Nguyen typed with focus retained",
+      "sessionSearch": "QA typed with focus retained",
+      "filterFocus": "Bị từ chối retained focus"
+    }
+  },
+  "mutations": "QA sign in/out only; no document/account changes, signatures, or payments"
+}

@@ -13,7 +13,7 @@ Existing translated filter keys are deliberately retained; the adapter changes t
 - 30 tests: shared chip states, unknown/session-state handling, legacy filter callback values, verification separation, actual table filtering/searching, and theme regression tests; [log](tests.log).
 - Real QA account browser checks on local app: User history filters/search; Notary history filters (six records → two awaiting signature or two completed); Admin grid filters; no initial list autofocus or uncaught errors. Stable MUI toolbar slots preserve input/filter focus across updates in both Admin grids. [Results](browser-checks.json).
 - [Admin GET-fixture checks](admin-fixture-checks.json) prove raw rejected/invalid matching and separate processing/verification/signature filters, without creating records.
-- Vercel QA click-through evidence is recorded separately before adding ready-for-review.
+- [Vercel QA checks](vercel-qa.json): final source deployment Ready; all three QA logins and role navigation/filtering passed. Both Admin searches retain focus through typing and filtering. The eight `vercel-*.png` images below show the deployed build. No payment or document/account changes.
 
 ## Boundaries
 
@@ -86,3 +86,21 @@ Baseline and after are the same local app/API QA fixtures at 1440×1000 and 390�
 ![After](after-admin-admin-notary-management-mobile.png)
 
 </details>
+
+## Vercel preview captures
+
+![vercel-admin-management-desktop](vercel-admin-management-desktop.png)
+
+![vercel-admin-management-mobile](vercel-admin-management-mobile.png)
+
+![vercel-notary-dashboard-desktop](vercel-notary-dashboard-desktop.png)
+
+![vercel-notary-dashboard-mobile](vercel-notary-dashboard-mobile.png)
+
+![vercel-notary-history-desktop](vercel-notary-history-desktop.png)
+
+![vercel-notary-history-mobile](vercel-notary-history-mobile.png)
+
+![vercel-user-history-desktop](vercel-user-history-desktop.png)
+
+![vercel-user-history-mobile](vercel-user-history-mobile.png)
