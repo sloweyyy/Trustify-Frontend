@@ -110,3 +110,5 @@ Baseline is production main after PR #10; after is the local branch, using the s
 - Status labels use nowrap; the verification detail is a separate readable line. Status columns have a 140px minimum.
 - Removed the chip’s forced top alignment. Browser fixture checks confirm presentation midpoint within 1px of the Admin cell midpoint, with labels fully visible on one line.
 - Replaced before/after mobile full-page images with true 390px viewport captures. The previous viewport itself was 390px, but full-page capture included roughly 1100px of overflow. This correction exposes that existing layout limitation instead of portraying it as responsive.
+
+[Deployed chip geometry](review-1-vercel-layout.json) confirms unwrapped labels and midpoint alignment within 0.5px on Vercel. All 24 image widths are verified in image-dimensions.json, including every mobile preview capture at 390×844.
