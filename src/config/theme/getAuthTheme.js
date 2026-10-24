@@ -1,7 +1,6 @@
-import { getDesignTokens } from './themePrimitives';
+import { getTrustifyThemeOptions } from './createTrustifyTheme';
 
-export default function getAuthTheme(mode) {
-  return {
-    ...getDesignTokens(mode),
-  };
+// Auth's existing ThemeProviders consume the same tokens and overrides as the app.
+export default function getAuthTheme(mode = 'light') {
+  return getTrustifyThemeOptions(mode);
 }

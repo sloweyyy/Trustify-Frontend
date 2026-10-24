@@ -1,0 +1,146 @@
+[
+  {
+    "role": "public",
+    "route": "/signin",
+    "width": 1440,
+    "height": 1000,
+    "file": "screenshots/after-public-signin-desktop.png",
+    "actualUrl": "http://localhost:3001/signin",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "public",
+    "route": "/signin",
+    "width": 390,
+    "height": 844,
+    "file": "screenshots/after-public-signin-mobile.png",
+    "actualUrl": "http://localhost:3001/signin",
+    "scrollWidth": 390
+  },
+  {
+    "role": "public",
+    "route": "/signup",
+    "width": 1440,
+    "height": 1000,
+    "file": "screenshots/after-public-signup-desktop.png",
+    "actualUrl": "http://localhost:3001/signup",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "public",
+    "route": "/signup",
+    "width": 390,
+    "height": 844,
+    "file": "screenshots/after-public-signup-mobile.png",
+    "actualUrl": "http://localhost:3001/signup",
+    "scrollWidth": 390
+  },
+  {
+    "role": "public",
+    "route": "/lookup",
+    "width": 1440,
+    "height": 1000,
+    "file": "screenshots/after-public-lookup-desktop.png",
+    "actualUrl": "http://localhost:3001/lookup",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "public",
+    "route": "/lookup",
+    "width": 390,
+    "height": 844,
+    "file": "screenshots/after-public-lookup-mobile.png",
+    "actualUrl": "http://localhost:3001/lookup",
+    "scrollWidth": 390
+  },
+  {
+    "role": "public",
+    "route": "/verify",
+    "width": 1440,
+    "height": 1000,
+    "file": "screenshots/after-public-verify-desktop.png",
+    "actualUrl": "http://localhost:3001/verify",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "public",
+    "route": "/verify",
+    "width": 390,
+    "height": 844,
+    "file": "screenshots/after-public-verify-mobile.png",
+    "actualUrl": "http://localhost:3001/verify",
+    "scrollWidth": 390
+  },
+  {
+    "role": "user",
+    "route": "/user/create-notarization-profile",
+    "width": 1440,
+    "height": 1000,
+    "file": "screenshots/after-user-user-create-notarization-profile-desktop.png",
+    "actualUrl": "http://localhost:3001/user/create-notarization-profile",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "user",
+    "route": "/user/create-notarization-profile",
+    "width": 390,
+    "height": 844,
+    "file": "screenshots/after-user-user-create-notarization-profile-mobile.png",
+    "actualUrl": "http://localhost:3001/user/create-notarization-profile",
+    "scrollWidth": 1056
+  },
+  {
+    "role": "user",
+    "route": "/user/history",
+    "width": 1440,
+    "height": 1000,
+    "file": "screenshots/after-user-user-history-desktop.png",
+    "actualUrl": "http://localhost:3001/user/history",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "user",
+    "route": "/user/history",
+    "width": 390,
+    "height": 844,
+    "file": "screenshots/after-user-user-history-mobile.png",
+    "actualUrl": "http://localhost:3001/user/history",
+    "scrollWidth": 1108
+  },
+  {
+    "role": "notary",
+    "route": "/notary/pending-notarization-documents",
+    "width": 1440,
+    "height": 1000,
+    "file": "screenshots/after-notary-notary-pending-notarization-documents-desktop.png",
+    "actualUrl": "http://localhost:3001/notary/pending-notarization-documents",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "notary",
+    "route": "/notary/pending-notarization-documents",
+    "width": 390,
+    "height": 844,
+    "file": "screenshots/after-notary-notary-pending-notarization-documents-mobile.png",
+    "actualUrl": "http://localhost:3001/notary/pending-notarization-documents",
+    "scrollWidth": 433
+  },
+  {
+    "role": "admin",
+    "route": "/admin/dashboard",
+    "width": 1440,
+    "height": 1000,
+    "file": "screenshots/after-admin-admin-dashboard-desktop.png",
+    "actualUrl": "http://localhost:3001/admin/dashboard",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "admin",
+    "route": "/admin/dashboard",
+    "width": 390,
+    "height": 844,
+    "file": "screenshots/after-admin-admin-dashboard-mobile.png",
+    "actualUrl": "http://localhost:3001/admin/dashboard",
+    "scrollWidth": 1440
+  }
+]

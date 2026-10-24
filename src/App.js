@@ -1,8 +1,9 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { lazy, Suspense, useEffect } from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import getDesignTokens from './config/theme/themePrimitives';
+import { lazy, Suspense, useEffect, useMemo } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import createTrustifyTheme from './config/theme/createTrustifyTheme';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
@@ -16,7 +17,6 @@ import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
 import { setUser } from './stores/slices/userSlice';
 import Settings from './pages/admin/Settings';
-import ThirdParty from './pages/static/Loader';
 import Loader from './components/Loader';
 import ChatAssistant from './components/ChatAssistant';
 import ScrollToTop from './components/ScrollToTop';
@@ -62,7 +62,7 @@ const SessionManagement = lazy(() => import('./pages/notary/SessionManagement'))
 
 function App() {
   const dispatch = useDispatch();
-  const theme = createTheme(getDesignTokens());
+  const theme = useMemo(() => createTrustifyTheme(), []);
   const { isAuthenticated } = useSelector((state) => state.auth);
   const { token, refreshToken } = TokenService.getAccessTokenFromURL(window.location.search);
   const resetPasswordToken = TokenService.getResetPasswordTokenFromURL(window.location.search);
@@ -91,11 +91,14 @@ function App() {
       Cookies.set('resetPasswordToken', resetPasswordToken);
       window.history.replaceState({}, document.title, window.location.pathname);
     }
+    // Preserve the existing mount-only reset-token handling during this visual migration.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <Suspense fallback={<Loader />}>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <ScrollToTop />
         <Box display={'flex'}>
           {isAuthenticated && <Sidebar />}

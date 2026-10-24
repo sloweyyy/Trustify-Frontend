@@ -1,0 +1,719 @@
+[
+  {
+    "id": "home",
+    "role": "public",
+    "route": "/",
+    "title": "Công chứng trực tuyến",
+    "kind": "home",
+    "primary": "Tạo hồ sơ công chứng",
+    "desktop": [
+      "Thanh đầu: logo B · Dịch vụ · Tra cứu · Xác minh · Đăng nhập",
+      "Hồ sơ rõ ràng. An tâm từng bước. | Tạo hồ sơ công chứng",
+      "Chuẩn bị giấy tờ → Gửi hồ sơ → Theo dõi và nhận kết quả",
+      "Dịch vụ thường dùng · Hướng dẫn · Liên hệ · Chính sách"
+    ],
+    "mobile": [
+      "Logo B + nút Mở menu",
+      "Tiêu đề → mô tả ngắn → Tạo hồ sơ công chứng",
+      "Các bước xếp dọc → dịch vụ → chân trang gọn"
+    ],
+    "details": "Giữ CTA hiện tại và guard chuyển hướng theo role. Bỏ danh xưng quốc gia, hạng nhất và số đánh giá chưa có bằng chứng. Chỉ hiển thị đơn vị/đối tác đã được xác minh; không thêm huy hiệu pháp lý.",
+    "source": "src/pages/home/Home.js"
+  },
+  {
+    "id": "services",
+    "role": "public",
+    "route": "/services",
+    "title": "Dịch vụ công chứng",
+    "kind": "services",
+    "primary": "Tạo hồ sơ",
+    "desktop": [
+      "Tiêu đề + tìm dịch vụ",
+      "Danh sách lĩnh vực | Thẻ dịch vụ: tên · giấy tờ · Tạo hồ sơ",
+      "Hướng dẫn quy trình và phạm vi áp dụng"
+    ],
+    "mobile": [
+      "Tìm dịch vụ toàn chiều ngang",
+      "Bộ lọc lĩnh vực mở gọn",
+      "Thẻ dịch vụ một cột, CTA trong từng thẻ"
+    ],
+    "details": "Dữ liệu lĩnh vực/dịch vụ giữ service hiện có. Một CTA chính trên mỗi thẻ, không thêm giá/thời gian xử lý nếu response không có. Tìm kiếm không làm thay đổi dữ liệu.",
+    "source": "src/pages/services/Services.js"
+  },
+  {
+    "id": "lookup",
+    "role": "public",
+    "route": "/lookup",
+    "title": "Tra cứu trạng thái hồ sơ",
+    "kind": "lookup",
+    "primary": "Tra cứu",
+    "desktop": [
+      "Tiêu đề + nơi lấy mã",
+      "Mã hồ sơ [________________] [Tra cứu]",
+      "Kết quả: mã · loại dịch vụ · trạng thái · thông tin hiện được phép công khai"
+    ],
+    "mobile": [
+      "Nhãn và ô mã toàn chiều ngang",
+      "Tra cứu dưới ô nhập",
+      "Kết quả dạng card, chuỗi mã xuống dòng"
+    ],
+    "details": "Phân biệt lookup trạng thái với verify bản ghi. Không hứa tìm bằng tên/CCCD. Không mở rộng dữ liệu cá nhân trong kết quả; giữ response hiện tại.",
+    "source": "src/pages/services/LookupNotarizationProfile.js"
+  },
+  {
+    "id": "verify",
+    "role": "public",
+    "route": "/verify",
+    "title": "Xác minh hồ sơ công chứng",
+    "kind": "verify",
+    "primary": "Xác minh",
+    "desktop": [
+      "Giải thích: đối chiếu thông tin bản ghi tài liệu",
+      "Mã bản ghi (địa chỉ mint NFT) [________________] [Xác minh]",
+      "Kết quả tìm thấy / không tìm thấy / chưa tải được; mạng devnet"
+    ],
+    "mobile": [
+      "Hướng dẫn lấy mã từ ví tài liệu",
+      "Trường mã cho phép dán và xuống dòng kết quả",
+      "Card kết quả với nhãn mạng thử nghiệm"
+    ],
+    "details": "Giữ NFTService.getNFTMetadata(mint). Nhãn thân thiện không thay loại ID. Không diễn giải response mint thành bảo đảm pháp lý hoặc đã kiểm tra nội dung tệp.",
+    "source": "src/pages/services/VerifyNotarizationProfile.js"
+  },
+  {
+    "id": "pricing",
+    "role": "public",
+    "route": "/pricing",
+    "title": "Bảng giá dịch vụ",
+    "kind": "pricing",
+    "primary": "Liên hệ tư vấn",
+    "desktop": [
+      "Phân biệt gói cho văn phòng với phí từng hồ sơ",
+      "Các gói: phạm vi · mức giá hiện có · điều kiện · CTA hiện có",
+      "Thông tin phí và cách liên hệ"
+    ],
+    "mobile": [
+      "Giới thiệu rõ đối tượng văn phòng",
+      "Các gói một cột, không carousel",
+      "Giá và đơn vị ngay dưới tên gói"
+    ],
+    "details": "Không quy đổi giá USD đang có sang VND bằng tỷ giá tự đặt. Nội dung VND dùng formatter chung khi giá thực có. Dùng CTA liên hệ hiện có; không thêm quy trình đăng ký gói hoặc thanh toán gói.",
+    "source": "src/pages/static/product/Pricing.js"
+  },
+  {
+    "id": "privacy",
+    "role": "public",
+    "route": "/privacy-policy",
+    "title": "Chính sách bảo mật",
+    "kind": "policy",
+    "primary": "Xem mục liên quan",
+    "desktop": [
+      "Tiêu đề · ngày cập nhật khi có căn cứ",
+      "Mục lục bên trái | Nội dung rộng tối đa 72ch",
+      "Phạm vi dữ liệu · quyền truy cập · liên hệ",
+      "Liên hệ theo thông tin đã xác nhận"
+    ],
+    "mobile": [
+      "Tiêu đề → Mục lục mở gọn",
+      "Nội dung một cột, heading rõ, link mục neo",
+      "Liên hệ cuối bài"
+    ],
+    "details": "Phạm vi dữ liệu · quyền truy cập · liên hệ. Giữ nội dung nghĩa vụ hiện tại; biên tập câu chữ cần kiểm tra chủ sở hữu chính sách, không tự tạo thời hạn, đảm bảo bảo mật hay quyền mới. Không có nút gửi giả.",
+    "source": "src/pages/static/policy/PrivacyPolicy.js"
+  },
+  {
+    "id": "payment-policy",
+    "role": "public",
+    "route": "/payment-security",
+    "title": "Bảo mật thanh toán",
+    "kind": "policy",
+    "primary": "Xem mục liên quan",
+    "desktop": [
+      "Tiêu đề · ngày cập nhật khi có căn cứ",
+      "Mục lục bên trái | Nội dung rộng tối đa 72ch",
+      "Phương thức hiện hỗ trợ · thông tin giao dịch · liên hệ",
+      "Liên hệ theo thông tin đã xác nhận"
+    ],
+    "mobile": [
+      "Tiêu đề → Mục lục mở gọn",
+      "Nội dung một cột, heading rõ, link mục neo",
+      "Liên hệ cuối bài"
+    ],
+    "details": "Phương thức hiện hỗ trợ · thông tin giao dịch · liên hệ. Giữ nội dung nghĩa vụ hiện tại; biên tập câu chữ cần kiểm tra chủ sở hữu chính sách, không tự tạo thời hạn, đảm bảo bảo mật hay quyền mới. Không có nút gửi giả.",
+    "source": "src/pages/static/policy/PaymentSecurity.js"
+  },
+  {
+    "id": "terms",
+    "role": "public",
+    "route": "/terms-of-service",
+    "title": "Điều khoản sử dụng",
+    "kind": "policy",
+    "primary": "Xem mục liên quan",
+    "desktop": [
+      "Tiêu đề · ngày cập nhật khi có căn cứ",
+      "Mục lục bên trái | Nội dung rộng tối đa 72ch",
+      "Phạm vi dịch vụ · trách nhiệm · điều kiện sử dụng",
+      "Liên hệ theo thông tin đã xác nhận"
+    ],
+    "mobile": [
+      "Tiêu đề → Mục lục mở gọn",
+      "Nội dung một cột, heading rõ, link mục neo",
+      "Liên hệ cuối bài"
+    ],
+    "details": "Phạm vi dịch vụ · trách nhiệm · điều kiện sử dụng. Giữ nội dung nghĩa vụ hiện tại; biên tập câu chữ cần kiểm tra chủ sở hữu chính sách, không tự tạo thời hạn, đảm bảo bảo mật hay quyền mới. Không có nút gửi giả.",
+    "source": "src/pages/static/policy/TermsOfService.js"
+  },
+  {
+    "id": "regulations",
+    "role": "public",
+    "route": "/operating-regulations",
+    "title": "Quy chế hoạt động",
+    "kind": "policy",
+    "primary": "Xem mục liên quan",
+    "desktop": [
+      "Tiêu đề · ngày cập nhật khi có căn cứ",
+      "Mục lục bên trái | Nội dung rộng tối đa 72ch",
+      "Quy trình · quyền và nghĩa vụ · phối hợp xử lý",
+      "Liên hệ theo thông tin đã xác nhận"
+    ],
+    "mobile": [
+      "Tiêu đề → Mục lục mở gọn",
+      "Nội dung một cột, heading rõ, link mục neo",
+      "Liên hệ cuối bài"
+    ],
+    "details": "Quy trình · quyền và nghĩa vụ · phối hợp xử lý. Giữ nội dung nghĩa vụ hiện tại; biên tập câu chữ cần kiểm tra chủ sở hữu chính sách, không tự tạo thời hạn, đảm bảo bảo mật hay quyền mới. Không có nút gửi giả.",
+    "source": "src/pages/static/policy/OperatingRegulations.js"
+  },
+  {
+    "id": "disputes",
+    "role": "public",
+    "route": "/dispute-resolution",
+    "title": "Cơ chế giải quyết khiếu nại",
+    "kind": "policy",
+    "primary": "Xem mục liên quan",
+    "desktop": [
+      "Tiêu đề · ngày cập nhật khi có căn cứ",
+      "Mục lục bên trái | Nội dung rộng tối đa 72ch",
+      "Bước gửi yêu cầu · thông tin cần chuẩn bị · kênh tiếp nhận",
+      "Liên hệ theo thông tin đã xác nhận"
+    ],
+    "mobile": [
+      "Tiêu đề → Mục lục mở gọn",
+      "Nội dung một cột, heading rõ, link mục neo",
+      "Liên hệ cuối bài"
+    ],
+    "details": "Bước gửi yêu cầu · thông tin cần chuẩn bị · kênh tiếp nhận. Giữ nội dung nghĩa vụ hiện tại; biên tập câu chữ cần kiểm tra chủ sở hữu chính sách, không tự tạo thời hạn, đảm bảo bảo mật hay quyền mới. Không có nút gửi giả.",
+    "source": "src/pages/static/policy/DisputeResolution.js"
+  },
+  {
+    "id": "individuals",
+    "role": "public",
+    "route": "/for-individuals",
+    "title": "Dành cho cá nhân",
+    "kind": "information",
+    "primary": "Tìm văn phòng công chứng",
+    "desktop": [
+      "Đối tượng · dịch vụ có thể hỗ trợ · CTA hiện có",
+      "Cần chuẩn bị gì · phí hiện được công bố · các bước",
+      "Hướng dẫn và liên hệ"
+    ],
+    "mobile": [
+      "Giới thiệu ngắn → CTA",
+      "Giấy tờ, phí và các bước dạng khối xếp dọc"
+    ],
+    "details": "Giữ đích CTA hiện có; không tạo công cụ tìm văn phòng nếu chưa có chức năng đó. Các giá/phí phải được xác nhận, không đưa giá mock vào production.",
+    "source": "src/pages/static/product/ForIndividuals.js"
+  },
+  {
+    "id": "offices",
+    "role": "public",
+    "route": "/for-notary-offices",
+    "title": "Dành cho văn phòng công chứng",
+    "kind": "information",
+    "primary": "Yêu cầu giới thiệu",
+    "desktop": [
+      "Giải pháp cho văn phòng · CTA yêu cầu demo hiện có",
+      "Tiếp nhận → xử lý → ký số → quản lý hồ sơ",
+      "Tài liệu giới thiệu và liên hệ"
+    ],
+    "mobile": [
+      "Giá trị thực dụng → CTA",
+      "Nhóm khả năng một cột → liên hệ"
+    ],
+    "details": "Việt hóa demo thành giới thiệu sản phẩm; giữ handler/đích yêu cầu và tải tài liệu hiện có, không thêm lead API. Không hứa chức năng chưa tồn tại.",
+    "source": "src/pages/static/product/ForNotaryOffices.js"
+  },
+  {
+    "id": "guide",
+    "role": "public",
+    "route": "/user-guide",
+    "title": "Hướng dẫn sử dụng",
+    "kind": "guide",
+    "primary": "Xem bước cần hỗ trợ",
+    "desktop": [
+      "Mục lục các bước | Nội dung từng bước và hình minh họa",
+      "Tạo tài khoản → gửi hồ sơ → theo dõi → ký → nhận tài liệu",
+      "Link dịch vụ/tra cứu liên quan"
+    ],
+    "mobile": [
+      "Chọn bước bằng danh sách mở gọn",
+      "Một bước mỗi khối, chú thích ngay dưới ảnh",
+      "Hướng dẫn không vượt chiều ngang"
+    ],
+    "details": "Giữ nội dung liên quan tính năng thực; đồng nhất tên miền live và tên mục. Không thêm cam kết mọi thủ tục hoàn tất từ xa.",
+    "source": "src/pages/static/UserGuide.js"
+  },
+  {
+    "id": "signin",
+    "role": "public",
+    "route": "/signin",
+    "title": "Đăng nhập",
+    "kind": "auth",
+    "primary": "Đăng nhập",
+    "desktop": [
+      "Logo B + đường về trang chủ",
+      "Thông điệp thương hiệu | Biểu mẫu: Email · Mật khẩu · Hiện mật khẩu · Quên mật khẩu?",
+      "CTA chính · đường dẫn tài khoản liên quan"
+    ],
+    "mobile": [
+      "Logo → tiêu đề → biểu mẫu một cột",
+      "Email · Mật khẩu · Hiện mật khẩu · Quên mật khẩu?",
+      "CTA đủ rộng · liên kết phụ dưới CTA"
+    ],
+    "details": "Giữ Google OAuth ở đăng nhập/đăng ký. Giữ validation, token, hành vi gửi và bảo mật tài khoản hiện có. Đổi cách đặt nhãn/lỗi, không tự nới hoặc siết quy tắc. Không thêm số điện thoại/CCCD vào form đăng ký.",
+    "source": "src/pages/signin/SignIn.js"
+  },
+  {
+    "id": "signup",
+    "role": "public",
+    "route": "/signup",
+    "title": "Đăng ký",
+    "kind": "auth",
+    "primary": "Đăng ký",
+    "desktop": [
+      "Logo B + đường về trang chủ",
+      "Thông điệp thương hiệu | Biểu mẫu: Họ và tên · Email · Mật khẩu",
+      "CTA chính · đường dẫn tài khoản liên quan"
+    ],
+    "mobile": [
+      "Logo → tiêu đề → biểu mẫu một cột",
+      "Họ và tên · Email · Mật khẩu",
+      "CTA đủ rộng · liên kết phụ dưới CTA"
+    ],
+    "details": "Giữ Google OAuth ở đăng nhập/đăng ký. Giữ validation, token, hành vi gửi và bảo mật tài khoản hiện có. Đổi cách đặt nhãn/lỗi, không tự nới hoặc siết quy tắc. Không thêm số điện thoại/CCCD vào form đăng ký.",
+    "source": "src/pages/signup/SignUp.js"
+  },
+  {
+    "id": "forgot",
+    "role": "public",
+    "route": "/forgot-password",
+    "title": "Quên mật khẩu?",
+    "kind": "auth",
+    "primary": "Gửi yêu cầu",
+    "desktop": [
+      "Logo B + đường về trang chủ",
+      "Thông điệp thương hiệu | Biểu mẫu: Email · Sau khi gửi, kiểm tra hộp thư",
+      "CTA chính · đường dẫn tài khoản liên quan"
+    ],
+    "mobile": [
+      "Logo → tiêu đề → biểu mẫu một cột",
+      "Email · Sau khi gửi, kiểm tra hộp thư",
+      "CTA đủ rộng · liên kết phụ dưới CTA"
+    ],
+    "details": "Giữ validation, token, hành vi gửi và bảo mật tài khoản hiện có. Đổi cách đặt nhãn/lỗi, không tự nới hoặc siết quy tắc. Không thêm số điện thoại/CCCD vào form đăng ký.",
+    "source": "src/pages/signin/ForgotPassword.js"
+  },
+  {
+    "id": "reset",
+    "role": "public",
+    "route": "/reset-password",
+    "title": "Đặt lại mật khẩu",
+    "kind": "auth",
+    "primary": "Đặt lại mật khẩu",
+    "desktop": [
+      "Logo B + đường về trang chủ",
+      "Thông điệp thương hiệu | Biểu mẫu: Mật khẩu mới · Xác nhận mật khẩu · Quy tắc hiện tại",
+      "CTA chính · đường dẫn tài khoản liên quan"
+    ],
+    "mobile": [
+      "Logo → tiêu đề → biểu mẫu một cột",
+      "Mật khẩu mới · Xác nhận mật khẩu · Quy tắc hiện tại",
+      "CTA đủ rộng · liên kết phụ dưới CTA"
+    ],
+    "details": "Giữ validation, token, hành vi gửi và bảo mật tài khoản hiện có. Đổi cách đặt nhãn/lỗi, không tự nới hoặc siết quy tắc. Không thêm số điện thoại/CCCD vào form đăng ký.",
+    "source": "src/pages/signin/ResetPassword.js"
+  },
+  {
+    "id": "third-party",
+    "role": "public",
+    "route": "/third-party",
+    "title": "Đang hoàn tất đăng nhập",
+    "kind": "loading",
+    "primary": null,
+    "desktop": [
+      "Logo B",
+      "Đang hoàn tất đăng nhập… · chỉ báo đang tải"
+    ],
+    "mobile": [
+      "Logo → thông báo đang tải"
+    ],
+    "details": "Route trung gian hiện render Loader. Không thêm nút đăng nhập lần nữa hoặc timer/redirect mới. Đặc tả lỗi nếu handler hiện cung cấp lỗi; không tự tạo flow OAuth.",
+    "source": "src/App.js"
+  },
+  {
+    "id": "not-found",
+    "role": "public",
+    "route": "*",
+    "title": "Không tìm thấy trang",
+    "kind": "empty",
+    "primary": "Về trang chủ",
+    "desktop": [
+      "Logo B + điều hướng",
+      "Không tìm thấy trang · mô tả ngắn · Về trang chủ"
+    ],
+    "mobile": [
+      "Logo → lời giải thích → CTA"
+    ],
+    "details": "Giữ catch-all route. Không dùng nút quay lại tự đoán khi không có lịch sử.",
+    "source": "src/pages/notfound/NotFound.js"
+  },
+  {
+    "id": "create",
+    "role": "user",
+    "route": "/user/create-notarization-profile",
+    "title": "Tạo hồ sơ công chứng",
+    "kind": "create",
+    "primary": "Tiếp tục / Gửi hồ sơ",
+    "desktop": [
+      "Điều hướng người dùng | Bước 1 Chọn loại → 2 Thông tin → 3 Kiểm tra",
+      "Khối chính 720px | Hướng dẫn theo dịch vụ",
+      "Quay lại (phụ) · Tiếp tục hoặc Gửi hồ sơ (chính)"
+    ],
+    "mobile": [
+      "Menu gọn → Bước 1/3 và tên bước",
+      "Các trường một cột; thông tin → tài liệu",
+      "Quay lại và CTA dưới nội dung; không che lỗi"
+    ],
+    "details": "Bước 1: lĩnh vực + dịch vụ từ API. Bước 2: fullName, phoneNumber, citizenId, email, amount = SỐ BẢN SAO, giấy tờ theo required_documents; lấy tệp từ máy/ví. Bước 3: rà soát các dữ liệu đó và gửi. Giữ currentStep, FormData và handler submit; không thêm bước thanh toán vào wizard. Không hứa lưu nháp khi chưa có persistence.",
+    "source": "src/pages/services/create-notarization-profile/CreateNotarizationProfile.js"
+  },
+  {
+    "id": "history",
+    "role": "user",
+    "route": "/user/history",
+    "title": "Lịch sử hồ sơ công chứng",
+    "kind": "history",
+    "primary": "Thanh toán (khi có khoản chờ) / Xem hồ sơ",
+    "desktop": [
+      "Tiêu đề + mô tả",
+      "Banner từng khoản chờ: mã hồ sơ · số tiền · Thanh toán",
+      "Lọc trạng thái + tìm kiếm",
+      "Bảng hồ sơ: mã · ngày gửi · người yêu cầu · trạng thái · dịch vụ"
+    ],
+    "mobile": [
+      "Tiêu đề → banner, số tiền và Thanh toán đủ rộng",
+      "Tìm kiếm → Bộ lọc → card hồ sơ",
+      "Card có nhãn trạng thái và Xem hồ sơ"
+    ],
+    "details": "Tái dùng PendingPayments: giữ getMyPayments(pending), filter checkoutUrl và href. Không tạo checkout, đánh dấu đã thanh toán hoặc gộp nhiều khoản vào một URL. Chi tiết hồ sơ dùng HistoryDetailModal; không đổi sắp xếp/filter state.",
+    "source": "src/pages/services/HistoryNotarizationProfile.js"
+  },
+  {
+    "id": "sessions",
+    "role": "user",
+    "route": "/user/notarization-session",
+    "title": "Phiên công chứng",
+    "kind": "sessions",
+    "primary": "Tạo phiên công chứng",
+    "desktop": [
+      "Tiêu đề + Tạo phiên công chứng",
+      "Tìm kiếm · danh sách phiên · trạng thái từng người khi có",
+      "Chi tiết: thành viên · tài liệu · yêu cầu hiện có"
+    ],
+    "mobile": [
+      "Tiêu đề → CTA → tìm kiếm",
+      "Card phiên một cột",
+      "Chi tiết toàn màn hình trên mobile"
+    ],
+    "details": "Giữ CreateNotarizationSession, JoinSessionModal, SessionCard và NotarizationSessionDetailsModal. Không thêm video call, lịch hẹn hay hệ thống mời mới. Trống: Chưa có phiên công chứng; dùng CTA đang có.",
+    "source": "src/pages/services/CreateNotarizationSession.js"
+  },
+  {
+    "id": "wallet",
+    "role": "user",
+    "route": "/user/document-wallet",
+    "title": "Ví tài liệu",
+    "kind": "wallet",
+    "primary": "Xem tài liệu",
+    "desktop": [
+      "Tên trang + giải thích bản ghi blockchain (NFT)",
+      "Danh sách tài liệu: tên · ngày nhận · hạn dùng nếu có",
+      "Xem tài liệu · Chia sẻ tài liệu · Mua thêm theo hành vi hiện có"
+    ],
+    "mobile": [
+      "Giải thích ngắn có thể mở lại",
+      "Card một cột: tên, ngày Việt, thông tin đối chiếu phụ",
+      "Xem tài liệu ưu tiên; chia sẻ/mua thêm ở khu vực phụ"
+    ],
+    "details": "Giữ nftItems, metadata và modal hiện có. SHOW MINT ADDRESS đổi thành Xem mã bản ghi. Tách trạng thái hồ sơ, thanh toán và bản ghi; ghi Solana devnet khi hiển thị thông tin mạng. Không quảng bá NFT là tài sản/chứng thư pháp lý.",
+    "source": "src/pages/services/DocumentWallet.js"
+  },
+  {
+    "id": "profile",
+    "role": "shared",
+    "route": "/profile",
+    "title": "Thông tin cá nhân",
+    "kind": "profile",
+    "primary": "Chỉnh sửa",
+    "desktop": [
+      "Điều hướng theo role | Thông tin cá nhân",
+      "Ảnh đại diện · Họ tên · thông tin tài khoản",
+      "Giấy tờ định danh · địa chỉ · Chỉnh sửa"
+    ],
+    "mobile": [
+      "Menu theo role → tiêu đề",
+      "Ảnh/đổi ảnh → thông tin một cột",
+      "Dialog chỉnh sửa toàn màn hình, Lưu khi đang chỉnh sửa"
+    ],
+    "details": "Một route chung user/notary/admin/secretary, không thêm route profile theo role. Giữ ProvinceSelector, dữ liệu địa chỉ, định dạng upload và update handler. Nhãn CMND/CCCD/Hộ chiếu không biến thành CCCD-only.",
+    "source": "src/pages/profile/UserProfile.js"
+  },
+  {
+    "id": "payment",
+    "role": "shared",
+    "route": "/payment/redirect",
+    "title": "Kết quả thanh toán",
+    "kind": "payment",
+    "primary": "Về trang chủ (hiện có)",
+    "desktop": [
+      "Logo/điều hướng theo trạng thái đăng nhập",
+      "Card kết quả: đang xử lý / thông báo từ luồng hiện có",
+      "Tham chiếu giao dịch nếu đã có → CTA hiện có"
+    ],
+    "mobile": [
+      "Thông báo → mô tả → CTA toàn chiều ngang"
+    ],
+    "details": "PaymentRoute mở cho mọi role và khách. Không đổi PAID/CANCELLED/ERROR query handling, updatePaymentStatus, guard hoặc timer. Giảm khẳng định trong copy: khi hệ thống chỉ nhận chuyển hướng, không nói đã độc lập xác nhận ngân hàng. Unknown/error normalization và đổi CTA về history là issue riêng cần scope sau, không lén sửa logic.",
+    "source": "src/pages/services/PaymentRedirectPage.js"
+  },
+  {
+    "id": "notary-home",
+    "role": "notary",
+    "route": "/notary/dashboard",
+    "title": "Tổng quan công chứng",
+    "kind": "notary-dashboard",
+    "primary": "Mở danh sách chờ xử lý",
+    "desktop": [
+      "Sidebar công chứng viên | Tiêu đề + thao tác",
+      "Các hàng chờ và số hồ sơ cần xử lý",
+      "Yêu cầu gần đây: tên · loại · trạng thái | chỉ số tổng quan"
+    ],
+    "mobile": [
+      "Số liệu xếp 2 rồi 1 cột khi cần",
+      "Lối vào hàng chờ đủ rộng → danh sách gần đây"
+    ],
+    "details": "Giữ số liệu/hành vi hiện có. Nếu thẻ số liệu chưa có handler, chỉ bổ sung link tới route hàng chờ có sẵn, không query hay quyền mới.",
+    "source": "src/pages/notary/NotaryDashboard.js"
+  },
+  {
+    "id": "notary-pending",
+    "role": "notary",
+    "route": "/notary/pending-notarization-documents",
+    "title": "Hồ sơ chờ xử lý",
+    "kind": "queue",
+    "primary": "Mở hồ sơ để xem xét",
+    "desktop": [
+      "Sidebar công chứng viên | Tiêu đề + thao tác",
+      "Hàng chờ: người yêu cầu · dịch vụ · trạng thái · Mở hồ sơ",
+      "Chi tiết: thông tin và tài liệu bên trái | preview bên phải",
+      "Yêu cầu bổ sung / từ chối / xác nhận theo quyền hiện có"
+    ],
+    "mobile": [
+      "Danh sách một cột",
+      "Mở hồ sơ toàn màn hình",
+      "Tab Thông tin / Tài liệu, hành động theo quyền hiện có"
+    ],
+    "details": "Giữ endpoint/phân trang hiện tại, card hoặc queue hiển thị cùng dữ liệu đã trả về. Preview dùng FilePreviewModal, không tải đồng loạt tất cả tệp. Hàng chờ rỗng phải có thông báo.",
+    "source": "src/pages/notary/ProcessingNotarizationDocuments.js"
+  },
+  {
+    "id": "notary-sign",
+    "role": "notary",
+    "route": "/notary/awaiting-signature-documents",
+    "title": "Hồ sơ chờ ký số",
+    "kind": "queue",
+    "primary": "Mở hồ sơ chờ ký số",
+    "desktop": [
+      "Sidebar công chứng viên | Tiêu đề + thao tác",
+      "Hàng chờ ký: người yêu cầu · dịch vụ · tình trạng chữ ký",
+      "Chi tiết thông tin | tài liệu + chữ ký hiện có",
+      "Xác nhận theo handler hiện có; không đổi thứ tự ký"
+    ],
+    "mobile": [
+      "Danh sách một cột → chi tiết toàn màn hình",
+      "Thông tin/chữ ký/preview xếp dọc hoặc tab"
+    ],
+    "details": "Không suy luận signatureImage = đã ký số hợp lệ. Hiển thị dữ liệu chữ ký được cung cấp; không thêm ký hàng loạt.",
+    "source": "src/pages/notary/AwaitingSignatureDocuments.js"
+  },
+  {
+    "id": "notary-sessions",
+    "role": "notary",
+    "route": "/notary/notary-session-management",
+    "title": "Quản lý phiên công chứng",
+    "kind": "sessions",
+    "primary": "Mở phiên cần xử lý",
+    "desktop": [
+      "Sidebar công chứng viên | Tiêu đề + thao tác",
+      "Tìm phiên + lọc trạng thái",
+      "Danh sách: tên phiên · người tạo · trạng thái",
+      "Chi tiết phiên: người tham gia · tài liệu · chữ ký"
+    ],
+    "mobile": [
+      "Tìm kiếm → Bộ lọc → card phiên",
+      "Chi tiết toàn màn hình; phần tài liệu mở riêng"
+    ],
+    "details": "Giữ DetailProcessingSessionModal, DetailReadyToSignSessionModal, pagination và session statuses; không ép session status vào document status.",
+    "source": "src/pages/notary/SessionManagement.js"
+  },
+  {
+    "id": "notary-history",
+    "role": "notary",
+    "route": "/notary/notarization-history",
+    "title": "Lịch sử công chứng",
+    "kind": "notary-history",
+    "primary": "Xem chi tiết hồ sơ",
+    "desktop": [
+      "Sidebar công chứng viên | Tiêu đề + thao tác",
+      "Tìm kiếm · lĩnh vực · trạng thái",
+      "Danh sách hồ sơ/mốc lịch sử theo dữ liệu hiện có",
+      "Chi tiết read-only | preview tài liệu"
+    ],
+    "mobile": [
+      "Bộ lọc mở gọn → card một cột",
+      "Mốc lịch sử xếp dọc trong chi tiết"
+    ],
+    "details": "Không tự gộp/xóa event vì card lặp: giữ ngữ nghĩa lịch sử, đặt nhãn mốc rõ. Không làm thay đổi sort/pagination để chuyển sang table.",
+    "source": "src/pages/notary/NotarizedHistory.js"
+  },
+  {
+    "id": "admin-home",
+    "role": "admin",
+    "route": "/admin/dashboard",
+    "title": "Tổng quan quản trị",
+    "kind": "admin-dashboard",
+    "primary": "Lọc kỳ thống kê",
+    "desktop": [
+      "Sidebar quản trị | tiêu đề",
+      "Kỳ thống kê · Xuất theo chức năng hiện có",
+      "Doanh thu · tài liệu · phiên",
+      "Biểu đồ doanh thu + bảng dữ liệu tương đương",
+      "Bảng theo lĩnh vực/dịch vụ"
+    ],
+    "mobile": [
+      "Bộ chọn kỳ → chỉ số một cột",
+      "Biểu đồ rộng theo khung → bảng dữ liệu mở gọn"
+    ],
+    "details": "Giữ Chart.js/react-chartjs-2, dataset, tính toán và export handler hiện có. Biểu đồ có đơn vị, legend và bảng tương đương, không tạo số liệu giả khi response lỗi.",
+    "source": "src/pages/admin/dashboard/AdminDashboard.js"
+  },
+  {
+    "id": "employees",
+    "role": "admin",
+    "route": "/admin/employee-management",
+    "title": "Quản lý nhân viên",
+    "kind": "management",
+    "primary": "Thêm nhân viên",
+    "desktop": [
+      "Sidebar quản trị | tiêu đề",
+      "Tiêu đề + Thêm nhân viên",
+      "Số lượng + nhóm chức vụ · tìm kiếm",
+      "Bảng: tên · chức vụ · trạng thái · xem chi tiết",
+      "Modal chi tiết / tạo tài khoản theo quyền hiện có"
+    ],
+    "mobile": [
+      "CTA → tìm → Bộ lọc",
+      "Card nhân viên; chi tiết toàn màn hình"
+    ],
+    "details": "Giữ CreateNotaryAccountModal và hành vi tạo tài khoản; không thêm thư ký hoặc role mới chỉ vì có nhãn lọc. Biểu đồ cơ cấu chỉ ở vùng tổng quan phụ.",
+    "source": "src/pages/admin/employee-management/EmployeeManagement.js"
+  },
+  {
+    "id": "users",
+    "role": "admin",
+    "route": "/admin/user-management",
+    "title": "Quản lý người dùng",
+    "kind": "management",
+    "primary": "Xem thông tin người dùng",
+    "desktop": [
+      "Sidebar quản trị | tiêu đề",
+      "Tổng số người dùng · các nhóm hiện có",
+      "Tìm kiếm + bảng: tên · email · trạng thái · số hồ sơ",
+      "Chi tiết: thông tin được phép + lịch sử"
+    ],
+    "mobile": [
+      "Tìm → lọc → card có nhãn trường",
+      "Email xuống dòng; mở chi tiết qua nút có tên"
+    ],
+    "details": "Giữ filters và modal hiện tại. Không tạo thao tác khóa/xóa/hàng loạt nếu không có handler. Không hiển thị thêm CCCD ngoài quyền hiện có.",
+    "source": "src/pages/admin/user-management/UserManagement.js"
+  },
+  {
+    "id": "notarizations",
+    "role": "admin",
+    "route": "/admin/notary-management",
+    "title": "Quản lý công chứng",
+    "kind": "management",
+    "primary": "Xem chi tiết công chứng",
+    "desktop": [
+      "Sidebar quản trị | tiêu đề",
+      "Chỉ số hồ sơ / phiên",
+      "Phần hồ sơ: trạng thái + tìm kiếm + bảng",
+      "Phần phiên: bộ lọc + bảng riêng"
+    ],
+    "mobile": [
+      "Hai section tuần tự, bộ lọc trong từng section",
+      "Card hồ sơ/phiên theo loại, không tràn ngang"
+    ],
+    "details": "Giữ hai nguồn dữ liệu và bộ lọc riêng, không trộn pagination. Việt hóa locale DataGrid. Hiển thị empty overlay khi mảng rỗng; lỗi NaN do dữ liệu/pagination phải điều tra riêng, không bịa rowCount.",
+    "source": "src/pages/admin/notary-management/NotaryManagement.js"
+  },
+  {
+    "id": "settings",
+    "role": "admin",
+    "route": "/admin/settings",
+    "title": "Cài đặt",
+    "kind": "settings",
+    "primary": null,
+    "desktop": [
+      "Sidebar quản trị | tiêu đề",
+      "Tiêu đề Cài đặt",
+      "Thông báo: Chức năng cài đặt chưa được cung cấp."
+    ],
+    "mobile": [
+      "Tiêu đề → thông báo một cột"
+    ],
+    "details": "Source hiện chỉ render Settings; không tạo form, toggle, API, Save hay quyền mới. Route vẫn truy cập như cũ; chỉ trình bày placeholder rõ ràng.",
+    "source": "src/pages/admin/Settings.js"
+  },
+  {
+    "id": "assistant",
+    "role": "all",
+    "route": "Widget trên mọi trang",
+    "title": "Trợ lý hướng dẫn",
+    "kind": "assistant",
+    "primary": "Mở trợ lý / Gửi câu hỏi",
+    "desktop": [
+      "Nút Trợ lý 48×48, không đè CTA",
+      "Panel 360px bên phải: lời giới thiệu · lịch sử · ô hỏi · Gửi",
+      "Đóng và quay lại nút mở"
+    ],
+    "mobile": [
+      "Nút Trợ lý 48px tránh vùng thao tác",
+      "Panel gần toàn màn hình, không co còn 30% chiều rộng",
+      "Ô nhập và nút gửi luôn nhìn thấy khi mở bàn phím"
+    ],
+    "details": "Giữ Chatbox và chatbot service. Hiện App chỉ render khi chưa đăng nhập: phase 3 có thể di chuyển mount ra ngoài điều kiện mà không đổi API/auth. Không gửi hồ sơ/CCCD tự động, không biến hướng dẫn thành tư vấn pháp lý hoặc cam kết kết quả.",
+    "source": "src/components/ChatAssistant.js"
+  }
+]

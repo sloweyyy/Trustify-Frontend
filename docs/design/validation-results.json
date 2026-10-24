@@ -1,0 +1,957 @@
+{
+  "screenCount": 36,
+  "widthChecks": [
+    {
+      "screen": "home",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "services",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "lookup",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "verify",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "pricing",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "privacy",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "payment-policy",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "terms",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "regulations",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "disputes",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "individuals",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "offices",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "guide",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "signin",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "signup",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "forgot",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "reset",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "third-party",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "not-found",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "create",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "history",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "sessions",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "wallet",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "profile",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "payment",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "notary-home",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "notary-pending",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "notary-sign",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "notary-sessions",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "notary-history",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "admin-home",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "employees",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "users",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "notarizations",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "settings",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "assistant",
+      "viewport": 320,
+      "scrollWidth": 320,
+      "pass": true
+    },
+    {
+      "screen": "home",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "services",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "lookup",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "verify",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "pricing",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "privacy",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "payment-policy",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "terms",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "regulations",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "disputes",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "individuals",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "offices",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "guide",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "signin",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "signup",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "forgot",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "reset",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "third-party",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "not-found",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "create",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "history",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "sessions",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "wallet",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "profile",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "payment",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "notary-home",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "notary-pending",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "notary-sign",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "notary-sessions",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "notary-history",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "admin-home",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "employees",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "users",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "notarizations",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "settings",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "assistant",
+      "viewport": 390,
+      "scrollWidth": 390,
+      "pass": true
+    },
+    {
+      "screen": "home",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "services",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "lookup",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "verify",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "pricing",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "privacy",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "payment-policy",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "terms",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "regulations",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "disputes",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "individuals",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "offices",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "guide",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "signin",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "signup",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "forgot",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "reset",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "third-party",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "not-found",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "create",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "history",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "sessions",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "wallet",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "profile",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "payment",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "notary-home",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "notary-pending",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "notary-sign",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "notary-sessions",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "notary-history",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "admin-home",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "employees",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "users",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "notarizations",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "settings",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "assistant",
+      "viewport": 768,
+      "scrollWidth": 768,
+      "pass": true
+    },
+    {
+      "screen": "home",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "services",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "lookup",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "verify",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "pricing",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "privacy",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "payment-policy",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "terms",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "regulations",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "disputes",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "individuals",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "offices",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "guide",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "signin",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "signup",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "forgot",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "reset",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "third-party",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "not-found",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "create",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "history",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "sessions",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "wallet",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "profile",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "payment",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "notary-home",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "notary-pending",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "notary-sign",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "notary-sessions",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "notary-history",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "admin-home",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "employees",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "users",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "notarizations",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "settings",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "assistant",
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "pass": true
+    },
+    {
+      "screen": "create",
+      "viewport": 720,
+      "textScale": "200% root-font approximation",
+      "scrollWidth": 720,
+      "pass": true
+    },
+    {
+      "screen": "history",
+      "viewport": 720,
+      "textScale": "200% root-font approximation",
+      "scrollWidth": 720,
+      "pass": true
+    },
+    {
+      "screen": "notary-pending",
+      "viewport": 720,
+      "textScale": "200% root-font approximation",
+      "scrollWidth": 720,
+      "pass": true
+    },
+    {
+      "screen": "assistant",
+      "viewport": 720,
+      "textScale": "200% root-font approximation",
+      "scrollWidth": 720,
+      "pass": true
+    }
+  ],
+  "interactionChecks": [
+    {
+      "name": "Wizard review step 2",
+      "pass": true
+    },
+    {
+      "name": "Wizard review step 3",
+      "pass": true
+    },
+    {
+      "name": "Native dialog opens",
+      "pass": true
+    },
+    {
+      "name": "Escape closes and restores focus",
+      "pass": true
+    },
+    {
+      "name": "Payment mock cannot navigate or mutate",
+      "pass": true
+    },
+    {
+      "name": "Mobile menu opens",
+      "pass": true
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Be Vietnam Pro",
+      "weight": "400",
+      "status": "loaded"
+    },
+    {
+      "family": "Be Vietnam Pro",
+      "weight": "600",
+      "status": "loaded"
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": [],
+  "previews": [
+    "home-1440-light.png",
+    "signin-390-light.png",
+    "create-390-light.png",
+    "history-1440-light.png",
+    "history-390-light.png",
+    "wallet-390-light.png",
+    "notary-pending-1440-light.png",
+    "admin-home-1440-light.png",
+    "assistant-390-light.png",
+    "home-1440-dark.png",
+    "signin-390-dark.png",
+    "create-390-dark.png",
+    "history-1440-dark.png",
+    "history-390-dark.png",
+    "wallet-390-dark.png",
+    "notary-pending-1440-dark.png",
+    "admin-home-1440-dark.png",
+    "assistant-390-dark.png"
+  ]
+}

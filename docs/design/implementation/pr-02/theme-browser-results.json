@@ -1,0 +1,229 @@
+{
+  "modes": [
+    {
+      "mode": "light",
+      "fonts": [
+        {
+          "family": "Be Vietnam Pro",
+          "weight": "400",
+          "status": "loaded"
+        },
+        {
+          "family": "Be Vietnam Pro",
+          "weight": "600",
+          "status": "loaded"
+        }
+      ],
+      "bodyColor": "rgb(36, 38, 43)",
+      "bodyBg": "rgb(250, 248, 245)",
+      "button": [
+        {
+          "bg": "rgb(170, 29, 57)",
+          "color": "rgb(255, 255, 255)",
+          "h": 48
+        }
+      ],
+      "inputs": [
+        {
+          "fontSize": "16px"
+        },
+        {
+          "fontSize": "16px"
+        },
+        {
+          "fontSize": "16px"
+        }
+      ],
+      "labels": [
+        {
+          "text": "Tôi đã kiểm tra thông tin",
+          "rect": {
+            "x": 169,
+            "y": 467.078125,
+            "width": 514,
+            "height": 44,
+            "top": 467.078125,
+            "right": 683,
+            "bottom": 511.078125,
+            "left": 169
+          }
+        },
+        {
+          "text": "Họ và tên",
+          "rect": {
+            "x": 771,
+            "y": 283.078125,
+            "width": 74.953125,
+            "height": 25.59375,
+            "top": 283.078125,
+            "right": 845.953125,
+            "bottom": 308.671875,
+            "left": 771
+          }
+        },
+        {
+          "text": "Số CMND/CCCD/Hộ chiếu",
+          "rect": {
+            "x": 771,
+            "y": 387.078125,
+            "width": 210.0625,
+            "height": 25.59375,
+            "top": 387.078125,
+            "right": 981.0625,
+            "bottom": 412.671875,
+            "left": 771
+          }
+        },
+        {
+          "text": "Số điện thoại",
+          "rect": {
+            "x": 771,
+            "y": 435.078125,
+            "width": 105.46875,
+            "height": 25.59375,
+            "top": 435.078125,
+            "right": 876.46875,
+            "bottom": 460.671875,
+            "left": 771
+          }
+        },
+        {
+          "text": "Trạng thái",
+          "rect": {
+            "x": 771,
+            "y": 539.8557739257812,
+            "width": 81.8125,
+            "height": 25.59375,
+            "top": 539.8557739257812,
+            "right": 852.8125,
+            "bottom": 565.4495239257812,
+            "left": 771
+          }
+        }
+      ],
+      "destructiveHover": {
+        "fg": "rgb(255, 255, 255)",
+        "bg": "rgb(104, 21, 15)",
+        "contrast": 12.332807488899308
+      }
+    },
+    {
+      "mode": "dark",
+      "fonts": [
+        {
+          "family": "Be Vietnam Pro",
+          "weight": "400",
+          "status": "loaded"
+        },
+        {
+          "family": "Be Vietnam Pro",
+          "weight": "600",
+          "status": "loaded"
+        }
+      ],
+      "bodyColor": "rgb(245, 243, 239)",
+      "bodyBg": "rgb(25, 27, 32)",
+      "button": [
+        {
+          "bg": "rgb(240, 165, 181)",
+          "color": "rgb(39, 16, 24)",
+          "h": 48
+        }
+      ],
+      "inputs": [
+        {
+          "fontSize": "16px"
+        },
+        {
+          "fontSize": "16px"
+        },
+        {
+          "fontSize": "16px"
+        }
+      ],
+      "labels": [
+        {
+          "text": "Tôi đã kiểm tra thông tin",
+          "rect": {
+            "x": 169,
+            "y": 467.078125,
+            "width": 514,
+            "height": 44,
+            "top": 467.078125,
+            "right": 683,
+            "bottom": 511.078125,
+            "left": 169
+          }
+        },
+        {
+          "text": "Họ và tên",
+          "rect": {
+            "x": 771,
+            "y": 283.078125,
+            "width": 74.953125,
+            "height": 25.59375,
+            "top": 283.078125,
+            "right": 845.953125,
+            "bottom": 308.671875,
+            "left": 771
+          }
+        },
+        {
+          "text": "Số CMND/CCCD/Hộ chiếu",
+          "rect": {
+            "x": 771,
+            "y": 387.078125,
+            "width": 210.0625,
+            "height": 25.59375,
+            "top": 387.078125,
+            "right": 981.0625,
+            "bottom": 412.671875,
+            "left": 771
+          }
+        },
+        {
+          "text": "Số điện thoại",
+          "rect": {
+            "x": 771,
+            "y": 435.078125,
+            "width": 105.46875,
+            "height": 25.59375,
+            "top": 435.078125,
+            "right": 876.46875,
+            "bottom": 460.671875,
+            "left": 771
+          }
+        },
+        {
+          "text": "Trạng thái",
+          "rect": {
+            "x": 771,
+            "y": 537.46875,
+            "width": 81.8125,
+            "height": 25.59375,
+            "top": 537.46875,
+            "right": 852.8125,
+            "bottom": 563.0625,
+            "left": 771
+          }
+        }
+      ],
+      "destructiveHover": {
+        "fg": "rgb(67, 40, 37)",
+        "bg": "rgb(244, 184, 175)",
+        "contrast": 7.853864288499016
+      }
+    }
+  ],
+  "errors": [],
+  "focus": {
+    "outline": "rgb(36, 92, 154) solid 3px",
+    "offset": "2px"
+  },
+  "dialogEscape": true,
+  "enlargedText": {
+    "kind": "200% root-font approximation",
+    "width": 720,
+    "scrollWidth": 720
+  }
+}
