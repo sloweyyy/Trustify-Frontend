@@ -13,6 +13,7 @@ const CustomSessionDataGridToolbar = ({ onFilterChange, currentFilter, searchTex
         {filterOptions.map((status) => (
           <Button
             key={status}
+            aria-pressed={currentFilter === status}
             onClick={() => onFilterChange(status)}
             sx={{
               borderBottom: currentFilter === status ? `2px solid ${primary[500]}` : 'none',

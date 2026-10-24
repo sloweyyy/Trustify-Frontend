@@ -10,8 +10,8 @@ Existing translated filter keys are deliberately retained; the adapter changes t
 
 - `CI=false npm run build`: passed; [log](build.log).
 - `ESLINT_USE_FLAT_CONFIG=false npx eslint` on all changed JS: passed using existing CRA config; [log](eslint.log).
-- 21 tests: shared chip states, unknown/session-state handling, legacy filter callback values, verification separation, actual table filtering/searching, and theme regression tests; [log](tests.log).
-- Real QA account browser checks on local app: User history filters/search; Notary history filters (six records → two awaiting signature or two completed); Admin grid filters; no initial list autofocus or uncaught errors. [Results](browser-checks.json).
+- 23 tests: shared chip states, unknown/session-state handling, legacy filter callback values, verification separation, actual table filtering/searching, and theme regression tests; [log](tests.log).
+- Real QA account browser checks on local app: User history filters/search; Notary history filters (six records → two awaiting signature or two completed); Admin grid filters; no initial list autofocus or uncaught errors. Stable MUI toolbar slots preserve input/filter focus across updates in both Admin grids. [Results](browser-checks.json).
 - Vercel QA click-through evidence is recorded separately before adding ready-for-review.
 
 ## Boundaries

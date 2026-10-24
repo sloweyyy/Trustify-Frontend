@@ -112,15 +112,9 @@ const SessionDataGrid = ({ data, paginationModel, setPaginationModel, loading })
         rowCount={data?.totalResults}
         rowHeight={70}
         pageSizeOptions={[25, 50, 100]}
-        slots={{
-          toolbar: () => (
-            <CustomSessionDataGridToolbar
-              searchText={searchText}
-              setSearchText={setSearchText}
-              onFilterChange={setFilter}
-              currentFilter={filter}
-            />
-          ),
+        slots={{ toolbar: CustomSessionDataGridToolbar }}
+        slotProps={{
+          toolbar: { searchText, setSearchText, onFilterChange: setFilter, currentFilter: filter },
         }}
         loading={loading}
         disableSelectionOnClick

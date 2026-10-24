@@ -20,9 +20,10 @@
       "route": "/admin/notary-management",
       "total": 2,
       "filter": "passed",
-      "initialAutofocus": false
+      "initialAutofocus": false,
+      "toolbarFocus": "passed for document and session grids"
     }
   ],
   "errors": [],
-  "checkedAt": "2026-10-24T22:14:10.733Z"
+  "checkedAt": "2026-10-24T22:23:15.115Z"
 }

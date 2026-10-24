@@ -91,15 +91,9 @@ const NotaryDataGrid = ({ data, paginationModel, setPaginationModel, loading }) 
         rowCount={data?.totalResults || 0}
         rowHeight={70}
         pageSizeOptions={[25, 50, 100]}
-        slots={{
-          toolbar: () => (
-            <CustomNotaryDataGridToolbar
-              searchText={searchText}
-              setSearchText={setSearchText}
-              onFilterChange={setFilter}
-              currentFilter={filter}
-            />
-          ),
+        slots={{ toolbar: CustomNotaryDataGridToolbar }}
+        slotProps={{
+          toolbar: { searchText, setSearchText, onFilterChange: setFilter, currentFilter: filter },
         }}
         loading={loading}
         checkboxSelection

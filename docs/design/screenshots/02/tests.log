@@ -1,6 +1,40 @@
 
 > trustify@0.1.0 test
-> react-scripts test --watchAll=false --runInBand --runTestsByPath src/config/theme/createTrustifyTheme.test.js src/tests/components/services/StatusFilterButton.test.js src/components/shared/DocumentStatusChip.test.js src/components/shared/DocumentStatusFilters.test.js
+> react-scripts test --watchAll=false --runInBand --runTestsByPath src/config/theme/createTrustifyTheme.test.js src/tests/components/services/StatusFilterButton.test.js src/components/shared/DocumentStatusChip.test.js src/components/shared/DocumentStatusFilters.test.js src/components/shared/GridToolbarFocus.test.js
+
+PASS src/components/shared/GridToolbarFocus.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      11 |   [SessionDataGrid, 'Tìm phiên', 'Phiên ngắn hạn'],
+      12 | ])('the grid toolbar keeps focus across input and filter updates', async (Grid, label, filter) => {
+    > 13 |   render(
+         |         ^
+      14 |     <ThemeProvider theme={createTrustifyTheme()}>
+      15 |       <Grid
+      16 |         data={{ results: [], totalResults: 0 }}
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at src/components/shared/GridToolbarFocus.test.js:13:9
+
+One of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it may break at any time.
+
+babel-preset-react-app is part of the create-react-app project, which
+is not maintianed anymore. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.
 
 PASS src/components/shared/DocumentStatusChip.test.js
   ● Console
@@ -96,22 +130,8 @@ PASS src/tests/components/services/StatusFilterButton.test.js
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 
-Test Suites: 4 passed, 4 total
-Tests:       21 passed, 21 total
+Test Suites: 5 passed, 5 total
+Tests:       23 passed, 23 total
 Snapshots:   0 total
-Time:        3.058 s
-Ran all test suites within paths "src/config/theme/createTrustifyTheme.test.js", "src/tests/components/services/StatusFilterButton.test.js", "src/components/shared/DocumentStatusChip.test.js", "src/components/shared/DocumentStatusFilters.test.js".
-Jest did not exit one second after the test run has completed.
-
-This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
-One of your dependencies, babel-preset-react-app, is importing the
-"@babel/plugin-proposal-private-property-in-object" package without
-declaring it in its dependencies. This is currently working because
-"@babel/plugin-proposal-private-property-in-object" is already in your
-node_modules folder for unrelated reasons, but it may break at any time.
-
-babel-preset-react-app is part of the create-react-app project, which
-is not maintianed anymore. It is thus unlikely that this bug will
-ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
-your devDependencies to work around this error. This will make this message
-go away.
+Time:        3.662 s, estimated 5 s
+Ran all test suites within paths "src/config/theme/createTrustifyTheme.test.js", "src/tests/components/services/StatusFilterButton.test.js", "src/components/shared/DocumentStatusChip.test.js", "src/components/shared/DocumentStatusFilters.test.js", "src/components/shared/GridToolbarFocus.test.js".
