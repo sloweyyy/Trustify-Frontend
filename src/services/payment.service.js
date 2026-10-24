@@ -21,8 +21,17 @@ const updatePaymentStatus = async (orderCode, status) => {
   }
 };
 
+/**
+ * List the current user's payments, optionally filtered by status (pending, success, failed, cancelled)
+ */
+const getMyPayments = async (status) => {
+  const response = await axiosConfig.get(`${PAYMENT_ENDPOINT}/my-payments`, { params: status ? { status } : {} });
+  return response.data;
+};
+
 const PaymentService = {
   updatePaymentStatus,
+  getMyPayments,
 };
 
 export default PaymentService;

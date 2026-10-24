@@ -41,32 +41,39 @@ axiosConfig.interceptors.response.use(
     // }
 
     const originalRequest = error.config;
-    if (error.response && error.response.status === 401 && originalRequest) {
+    const isRefreshCall = originalRequest && originalRequest.url && originalRequest.url.includes('/auth/refresh-tokens');
+    const refreshToken = Cookies.get('refreshToken');
+    if (
+      error.response &&
+      error.response.status === 401 &&
+      originalRequest &&
+      !originalRequest._retry &&
+      !isRefreshCall &&
+      refreshToken
+    ) {
+      originalRequest._retry = true;
       if (!refreshTokenPromise) {
-        const refreshToken = Cookies.get('refreshToken');
-
-        refreshTokenPromise = await AuthService.refreshAccessToken(refreshToken)
+        refreshTokenPromise = AuthService.refreshAccessToken(refreshToken)
           .then((response) => {
-            console.log('Response:', response);
             const newAccessToken = response.data.access.token;
-            const newRefreshToken = response.data.refresh.token;
             Cookies.set('accessToken', newAccessToken);
-            Cookies.set('refreshToken', newRefreshToken);
-            axiosConfig.defaults.headers.Authorization = `Bearer ${newAccessToken}`;
-            window.location.reload();
-            return axiosConfig(originalRequest);
+            Cookies.set('refreshToken', response.data.refresh.token);
+            return newAccessToken;
           })
-          .catch((error) => {
-            // AuthService.logout(refreshToken).then(() => {
-            //   window.location.href = '/signin';
-            // });
+          .catch((refreshError) => {
+            Cookies.remove('accessToken');
+            Cookies.remove('refreshToken');
+            throw refreshError;
           })
           .finally(() => {
             refreshTokenPromise = null;
           });
       }
 
-      return refreshTokenPromise.then(() => axiosConfig(originalRequest));
+      return refreshTokenPromise.then((newAccessToken) => {
+        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+        return axiosConfig(originalRequest);
+      });
     }
 
     return Promise.reject(error);
