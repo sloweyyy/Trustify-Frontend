@@ -8,7 +8,7 @@ import { getDocumentStatus, getDocumentFilterLabel, getLegacyDocumentFilterValue
 const cases = [
   ['pending', 'Chờ xử lý', 'warning'],
   ['processing', 'Đang xử lý', 'info'],
-  ['verification', 'Đang xử lý · Bước xác minh', 'info'],
+  ['verification', 'Đang xử lý', 'info'],
   ['digitalSignature', 'Chờ ký số', 'signature'],
   ['completed', 'Hoàn tất', 'success'],
   ['rejected', 'Bị từ chối', 'error'],
@@ -18,9 +18,10 @@ test.each(['light', 'dark'])('%s renders the complete lifecycle without adding i
   const theme = createTrustifyTheme(mode);
   render(<ThemeProvider theme={theme}>{cases.map(([status]) => <DocumentStatusChip key={status} status={status} />)}</ThemeProvider>);
   cases.forEach(([status, label, tone]) => {
-    expect(screen.getByText(label)).toBeInTheDocument();
+    expect(screen.getAllByText(label).length).toBeGreaterThan(0);
     expect(getDocumentStatus(status).tone).toBe(tone);
   });
+  expect(screen.getByText('Bước xác minh')).toBeInTheDocument();
   // Noninteractive chips are text, not misleading buttons or live announcements.
   expect(screen.queryByRole('button')).not.toBeInTheDocument();
 });

@@ -1,0 +1,98 @@
+[
+  {
+    "file": "after-admin-admin-notary-management-desktop.png",
+    "width": 1440,
+    "height": 1025,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "after-admin-admin-notary-management-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
+  },
+  {
+    "file": "after-notary-notary-dashboard-desktop.png",
+    "width": 1440,
+    "height": 1000,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "after-notary-notary-dashboard-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
+  },
+  {
+    "file": "after-notary-notary-notarization-history-desktop.png",
+    "width": 1440,
+    "height": 1000,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "after-notary-notary-notarization-history-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
+  },
+  {
+    "file": "after-user-user-history-desktop.png",
+    "width": 1440,
+    "height": 1000,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "after-user-user-history-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
+  },
+  {
+    "file": "before-admin-admin-notary-management-desktop.png",
+    "width": 1440,
+    "height": 1000,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "before-admin-admin-notary-management-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
+  },
+  {
+    "file": "before-notary-notary-dashboard-desktop.png",
+    "width": 1440,
+    "height": 1000,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "before-notary-notary-dashboard-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
+  },
+  {
+    "file": "before-notary-notary-notarization-history-desktop.png",
+    "width": 1440,
+    "height": 1000,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "before-notary-notary-notarization-history-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
+  },
+  {
+    "file": "before-user-user-history-desktop.png",
+    "width": 1440,
+    "height": 1000,
+    "expectedWidth": 1440
+  },
+  {
+    "file": "before-user-user-history-mobile.png",
+    "width": 390,
+    "height": 844,
+    "expectedWidth": 390
+  }
+]

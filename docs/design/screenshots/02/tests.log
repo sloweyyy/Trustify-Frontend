@@ -69,7 +69,7 @@ PASS src/components/shared/DocumentStatusChip.test.js
     > 19 |   render(<ThemeProvider theme={theme}>{cases.map(([status]) => <DocumentStatusChip key={status} status={status} />)}</ThemeProvider>);
          |         ^
       20 |   cases.forEach(([status, label, tone]) => {
-      21 |     expect(screen.getByText(label)).toBeInTheDocument();
+      21 |     expect(screen.getAllByText(label).length).toBeGreaterThan(0);
       22 |     expect(getDocumentStatus(status).tone).toBe(tone);
 
       at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
@@ -133,5 +133,5 @@ PASS src/tests/components/services/StatusFilterButton.test.js
 Test Suites: 5 passed, 5 total
 Tests:       30 passed, 30 total
 Snapshots:   0 total
-Time:        3.741 s
+Time:        5.132 s
 Ran all test suites within paths "src/config/theme/createTrustifyTheme.test.js", "src/tests/components/services/StatusFilterButton.test.js", "src/components/shared/DocumentStatusChip.test.js", "src/components/shared/DocumentStatusFilters.test.js", "src/components/shared/GridToolbarFocus.test.js".

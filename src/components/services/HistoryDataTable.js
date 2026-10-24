@@ -68,7 +68,7 @@ const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTyp
               align={'left'}
               padding={headCell.disablePadding ? 'none' : 'normal'}
               sortDirection={orderBy === headCell.id ? order : false}
-              sx={{ borderRadius: '8px', width: '20%' }}
+              sx={{ borderRadius: '8px', width: '20%', minWidth: headCell.id === 'status' ? 140 : undefined }}
             >
               <TableSortLabel
                 active={orderBy === headCell.id}
@@ -210,7 +210,7 @@ const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTyp
                     <TableCell align="left" width={'20%'}>
                       {row.name}
                     </TableCell>
-                    <TableCell align="left" width={'20%'}>
+                    <TableCell align="left" width={'20%'} sx={{ minWidth: 140 }}>
                       <DocumentStatusChip status={row.status} />
                     </TableCell>
                     <TableCell align="left" width={'20%'}>

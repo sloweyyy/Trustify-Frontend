@@ -21,7 +21,7 @@ Legacy detail dialogs and other role-specific statuses migrate in their owning P
 
 ## Before and after
 
-Baseline and after are the same local app/API QA fixtures at 1440×1000 and 390×844. Data timestamps can change.
+Baseline is production main after PR #10; after is the local branch, using the same QA API. Desktop uses 1440px full-page capture. Mobile uses a real 390×844 viewport capture (`fullPage: false`); horizontal overflow is recorded separately in the manifests. The legacy permanent sidebar and wider table remain visible limitations until the shell/responsive-table PRs. [Pixel-width checks](image-dimensions.json) verify every screenshot width. Data timestamps can change.
 
 <details><summary>user /user/history — 1440px</summary>
 
@@ -104,3 +104,9 @@ Baseline and after are the same local app/API QA fixtures at 1440×1000 and 390�
 ![vercel-user-history-desktop](vercel-user-history-desktop.png)
 
 ![vercel-user-history-mobile](vercel-user-history-mobile.png)
+
+## Claude review — round 1
+
+- Status labels use nowrap; the verification detail is a separate readable line. Status columns have a 140px minimum.
+- Removed the chip’s forced top alignment. Browser fixture checks confirm presentation midpoint within 1px of the Admin cell midpoint, with labels fully visible on one line.
+- Replaced before/after mobile full-page images with true 390px viewport captures. The previous viewport itself was 390px, but full-page capture included roughly 1100px of overflow. This correction exposes that existing layout limitation instead of portraying it as responsive.

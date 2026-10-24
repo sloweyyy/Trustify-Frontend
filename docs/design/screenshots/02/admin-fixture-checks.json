@@ -6,26 +6,50 @@
       "matchingIds": [
         "QA-rejected",
         "QA-invalid"
-      ]
+      ],
+      "layout": {
+        "whiteSpace": "nowrap",
+        "labelScrollWidth": 89,
+        "labelClientWidth": 89,
+        "centerDelta": 0.4921875
+      }
     },
     {
       "label": "Đang xử lý",
       "matchingIds": [
         "QA-processing"
-      ]
+      ],
+      "layout": {
+        "whiteSpace": "nowrap",
+        "labelScrollWidth": 97,
+        "labelClientWidth": 97,
+        "centerDelta": 0.4921875
+      }
     },
     {
       "label": "Đang xử lý · Xác minh",
       "matchingIds": [
         "QA-verification"
-      ]
+      ],
+      "layout": {
+        "whiteSpace": "nowrap",
+        "labelScrollWidth": 97,
+        "labelClientWidth": 97,
+        "centerDelta": 0.5
+      }
     },
     {
       "label": "Chờ ký số",
       "matchingIds": [
         "QA-digitalSignature"
-      ]
+      ],
+      "layout": {
+        "whiteSpace": "nowrap",
+        "labelScrollWidth": 92,
+        "labelClientWidth": 92,
+        "centerDelta": 0.4921875
+      }
     }
   ],
-  "checkedAt": "2026-10-24T22:28:27.791Z"
+  "checkedAt": "2026-10-24T22:48:42.317Z"
 }

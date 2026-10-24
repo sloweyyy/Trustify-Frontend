@@ -59,6 +59,7 @@ const NotaryDataGrid = ({ data, paginationModel, setPaginationModel, loading }) 
     {
       field: 'status',
       headerName: 'Trạng thái',
+      minWidth: 140,
       flex: 1,
       renderCell: renderStatusCell,
     },
