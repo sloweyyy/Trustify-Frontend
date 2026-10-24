@@ -7,7 +7,7 @@ All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:
 | Brand assets | #8 | Merged | 2026-10-25 | Approved Logo B, favicon and public brand assets. |
 | 01 — Tokens and MUI | #10 (supersedes #9) | Merged; production healthy | 2026-10-25 05:08 | Existing implementation renamed to required design/01 branch; GitHub closed #9 on branch rename. Theme, auth composition, fonts, AA status colors; build/tests passed. Build + 7 tests + CRA ESLint pass; 144 route screenshots and authenticated Vercel QA completed. |
 
-| 02 — Shared status slice | #11 | Validation | 2026-10-25 05:15 | Central dictionary, accessible status chips and selected filters; preserve raw API states and legacy filter equality. Stable Admin toolbar slots preserve focus. Four-screen desktop/mobile evidence, build, ESLint and 23 focused tests. Remaining shared forms/feedback, upload/stepper and responsive tables will be separate small PRs. |
+| 02 — Shared status slice | #11 | Validation | 2026-10-25 05:15 | Central dictionary, accessible status chips and selected filters; preserve raw API states and legacy filter equality. Stable Admin toolbar slots preserve focus; raw rejected and legacy invalid records both match the rejection filter. Four-screen desktop/mobile evidence, build, ESLint and 30 focused tests. Remaining shared forms/feedback, upload/stepper and responsive tables will be separate small PRs. |
 
 ## Remaining sequence
 
@@ -27,4 +27,3 @@ All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:
 - Mobile footer: stack in shell PR.
 - Empty notary queues: shared empty state, then adoption in queue PR.
 - List autofocus: removed in User history and both Admin notarization/session toolbars in slice 02; audit remaining role lists when touched.
-

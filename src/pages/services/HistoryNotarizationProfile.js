@@ -18,6 +18,7 @@ import {
 } from '@mui/icons-material';
 import { STATUS_TYPES } from '../../utils/constants';
 import PendingPayments from '../../components/payment/PendingPayments';
+import { getLegacyDocumentFilterValue } from '../../utils/documentStatus';
 
 const ICON_MAP = {
   [STATUS_TYPES.All]: <AppsRounded sx={{ height: '18px', width: '18px' }} />,
@@ -66,20 +67,12 @@ const HistoryNotarizationProfile = () => {
       const formattedData = sortedResponse.map((item, index) => {
         const date = new Date(item.createdAt);
         const notaryDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-        const statusMap = {
-          pending: 'Chờ xử lý',
-          processing: 'Đang xử lý',
-          verification: 'Đang xác minh',
-          digitalSignature: 'Sẵn sàng ký số',
-          completed: 'Hoàn tất',
-          rejected: 'Không hợp lệ',
-        };
         return createData(
           index + 1,
           item._id,
           notaryDate,
           item.requesterInfo.fullName,
-          statusMap[item.status.status],
+          getLegacyDocumentFilterValue(item.status.status),
           item.notarizationService.name,
         );
       });

@@ -8,7 +8,7 @@ import { STATUS_TYPES } from '../../utils/constants';
 // This test exercises the table's real filter/search pipeline; detail actions are separate.
 jest.mock('../modals/HistoryDetailModal', () => () => null);
 
-const legacyStatuses = ['Chờ xử lý', 'Đang xử lý', 'Đang xác minh', 'Sẵn sàng ký số', 'Hoàn tất', 'Không hợp lệ'];
+const legacyStatuses = ['Chờ xử lý', 'Đang xử lý', 'Đang xác minh', 'Sẵn sàng ký số', 'Hoàn tất', 'Không hợp lệ', undefined];
 const rows = legacyStatuses.map((status, index) => ({
   id: index + 1, profile: `HS-${index}`, status,
   date: '25/10/2026', name: 'Nguyễn Thị Mỹ', service: 'Chứng thực bản sao',

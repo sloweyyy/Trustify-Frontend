@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { ThemeProvider } from '@mui/material/styles';
 import createTrustifyTheme from '../../config/theme/createTrustifyTheme';
 import DocumentStatusChip from './DocumentStatusChip';
-import { getDocumentStatus, getDocumentFilterLabel } from '../../utils/documentStatus';
+import { getDocumentStatus, getDocumentFilterLabel, getLegacyDocumentFilterValue } from '../../utils/documentStatus';
 
 const cases = [
   ['pending', 'Chờ xử lý', 'warning'],
@@ -36,4 +36,12 @@ test('legacy translated strings have the same presentation as their raw enum', (
   expect(getDocumentStatus('Không hợp lệ')).toEqual(getDocumentStatus('rejected'));
   expect(getDocumentFilterLabel('Đang xác minh')).toBe('Đang xử lý · Xác minh');
   expect(getDocumentFilterLabel('processing')).toBe('Đang xử lý');
+});
+
+test.each([
+  ['pending', 'Chờ xử lý'], ['processing', 'Đang xử lý'],
+  ['verification', 'Đang xác minh'], ['digitalSignature', 'Sẵn sàng ký số'],
+  ['completed', 'Hoàn tất'], ['rejected', 'Không hợp lệ'], ['invalid', 'Không hợp lệ'],
+])('raw %s maps to the compatible filter value without losing rejected records', (raw, expected) => {
+  expect(getLegacyDocumentFilterValue(raw)).toBe(expected);
 });

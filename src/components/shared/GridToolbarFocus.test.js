@@ -1,6 +1,5 @@
 import React from 'react';
-import { act, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { ThemeProvider } from '@mui/material/styles';
 import createTrustifyTheme from '../../config/theme/createTrustifyTheme';
 import NotaryDataGrid from '../../pages/admin/notary-management/NotaryDataGrid';
@@ -19,13 +18,15 @@ test.each([
     </ThemeProvider>,
   );
   const input = screen.getByLabelText(label);
-  // Installed user-event v13 needs an act boundary with React 18's createRoot.
-  await act(async () => { await userEvent.type(input, 'Nguyễn'); });
+  // DOM focus updates MUI's state; fireEvent wraps subsequent React updates itself.
+  act(() => input.focus());
+  fireEvent.change(input, { target: { value: 'Nguyễn' } });
   expect(screen.getByLabelText(label)).toBe(input);
   expect(input).toHaveValue('Nguyễn');
   expect(input).toHaveFocus();
   const button = screen.getByRole('button', { name: filter, exact: true });
-  await act(async () => { userEvent.click(button); });
+  act(() => button.focus());
+  fireEvent.click(button);
   expect(screen.getByRole('button', { name: filter, exact: true })).toBe(button);
   expect(button).toHaveFocus();
   expect(button).toHaveAttribute('aria-pressed', 'true');

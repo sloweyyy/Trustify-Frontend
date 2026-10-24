@@ -4,14 +4,15 @@ Base: merged PR #10 (`227606e4ea568309b46e19034975b483d910be48`), whose primary 
 
 This is the first small slice of stage 02, not the entire shared-component migration. A single display dictionary now supplies the theme and shared chips. The five lifecycle labels, colors and icons agree across the touched User history, Notary dashboard/history and Admin document grid. Verification remains a separate raw state and filter, displayed as Đang xử lý with Bước xác minh. Session readyToSign remains separate.
 
-Existing translated filter keys are deliberately retained; the adapter changes their visible labels. Table search also accepts the newly visible labels. Raw response objects, permissions, callbacks, filters/sorting/pagination and service calls are unchanged. Search fields in the touched lists no longer autofocus. New text uses the approved 400/600 faces.
+Existing translated filter keys are deliberately retained; the adapter changes their visible labels. Table search also accepts the newly visible labels. Raw response objects, permissions, callbacks, filter values/sorting/pagination state and service calls are unchanged. The Admin grid now recognizes raw rejected records as well as its legacy invalid alias; previously its label map omitted rejected. Search fields in the touched lists no longer autofocus. New text uses the approved 400/600 faces.
 
 ## Validation
 
 - `CI=false npm run build`: passed; [log](build.log).
 - `ESLINT_USE_FLAT_CONFIG=false npx eslint` on all changed JS: passed using existing CRA config; [log](eslint.log).
-- 23 tests: shared chip states, unknown/session-state handling, legacy filter callback values, verification separation, actual table filtering/searching, and theme regression tests; [log](tests.log).
+- 30 tests: shared chip states, unknown/session-state handling, legacy filter callback values, verification separation, actual table filtering/searching, and theme regression tests; [log](tests.log).
 - Real QA account browser checks on local app: User history filters/search; Notary history filters (six records → two awaiting signature or two completed); Admin grid filters; no initial list autofocus or uncaught errors. Stable MUI toolbar slots preserve input/filter focus across updates in both Admin grids. [Results](browser-checks.json).
+- [Admin GET-fixture checks](admin-fixture-checks.json) prove raw rejected/invalid matching and separate processing/verification/signature filters, without creating records.
 - Vercel QA click-through evidence is recorded separately before adding ready-for-review.
 
 ## Boundaries

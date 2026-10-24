@@ -8,13 +8,13 @@ PASS src/components/shared/GridToolbarFocus.test.js
     console.error
       Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
 
-      11 |   [SessionDataGrid, 'Tìm phiên', 'Phiên ngắn hạn'],
-      12 | ])('the grid toolbar keeps focus across input and filter updates', async (Grid, label, filter) => {
-    > 13 |   render(
+      10 |   [SessionDataGrid, 'Tìm phiên', 'Phiên ngắn hạn'],
+      11 | ])('the grid toolbar keeps focus across input and filter updates', async (Grid, label, filter) => {
+    > 12 |   render(
          |         ^
-      14 |     <ThemeProvider theme={createTrustifyTheme()}>
-      15 |       <Grid
-      16 |         data={{ results: [], totalResults: 0 }}
+      13 |     <ThemeProvider theme={createTrustifyTheme()}>
+      14 |       <Grid
+      15 |         data={{ results: [], totalResults: 0 }}
 
       at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
       at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
@@ -22,7 +22,7 @@ PASS src/components/shared/GridToolbarFocus.test.js
       at node_modules/@testing-library/react/dist/act-compat.js:63:25
       at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
       at render (node_modules/@testing-library/react/dist/pure.js:246:10)
-      at src/components/shared/GridToolbarFocus.test.js:13:9
+      at src/components/shared/GridToolbarFocus.test.js:12:9
 
 One of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
@@ -35,28 +35,6 @@ is not maintianed anymore. It is thus unlikely that this bug will
 ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.
-
-PASS src/components/shared/DocumentStatusChip.test.js
-  ● Console
-
-    console.error
-      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
-
-      17 | test.each(['light', 'dark'])('%s renders the complete lifecycle without adding interactive chips', (mode) => {
-      18 |   const theme = createTrustifyTheme(mode);
-    > 19 |   render(<ThemeProvider theme={theme}>{cases.map(([status]) => <DocumentStatusChip key={status} status={status} />)}</ThemeProvider>);
-         |         ^
-      20 |   cases.forEach(([status, label, tone]) => {
-      21 |     expect(screen.getByText(label)).toBeInTheDocument();
-      22 |     expect(getDocumentStatus(status).tone).toBe(tone);
-
-      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
-      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
-      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
-      at node_modules/@testing-library/react/dist/act-compat.js:63:25
-      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
-      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
-      at src/components/shared/DocumentStatusChip.test.js:19:9
 
 PASS src/components/shared/DocumentStatusFilters.test.js
   ● Console
@@ -79,6 +57,28 @@ PASS src/components/shared/DocumentStatusFilters.test.js
       at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
       at render (node_modules/@testing-library/react/dist/pure.js:246:10)
       at src/components/shared/DocumentStatusFilters.test.js:29:9
+
+PASS src/components/shared/DocumentStatusChip.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      17 | test.each(['light', 'dark'])('%s renders the complete lifecycle without adding interactive chips', (mode) => {
+      18 |   const theme = createTrustifyTheme(mode);
+    > 19 |   render(<ThemeProvider theme={theme}>{cases.map(([status]) => <DocumentStatusChip key={status} status={status} />)}</ThemeProvider>);
+         |         ^
+      20 |   cases.forEach(([status, label, tone]) => {
+      21 |     expect(screen.getByText(label)).toBeInTheDocument();
+      22 |     expect(getDocumentStatus(status).tone).toBe(tone);
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at src/components/shared/DocumentStatusChip.test.js:19:9
 
 PASS src/config/theme/createTrustifyTheme.test.js
   ● Console
@@ -131,7 +131,7 @@ PASS src/tests/components/services/StatusFilterButton.test.js
 
 
 Test Suites: 5 passed, 5 total
-Tests:       23 passed, 23 total
+Tests:       30 passed, 30 total
 Snapshots:   0 total
-Time:        3.662 s, estimated 5 s
+Time:        3.741 s
 Ran all test suites within paths "src/config/theme/createTrustifyTheme.test.js", "src/tests/components/services/StatusFilterButton.test.js", "src/components/shared/DocumentStatusChip.test.js", "src/components/shared/DocumentStatusFilters.test.js", "src/components/shared/GridToolbarFocus.test.js".

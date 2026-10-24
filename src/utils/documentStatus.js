@@ -1,4 +1,6 @@
 // Presentation only. Keep API enums and the existing label-based filter values intact.
+import { STATUS_TYPES } from './constants';
+
 export const DOCUMENT_STATES = {
   pending: { label: 'Chờ xử lý', tone: 'warning' },
   processing: { label: 'Đang xử lý', tone: 'info' },
@@ -21,6 +23,18 @@ const legacyLabels = {
   invalid: 'rejected', // Existing admin grid's display alias; never written to an API.
 };
 const unknown = { label: 'Chưa có thông tin trạng thái', tone: 'neutral' };
+const legacyFilterValues = {
+  pending: STATUS_TYPES.Pending,
+  processing: STATUS_TYPES.Processing,
+  verification: 'Đang xác minh',
+  digitalSignature: STATUS_TYPES.DigitalSignature,
+  completed: STATUS_TYPES.Completed,
+  rejected: STATUS_TYPES.Rejected,
+  invalid: STATUS_TYPES.Rejected,
+};
+
+export const getLegacyDocumentFilterValue = (raw) =>
+  Object.prototype.hasOwnProperty.call(legacyFilterValues, raw) ? legacyFilterValues[raw] : undefined;
 
 export const getDocumentStatus = (value) => {
   if (typeof value !== 'string') return unknown;

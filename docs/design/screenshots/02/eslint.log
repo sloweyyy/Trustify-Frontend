@@ -1,13 +1,6 @@
 Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
   npx update-browserslist-db@latest
   Why you should do it regularly: https://github.com/browserslist/update-db#readme
-
-/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/shared/GridToolbarFocus.test.js
-  23:9  error  Avoid wrapping Testing Library util calls in `act`  testing-library/no-unnecessary-act
-  28:9  error  Avoid wrapping Testing Library util calls in `act`  testing-library/no-unnecessary-act
-
-✖ 2 problems (2 errors, 0 warnings)
-
 One of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because

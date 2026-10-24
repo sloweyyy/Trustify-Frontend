@@ -3,6 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import CustomNotaryDataGridToolbar from './CustomNotaryDataGridToolbar';
 import { Box, Typography } from '@mui/material';
 import DocumentStatusChip from '../../../components/shared/DocumentStatusChip';
+import { getLegacyDocumentFilterValue } from '../../../utils/documentStatus';
 import dayjs from 'dayjs';
 
 const NotaryDataGrid = ({ data, paginationModel, setPaginationModel, loading }) => {
@@ -21,17 +22,6 @@ const NotaryDataGrid = ({ data, paginationModel, setPaginationModel, loading }) 
     </Box>
   );
 
-  const getStatus = (status) => {
-    const statusLabels = {
-      pending: 'Chờ xử lý',
-      processing: 'Đang xử lý',
-      verification: 'Đang xác minh',
-      digitalSignature: 'Sẵn sàng ký số',
-      completed: 'Hoàn tất',
-      invalid: 'Không hợp lệ',
-    };
-    return statusLabels[status];
-  };
 
   const formattedData = data?.results?.map((record) => ({
     id: record._id,
@@ -42,7 +32,7 @@ const NotaryDataGrid = ({ data, paginationModel, setPaginationModel, loading }) 
   }));
 
   const filteredRows = formattedData?.filter((row) => {
-    const matchesStatus = filter === 'Tất cả' || getStatus(row.status) === filter;
+    const matchesStatus = filter === 'Tất cả' || getLegacyDocumentFilterValue(row.status) === filter;
     const matchesSearch = [row.id, row.fullName].some((field) => field.toLowerCase().includes(searchText.toLowerCase()));
     return matchesStatus && matchesSearch;
   });

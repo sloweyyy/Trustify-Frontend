@@ -1,0 +1,31 @@
+{
+  "scope": "Local browser GET-response fixture; no backend records created or modified",
+  "checks": [
+    {
+      "label": "Bị từ chối",
+      "matchingIds": [
+        "QA-rejected",
+        "QA-invalid"
+      ]
+    },
+    {
+      "label": "Đang xử lý",
+      "matchingIds": [
+        "QA-processing"
+      ]
+    },
+    {
+      "label": "Đang xử lý · Xác minh",
+      "matchingIds": [
+        "QA-verification"
+      ]
+    },
+    {
+      "label": "Chờ ký số",
+      "matchingIds": [
+        "QA-digitalSignature"
+      ]
+    }
+  ],
+  "checkedAt": "2026-10-24T22:28:27.791Z"
+}

@@ -149,7 +149,7 @@ const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTyp
           row.profile.toLowerCase().includes(searchText.toLowerCase()) ||
           row.name.toLowerCase().includes(searchText.toLowerCase()) ||
           row.date.toLowerCase().includes(searchText.toLowerCase()) ||
-          row.status.toLowerCase().includes(searchText.toLowerCase()) ||
+          (row.status || '').toLowerCase().includes(searchText.toLowerCase()) ||
           matchesDocumentStatusSearch(row.status, searchText) ||
           row.service.toLowerCase().includes(searchText.toLowerCase()),
       );
