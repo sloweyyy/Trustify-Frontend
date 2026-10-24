@@ -1,35 +1,25 @@
-import React  from 'react';
-import {  Button } from '@mui/material';
-import 'react-toastify/dist/ReactToastify.css';
+import React from 'react';
+import { Button } from '@mui/material';
+import { getDocumentFilterLabel } from '../../utils/documentStatus';
 
-const StatusFilterButton = ({ statusFilter, handleFilterByStatus, clickedButton, iconMap, }) => {
-
-  const renderIconByStatus = (statusFilter) => iconMap[statusFilter] || null;
-
- function isClicked(statusFilter, clickedButton){
-    if(statusFilter == clickedButton) return true;
-    return false;
- }
-  
+const StatusFilterButton = ({ statusFilter, handleFilterByStatus, clickedButton, iconMap = {} }) => {
+  const selected = statusFilter === clickedButton;
   return (
     <Button
-      startIcon={renderIconByStatus(statusFilter)}
-      disableRipple
-      sx={{
-        color: isClicked(statusFilter,clickedButton) ? '#000' : '#9E9E9E',
-        fontSize: '12px',
-        fontStyle: 'normal',
-        fontWeight: '500',
-        lineHeight: '12px',
-        textTransform: 'none',
-        borderRadius: '0px',
-        p: '4px 8px',
-        borderBottom: isClicked(statusFilter,clickedButton) ? '1px solid #000' : 'none',
-      }}
+      startIcon={iconMap[statusFilter] || null}
+      aria-pressed={selected}
       onClick={() => handleFilterByStatus(statusFilter)}
+      sx={{
+        color: selected ? 'primary.main' : 'text.secondary',
+        bgcolor: selected ? 'action.selected' : 'transparent',
+        fontWeight: 600, borderBottom: '3px solid',
+        borderBottomColor: selected ? 'primary.main' : 'transparent',
+        borderRadius: 0, flexShrink: 0, px: 2,
+      }}
     >
-      {statusFilter}
+      {getDocumentFilterLabel(statusFilter)}
     </Button>
   );
 };
+
 export default StatusFilterButton;

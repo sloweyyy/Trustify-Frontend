@@ -99,17 +99,6 @@ const HistoryNotarizationProfile = () => {
     setStatusClicked(status);
   };
 
-  const getStatusStyles = (status) => {
-    const styles = {
-      'Chờ xử lý': { color: '#324155', backgroundColor: '#EBEDEF' },
-      'Đang xử lý': { color: '#FFAA00', backgroundColor: '#FFF7E6' },
-      'Đang xác minh': { color: '#7007C1', backgroundColor: '#F9F0FF' },
-      'Sẵn sàng ký số': { color: '#0095FF', backgroundColor: '#E6F4FF' },
-      'Hoàn tất': { color: '#43B75D', backgroundColor: '#ECF8EF' },
-      'Không hợp lệ': { color: '#EE443F', backgroundColor: '#FDECEC' },
-    };
-    return styles[status] || {};
-  };
 
   useEffect(() => {
     fetchHistory();
@@ -180,15 +169,15 @@ const HistoryNotarizationProfile = () => {
           <TextField
             variant="outlined"
             size="small"
-            placeholder="Tìm kiếm"
-            autoFocus
+            label="Tìm hồ sơ"
+            placeholder="Nhập từ khóa"
             onChange={(e) => setSearchText(e.target.value)}
             sx={{
               borderRadius: 1,
               width: { xs: '100%', sm: '100%', md: '20%' },
               minWidth: '150px',
               '& .MuiInputBase-input': {
-                fontSize: 14,
+                fontSize: '1rem',
               },
             }}
             InputProps={{
@@ -210,7 +199,6 @@ const HistoryNotarizationProfile = () => {
               rows={rows}
               headCells={HEAD_CELLS}
               statusTypes={STATUS_TYPES}
-              setStatusColor={getStatusStyles}
               data={fullData}
             />
           )}

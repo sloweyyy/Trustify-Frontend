@@ -9,11 +9,12 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
-import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Checkbox from '@mui/material/Checkbox';
 import { visuallyHidden } from '@mui/utils';
 import HistoryDetailModal from '../modals/HistoryDetailModal';
+import DocumentStatusChip from '../shared/DocumentStatusChip';
+import { matchesDocumentStatusSearch } from '../../utils/documentStatus';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -29,7 +30,7 @@ function getComparator(order, orderBy) {
   return order === 'desc' ? (a, b) => descendingComparator(a, b, orderBy) : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTypes, setStatusColor, data }) => {
+const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTypes, data }) => {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('profile');
   const [selected, setSelected] = React.useState([]);
@@ -149,6 +150,7 @@ const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTyp
           row.name.toLowerCase().includes(searchText.toLowerCase()) ||
           row.date.toLowerCase().includes(searchText.toLowerCase()) ||
           row.status.toLowerCase().includes(searchText.toLowerCase()) ||
+          matchesDocumentStatusSearch(row.status, searchText) ||
           row.service.toLowerCase().includes(searchText.toLowerCase()),
       );
     }
@@ -209,18 +211,7 @@ const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTyp
                       {row.name}
                     </TableCell>
                     <TableCell align="left" width={'20%'}>
-                      <Typography
-                        sx={{
-                          color: setStatusColor(row.status).color,
-                          backgroundColor: setStatusColor(row.status).backgroundColor,
-                          padding: '4px 16px',
-                          borderRadius: '30px',
-                          fontSize: '15px',
-                          width: 'fit-content',
-                        }}
-                      >
-                        {row.status}
-                      </Typography>
+                      <DocumentStatusChip status={row.status} />
                     </TableCell>
                     <TableCell align="left" width={'20%'}>
                       {row.service}

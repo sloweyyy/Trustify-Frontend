@@ -35,7 +35,7 @@ const CustomSessionDataGridToolbar = ({ onFilterChange, currentFilter, searchTex
               ) : null
             }
           >
-            <Typography sx={{ fontSize: 14, fontWeight: 500, textTransform: 'none' }}>{status}</Typography>
+            <Typography sx={{ fontSize: '1rem', fontWeight: 600, textTransform: 'none' }}>{status}</Typography>
           </Button>
         ))}
       </Box>
@@ -43,8 +43,8 @@ const CustomSessionDataGridToolbar = ({ onFilterChange, currentFilter, searchTex
         <TextField
           variant="outlined"
           size="small"
-          placeholder="Tìm kiếm"
-          autoFocus
+          label="Tìm phiên"
+          placeholder="Nhập mã hoặc tên"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           sx={{
@@ -52,7 +52,7 @@ const CustomSessionDataGridToolbar = ({ onFilterChange, currentFilter, searchTex
             width: '100%',
             minWidth: '150px',
             '& .MuiInputBase-input': {
-              fontSize: 14,
+              fontSize: '1rem',
             },
           }}
           InputProps={{

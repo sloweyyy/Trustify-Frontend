@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import CustomNotaryDataGridToolbar from './CustomNotaryDataGridToolbar';
 import { Box, Typography } from '@mui/material';
-import { blue, dark, green, red, yellow } from '../../../config/theme/themePrimitives';
+import DocumentStatusChip from '../../../components/shared/DocumentStatusChip';
 import dayjs from 'dayjs';
 
 const NotaryDataGrid = ({ data, paginationModel, setPaginationModel, loading }) => {
@@ -17,43 +17,9 @@ const NotaryDataGrid = ({ data, paginationModel, setPaginationModel, loading }) 
 
   const renderStatusCell = ({ value }) => (
     <Box sx={{ display: 'flex', alignItems: 'center', height: '100%', width: '100%' }}>
-      <Box
-        sx={{
-          px: 2,
-          py: 0.5,
-          backgroundColor: renderBackgroundStatus(value),
-          borderRadius: 4,
-          textAlign: 'center',
-        }}
-      >
-        <Typography sx={{ fontSize: 14, color: renderColorStatus(value) }}>{getStatus(value)}</Typography>
-      </Box>
+      <DocumentStatusChip status={value} />
     </Box>
   );
-
-  const renderBackgroundStatus = (status) => {
-    const statusColors = {
-      pending: dark[50],
-      processing: yellow[50],
-      verification: '#f3ebfa',
-      digitalSignature: blue[50],
-      completed: green[50],
-      invalid: red[50],
-    };
-    return statusColors[status];
-  };
-
-  const renderColorStatus = (status) => {
-    const textColors = {
-      pending: dark[500],
-      processing: yellow[500],
-      verification: '#7007C1',
-      digitalSignature: blue[500],
-      completed: green[500],
-      invalid: red[500],
-    };
-    return textColors[status];
-  };
 
   const getStatus = (status) => {
     const statusLabels = {

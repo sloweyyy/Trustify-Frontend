@@ -1,89 +1,31 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import createTrustifyTheme from '../../../config/theme/createTrustifyTheme';
 import StatusFilterButton from '../../../components/services/StatusFilterButton';
-import { PendingRounded, CheckCircleRounded } from '@mui/icons-material';
 
-describe('StatusFilterButton', () => {
-  const mockProps = {
-    statusFilter: 'Pending',
-    handleFilterByStatus: jest.fn(),
-    clickedButton: '',
-    iconMap: {
-      Pending: <PendingRounded />,
-      Completed: <CheckCircleRounded />,
-    },
-  };
+const renderFilter = (props) => render(
+  <ThemeProvider theme={createTrustifyTheme()}><StatusFilterButton {...props} /></ThemeProvider>,
+);
 
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
+test('displays the approved label while passing the unchanged legacy filter value', () => {
+  const onFilter = jest.fn();
+  renderFilter({ statusFilter: 'Sẵn sàng ký số', clickedButton: '', handleFilterByStatus: onFilter });
+  fireEvent.click(screen.getByRole('button', { name: 'Chờ ký số' }));
+  expect(onFilter).toHaveBeenCalledWith('Sẵn sàng ký số');
+});
 
-  test('renders with correct text', () => {
-    render(<StatusFilterButton {...mockProps} />);
-    expect(screen.getByText('Pending')).toBeInTheDocument();
-  });
+test('reject filter retains its existing predicate value and exposes selected state', () => {
+  const onFilter = jest.fn();
+  renderFilter({ statusFilter: 'Không hợp lệ', clickedButton: 'Không hợp lệ', handleFilterByStatus: onFilter });
+  const button = screen.getByRole('button', { name: 'Bị từ chối' });
+  expect(button).toHaveAttribute('aria-pressed', 'true');
+  expect(button).toHaveStyle({ minHeight: '48px' });
+  fireEvent.click(button);
+  expect(onFilter).toHaveBeenCalledWith('Không hợp lệ');
+});
 
-  test('renders with icon when provided', () => {
-    render(<StatusFilterButton {...mockProps} />);
-    expect(screen.getByTestId('PendingRoundedIcon')).toBeInTheDocument();
-  });
-
-  test('applies active styles when clicked', () => {
-    const clickedProps = {
-      ...mockProps,
-      clickedButton: 'Pending',
-    };
-
-    const { container } = render(<StatusFilterButton {...clickedProps} />);
-    const button = container.querySelector('button');
-
-    expect(button).toHaveStyle({
-      color: 'rgb(0, 0, 0)',
-      borderBottom: '1px solid #000',
-    });
-  });
-
-  test('applies inactive styles when not clicked', () => {
-    const { container } = render(<StatusFilterButton {...mockProps} />);
-    const button = container.querySelector('button');
-
-    expect(button).toHaveStyle({
-      color: 'rgb(158, 158, 158)',
-      borderBottom: 'none',
-    });
-  });
-
-  test('calls handleFilterByStatus when clicked', () => {
-    render(<StatusFilterButton {...mockProps} />);
-    const button = screen.getByRole('button');
-
-    fireEvent.click(button);
-    expect(mockProps.handleFilterByStatus).toHaveBeenCalledWith('Pending');
-  });
-
-  test('renders without icon when status not in iconMap', () => {
-    const propsWithoutIcon = {
-      ...mockProps,
-      statusFilter: 'Unknown',
-    };
-
-    render(<StatusFilterButton {...propsWithoutIcon} />);
-    const icons = screen.queryByTestId(/.*Icon$/);
-    expect(icons).not.toBeInTheDocument();
-  });
-
-  test('applies consistent button styles', () => {
-    const { container } = render(<StatusFilterButton {...mockProps} />);
-    const button = container.querySelector('button');
-
-    expect(button).toHaveStyle({
-      fontSize: '12px',
-      fontWeight: '500',
-      lineHeight: '12px',
-      textTransform: 'none',
-      borderRadius: '0px',
-      padding: '4px 8px',
-    });
-  });
+test('verification remains a distinct filter instead of collapsing into processing', () => {
+  renderFilter({ statusFilter: 'Đang xác minh', clickedButton: 'Đang xử lý' });
+  expect(screen.getByRole('button', { name: 'Đang xử lý · Xác minh' })).toHaveAttribute('aria-pressed', 'false');
 });
