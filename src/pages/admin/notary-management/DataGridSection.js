@@ -1,21 +1,5 @@
-import { Box, Typography } from '@mui/material';
 import React from 'react';
-import { white } from '../../../config/theme/themePrimitives';
-
-const DataGridSection = ({ title, children }) => (
-  <Box
-    sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      backgroundColor: white[50],
-      borderRadius: 2,
-      p: 2,
-      gap: 2,
-    }}
-  >
-    <Typography sx={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase' }}>{title}</Typography>
-    {children}
-  </Box>
-);
-
+import { Paper, Typography } from '@mui/material';
+import { ErrorState, LoadingState } from '../../../components/shared/PageFeedback';
+const DataGridSection = ({ title, children, loading, error, onRetry }) => <Paper variant="outlined" sx={{ p: { xs: 2, md: 3 }, minWidth: 0 }}><Typography component="h2" variant="h6" sx={{ mb: 2 }}>{title}</Typography>{loading ? <LoadingState label={`Đang tải ${title.toLocaleLowerCase('vi-VN')}…`} /> : error ? <ErrorState title="Chưa thể tải danh sách" onRetry={onRetry} /> : children}</Paper>;
 export default DataGridSection;

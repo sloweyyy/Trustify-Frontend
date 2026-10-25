@@ -1,93 +1,19 @@
 import React from 'react';
-import { Box, Avatar,  Typography } from '@mui/material';
+import { Box, Paper, Typography, useTheme } from '@mui/material';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import HailRoundedIcon from '@mui/icons-material/HailRounded';
 import { Pie } from 'react-chartjs-2';
-import { adminPieChartOptions, } from '../../../config/chartConfig';
-import { white, red, yellow, green, blue } from '../../../config/theme/themePrimitives';
-
+import { ErrorState, LoadingState } from '../../../components/shared/PageFeedback';
+import { formatMetricValue } from '../dashboard/metricPresentation';
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-const Overview = ({count , notaryCount, secretaryCount}) => {
-  const adminPieChartData = {
-    labels: ['Công chứng viên', 
-             'Thư ký', 
-             'Trợ lý VPCC', 
-             'Chuyên viên pháp lý'],
-    datasets: [
-      {
-        data: [notaryCount, secretaryCount, 0, 0],
-        backgroundColor: [red[300], blue[300], green[300], yellow[300]],
-        borderColor: white[50],
-        borderWidth: 2,
-      },
-    ],
-  };
-  return (
-    <Box
-        sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', sm: 'row' },
-          padding: '24px',
-          alignItems: 'flex-start',
-          gap: '16px',
-          borderRadius: '20px',
-          border: '1px solid #F8F9FA',
-          background: '#FFF',
-          boxShadow: '0px 4px 20px 0px rgba(238, 238, 238, 0.50)',
-          height: 'fit-content',
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            padding: '16px 32px',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-            gap: '30px',
-            background: '#E6F4FF',
-            borderRadius: '16px',
-          }}
-        >
-          <Box sx={{ p: '6px' }}>
-            <Avatar sx={{ height: '60px', width: '60px', backgroundColor: '#0095FF' }}>
-              <HailRoundedIcon sx={{ height: '50px', width: '40px' }}></HailRoundedIcon>
-            </Avatar>
-          </Box>
-
-          <Typography
-            sx={{
-              color: '#000',
-              fontFamily: 'Be Vietnam Pro',
-              fontSize: '50px',
-              fontStyle: 'normal',
-              fontWeight: '600',
-              lineHeight: 'normal',
-            }}
-          >
-            {count}
-          </Typography>
-
-          <Typography
-            sx={{
-              color: '#000',
-              fontFamily: 'Be Vietnam Pro',
-              fontSize: '20px',
-              fontStyle: 'normal',
-              fontWeight: '500',
-              lineHeight: '20px',
-            }}
-          >
-            Số lượng nhân viên
-          </Typography>
-        </Box>
-        <Box flex={0.5}/>
-        <Box sx={{width: { xs: '100%', sm: '60%' }, height: '100%', minWidth: 0}}>
-          <Pie data={adminPieChartData} options={adminPieChartOptions} height={247}/>
-        </Box>
-        <Box flex={0.5}/>
-      </Box>
-  );
+const Overview = ({ count, notaryCount, secretaryCount, loading, error, onRetry }) => {
+  const theme = useTheme();
+  const available = [notaryCount, secretaryCount].every((value) => typeof value === 'number');
+  return <Paper variant="outlined" sx={{ p: { xs: 2, md: 3 }, minWidth: 0 }}>
+    <Typography component="h2" variant="h6">Tổng quan nhân viên</Typography>
+    {loading ? <LoadingState label="Đang tải số lượng nhân viên…" /> : error ? <ErrorState title="Chưa thể tải số lượng nhân viên" onRetry={onRetry} /> : <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: 'minmax(0, 1fr) minmax(0, 1fr)' }, gap: 3, mt: 2 }}>
+      <Box><Typography color="text.secondary">Tổng số nhân viên</Typography><Typography variant="h4">{formatMetricValue(count)}</Typography><Typography sx={{ mt: 2 }}>Công chứng viên: {formatMetricValue(notaryCount)}</Typography><Typography>Thư ký: {formatMetricValue(secretaryCount)}</Typography><Typography color="text.secondary" sx={{ mt: 1 }}>Biểu đồ thể hiện hai vai trò có số liệu được cung cấp.</Typography></Box>
+      {available && notaryCount + secretaryCount > 0 && <Box sx={{ height: 240, minWidth: 0 }}><Pie aria-label="Phân bố công chứng viên và thư ký; số liệu nằm bên cạnh biểu đồ" role="img" data={{ labels: ['Công chứng viên', 'Thư ký'], datasets: [{ data: [notaryCount, secretaryCount], backgroundColor: [theme.palette.primary.main, theme.palette.info.main], borderColor: theme.palette.background.paper, borderWidth: 2 }] }} options={{ responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }} /></Box>}
+    </Box>}
+  </Paper>;
 };
 export default Overview;

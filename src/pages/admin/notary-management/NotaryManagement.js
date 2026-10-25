@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import Header from './Header';
 import { Box } from '@mui/material';
-import { blue, gray, red, white } from '../../../config/theme/themePrimitives';
 import { Diversity3Rounded, SupervisorAccountRounded } from '@mui/icons-material';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import NotaryDataGrid from './NotaryDataGrid';
 import NotarizationService from '../../../services/notarization.service';
 import SessionDataGrid from './SessionDataGrid';
@@ -12,13 +10,17 @@ import StatCard from './StatCard';
 import DataGridSection from './DataGridSection';
 import AdminService from '../../../services/admin.service';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+import { ErrorState, LoadingState } from '../../../components/shared/PageFeedback';
 
 const NotaryManagement = () => {
-  const [notaryLoading, setNotaryLoading] = useState(false);
-  const [sessionLoading, setSessionLoading] = useState(false);
-  const [totalNotarizations, setTotalNotarizations] = useState(0);
-  const [totalSessions, setTotalSessions] = useState(0);
+  const [notaryError, setNotaryError] = useState(false);
+  const [sessionError, setSessionError] = useState(false);
+  const [totalsError, setTotalsError] = useState(false);
+  const [totalsLoading, setTotalsLoading] = useState(true);
+  const [notaryLoading, setNotaryLoading] = useState(true);
+  const [sessionLoading, setSessionLoading] = useState(true);
+  const [totalNotarizations, setTotalNotarizations] = useState(null);
+  const [totalSessions, setTotalSessions] = useState(null);
   const [notaryPaginationModel, setNotaryPaginationModel] = useState({
     pageSize: 10,
     page: 0,
@@ -32,10 +34,14 @@ const NotaryManagement = () => {
 
   const fetchAllNotarizations = useCallback(async () => {
     setNotaryLoading(true);
+    setNotaryError(false);
     try {
       const { page, pageSize } = notaryPaginationModel;
       const result = await NotarizationService.getAllNotarizations(null, pageSize, page);
+      if (!Array.isArray(result?.results)) throw new Error('Invalid document response');
       setNotarizations(result);
+    } catch (error) {
+      setNotaryError(true);
     } finally {
       setNotaryLoading(false);
     }
@@ -43,16 +49,22 @@ const NotaryManagement = () => {
 
   const fetchAllSessions = useCallback(async () => {
     setSessionLoading(true);
+    setSessionError(false);
     try {
       const { page, pageSize } = sessionPaginationModel;
       const result = await SessionService.getAllSessions(null, pageSize, page);
+      if (!Array.isArray(result?.results)) throw new Error('Invalid session response');
       setSessions(result);
+    } catch (error) {
+      setSessionError(true);
     } finally {
       setSessionLoading(false);
     }
   }, [sessionPaginationModel]);
 
-  const fetchTotals = async () => {
+  const fetchTotals = useCallback(async () => {
+    setTotalsLoading(true);
+    setTotalsError(false);
     try {
       const [notarizationsResult, sessionsResult] = await Promise.all([
         AdminService.getDocumentMetricsByPeriod('current_year'),
@@ -61,9 +73,11 @@ const NotaryManagement = () => {
       setTotalNotarizations(notarizationsResult.currentPeriod.documentCount);
       setTotalSessions(sessionsResult.currentPeriod.sessionCount);
     } catch (error) {
-      console.error('Error fetching totals:', error);
+      setTotalsError(true);
+    } finally {
+      setTotalsLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchAllNotarizations();
@@ -75,39 +89,18 @@ const NotaryManagement = () => {
 
   useEffect(() => {
     fetchTotals();
-  }, [totalNotarizations, totalSessions]);
+  }, [fetchTotals]);
 
   return (
-    <Box sx={{ display: 'flex', height: '100vh', flexDirection: 'column' }}>
+    <Box sx={{ display: 'flex', minWidth: 0, flexDirection: 'column' }}>
       <Header />
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, flex: 1, p: 2, backgroundColor: gray[50] }}>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            p: 2,
-            backgroundColor: white[50],
-            borderRadius: 3,
-            gap: 2,
-          }}
-        >
-          <StatCard
-            backgroundColor={blue[50]}
-            backgroundIconColor={blue[500]}
-            icon={<SupervisorAccountRounded sx={{ fontSize: 32 }} />}
-            count={totalNotarizations}
-            label="Số lượng công chứng"
-          />
-          <StatCard
-            backgroundColor={red[50]}
-            backgroundIconColor={red[500]}
-            icon={<Diversity3Rounded sx={{ fontSize: 32 }} />}
-            count={totalSessions}
-            label="Số lượng phiên công chứng"
-          />
-        </Box>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, flex: 1, p: 2, backgroundColor: 'background.default' }}>
+        {totalsLoading ? <LoadingState label="Đang tải tổng số hồ sơ và phiên…" /> : totalsError ? <ErrorState title="Chưa thể tải tổng số hồ sơ và phiên" onRetry={fetchTotals} /> : <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: 'repeat(2, minmax(0, 1fr))' }, gap: 2 }}>
+          <StatCard icon={<SupervisorAccountRounded />} count={totalNotarizations} label="Tổng hồ sơ năm nay" />
+          <StatCard icon={<Diversity3Rounded />} count={totalSessions} label="Tổng phiên công chứng năm nay" />
+        </Box>}
 
-        <DataGridSection title="Danh sách công chứng" loading={notaryLoading}>
+        <DataGridSection title="Danh sách công chứng" loading={notaryLoading} error={notaryError} onRetry={fetchAllNotarizations}>
           <NotaryDataGrid
             data={notarizations}
             paginationModel={notaryPaginationModel}
@@ -116,7 +109,7 @@ const NotaryManagement = () => {
           />
         </DataGridSection>
 
-        <DataGridSection title="Danh sách phiên công chứng" loading={sessionLoading}>
+        <DataGridSection title="Danh sách phiên công chứng" loading={sessionLoading} error={sessionError} onRetry={fetchAllSessions}>
           <SessionDataGrid
             data={sessions}
             paginationModel={sessionPaginationModel}

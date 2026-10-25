@@ -1,5 +1,4 @@
 import { Box, Button, Typography, TextField, InputAdornment } from '@mui/material';
-import { GridToolbarContainer } from '@mui/x-data-grid';
 import React from 'react';
 import { AppsRounded, Forward10Rounded, Forward30Rounded, Forward5Rounded, SearchRounded } from '@mui/icons-material';
 import { black, gray, primary } from '../../../config/theme/themePrimitives';
@@ -8,8 +7,8 @@ const CustomSessionDataGridToolbar = ({ onFilterChange, currentFilter, searchTex
   const filterOptions = ['Tất cả', 'Phiên ngắn hạn', 'Phiên trung hạn', 'Phiên dài hạn'];
 
   return (
-    <GridToolbarContainer>
-      <Box sx={{ flex: 1 }}>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, alignItems: 'flex-start', p: 2 }}>
+      <Box sx={{ flex: 1, display: 'flex', flexWrap: 'wrap' }}>
         {filterOptions.map((status) => (
           <Button
             key={status}
@@ -17,7 +16,7 @@ const CustomSessionDataGridToolbar = ({ onFilterChange, currentFilter, searchTex
             onClick={() => onFilterChange(status)}
             sx={{
               borderBottom: currentFilter === status ? `2px solid ${primary[500]}` : 'none',
-              color: currentFilter === status ? primary[500] : black[200],
+              color: currentFilter === status ? 'primary.main' : 'text.secondary',
               borderRadius: 0,
               ':hover': {
                 backgroundColor: gray[50],
@@ -45,7 +44,8 @@ const CustomSessionDataGridToolbar = ({ onFilterChange, currentFilter, searchTex
           variant="outlined"
           size="small"
           label="Tìm phiên"
-          placeholder="Nhập mã hoặc tên"
+          helperText="Tìm theo tên trong trang hiện tại"
+          placeholder="Nhập tên phiên"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           sx={{
@@ -65,7 +65,7 @@ const CustomSessionDataGridToolbar = ({ onFilterChange, currentFilter, searchTex
           }}
         />
       </Box>
-    </GridToolbarContainer>
+    </Box>
   );
 };
 

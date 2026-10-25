@@ -1,7 +1,4 @@
 import React from 'react';
-
-const Settings = () => {
-  return <div>Settings</div>;
-};
-
+import { Box, Button, Paper, Typography } from '@mui/material';
+const Settings = () => <Box sx={{ p: { xs: 2, md: 3 } }}><Typography component="h1" variant="h4">Cài đặt</Typography><Paper variant="outlined" sx={{ p: 3, mt: 3 }}><Typography component="h2" variant="h6">Thông tin tài khoản quản trị</Typography><Typography color="text.secondary" sx={{ my: 2 }}>Bạn có thể xem và cập nhật thông tin cá nhân trong hồ sơ tài khoản.</Typography><Button href="/profile" variant="contained">Mở hồ sơ cá nhân</Button></Paper><Paper variant="outlined" sx={{ p: 3, mt: 2 }}><Typography component="h2" variant="h6">Cài đặt hệ thống</Typography><Typography color="text.secondary" sx={{ mt: 2 }}>Hiện chưa có tùy chọn cấu hình hệ thống trong ứng dụng.</Typography></Paper></Box>;
 export default Settings;

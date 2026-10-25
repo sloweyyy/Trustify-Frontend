@@ -1,5 +1,4 @@
 import { Box, TextField, InputAdornment } from '@mui/material';
-import { GridToolbarContainer } from '@mui/x-data-grid';
 import React from 'react';
 import { SearchRounded } from '@mui/icons-material';
 import StatusFilterButton from '../../../components/services/StatusFilterButton';
@@ -8,7 +7,7 @@ import StatusFilterButton from '../../../components/services/StatusFilterButton'
 const filterOptions = ['Tất cả', 'Chờ xử lý', 'Đang xử lý', 'Đang xác minh', 'Sẵn sàng ký số', 'Hoàn tất', 'Không hợp lệ'];
 
 const CustomNotaryDataGridToolbar = ({ onFilterChange, currentFilter, searchText, setSearchText }) => (
-  <GridToolbarContainer sx={{ gap: 2, alignItems: 'flex-start', p: 2 }}>
+  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, alignItems: 'flex-start', p: 2 }}>
     <Box sx={{ display: 'flex', flexWrap: 'wrap', flex: 1, minWidth: 0 }}>
       {filterOptions.map((status) => (
         <StatusFilterButton
@@ -28,7 +27,7 @@ const CustomNotaryDataGridToolbar = ({ onFilterChange, currentFilter, searchText
       sx={{ width: { xs: '100%', md: 240 } }}
       InputProps={{ startAdornment: <InputAdornment position="start"><SearchRounded /></InputAdornment> }}
     />
-  </GridToolbarContainer>
+  </Box>
 );
 
 export default CustomNotaryDataGridToolbar;
