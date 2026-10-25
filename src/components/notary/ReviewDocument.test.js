@@ -1,0 +1,34 @@
+import React from 'react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { ThemeProvider } from '@mui/material/styles';
+import createTrustifyTheme from '../../config/theme/createTrustifyTheme';
+import DetailDocumentModal from './DetailDocumentModal';
+import ReviewDocumentPreview from './ReviewDocumentPreview';
+import NotarizationService from '../../services/notarization.service';
+jest.mock('../../services/notarization.service', () => ({ forwardDocumentStatus: jest.fn() }));
+const wrapper = ({ children }) => <ThemeProvider theme={createTrustifyTheme()}>{children}</ThemeProvider>;
+const record = { status: 'processing', documentId: { id: 'HS-MAU', requesterInfo: { fullName: 'Nguyễn Thị Mỹ' }, files: [] } };
+test.each([['Chấp nhận', 'accept'], ['Từ chối', 'reject']])('%s keeps required feedback/files, document ID and multipart fields', async (name, action) => {
+  const onClose = jest.fn(); NotarizationService.forwardDocumentStatus.mockResolvedValue({ status: 200 });
+  render(<DetailDocumentModal open document={record} onClose={onClose} />, { wrapper });
+  const button = screen.getByRole('button', { name, exact: true }); expect(button).toBeDisabled();
+  fireEvent.change(screen.getByLabelText('Ghi chú xét duyệt', { exact: false }), { target: { value: 'Ghi chú mẫu' } });
+  expect(button).toBeDisabled();
+  const file = new File(['sample'], 'phan-hoi.pdf', { type: 'application/pdf' });
+  fireEvent.change(screen.getByLabelText('Chọn tài liệu phản hồi'), { target: { files: [file] } });
+  expect(button).toBeEnabled(); fireEvent.click(button);
+  await waitFor(() => expect(onClose).toHaveBeenCalledTimes(1));
+  const [id, data] = NotarizationService.forwardDocumentStatus.mock.calls.at(-1);
+  expect(id).toBe('HS-MAU'); expect(data.get('action')).toBe(action); expect(data.get('feedback')).toBe('Ghi chú mẫu'); expect(data.getAll('files')).toEqual([file]);
+});
+test('preview selects existing URLs, gives Word fallback and retains open-original action', () => {
+  const files = [{ filename: 'ban-sao.pdf', firebaseUrl: 'https://example.com/file.pdf' }, { filename: 'van-ban.docx', firebaseUrl: 'https://example.com/file.docx' }];
+  const open = jest.spyOn(window, 'open').mockImplementation(() => null);
+  render(<ReviewDocumentPreview files={files} />, { wrapper });
+  expect(screen.queryByTitle('Xem trước ban-sao.pdf')).not.toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: 'ban-sao.pdf' }));
+  expect(screen.getByTitle('Xem trước ban-sao.pdf')).toHaveAttribute('src', files[0].firebaseUrl);
+  fireEvent.click(screen.getByRole('button', { name: 'van-ban.docx' }));
+  expect(screen.getByText('Không xem trước được định dạng này. Mở tệp gốc để xem.')).toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: 'Mở tệp gốc trong cửa sổ mới' })); expect(open).toHaveBeenCalledWith(files[1].firebaseUrl); open.mockRestore();
+});
