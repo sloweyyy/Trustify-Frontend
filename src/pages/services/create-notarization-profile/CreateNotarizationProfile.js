@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Backdrop, Box, Card, CircularProgress, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NotarizationService from '../../../services/notarization.service';
@@ -24,6 +25,7 @@ const initialFieldsAndServices = {
 };
 
 const CreateNotarizationProfile = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -176,7 +178,9 @@ const CreateNotarizationProfile = () => {
 
       setNotarizationData(initialNotarizationData);
       setUploadedFiles([]);
+      setDocumentWalletFiles([]);
       setCurrentStep(0);
+      navigate('/user/history');
       return response;
     } catch (error) {
       toast.error('Chưa thể gửi hồ sơ. Thông tin đã nhập vẫn ở đây để bạn thử lại.');

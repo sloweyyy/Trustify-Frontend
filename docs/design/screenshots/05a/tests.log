@@ -1,0 +1,663 @@
+
+> trustify@0.1.0 test
+> react-scripts test --watchAll=false --runInBand --runTestsByPath src/components/services/HistoryResponsive.test.js src/tests/components/services/HistoryDataTable.test.js src/components/shared/DocumentStatusFilters.test.js src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js
+
+PASS src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      16 | const field = { id: 'field-one', name: 'Lĩnh vực kiểm tra' };
+      17 | const service = { id: 'service-one', name: 'Dịch vụ kiểm tra', required_documents: ['identity_doc'] };
+    > 18 | const setup = () => render(<ThemeProvider theme={createTrustifyTheme()}><CreateNotarizationProfile /></ThemeProvider>);
+         |                           ^
+      19 | const chooseField = async () => {
+      20 |   fireEvent.mouseDown(screen.getByRole('combobox', { name: /^Lĩnh vực công chứng/ }));
+      21 |   fireEvent.click(await screen.findByRole('option', { name: field.name }));
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at setup (src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js:18:27)
+      at Object.<anonymous> (src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js:42:3)
+
+    console.error
+      Warning: An update to ForwardRef(FormControl) inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at FormControl (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/FormControl/FormControl.js:107:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at TextField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/TextField/TextField.js:81:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Autocomplete (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Autocomplete/Autocomplete.js:419:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at FieldLabel (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/shared/FieldLabel.js:4:23)
+          at CustomAutocompleteField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CustomAutocompleteField.js:5:36)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at NotarizationFormContent (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/NotarizationFormContent.js:26:36)
+          at section
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Paper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Paper/Paper.js:75:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Card (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Card/Card.js:37:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at CreateNotarizationProfile (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CreateNotarizationProfile.js:29:41)
+          at DefaultPropsProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+          at RtlProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/RtlProvider/index.js:14:3)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/ThemeProvider/ThemeProvider.js:55:5)
+          at ThemeProviderNoVars (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at onFilled (node_modules/@mui/material/node/FormControl/FormControl.js:212:9)
+      at node_modules/@mui/material/node/InputBase/InputBase.js:340:9
+      at node_modules/@mui/material/node/InputBase/InputBase.js:348:7
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitLayoutEffectOnFiber (node_modules/react-dom/cjs/react-dom.development.js:23312:15)
+      at commitLayoutMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24727:9)
+      at commitLayoutEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24713:7)
+      at commitLayoutEffects (node_modules/react-dom/cjs/react-dom.development.js:24651:3)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26862:5)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at finishConcurrentRender (node_modules/react-dom/cjs/react-dom.development.js:26020:9)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25848:7)
+      at workLoop (node_modules/scheduler/cjs/scheduler.development.js:266:34)
+      at flushWork (node_modules/scheduler/cjs/scheduler.development.js:239:14)
+      at performWorkUntilDeadline (node_modules/scheduler/cjs/scheduler.development.js:533:21)
+
+    console.error
+      Warning: An update to ForwardRef(FormControl) inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at FormControl (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/FormControl/FormControl.js:107:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at TextField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/TextField/TextField.js:81:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Autocomplete (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Autocomplete/Autocomplete.js:419:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at FieldLabel (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/shared/FieldLabel.js:4:23)
+          at CustomAutocompleteField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CustomAutocompleteField.js:5:36)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at NotarizationFormContent (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/NotarizationFormContent.js:26:36)
+          at section
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Paper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Paper/Paper.js:75:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Card (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Card/Card.js:37:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at CreateNotarizationProfile (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CreateNotarizationProfile.js:29:41)
+          at DefaultPropsProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+          at RtlProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/RtlProvider/index.js:14:3)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/ThemeProvider/ThemeProvider.js:55:5)
+          at ThemeProviderNoVars (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at onFilled (node_modules/@mui/material/node/FormControl/FormControl.js:212:9)
+      at node_modules/@mui/material/node/InputBase/InputBase.js:340:9
+      at node_modules/@mui/material/node/InputBase/InputBase.js:348:7
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitLayoutEffectOnFiber (node_modules/react-dom/cjs/react-dom.development.js:23312:15)
+      at commitLayoutMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24727:9)
+      at commitLayoutEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24713:7)
+      at commitLayoutEffects (node_modules/react-dom/cjs/react-dom.development.js:24651:3)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26862:5)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at finishConcurrentRender (node_modules/react-dom/cjs/react-dom.development.js:26020:9)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25848:7)
+      at workLoop (node_modules/scheduler/cjs/scheduler.development.js:266:34)
+      at flushWork (node_modules/scheduler/cjs/scheduler.development.js:239:14)
+      at performWorkUntilDeadline (node_modules/scheduler/cjs/scheduler.development.js:533:21)
+
+    console.error
+      Warning: An update to ForwardRef(FormControl) inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at FormControl (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/FormControl/FormControl.js:107:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at TextField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/TextField/TextField.js:81:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Autocomplete (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Autocomplete/Autocomplete.js:419:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at FieldLabel (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/shared/FieldLabel.js:4:23)
+          at CustomAutocompleteField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CustomAutocompleteField.js:5:36)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at NotarizationFormContent (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/NotarizationFormContent.js:26:36)
+          at section
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Paper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Paper/Paper.js:75:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Card (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Card/Card.js:37:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at CreateNotarizationProfile (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CreateNotarizationProfile.js:29:41)
+          at DefaultPropsProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+          at RtlProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/RtlProvider/index.js:14:3)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/ThemeProvider/ThemeProvider.js:55:5)
+          at ThemeProviderNoVars (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at node_modules/@mui/material/node/InputBase/InputBase.js:446:22
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:26115:3)
+      at flushSyncCallbacks (node_modules/react-dom/cjs/react-dom.development.js:12042:22)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26998:3)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at finishConcurrentRender (node_modules/react-dom/cjs/react-dom.development.js:26020:9)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25848:7)
+      at workLoop (node_modules/scheduler/cjs/scheduler.development.js:266:34)
+      at flushWork (node_modules/scheduler/cjs/scheduler.development.js:239:14)
+      at performWorkUntilDeadline (node_modules/scheduler/cjs/scheduler.development.js:533:21)
+
+    console.error
+      Warning: An update to ForwardRef(FormControl) inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at FormControl (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/FormControl/FormControl.js:107:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at TextField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/TextField/TextField.js:81:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Autocomplete (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Autocomplete/Autocomplete.js:419:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at FieldLabel (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/shared/FieldLabel.js:4:23)
+          at CustomAutocompleteField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CustomAutocompleteField.js:5:36)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at NotarizationFormContent (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/NotarizationFormContent.js:26:36)
+          at section
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Paper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Paper/Paper.js:75:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Card (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Card/Card.js:37:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at CreateNotarizationProfile (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CreateNotarizationProfile.js:29:41)
+          at DefaultPropsProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+          at RtlProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/RtlProvider/index.js:14:3)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/ThemeProvider/ThemeProvider.js:55:5)
+          at ThemeProviderNoVars (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at node_modules/@mui/material/node/InputBase/InputBase.js:446:22
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:26115:3)
+      at flushSyncCallbacks (node_modules/react-dom/cjs/react-dom.development.js:12042:22)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26998:3)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at finishConcurrentRender (node_modules/react-dom/cjs/react-dom.development.js:26020:9)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25848:7)
+      at workLoop (node_modules/scheduler/cjs/scheduler.development.js:266:34)
+      at flushWork (node_modules/scheduler/cjs/scheduler.development.js:239:14)
+      at performWorkUntilDeadline (node_modules/scheduler/cjs/scheduler.development.js:533:21)
+
+    console.error
+      Warning: An update to ForwardRef(FormControl) inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at FormControl (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/FormControl/FormControl.js:107:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at TextField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/TextField/TextField.js:81:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Autocomplete (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Autocomplete/Autocomplete.js:419:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at FieldLabel (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/shared/FieldLabel.js:4:23)
+          at CustomAutocompleteField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CustomAutocompleteField.js:5:36)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at NotarizationFormContent (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/NotarizationFormContent.js:26:36)
+          at section
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Paper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Paper/Paper.js:75:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Card (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Card/Card.js:37:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at CreateNotarizationProfile (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CreateNotarizationProfile.js:29:41)
+          at DefaultPropsProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+          at RtlProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/RtlProvider/index.js:14:3)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/ThemeProvider/ThemeProvider.js:55:5)
+          at ThemeProviderNoVars (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at onFilled (node_modules/@mui/material/node/FormControl/FormControl.js:212:9)
+      at node_modules/@mui/material/node/InputBase/InputBase.js:340:9
+      at node_modules/@mui/material/node/InputBase/InputBase.js:348:7
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitLayoutEffectOnFiber (node_modules/react-dom/cjs/react-dom.development.js:23312:15)
+      at commitLayoutMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24727:9)
+      at commitLayoutEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24713:7)
+      at commitLayoutEffects (node_modules/react-dom/cjs/react-dom.development.js:24651:3)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26862:5)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:26156:3)
+      at flushSyncCallbacks (node_modules/react-dom/cjs/react-dom.development.js:12042:22)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26998:3)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at finishConcurrentRender (node_modules/react-dom/cjs/react-dom.development.js:26020:9)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25848:7)
+      at workLoop (node_modules/scheduler/cjs/scheduler.development.js:266:34)
+      at flushWork (node_modules/scheduler/cjs/scheduler.development.js:239:14)
+      at performWorkUntilDeadline (node_modules/scheduler/cjs/scheduler.development.js:533:21)
+
+    console.error
+      Warning: An update to ForwardRef(FormControl) inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at FormControl (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/FormControl/FormControl.js:107:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at TextField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/TextField/TextField.js:81:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Autocomplete (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Autocomplete/Autocomplete.js:419:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at FieldLabel (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/shared/FieldLabel.js:4:23)
+          at CustomAutocompleteField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CustomAutocompleteField.js:5:36)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at NotarizationFormContent (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/NotarizationFormContent.js:26:36)
+          at section
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Paper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Paper/Paper.js:75:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Card (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Card/Card.js:37:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at CreateNotarizationProfile (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CreateNotarizationProfile.js:29:41)
+          at DefaultPropsProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+          at RtlProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/RtlProvider/index.js:14:3)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/ThemeProvider/ThemeProvider.js:55:5)
+          at ThemeProviderNoVars (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at onFilled (node_modules/@mui/material/node/FormControl/FormControl.js:212:9)
+      at node_modules/@mui/material/node/InputBase/InputBase.js:340:9
+      at node_modules/@mui/material/node/InputBase/InputBase.js:348:7
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitLayoutEffectOnFiber (node_modules/react-dom/cjs/react-dom.development.js:23312:15)
+      at commitLayoutMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24727:9)
+      at commitLayoutEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24713:7)
+      at commitLayoutEffects (node_modules/react-dom/cjs/react-dom.development.js:24651:3)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26862:5)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:26156:3)
+      at flushSyncCallbacks (node_modules/react-dom/cjs/react-dom.development.js:12042:22)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26998:3)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at finishConcurrentRender (node_modules/react-dom/cjs/react-dom.development.js:26020:9)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25848:7)
+      at workLoop (node_modules/scheduler/cjs/scheduler.development.js:266:34)
+      at flushWork (node_modules/scheduler/cjs/scheduler.development.js:239:14)
+      at performWorkUntilDeadline (node_modules/scheduler/cjs/scheduler.development.js:533:21)
+
+    console.error
+      Warning: An update to ForwardRef(FormControl) inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at FormControl (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/FormControl/FormControl.js:107:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at TextField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/TextField/TextField.js:81:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Autocomplete (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Autocomplete/Autocomplete.js:419:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at FieldLabel (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/shared/FieldLabel.js:4:23)
+          at CustomAutocompleteField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CustomAutocompleteField.js:5:36)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at NotarizationFormContent (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/NotarizationFormContent.js:26:36)
+          at section
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Paper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Paper/Paper.js:75:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Card (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Card/Card.js:37:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at CreateNotarizationProfile (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CreateNotarizationProfile.js:29:41)
+          at DefaultPropsProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+          at RtlProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/RtlProvider/index.js:14:3)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/ThemeProvider/ThemeProvider.js:55:5)
+          at ThemeProviderNoVars (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at node_modules/@mui/material/node/InputBase/InputBase.js:446:22
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26974:5)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:26156:3)
+      at flushSyncCallbacks (node_modules/react-dom/cjs/react-dom.development.js:12042:22)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26998:3)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at finishConcurrentRender (node_modules/react-dom/cjs/react-dom.development.js:26020:9)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25848:7)
+      at workLoop (node_modules/scheduler/cjs/scheduler.development.js:266:34)
+      at flushWork (node_modules/scheduler/cjs/scheduler.development.js:239:14)
+      at performWorkUntilDeadline (node_modules/scheduler/cjs/scheduler.development.js:533:21)
+
+    console.error
+      Warning: An update to ForwardRef(FormControl) inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at FormControl (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/FormControl/FormControl.js:107:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at TextField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/TextField/TextField.js:81:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Autocomplete (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Autocomplete/Autocomplete.js:419:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at FieldLabel (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/shared/FieldLabel.js:4:23)
+          at CustomAutocompleteField (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CustomAutocompleteField.js:5:36)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at NotarizationFormContent (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/NotarizationFormContent.js:26:36)
+          at section
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Paper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Paper/Paper.js:75:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Card (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Card/Card.js:37:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Box (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/createBox/createBox.js:27:41)
+          at CreateNotarizationProfile (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/services/create-notarization-profile/CreateNotarizationProfile.js:29:41)
+          at DefaultPropsProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+          at RtlProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/RtlProvider/index.js:14:3)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/ThemeProvider/ThemeProvider.js:55:5)
+          at ThemeProviderNoVars (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at node_modules/@mui/material/node/InputBase/InputBase.js:446:22
+      at commitHookEffectListMount (node_modules/react-dom/cjs/react-dom.development.js:23189:26)
+      at commitPassiveMountOnFiber (node_modules/react-dom/cjs/react-dom.development.js:24970:11)
+      at commitPassiveMountEffects_complete (node_modules/react-dom/cjs/react-dom.development.js:24930:9)
+      at commitPassiveMountEffects_begin (node_modules/react-dom/cjs/react-dom.development.js:24917:7)
+      at commitPassiveMountEffects (node_modules/react-dom/cjs/react-dom.development.js:24905:3)
+      at flushPassiveEffectsImpl (node_modules/react-dom/cjs/react-dom.development.js:27078:3)
+      at flushPassiveEffects (node_modules/react-dom/cjs/react-dom.development.js:27023:14)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26974:5)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:26156:3)
+      at flushSyncCallbacks (node_modules/react-dom/cjs/react-dom.development.js:12042:22)
+      at commitRootImpl (node_modules/react-dom/cjs/react-dom.development.js:26998:3)
+      at commitRoot (node_modules/react-dom/cjs/react-dom.development.js:26721:5)
+      at finishConcurrentRender (node_modules/react-dom/cjs/react-dom.development.js:26020:9)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25848:7)
+      at workLoop (node_modules/scheduler/cjs/scheduler.development.js:266:34)
+      at flushWork (node_modules/scheduler/cjs/scheduler.development.js:239:14)
+      at performWorkUntilDeadline (node_modules/scheduler/cjs/scheduler.development.js:533:21)
+
+PASS src/components/services/HistoryResponsive.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      20 |
+      21 | test.each([false, true])('both layouts open the original document ID without mutating rows (%s)', (mobile) => {
+    > 22 |   useMediaQuery.mockReturnValue(mobile); render(list(), { wrapper });
+         |                                                ^
+      23 |   fireEvent.click(screen.getByRole('button', { name: 'Xem hồ sơ HS-00', exact: true }));
+      24 |   expect(screen.getByRole('dialog', { name: 'HS-00' })).toBeInTheDocument();
+      25 |   fireEvent.click(screen.getByRole('button', { name: 'Đóng hồ sơ' })); expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at src/components/services/HistoryResponsive.test.js:22:48
+
+PASS src/tests/components/services/HistoryDataTable.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      58 |
+      59 |   const renderWithWrapper = (props = defaultProps) => {
+    > 60 |     return render(<ThemeProvider theme={createTrustifyTheme()}><HistoryDataTable {...props} /></ThemeProvider>);
+         |                  ^
+      61 |   };
+      62 |
+      63 |   describe('Rendering', () => {
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at renderWithWrapper (src/tests/components/services/HistoryDataTable.test.js:60:18)
+      at Object.<anonymous> (src/tests/components/services/HistoryDataTable.test.js:65:7)
+
+PASS src/components/shared/DocumentStatusFilters.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      31 |   beforeEach(() => useMediaQuery.mockReturnValue(mobile));
+      32 | test.each(Object.values(STATUS_TYPES))('the %s filter preserves the same matching record IDs', (filter) => {
+    > 33 |   render(table(filter));
+         |         ^
+      34 |   rows.forEach((row) => {
+      35 |     const matching = filter === STATUS_TYPES.All || row.status === filter;
+      36 |     expect(screen.queryByText(row.profile) !== null).toBe(matching);
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at src/components/shared/DocumentStatusFilters.test.js:33:9
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+
+Test Suites: 4 passed, 4 total
+Tests:       34 passed, 34 total
+Snapshots:   0 total
+Time:        6.134 s
+Ran all test suites within paths "src/components/services/HistoryResponsive.test.js", "src/tests/components/services/HistoryDataTable.test.js", "src/components/shared/DocumentStatusFilters.test.js", "src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js".
+One of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it may break at any time.
+
+babel-preset-react-app is part of the create-react-app project, which
+is not maintianed anymore. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.

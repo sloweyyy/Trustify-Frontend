@@ -7,6 +7,8 @@ import NotarizationService from '../../../services/notarization.service';
 import UserWalletService from '../../../services/userwallet.service';
 import { toast } from 'react-toastify';
 
+const mockNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({ ...jest.requireActual('react-router-dom'), useNavigate: () => mockNavigate }));
 jest.mock('../../../services/notarization.service', () => ({ getAllNotarizationField: jest.fn(), getNotarizationServiceByFieldId: jest.fn(), uploadNotarizationDocument: jest.fn() }));
 jest.mock('../../../services/userwallet.service', () => ({ getUserWallet: jest.fn() }));
 jest.mock('react-toastify/dist/ReactToastify.css', () => ({}));
@@ -64,6 +66,7 @@ test('uppercase JPG/JPEG files keep original display names, survive back navigat
   expect([...data.keys()]).toEqual(['notarizationService', 'notarizationField', 'requesterInfo', 'amount', 'files', 'files', 'fileIds', 'customFileNames']);
   expect(JSON.parse(data.get('notarizationService'))).toEqual(service); expect(JSON.parse(data.get('notarizationField'))).toEqual(field);
   expect(JSON.parse(data.get('requesterInfo'))).toEqual({ fullName: 'Nguyễn Thị Mỹ', phoneNumber: '0900000000', citizenId: '000000000000', email: 'qa@example.com' });
+  expect(mockNavigate).toHaveBeenCalledWith('/user/history');
   expect(data.get('amount')).toBe('1'); expect(data.get('fileIds')).toBe('[]'); expect(data.get('customFileNames')).toBe('[]');
   expect(data.getAll('files').map((file) => file.name)).toEqual([expect.stringMatching(/^identity_doc_\d+\.JPG$/), expect.stringMatching(/^identity_doc_\d+\.JPEG$/)]);
   expect(data.getAll('files').map((file) => file.size)).toEqual([jpg.size, jpeg.size]);
@@ -97,6 +100,10 @@ test('wallet selection keeps fileIds/customFileNames payloads separate from disp
   const data = NotarizationService.uploadNotarizationDocument.mock.calls[0][0];
   expect(data.getAll('files')).toEqual([]); expect(JSON.parse(data.get('fileIds'))).toEqual(['wallet-id']);
   expect(JSON.parse(data.get('customFileNames'))).toEqual([expect.stringMatching(/^identity_doc_\d+\.pdf$/)]);
+  expect(mockNavigate).toHaveBeenCalledWith('/user/history');
+  fireEvent.click(screen.getByRole('button', { name: 'Tiếp tục', exact: true }));
+  expect(screen.getByText('Chưa chọn tài liệu.')).toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: 'Mở tài liệu original.pdf' })).not.toBeInTheDocument();
 });
 
 
@@ -119,5 +126,5 @@ test('an unsuccessful submission preserves review information and files for retr
   await waitFor(() => expect(toast.error).toHaveBeenCalledWith('Chưa thể gửi hồ sơ. Thông tin đã nhập vẫn ở đây để bạn thử lại.'));
   expect(screen.getByText('Nguyễn Thị Mỹ')).toBeInTheDocument(); expect(screen.getByRole('button', { name: 'Mở tài liệu sample.pdf' })).toBeInTheDocument();
   await waitFor(() => expect(screen.getByRole('button', { name: 'Gửi hồ sơ', exact: true })).toBeEnabled());
-  expect(NotarizationService.uploadNotarizationDocument).toHaveBeenCalledTimes(1); expect(toast.success).not.toHaveBeenCalled();
+  expect(NotarizationService.uploadNotarizationDocument).toHaveBeenCalledTimes(1); expect(toast.success).not.toHaveBeenCalled(); expect(mockNavigate).not.toHaveBeenCalled();
 });
