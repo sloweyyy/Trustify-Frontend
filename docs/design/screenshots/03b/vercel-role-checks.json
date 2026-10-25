@@ -1,0 +1,32 @@
+[
+  {
+    "role": "user",
+    "privateFooterAbsent": true,
+    "verify": {
+      "footerAbsent": true,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "publicFooterRestored": true
+  },
+  {
+    "role": "notary",
+    "privateFooterAbsent": true,
+    "verify": {
+      "footerAbsent": true,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "publicFooterRestored": true
+  },
+  {
+    "role": "admin",
+    "privateFooterAbsent": true,
+    "verify": {
+      "footerAbsent": true,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    "publicFooterRestored": true
+  }
+]

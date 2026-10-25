@@ -4,7 +4,7 @@ Baseline main b9b098a.19 public routes × desktop1440/mobile390 give38 paired vi
 
 Build, CRA ESLint and11 tests pass. Browser checks verify header/footer bounds at390/720/1280/1440,44px link targets, skip-link focus, Drawer focus trap/Escape restoration and route-close behavior. Footer white text on approved primary.dark has contrast12.76:1. Existing destinations/contact data are retained; no forms submitted, credentials changed or transactions initiated.
 
-Known existing content overflow remains on Home(703px), Services(399px) and User Guide(645px) at390; this PR does not clip it. Header/footer themselves fit the viewport. Those page bodies, old Home governmental-looking copy, and the small existing chatbot launcher remain for Public09/Chatbot10. Vercel preview QA pending.
+Known existing content overflow remains on Home(703px), Services(399px) and User Guide(645px) at390; this PR does not clip it. Header/footer themselves fit the viewport. Those page bodies, old Home governmental-looking copy, and the small existing chatbot launcher remain for Public09/Chatbot10. Vercel primary Ready; all-role click-through complete. See vercel-checks.json.
 
 ## dispute-resolution-desktop
 
@@ -276,4 +276,26 @@ Known existing content overflow remains on Home(703px), Services(399px) and User
 
 Pre-review accessibility correction: public Header now sits outside the page-content target. After activating the skip link, the next Tab bypasses the header. Fresh local screenshot/focus/build/ESLint checks pass.
 
-Final pre-review keyboard corrections: internal footer navigation focuses the content wrapper; a page-level Suspense boundary keeps shell transitions alive during lazy route changes. Reproduced overlay issue is resolved; public focus sequence and all20 authenticated route-role390px checks pass. Routes/services/Redux remain unchanged. Updated preview QA pending.
+Final pre-review keyboard corrections: internal footer navigation focuses the content wrapper; a page-level Suspense boundary keeps shell transitions alive during lazy route changes. Reproduced overlay issue is resolved; public focus sequence and all20 authenticated route-role390px checks pass. Routes/services/Redux remain unchanged. Updated Vercel source6b94396 verified with all3 QA roles; keyboard footer focus and menu sequence pass.
+
+## Vercel preview
+
+![vercel-admin-menu-mobile](vercel-admin-menu-mobile.png)
+
+![vercel-footer-desktop](vercel-footer-desktop.png)
+
+![vercel-footer-mobile](vercel-footer-mobile.png)
+
+![vercel-lookup-desktop](vercel-lookup-desktop.png)
+
+![vercel-lookup-mobile](vercel-lookup-mobile.png)
+
+![vercel-menu-mobile](vercel-menu-mobile.png)
+
+![vercel-notary-menu-mobile](vercel-notary-menu-mobile.png)
+
+![vercel-signin-restored-mobile](vercel-signin-restored-mobile.png)
+
+![vercel-user-menu-mobile](vercel-user-menu-mobile.png)
+
+![vercel-user-verify-mobile](vercel-user-verify-mobile.png)
