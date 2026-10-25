@@ -1,0 +1,94 @@
+
+> trustify@0.1.0 test
+> react-scripts test --watchAll=false --runInBand --runTestsByPath src/pages/profile/UserProfile.test.js src/tests/components/modals/EditUserProfileModal.test.js src/tests/components/profile/PersonalInformation.test.js
+
+PASS src/tests/components/modals/EditUserProfileModal.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+       8 | import EditUserProfileModal from '../../../components/modals/EditUserProfileModal';
+       9 | const wrapper = ({ children }) => <ThemeProvider theme={createTrustifyTheme()}>{children}</ThemeProvider>;
+    > 10 | const render = (ui) => rtlRender(ui, { wrapper });
+         |                                 ^
+      11 |
+      12 | // Create mock store
+      13 | const createMockStore = () => {
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at render (src/tests/components/modals/EditUserProfileModal.test.js:10:33)
+      at Object.<anonymous> (src/tests/components/modals/EditUserProfileModal.test.js:68:5)
+
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+
+PASS src/tests/components/profile/PersonalInformation.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+       8 | import PersonalInformation from '../../../components/profile/PersonalInformation';
+       9 | const wrapper = ({ children }) => <ThemeProvider theme={createTrustifyTheme()}>{children}</ThemeProvider>;
+    > 10 | const render = (ui) => rtlRender(ui, { wrapper });
+         |                                 ^
+      11 |
+      12 | jest.mock('react-toastify/dist/ReactToastify.css', () => ({}));
+      13 |
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at render (src/tests/components/profile/PersonalInformation.test.js:10:33)
+      at Object.<anonymous> (src/tests/components/profile/PersonalInformation.test.js:47:5)
+
+PASS src/pages/profile/UserProfile.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      20 | beforeEach(() => { jest.clearAllMocks(); current = user; useSelector.mockImplementation((select) => select({ user: { user: current } })); useDispatch.mockReturnValue(dispatch); dispatch.mockReturnValue({ unwrap: () => Promise.resolve() }); });
+      21 | test('profile reads the existing name/identity/address mapping and omits the unsupported photo upload', () => {
+    > 22 |   render(<UserProfile />, { wrapper });
+         |         ^
+      23 |   expect(screen.getByRole('heading', { level: 1, name: 'Thông tin cá nhân' })).toBeInTheDocument();
+      24 |   expect(screen.getByRole('heading', { name: user.name })).toBeInTheDocument();
+      25 |   expect(screen.getByText('CMND/CCCD/Hộ chiếu')).toBeInTheDocument(); expect(screen.getByText(user.citizenId)).toBeInTheDocument();
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/pages/profile/UserProfile.test.js:22:9)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+
+Test Suites: 3 passed, 3 total
+Tests:       18 passed, 18 total
+Snapshots:   0 total
+Time:        4.427 s, estimated 5 s
+Ran all test suites within paths "src/pages/profile/UserProfile.test.js", "src/tests/components/modals/EditUserProfileModal.test.js", "src/tests/components/profile/PersonalInformation.test.js".
