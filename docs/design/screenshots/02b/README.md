@@ -155,3 +155,27 @@ Before
 After
 
 ![After](after-user-session-form-mobile.png)
+
+## Vercel preview
+
+Primary deployment Ready; QA accounts for User, Notary and Admin clicked through without saving. See vercel-checks.json.
+
+![vercel-admin-profile-desktop](vercel-admin-profile-desktop.png)
+
+![vercel-admin-profile-mobile](vercel-admin-profile-mobile.png)
+
+![vercel-notary-profile-desktop](vercel-notary-profile-desktop.png)
+
+![vercel-notary-profile-mobile](vercel-notary-profile-mobile.png)
+
+![vercel-user-profile-desktop](vercel-user-profile-desktop.png)
+
+![vercel-user-profile-mobile](vercel-user-profile-mobile.png)
+
+![vercel-user-session-desktop](vercel-user-session-desktop.png)
+
+![vercel-user-session-mobile](vercel-user-session-mobile.png)
+
+![vercel-user-wizard-desktop](vercel-user-wizard-desktop.png)
+
+![vercel-user-wizard-mobile](vercel-user-wizard-mobile.png)

@@ -30,4 +30,4 @@ All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:
 - PR #11 review round 1: nowrap labels, centered chips, minimum status-column widths, and true 390px viewport images implemented. Build/ESLint/30 tests and browser geometry/pixel-width checks pass; updated Vercel preview verified with all three QA roles; actual Admin chip center within 0.5px and all 24 image widths verified. Re-requesting Claude review.
 
 - PR #11 merged with review approval; main production Ready and homepage healthy. Design 03 acceptance: temporary Drawer at xs/sm and no horizontal overflow at 390px on every authenticated route. Admin empty pagination count follows in step 08.
-- 02b — Shared form controls, PR #12, 2026-10-25 07:00: build, CRA ESLint and 22 tests pass; 15 before/after pairs and all-role local read-only QA complete. Vercel preview QA pending.
+- 02b — Shared form controls, PR #12, 2026-10-25 07:02: build, CRA ESLint and 22 tests pass; 15 before/after pairs and all-role local read-only QA complete. Vercel primary Ready; authenticated User/Notary/Admin preview click-through complete, 10 preview screenshots. Ready for Claude review.
