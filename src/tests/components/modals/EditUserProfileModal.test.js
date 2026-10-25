@@ -1,9 +1,13 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render as rtlRender, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import createTrustifyTheme from '../../../config/theme/createTrustifyTheme';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import EditUserProfileModal from '../../../components/modals/EditUserProfileModal';
+const wrapper = ({ children }) => <ThemeProvider theme={createTrustifyTheme()}>{children}</ThemeProvider>;
+const render = (ui) => rtlRender(ui, { wrapper });
 
 // Create mock store
 const createMockStore = () => {

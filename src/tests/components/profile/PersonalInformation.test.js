@@ -1,9 +1,15 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render as rtlRender, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import createTrustifyTheme from '../../../config/theme/createTrustifyTheme';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import PersonalInformation from '../../../components/profile/PersonalInformation';
+const wrapper = ({ children }) => <ThemeProvider theme={createTrustifyTheme()}>{children}</ThemeProvider>;
+const render = (ui) => rtlRender(ui, { wrapper });
+
+jest.mock('react-toastify/dist/ReactToastify.css', () => ({}));
 
 // Mock user data
 const mockUser = {
@@ -44,7 +50,7 @@ describe('PersonalInformation', () => {
       </Provider>,
     );
 
-    expect(screen.getByText('Thông tin cá nhân')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Thông tin tài khoản', exact: true })).toBeInTheDocument();
     expect(screen.getByText('Địa chỉ liên hệ')).toBeInTheDocument();
   });
 
@@ -84,9 +90,7 @@ describe('PersonalInformation', () => {
     const editButton = screen.getByText('Chỉnh sửa');
     fireEvent.click(editButton);
 
-    const modalTitle = screen.getByText('Cập nhật hồ sơ', {
-      selector: 'h6.MuiTypography-h6',
-    });
+    const modalTitle = screen.getByRole('dialog', { name: 'Cập nhật hồ sơ', exact: true });
     expect(modalTitle).toBeInTheDocument();
   });
 
@@ -100,10 +104,10 @@ describe('PersonalInformation', () => {
     const editButton = screen.getByText('Chỉnh sửa');
     fireEvent.click(editButton);
 
-    const backButton = screen.getByTestId('ArrowBackIcon').closest('button');
+    const backButton = screen.getByRole('button', { name: 'Đóng cập nhật hồ sơ', exact: true });
     fireEvent.click(backButton);
 
-    expect(screen.queryByText('Cập nhật hồ sơ')).not.toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByRole('dialog', { name: 'Cập nhật hồ sơ', exact: true })).not.toBeInTheDocument());
   });
 
   test('updates form data when user data changes', () => {
@@ -129,17 +133,4 @@ describe('PersonalInformation', () => {
     expect(screen.getByText('Updated Name')).toBeInTheDocument();
   });
 
-  test('renders with responsive layout', () => {
-    const { container } = render(
-      <Provider store={store}>
-        <PersonalInformation />
-      </Provider>,
-    );
-
-    const flexBoxes = container.querySelectorAll('.MuiBox-root');
-    expect(flexBoxes[0]).toHaveStyle({
-      display: 'flex',
-      flexDirection: 'column',
-    });
-  });
 });

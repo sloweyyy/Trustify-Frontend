@@ -1,53 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Box, Typography, Avatar } from '@mui/material';
-import { gray, white } from '../../config/theme/themePrimitives';
+import React from 'react';
+import { Avatar, Box, Paper, Typography } from '@mui/material';
 import PersonalInformation from '../../components/profile/PersonalInformation';
-import { CloudUpload } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
-import PersonalInformationSkeleton from '../../components/profile/SkeletonPersonalInfo';
 
 const UserProfile = () => {
-  const [loadingStatus, setLoadingStatus] = useState(false);
   const { user } = useSelector((state) => state.user);
-
-  useEffect(() => {
-    setLoadingStatus(true);
-    setLoadingStatus(false);
-  }, []);
-
+  const initial = user?.name?.trim().split(/\s+/).pop()?.charAt(0).toLocaleUpperCase('vi-VN') || '?';
   return (
-    <Box display="flex" p={4}>
-      <Box
-        sx={{
-          flex: 1,
-          borderRadius: 2,
-          overflow: 'hidden',
-          border: `1px solid ${gray[50]}`,
-          backgroundColor: white[50],
-          boxShadow: 1,
-        }}
-      >
-        {/* Avatar Section */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 2.5 }}>
-          <Avatar src="/avatar.png" sx={{ width: 96, height: 96, borderRadius: '50%' }} />
-          <Box flex={1} display="flex" flexDirection="column" gap={1}>
-            <Typography variant="h5">{user?.name || 'Stranger'}</Typography>
-            <Typography variant="caption" color="textSecondary">
-              Khuyến nghị kích thước ít nhất 800x800 px. Chỉ cho phép định dạng JPG hoặc PNG.
-            </Typography>
-            <Button startIcon={<CloudUpload />} variant="outlined" size="small" sx={{ alignSelf: 'flex-start' }}>
-              Tải ảnh mới lên
-            </Button>
-          </Box>
+    <Box sx={{ p: { xs: 2, sm: 3 }, minWidth: 0 }}>
+      <Typography component="h1" variant="h4" sx={{ mb: 3 }}>Thông tin cá nhân</Typography>
+      <Paper variant="outlined" sx={{ p: { xs: 2, sm: 3 }, mb: 3, display: 'flex', alignItems: 'center', gap: 2, minWidth: 0 }}>
+        <Avatar aria-hidden="true" sx={{ width: 64, height: 64, bgcolor: 'primary.main', color: 'primary.contrastText' }}>{initial}</Avatar>
+        <Box sx={{ minWidth: 0 }}>
+          <Typography component="h2" variant="h5" sx={{ overflowWrap: 'anywhere' }}>{user?.name || 'Tài khoản của bạn'}</Typography>
+          <Typography color="text.secondary" sx={{ mt: 0.5 }}>Xem và cập nhật thông tin tài khoản của bạn.</Typography>
         </Box>
-
-        {/* Personal Information Section */}
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, p: 2.5 }}>
-          {loadingStatus ? <PersonalInformationSkeleton></PersonalInformationSkeleton> : <PersonalInformation />}
-        </Box>
-      </Box>
+      </Paper>
+      <PersonalInformation />
     </Box>
   );
 };
-
 export default UserProfile;

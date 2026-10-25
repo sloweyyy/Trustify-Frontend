@@ -1,6 +1,6 @@
 import { CloseRounded } from '@mui/icons-material';
-import { Box, Button, IconButton, Modal, Typography } from '@mui/material';
-import React, { useState, useEffect } from 'react';
+import { Box, Button, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, Typography, useMediaQuery } from '@mui/material';
+import React, { useState, useEffect, useId } from 'react';
 import LabeledTextField from './LabeledTextField';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import ProvinceSelector from '../profile/ProvinceSelector';
 
 const EditUserProfileModal = ({ open, handleClose }) => {
+  const titleId = useId();
+  const fullScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
 
@@ -128,68 +130,14 @@ const EditUserProfileModal = ({ open, handleClose }) => {
   };
 
   return (
-    <Modal open={open} onClose={handleClose} aria-labelledby="edit-profile-title">
-      <Box
-        role="dialog" aria-modal="true" aria-labelledby="edit-profile-title"
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: { xs: 'calc(100% - 32px)', md: 720 },
-          maxHeight: 'calc(100dvh - 32px)',
-          overflowY: 'auto',
-          bgcolor: 'background.paper',
-          p: { xs: 2, sm: 3 },
-          borderRadius: 2,
-        }}
-      >
-        {/* Header */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: 1.5,
-          }}
-        >
-          <IconButton aria-label="Đóng cập nhật hồ sơ" disableRipple onClick={handleClose}>
-            <CloseRounded />
-          </IconButton>
-          <Typography id="edit-profile-title" variant="h6" component="h2" flex={1} sx={{ minWidth: 0 }}>
-            Cập nhật hồ sơ
-          </Typography>
-          <Button
-            variant="contained"
-            sx={{ width: { xs: '100%', sm: 'auto' }, flexShrink: 0 }}
-            onClick={handleSaveChanges}
-          >
-            Lưu thay đổi
-          </Button>
-        </Box>
-
-        {/* Form Fields Section */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'stretch',
-            gap: 1.5,
-            marginTop: '20px',
-            border: 1,
-            borderColor: 'divider',
-            borderRadius: 1,
-            padding: '16px',
-            columnGap: '16px',
-          }}
-        >
-          <Typography variant="subtitle2" flex={1} color="text.primary">
-            Cập nhật hồ sơ
-          </Typography>
-
+    <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md" fullScreen={fullScreen} aria-labelledby={titleId}>
+      <DialogTitle component="div" id={`${titleId}-header`} sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
+        <Typography component="h2" variant="h5" id={titleId} sx={{ flex: 1 }}>Cập nhật hồ sơ</Typography>
+        <IconButton aria-label="Đóng cập nhật hồ sơ" onClick={handleClose}><CloseRounded /></IconButton>
+      </DialogTitle>
+      <DialogContent dividers sx={{ p: { xs: 2, sm: 3 } }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          <Typography component="h3" variant="h6">Thông tin tài khoản</Typography>
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
             <LabeledTextField
               label="Họ và tên"
@@ -221,28 +169,8 @@ const EditUserProfileModal = ({ open, handleClose }) => {
             />
           </Box>
         </Box>
-
-        {/* Address Section - ProvinceSelector Component */}
-
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'stretch',
-            gap: 1.5,
-            marginTop: '20px',
-            border: 1,
-            borderColor: 'divider',
-            borderRadius: 1,
-            padding: '16px',
-            columnGap: '16px',
-          }}
-        >
-          <Typography variant="subtitle2" color="text.primary">
-            Địa chỉ liên hệ
-          </Typography>
-
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, mt: 4 }}>
+          <Typography component="h3" variant="h6">Địa chỉ liên hệ</Typography>
           <ProvinceSelector
             city={tempForm.province}
             district={tempForm.district}
@@ -261,9 +189,12 @@ const EditUserProfileModal = ({ open, handleClose }) => {
             />
           </Box>
         </Box>
-      </Box>
-    </Modal>
+      </DialogContent>
+      <DialogActions sx={{ flexDirection: { xs: 'column-reverse', sm: 'row' }, '& .MuiButton-root': { width: { xs: '100%', sm: 'auto' }, ml: '0 !important' } }}>
+        <Button variant="outlined" onClick={handleClose}>Hủy</Button>
+        <Button variant="contained" onClick={handleSaveChanges}>Lưu thay đổi</Button>
+      </DialogActions>
+    </Dialog>
   );
 };
-
 export default EditUserProfileModal;

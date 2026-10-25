@@ -1,0 +1,58 @@
+{
+  "sha": "63717560d77d5bdf34a12e9dd50f9c69c8359697",
+  "url": "https://trustify-notary.vercel.app",
+  "checks": [
+    {
+      "role": "user",
+      "size": "desktop",
+      "name": "Mua thêm tài liệu",
+      "dialogFits": true,
+      "labelledQuantity": true,
+      "escapeClose": true,
+      "focusRestored": true,
+      "note": "Header-only screenshot excludes real document name; inputs not changed and no submit action."
+    },
+    {
+      "role": "user",
+      "size": "desktop",
+      "name": "Chia sẻ tài liệu",
+      "dialogFits": true,
+      "labelledQuantity": true,
+      "escapeClose": true,
+      "focusRestored": true,
+      "note": "Header-only screenshot excludes real document name; inputs not changed and no submit action."
+    },
+    {
+      "role": "user",
+      "size": "mobile",
+      "name": "Mua thêm tài liệu",
+      "dialogFits": true,
+      "labelledQuantity": true,
+      "escapeClose": true,
+      "focusRestored": true,
+      "note": "Header-only screenshot excludes real document name; inputs not changed and no submit action."
+    },
+    {
+      "role": "user",
+      "size": "mobile",
+      "name": "Chia sẻ tài liệu",
+      "dialogFits": true,
+      "labelledQuantity": true,
+      "escapeClose": true,
+      "focusRestored": true,
+      "note": "Header-only screenshot excludes real document name; inputs not changed and no submit action."
+    },
+    {
+      "role": "notary",
+      "sessionNavigation": true
+    },
+    {
+      "role": "admin",
+      "verifyNavigation": true
+    }
+  ],
+  "blocked": [],
+  "errors": [],
+  "note": "Read-only all-role verification per Claude review exception on PR26 and approval on PR29. Dialog open/close only. No actual file preview, transfer, purchase or payment submitted.",
+  "checkedAt": "2026-10-25T10:44:43.650Z"
+}
