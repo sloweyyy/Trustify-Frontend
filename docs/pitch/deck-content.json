@@ -93,12 +93,12 @@
     "transcript": [
       "Document verification with a record to inspect",
       "Document file",
-      "Supabase Storage in the demo.\nIPFS/Pinata support in code.",
+      "Kept in private storage.",
       "Certificate reference",
-      "NFT metadata on Solana devnet links the record to the file.",
+      "Solana devnet NFT records the file’s SHA-256 fingerprint.",
       "Current integration uses a test network. A blockchain record alone does not establish legal validity."
     ],
-    "notes": "Blockchain implementation: https://github.com/sloweyyy/Trustify-Backend/blob/main/src/config/blockchain.js and src/services/notarization.service.js. Verification UI: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/design/screenshots/final/states/public-verify-record-desktop.png. The public demo stores files and metadata in Supabase Storage. IPFS/Pinata pinning is supported in code. Metadata references are minted on Solana devnet. Live-demo configuration verified by the maintainer in https://github.com/sloweyyy/Trustify-Frontend/pull/50. NFT possession/metadata is not proof of legal validity or complete confidentiality."
+    "notes": "Blockchain implementation: https://github.com/sloweyyy/Trustify-Backend/blob/main/src/config/blockchain.js and src/services/notarization.service.js. Verification UI: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/design/screenshots/final/states/public-verify-record-desktop.png. Document files are kept in private storage. Solana devnet NFTs record the file SHA-256 fingerprint for comparison against a copy held by the verifier. Backend privacy update: https://github.com/sloweyyy/Trustify-Backend/pull/16. Live-demo configuration verified by the maintainer in https://github.com/sloweyyy/Trustify-Frontend/pull/50. NFT possession/metadata is not proof of legal validity or complete confidentiality."
   },
   {
     "number": 8,
@@ -113,12 +113,12 @@
       "JWT and Google OAuth. The public demo simulates payments.",
       "Document records",
       "Solana Web3.js and Metaplex",
-      "Supabase Storage in the demo. IPFS/Pinata support in code.",
+      "Private document storage. SHA-256 fingerprint on-chain.",
       "Assistant",
       "Gemini integration",
       "Guidance on documents and procedures"
     ],
-    "notes": "Verified against frontend package.json/README and backend package.json, src/config/blockchain.js, src/services/chatbot.service.js and src/services/payment.service.js. Source: https://github.com/sloweyyy/Trustify-Frontend and https://github.com/sloweyyy/Trustify-Backend. Gemini supplies procedural guidance, not implemented document generation. PayOS is the supported payment integration. The current public demo simulates payments, as verified by the maintainer in https://github.com/sloweyyy/Trustify-Frontend/pull/50. The demo uses Supabase Storage for files/metadata, with IPFS/Pinata support in code."
+    "notes": "Verified against frontend package.json/README and backend package.json, src/config/blockchain.js, src/services/chatbot.service.js and src/services/payment.service.js. Source: https://github.com/sloweyyy/Trustify-Frontend and https://github.com/sloweyyy/Trustify-Backend. Gemini supplies procedural guidance, not implemented document generation. PayOS is the supported payment integration. The current public demo simulates payments, as verified by the maintainer in https://github.com/sloweyyy/Trustify-Frontend/pull/50. Documents stay in private storage; the NFT records a SHA-256 fingerprint. Backend privacy update: https://github.com/sloweyyy/Trustify-Backend/pull/16."
   },
   {
     "number": 9,

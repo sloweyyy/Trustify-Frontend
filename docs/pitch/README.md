@@ -29,7 +29,7 @@ Current implementation and future proposals are separate. No users, revenue, mar
 
 - [Approved identity](../brand/brand-identity.md), logoB and Be Vietnam Pro.
 - [Implementation and all-role evidence](../design/final/README.md).
-- [Frontend source](https://github.com/sloweyyy/Trustify-Frontend) and [backend source](https://github.com/sloweyyy/Trustify-Backend) inspected read-only for feature claims. Gemini provides procedural guidance. PayOS integration is supported, while the public demo simulates payments. NFT minting uses Solana devnet and Metaplex. The public demo stores files/metadata in Supabase Storage, with IPFS/Pinata support available in code. The maintainer verified the live deployment configuration in PR #50.
+- [Frontend source](https://github.com/sloweyyy/Trustify-Frontend) and [backend source](https://github.com/sloweyyy/Trustify-Backend) inspected read-only for feature claims. Gemini provides procedural guidance. PayOS integration is supported, while the public demo simulates payments. NFT minting uses Solana devnet and Metaplex. Document files stay in private storage. Solana devnet NFT metadata records the SHA-256 fingerprint, allowing a person holding a copy to compare it. This follows the merged backend privacy update in PR #16; production rollout confirmation is pending.
 - Per-slide sources/context are in the PowerPoint speaker notes, the web transcript and deck-content.json.
 - Original screenshots remain in docs/design/screenshots/final/. Crops preserve the relevant UI and label synthetic examples. No generated event photos or certificates.
 
