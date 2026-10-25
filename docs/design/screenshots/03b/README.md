@@ -273,3 +273,5 @@ Known existing content overflow remains on Home(703px), Services(399px) and User
 ## Public mobile navigation
 
 ![Menu](after-menu-mobile.png)
+
+Pre-review accessibility correction: public Header now sits outside the page-content target. After activating the skip link, the next Tab bypasses the header. Fresh local screenshot/focus/build/ESLint checks pass.
