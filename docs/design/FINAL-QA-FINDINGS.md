@@ -19,3 +19,7 @@ The one-pixel dashboard scrollWidth rounding in the initial1440px capture is bel
 No backend/API/service/Redux changes in this follow-up. No actual create, upload, invitation, signature, approval, rejection, sharing, purchase, payment or chatbot message is submitted during browser QA. The guest example only edits an unsent local draft. Existing QA logins and read requests are authorized. Auth display fields and document identities are anonymized for local screenshots; order codes in final screenshot data are synthetic.
 
 Validation: CI=false npm run build; changed-file CRA ESLint; exact CI=true npm test -- --watchAll=false passes68 suites/350 tests. The test count drops6 because nine obsolete hover/CSS tests become three tests for the current visible identity and unchanged action contract. No suites are skipped or excluded. Full build/test CI gates were added and merged in #45.
+
+Native Chrome200% QA also exposed MUI Autocomplete’s default accessible “Open” label on Admin period selectors. Theme defaults now localize open/close/clear/loading/no-options text for every remaining Autocomplete. Existing local overrides and behavior are retained.
+
+Live dependency: issue #46 tracks two repeated HTTP500 responses from the unchanged authorized Admin GET /session/getAllSessions?limit=25&page=1 at22:27 +07. Final overall production-health completion remains pending its resolution; the frontend error/retry UI is verified.

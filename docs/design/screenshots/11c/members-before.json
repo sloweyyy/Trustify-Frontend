@@ -1,0 +1,20 @@
+{
+  "phase": "before",
+  "fixture": "Synthetic guest search GET. Add only modifies the unsent form draft; no session created and no real invitation sent.",
+  "results": [
+    {
+      "size": "desktop",
+      "dialogFits": true,
+      "emailVisible": false,
+      "removeNamed": 0
+    },
+    {
+      "size": "mobile",
+      "dialogFits": true,
+      "emailVisible": false,
+      "removeNamed": 0
+    }
+  ],
+  "writes": [],
+  "errors": []
+}
