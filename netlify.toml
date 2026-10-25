@@ -1,6 +1,0 @@
-# Deprecated: the app is hosted on Vercel (see vercel.json).
-# Netlify is still connected to this repo from its dashboard; skip every build
-# so it reports "skipped" instead of building a duplicate. Delete this file
-# after disconnecting the "congchungonline" site in Netlify.
-[build]
-  ignore = "exit 0"
