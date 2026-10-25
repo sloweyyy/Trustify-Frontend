@@ -36,7 +36,7 @@ const FileUploadSection = ({
         <Typography color="text.secondary">{totalFiles} tài liệu đã chọn</Typography>
       </Box>
       {!confirmed && <>
-        <Typography id={`${id}-formats`} color="text.secondary">Định dạng hỗ trợ: {VALID_FORMATS.map((format) => format.slice(1).toUpperCase()).join(', ')}.</Typography>
+        <Typography id={`${id}-formats`} color="text.secondary">Định dạng hỗ trợ: {VALID_FORMATS.filter((format) => format !== '.jpeg').map((format) => format === '.jpg' ? 'JPG/JPEG' : format.slice(1).toUpperCase()).join(', ')}.</Typography>
         <Button id={`${id}-choose`} ref={chooseRef} variant="outlined" onClick={(event) => setAnchorEl(event.currentTarget)}
           aria-label={`Chọn tài liệu cho ${title}`} aria-describedby={`${id}-formats`} aria-haspopup="menu" aria-expanded={open}
           aria-controls={open ? `${id}-menu` : undefined} sx={{ alignSelf: 'flex-start' }}>Chọn tài liệu</Button>

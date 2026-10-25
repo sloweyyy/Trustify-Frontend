@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { Backdrop, Box, CircularProgress, Typography } from '@mui/material';
-import { gray, white } from '../../../config/theme/themePrimitives';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Backdrop, Box, Card, CircularProgress, Typography } from '@mui/material';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NotarizationService from '../../../services/notarization.service';
 import CreateNotarizationProfileStepper from '../../../components/modals/CreateNotarizationProfileStepper';
 import NotarizationFormContent from './NotarizationFormContent';
+import { ErrorState } from '../../../components/shared/PageFeedback';
 import { getDocumentNameByCode, VALID_FORMATS } from '../../../utils/constants';
 
 const initialNotarizationData = {
@@ -31,31 +31,40 @@ const CreateNotarizationProfile = () => {
   const [notarizationData, setNotarizationData] = useState(initialNotarizationData);
   const [fieldsAndServices, setFieldsAndServices] = useState(initialFieldsAndServices);
   const [loadingNotarization, setLoadingNotarization] = useState(false);
-  const [selectedService, setSelectedService] = useState([]);
+  const [selectedService, setSelectedService] = useState(null);
+  const [loadError, setLoadError] = useState(null);
+  const headingRef = useRef(null);
+  useEffect(() => {
+    headingRef.current?.focus({ preventScroll: true });
+    headingRef.current?.scrollIntoView({ block: 'start' });
+  }, [currentStep]);
   const [selectedField, setSelectedField] = useState(null);
 
   const fetchNotarizationField = useCallback(async () => {
     if (fieldsAndServices.notarizationField.length > 0) return;
     setLoadingNotarization(true);
+    setLoadError(null);
     try {
       const response = await NotarizationService.getAllNotarizationField();
+      if (!Array.isArray(response)) throw new Error('Fields unavailable');
       setFieldsAndServices((prev) => ({ ...prev, notarizationField: response }));
     } catch (error) {
-      console.error(error);
+      setLoadError('fields');
     } finally {
       setLoadingNotarization(false);
     }
   }, [fieldsAndServices]);
 
   const fetchNotarizationService = useCallback(async () => {
-    if (fieldsAndServices.notarizationService.length > 0) return;
+    if (!selectedField || fieldsAndServices.notarizationService.length > 0) return;
     setLoadingNotarization(true);
+    setLoadError(null);
     try {
       const response = await NotarizationService.getNotarizationServiceByFieldId(selectedField.id);
-      console.log(response);
+      if (!Array.isArray(response)) throw new Error('Services unavailable');
       setFieldsAndServices((prev) => ({ ...prev, notarizationService: response }));
     } catch (error) {
-      console.error(error);
+      setLoadError('services');
     } finally {
       setLoadingNotarization(false);
     }
@@ -102,7 +111,7 @@ const CreateNotarizationProfile = () => {
 
       setDocumentWalletFiles((prevFiles) => [
         ...prevFiles,
-        { document: { ...document, filename: customFileName }, type: documentType },
+        { document: { ...document, displayName: document.displayName || document.filename.replace(/^\d+-/, ''), filename: customFileName }, type: documentType },
       ]);
     } catch (error) {
       console.error('Error handling document wallet change:', error);
@@ -124,7 +133,7 @@ const CreateNotarizationProfile = () => {
       const newFileName = `${documentType}_${timestamp}.${fileExtension}`;
       const renamedFile = new File([file], newFileName, { type: file.type });
 
-      setUploadedFiles((prev) => [...prev, { file: renamedFile, type: documentType }]);
+      setUploadedFiles((prev) => [...prev, { file: renamedFile, displayName: file.name, type: documentType }]);
     });
   };
 
@@ -159,16 +168,18 @@ const CreateNotarizationProfile = () => {
 
       const response = await NotarizationService.uploadNotarizationDocument(formData);
 
-      if (response.status === 200) {
-        toast.success('Tạo hồ sơ công chứng thành công');
+      if (response.status !== 200) {
+        toast.error('Chưa thể gửi hồ sơ. Thông tin đã nhập vẫn ở đây để bạn thử lại.');
+        return response;
       }
+      toast.success('Tạo hồ sơ công chứng thành công');
 
       setNotarizationData(initialNotarizationData);
       setUploadedFiles([]);
       setCurrentStep(0);
       return response;
     } catch (error) {
-      console.log(error);
+      toast.error('Chưa thể gửi hồ sơ. Thông tin đã nhập vẫn ở đây để bạn thử lại.');
     } finally {
       setLoading(false);
     }
@@ -179,10 +190,8 @@ const CreateNotarizationProfile = () => {
   const handleNext = () => {
     if (currentStep === 0) {
       if (!selectedField) {
-        toast.error('Vui lòng nhập thông tin lĩnh vực công chứng.');
         return;
-      } else if (selectedService.length === 0) {
-        toast.error('Vui lòng chọn dịch vụ công chứng.');
+      } else if (!selectedService || (Array.isArray(selectedService) && selectedService.length === 0)) {
         return;
       }
     } else if (currentStep === 1) {
@@ -194,7 +203,6 @@ const CreateNotarizationProfile = () => {
         !requesterInfo.email ||
         !amount
       ) {
-        toast.error('Vui lòng nhập thông tin người yêu cầu.');
         return;
       }
 
@@ -228,92 +236,33 @@ const CreateNotarizationProfile = () => {
   useEffect(() => {
     setFieldsAndServices({ notarizationField: [], notarizationService: [] });
     setSelectedService(null);
+    setLoadError(null);
   }, [selectedField]);
 
-  console.log(notarizationData);
-
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        backgroundColor: gray[50],
-        gap: 3,
-        minHeight: 'calc(100dvh - 64px)',
-        width: '100%',
-        scrollBehavior: 'smooth',
-      }}
-    >
-      {/* Header */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          py: 3,
-          position: 'sticky',
-          top: 0,
-          zIndex: 100,
-          width: '100%',
-          backgroundColor: white[50],
-          boxShadow: 1,
-        }}
-      >
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', bgcolor: 'background.default', width: '100%', minHeight: 'calc(100dvh - 64px)' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', py: 2, position: 'sticky', top: { xs: 64, md: 0 }, zIndex: 100, width: '100%', bgcolor: 'background.paper', borderBottom: 1, borderColor: 'divider' }}>
         <CreateNotarizationProfileStepper currentStep={currentStep} />
       </Box>
-
-      <Box sx={{ py: { xs: 3, md: 5 }, px: { xs: 2, md: 3 }, width: '100%', maxWidth: 1008 }}>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            minWidth: 0,
-            width: '100%',
-            backgroundColor: white[50],
-            borderRadius: 1,
-            boxShadow: 1,
-          }}
-        >
-          <Box sx={{ p: 3 }}>
-            <Typography sx={{ fontSize: 16, fontWeight: 600, textTransform: 'capitalize' }}>Tạo hồ sơ công chứng</Typography>
-          </Box>
-
+      <Box sx={{ py: { xs: 3, md: 4 }, px: { xs: 2, md: 3 }, width: '100%', maxWidth: 816 }}>
+        <Card component="section" aria-labelledby="create-profile-title" sx={{ p: { xs: 0, sm: 3 }, borderWidth: { xs: 0, sm: 1 }, bgcolor: { xs: 'transparent', sm: 'background.paper' } }}>
+          <Typography component="h1" variant="h5" id="create-profile-title" ref={headingRef} tabIndex={-1} sx={{ mb: 2, scrollMarginTop: { xs: 180, md: 112 } }}>Tạo hồ sơ công chứng</Typography>
+          {loadError && <Box sx={{ mb: 3 }}><ErrorState title={loadError === 'fields' ? 'Chưa thể tải lĩnh vực công chứng' : 'Chưa thể tải dịch vụ công chứng'} description="Bạn có thể thử tải lại danh sách để tiếp tục." onRetry={loadError === 'fields' ? fetchNotarizationField : fetchNotarizationService} /></Box>}
           <NotarizationFormContent
-            currentStep={currentStep}
-            uploadedFiles={uploadedFiles}
-            fieldsAndServices={fieldsAndServices}
-            selectedField={selectedField}
-            setSelectedField={setSelectedField}
-            fetchNotarizationField={fetchNotarizationField}
-            selectedService={selectedService}
-            setSelectedService={setSelectedService}
-            fetchNotarizationService={fetchNotarizationService}
-            handleNext={handleNext}
-            handlePrevious={handlePrevious}
-            handleFileChange={handleFileChange}
-            handleInputChange={handleInputChange}
-            handleRemoveFile={handleRemoveFile}
-            loadingNotarization={loadingNotarization}
-            notarizationData={notarizationData}
-            handleDocumentWalletChange={handleDocumentWalletChange}
-            documentWalletFiles={documentWalletFiles}
-            handleRemoveDocumentWalletFile={handleRemoveDocumentWalletFile}
+            currentStep={currentStep} uploadedFiles={uploadedFiles} fieldsAndServices={fieldsAndServices}
+            selectedField={selectedField} setSelectedField={setSelectedField} fetchNotarizationField={fetchNotarizationField}
+            selectedService={selectedService} setSelectedService={setSelectedService} fetchNotarizationService={fetchNotarizationService}
+            handleNext={handleNext} handlePrevious={handlePrevious} handleFileChange={handleFileChange} handleInputChange={handleInputChange}
+            handleRemoveFile={handleRemoveFile} loadingNotarization={loadingNotarization} notarizationData={notarizationData}
+            handleDocumentWalletChange={handleDocumentWalletChange} documentWalletFiles={documentWalletFiles}
+            handleRemoveDocumentWalletFile={handleRemoveDocumentWalletFile} loading={loading}
           />
-        </Box>
+        </Card>
       </Box>
-      <Backdrop
-        sx={{
-          color: white[50],
-          zIndex: (theme) => theme.zIndex.modal + 1,
-        }}
-        open={loading}
-      >
-        <CircularProgress color="inherit" />
+      <Backdrop sx={{ color: 'common.white', zIndex: (theme) => theme.zIndex.modal + 1 }} open={loading}>
+        <Box role="status" sx={{ display: 'flex', alignItems: 'center', gap: 2 }}><CircularProgress color="inherit" aria-hidden="true" /><Typography>Đang gửi hồ sơ…</Typography></Box>
       </Backdrop>
     </Box>
   );
 };
-
 export default CreateNotarizationProfile;

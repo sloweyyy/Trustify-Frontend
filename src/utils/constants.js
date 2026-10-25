@@ -1,4 +1,4 @@
-export const VALID_FORMATS = ['.pdf', '.docx', '.png', '.jpg'];
+export const VALID_FORMATS = ['.pdf', '.docx', '.png', '.jpg', '.jpeg'];
 
 export const DOCUMENT_TYPE_LABELS = {
   identity_doc: 'Giấy tờ tuỳ thân',

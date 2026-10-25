@@ -1,0 +1,46 @@
+{
+  "fixture": "Wallet GET and IPFS GET responses intercepted locally. No NFT/document selected or submitted.",
+  "baseline": "febf4dd",
+  "results": [
+    {
+      "id": "preview-unsupported",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": [
+        {
+          "name": "Đóng xem tài liệu",
+          "x": 1251,
+          "y": 71,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svg": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CloseRoundedIcon\"><path d=\"M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7a.996.996 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0s.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4\"></path></svg>",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "preview-unsupported",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": [
+        {
+          "name": "Đóng xem tài liệu",
+          "x": 321,
+          "y": 21,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svg": "<svg class=\"MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-20bmp1-MuiSvgIcon-root\" focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\" data-testid=\"CloseRoundedIcon\"><path d=\"M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7a.996.996 0 0 0-1.41 0c-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0s.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4\"></path></svg>",
+          "svgWidth": 24
+        }
+      ]
+    }
+  ],
+  "writes": [],
+  "checkedAt": "2026-10-25T02:53:56.952Z"
+}

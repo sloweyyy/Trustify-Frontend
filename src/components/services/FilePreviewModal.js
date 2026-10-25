@@ -57,9 +57,9 @@ const FilePreviewModal = ({ open, onClose, metadataUrl, filename }) => {
           </Box>
         ) : <Typography>Không xem trước được định dạng này. Mở tệp để xem.</Typography>}
       </DialogContent>
-      <DialogActions>
-        <Button variant="text" onClick={onClose}>Đóng</Button>
+      <DialogActions disableSpacing sx={{ flexDirection: { xs: 'column', sm: 'row-reverse' }, alignItems: { xs: 'stretch', sm: 'center' }, justifyContent: 'flex-start' }}>
         {!loading && !error && fileUrl && <Button component="a" variant="outlined" href={fileUrl} target="_blank" rel="noopener noreferrer" endIcon={<OpenInNewRounded />}>Mở tài liệu trong tab mới</Button>}
+        <Button variant="text" onClick={onClose}>Đóng</Button>
       </DialogActions>
     </Dialog>
   );

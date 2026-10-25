@@ -1,0 +1,63 @@
+{
+  "results": [
+    {
+      "name": "step1-service",
+      "size": "zoom",
+      "width": 720,
+      "height": 500,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 720
+    },
+    {
+      "name": "step2-information",
+      "size": "zoom",
+      "width": 720,
+      "height": 500,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 720
+    },
+    {
+      "name": "upload-empty",
+      "size": "zoom",
+      "width": 720,
+      "height": 500,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 720
+    },
+    {
+      "name": "upload-menu",
+      "size": "zoom",
+      "width": 720,
+      "height": 500,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 720
+    },
+    {
+      "name": "upload-selected",
+      "size": "zoom",
+      "width": 720,
+      "height": 500,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 720
+    },
+    {
+      "name": "step3-review",
+      "size": "zoom",
+      "width": 720,
+      "height": 500,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 720
+    },
+    {
+      "name": "upload-review",
+      "size": "zoom",
+      "width": 720,
+      "height": 500,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 720
+    }
+  ],
+  "writes": [],
+  "fixture": "Generated local File objects only; no hồ sơ submission or wallet selection.",
+  "checkedAt": "2026-10-25T02:53:07.466Z"
+}
