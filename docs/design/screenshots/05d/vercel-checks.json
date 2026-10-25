@@ -1,0 +1,17 @@
+{
+  "source": "d3e6c4f",
+  "primaryDeployment": "https://vercel.com/sloweyyy/trustify-notary/9WWMjiWmq5MKdBae7FCG7uZZ8R6a",
+  "state": "Ready",
+  "browser": "Existing signed-in Chrome session",
+  "user": "Actual approved document opened by keyboard; readable note/output and Vietnamese signature image label. No shortcut/save action. Mobile dialog content388/388px at390 viewport; Escape and logout.",
+  "notary": "Sign in/mobile navigation/logout",
+  "admin": "Sign in/mobile navigation/shared verify/logout",
+  "automatedPreviewDrawing": {
+    "state": "not run",
+    "reason": "Fresh headless browser redirected to Vercel sign-in protection before Trustify form. No QA credentials entered. No settings/cookies changed. Drawing checks passed locally instead."
+  },
+  "realSignatureActions": 0,
+  "fileOpenActions": 0,
+  "paymentActions": 0,
+  "checkedAt": "2026-10-25T05:08:34.155Z"
+}

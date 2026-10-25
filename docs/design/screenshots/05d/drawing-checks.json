@@ -4,7 +4,7 @@
     {
       "dpr": 1,
       "original": {
-        "count": 1205,
+        "count": 1217,
         "minX": 81,
         "minY": 46,
         "maxX": 485,
@@ -14,7 +14,7 @@
         "cssWidth": 834
       },
       "narrow": {
-        "count": 616,
+        "count": 620,
         "minX": 28,
         "minY": 16,
         "maxX": 177,
@@ -24,7 +24,7 @@
         "cssWidth": 304
       },
       "restored": {
-        "count": 1205,
+        "count": 1217,
         "minX": 81,
         "minY": 46,
         "maxX": 485,
@@ -35,7 +35,7 @@
       },
       "changedRatio": 2,
       "changedDpr": {
-        "count": 3811,
+        "count": 3866,
         "minX": 163,
         "minY": 92,
         "maxX": 970,
@@ -56,7 +56,7 @@
     {
       "dpr": 2,
       "original": {
-        "count": 3847,
+        "count": 3818,
         "minX": 163,
         "minY": 92,
         "maxX": 970,
@@ -66,7 +66,7 @@
         "cssWidth": 834
       },
       "narrow": {
-        "count": 2193,
+        "count": 2176,
         "minX": 57,
         "minY": 32,
         "maxX": 354,
@@ -76,7 +76,7 @@
         "cssWidth": 304
       },
       "restored": {
-        "count": 3847,
+        "count": 3818,
         "minX": 163,
         "minY": 92,
         "maxX": 970,
@@ -87,7 +87,7 @@
       },
       "changedRatio": 1,
       "changedDpr": {
-        "count": 1210,
+        "count": 1205,
         "minX": 81,
         "minY": 46,
         "maxX": 485,
@@ -106,5 +106,5 @@
       "calloutGone": true
     }
   ],
-  "checkedAt": "2026-10-25T05:01:43.223Z"
+  "checkedAt": "2026-10-25T05:08:43.537Z"
 }
