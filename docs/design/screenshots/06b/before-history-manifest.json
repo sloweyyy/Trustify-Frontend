@@ -1,0 +1,36 @@
+{
+  "baseline": "6984ee6",
+  "fixture": "GET fixtures only; all non-auth writes blocked. Output links not activated; no signature saved. Displayed signature is a synthetic SVG stroke.",
+  "results": [
+    {
+      "state": "ready",
+      "size": "desktop",
+      "width": 1440,
+      "dialogScrollWidth": 1198,
+      "dialogClientWidth": 1198
+    },
+    {
+      "state": "ready",
+      "size": "mobile",
+      "width": 390,
+      "dialogScrollWidth": 388,
+      "dialogClientWidth": 388
+    },
+    {
+      "state": "approved",
+      "size": "desktop",
+      "width": 1440,
+      "dialogScrollWidth": 1198,
+      "dialogClientWidth": 1198
+    },
+    {
+      "state": "approved",
+      "size": "mobile",
+      "width": 390,
+      "dialogScrollWidth": 388,
+      "dialogClientWidth": 388
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T06:08:09.525Z"
+}

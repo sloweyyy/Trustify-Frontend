@@ -1,0 +1,13 @@
+{
+  "head": "808cd762a9821cdd7f0635ac1df6b004ee6e3df6",
+  "url": "https://trustify-notary-git-design-06b-session-dialog-sloweyyy.vercel.app",
+  "deployment": "https://vercel.com/sloweyyy/trustify-notary/nKGDRVfn1sK5jrB84mMPZQHAmGHt",
+  "checkedAt": "2026-10-25 16:19 +07",
+  "checks": [
+    "User login, real empty sessions at1440/390, existing creation form open/close without submit",
+    "Notary login, dashboard and session management read, queue navigation",
+    "Admin login, dashboard and verify read",
+    "All three roles logged out; no real invitations, creation, uploads, signatures, file-open or payment actions"
+  ],
+  "limits": "QA user has no real sessions; populated/signing states covered by local GET fixtures and blocked writes, not claimed as preview data."
+}

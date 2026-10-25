@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { ThemeProvider } from '@mui/material/styles';
 import { MemoryRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -63,4 +63,12 @@ test('the existing upload-success signal reloads sessions and resets the same Re
   useSelector.mockImplementation((selector) => selector({ session: { uploadFileSuccessState: true } })); show();
   await waitFor(() => expect(SessionService.getSessionsByUserId).toHaveBeenCalledTimes(2));
   expect(dispatch).toHaveBeenCalledWith(uploadFileSuccess(false));
+});
+
+test('a debounced search starts from page one even if pagination is clicked while it is pending', async () => {
+  SessionService.getSessionsByUserId.mockResolvedValue({ results: Array.from({ length: 20 }, (_, index) => ({ _id: `PHIEN-${index}`, sessionName: `Phiên mẫu ${index}`, users: [] })) });
+  show(); await screen.findByText('Phiên mẫu 0'); jest.useFakeTimers();
+  fireEvent.change(screen.getByRole('textbox', { name: 'Tìm phiên công chứng' }), { target: { value: 'Phiên' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Trang 3', exact: true })); expect(screen.getByText('Phiên mẫu 12')).toBeInTheDocument();
+  act(() => jest.advanceTimersByTime(300)); expect(screen.getByText('Phiên mẫu 0')).toBeInTheDocument(); jest.useRealTimers();
 });

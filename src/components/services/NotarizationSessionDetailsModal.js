@@ -1,19 +1,25 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { white, gray, black, primary, green, blue, yellow, red } from '../../config/theme/themePrimitives';
+import React, { useState, useMemo, useEffect, useId } from 'react';
 import { Close } from '@mui/icons-material';
 import AvatarWithCloseButton from '../static/AvatarWithCloseButton';
-import { Box, Button, IconButton, Modal, Typography, Autocomplete, TextField } from '@mui/material';
+import { Alert, Box, Button, Dialog, DialogTitle, DialogContent, IconButton, Typography, Autocomplete, TextField, useMediaQuery } from '@mui/material';
 import SessionService from '../../services/session.service';
 import UserService from '../../services/user.service';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import FileUploadSection from '../../pages/services/create-notarization-profile/FileUploadSection';
-import { getDocumentNameByCode, STATUS_TYPES, VALID_FORMATS } from '../../utils/constants';
-import useWindowSize from '../../hooks/useWindowSize';
+import { getDocumentNameByCode, VALID_FORMATS } from '../../utils/constants';
 import { uploadFileSuccess } from '../../stores/slices/sessionSlice';
-import NotaryFeedback from './NotaryFeedback';
-import SessionFeedback from './SessionFeedback';
+import DocumentStatusChip, { StatusChip } from '../shared/DocumentStatusChip';
+import SessionFeedback, { canDrawSessionSignature } from './SessionFeedback';
 import JoinSessionModal from '../../pages/services/JoinSessionModal';
+const debounce = (func, wait) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+};
+
 const AddGuest = ({ value, options, handleInputChange, handleAddGuest, loading }) => (
   <Box sx={{ mb: 2 }}>
     <Typography variant="body2">Thêm khách mời</Typography>
@@ -22,12 +28,13 @@ const AddGuest = ({ value, options, handleInputChange, handleAddGuest, loading }
         display: 'flex',
         alignItems: 'center',
         mt: 1,
-        backgroundColor: gray[50],
+        backgroundColor: 'background.default',
         borderRadius: 1,
       }}
     >
       {/* Guest Autocomplete */}
       <Autocomplete
+        freeSolo
         value={value}
         loading={loading}
         options={options}
@@ -38,11 +45,10 @@ const AddGuest = ({ value, options, handleInputChange, handleAddGuest, loading }
           <TextField
             {...params}
             variant="outlined"
-            placeholder="Nhập email khách mời"
+            label="Email khách mời" placeholder="Nhập email khách mời"
             sx={{
               flexGrow: 1,
-              '& fieldset': { border: 'none' },
-              '& .MuiInputBase-input': { fontSize: '14px' },
+              '& .MuiInputBase-input': { fontSize: '1rem' },
             }}
             onKeyDown={(event) => event.key === 'Enter' && handleAddGuest()}
           />
@@ -51,22 +57,22 @@ const AddGuest = ({ value, options, handleInputChange, handleAddGuest, loading }
           <li
             {...props}
             key={typeof option === 'string' ? option : option.id}
-            style={{ fontSize: '14px', fontWeight: 'regular' }}
+            style={{ fontSize: '1rem', fontWeight: 400 }}
           >
             {typeof option === 'string' ? option : option.email}
           </li>
         )}
-        loadingText={<Typography sx={{ fontSize: '14px', fontWeight: 'regular', color: gray[600] }}>Đang tải...</Typography>}
+        loadingText={<Typography sx={{ fontSize: '1rem', fontWeight: 400, color: 'text.secondary' }}>Đang tải...</Typography>}
         noOptionsText={
-          <Typography sx={{ fontSize: '14px', fontWeight: 'regular', color: gray[600] }}>Không tìm thấy kết quả</Typography>
+          <Typography sx={{ fontSize: '1rem', fontWeight: 400, color: 'text.secondary' }}>Không tìm thấy kết quả</Typography>
         }
       />
 
       <Button
         size="small"
-        variant="contained"
+        variant="outlined"
         onClick={handleAddGuest}
-        sx={{ fontSize: 14, backgroundColor: white[50], color: black[900], textTransform: 'none', mr: 1 }}
+        sx={{ fontSize: 16, textTransform: 'none', mr: 1 }}
       >
         Thêm
       </Button>
@@ -75,7 +81,7 @@ const AddGuest = ({ value, options, handleInputChange, handleAddGuest, loading }
 );
 
 const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
-  const [email, setEmail] = useState([]);
+  const [email, setEmail] = useState('');
   const [options, setOptions] = useState([]);
   const [users, setUsers] = useState(session.users);
   const [loading, setLoading] = useState(false);
@@ -88,20 +94,13 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
   const [showJoinSessionModal, setShowJoinSessionModal] = useState(false);
   const [isSendingForNotarization, setIsSendingForNotarization] = useState(false);
   const { user } = useSelector((state) => state.user);
-  const { width, height } = useWindowSize();
+  const fullScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+  const titleId = useId();
 
   const dispatch = useDispatch();
 
-  const debounce = (func, wait) => {
-    let timeout;
-    return (...args) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-  };
-
-  const fetchEmails = useCallback(
-    debounce(async (value) => {
+  const fetchEmails = useMemo(
+    () => debounce(async (value) => {
       setLoading(true);
       try {
         const trimmedValue = value.trim();
@@ -172,7 +171,7 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
 
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
-    return date.toLocaleDateString('vi-VN');
+    return date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
   };
 
   const formatTime = (timeStr) => {
@@ -338,119 +337,14 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
   };
 
   const isCreator = user.email === session.creator.email;
-
-  const renderSessionStatus = () => {
-    switch (session.status.status) {
-      case 'completed':
-        return (
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              mb: 2,
-              backgroundColor: green[50],
-              py: 1,
-              px: 2,
-              borderRadius: 100,
-            }}
-          >
-            <Typography variant="body3" sx={{ flexGrow: 1, fontWeight: 600, color: green[500] }}>
-              Đã hoàn thành
-            </Typography>
-          </Box>
-        );
-      case 'digitalSignature':
-        return (
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              mb: 2,
-              backgroundColor: blue[50],
-              py: 1,
-              px: 2,
-              borderRadius: 100,
-            }}
-          >
-            <Typography variant="body3" sx={{ flexGrow: 1, fontWeight: 600, color: blue[500] }}>
-              Sẵn sàng ký số
-            </Typography>
-          </Box>
-        );
-      case 'pending':
-        return (
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              mb: 2,
-              backgroundColor: gray[50],
-              py: 1,
-              px: 2,
-              borderRadius: 100,
-            }}
-          >
-            <Typography variant="body3" sx={{ flexGrow: 1, fontWeight: 600, color: gray[500] }}>
-              Chờ xác nhận
-            </Typography>
-          </Box>
-        );
-      case 'processing':
-        return (
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              mb: 2,
-              backgroundColor: yellow[50],
-              py: 1,
-              px: 2,
-              borderRadius: 100,
-            }}
-          >
-            <Typography variant="body3" sx={{ flexGrow: 1, fontWeight: 600, color: yellow[500] }}>
-              Đang xử lý
-            </Typography>
-          </Box>
-        );
-      case 'rejected':
-        return (
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              mb: 2,
-              backgroundColor: red[50],
-              py: 1,
-              px: 2,
-              borderRadius: 100,
-            }}
-          >
-            <Typography variant="body3" sx={{ flexGrow: 1, fontWeight: 600, color: red[500] }}>
-              Đã từ chối
-            </Typography>
-          </Box>
-        );
-      default:
-        return (
-          <Box
-            sx={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              mb: 2,
-              backgroundColor: gray[50],
-              py: 1,
-              px: 2,
-              borderRadius: 100,
-            }}
-          >
-            <Typography variant="body3" sx={{ flexGrow: 1, fontWeight: 600, color: gray[500] }}>
-              Chưa xác định
-            </Typography>
-          </Box>
-        );
-    }
+  const actorApproved = user.id === session.creator._id ? session.signature?.creator?.approved : session.signature?.users?.find((member) => member._id === user.id)?.approved;
+  const needsSignature = session.status.status === 'digitalSignature' && !actorApproved && canDrawSessionSignature(session.signature, session.output, session.createdBy, user.id);
+  const focusSignature = () => {
+    const heading = document.getElementById(`${titleId}-signature`);
+    heading?.focus({ preventScroll: true });
+    heading?.scrollIntoView?.({ block: 'start' });
   };
+
 
   const handleSignatureSave = async (signatureImageUrl) => {
     const signatureImageFile = new File([signatureImageUrl], user._id + '.png', { type: 'image/png' });
@@ -552,86 +446,55 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
     });
 
     setUploadedFiles(uploadedFiles);
-    console.log(uploadedFiles);
   }, [session.files]);
 
   return (
     <>
-      <Modal
-        open={open}
-        onClose={onClose}
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        }}
-      >
-        <Box
-          sx={{
-            width: `calc(${width}px - 20%)`,
-            maxHeight: `calc(${height}px - 20%)`,
-            p: 4,
-            backgroundColor: white[50],
-            borderRadius: 3,
-            overflowY: 'auto',
-            boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.25)',
-            '&::-webkit-scrollbar': {
-              width: '4px',
-              backgroundColor: gray[100],
-            },
-            '&::-webkit-scrollbar-thumb': {
-              backgroundColor: gray[300],
-              borderRadius: '2px',
-            },
-            scrollbarWidth: 'thin',
-          }}
-        >
-          {/* Header */}
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-            <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 600 }}>
-              Chi tiết phiên công chứng
-            </Typography>
-            <IconButton onClick={onClose}>
-              <Close />
-            </IconButton>
+      <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg" fullScreen={fullScreen} aria-labelledby={`${titleId}-title`}>
+        <DialogTitle component="div" id={`${titleId}-header`} sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
+          <Box sx={{ flex: 1, minWidth: 0 }}>
+            <Typography component="h2" variant="h5" id={`${titleId}-title`}>Chi tiết phiên công chứng</Typography>
+            <Box sx={{ mt: 1 }}>{session.status.status === 'unknown' ? <StatusChip label="Chưa gửi xử lý" /> : <DocumentStatusChip status={session.status.status} />}</Box>
           </Box>
-
-          {renderSessionStatus()}
-
+          <IconButton aria-label="Đóng chi tiết phiên công chứng" onClick={onClose}><Close /></IconButton>
+        </DialogTitle>
+        <DialogContent dividers sx={{ p: { xs: 2, sm: 3 }, minWidth: 0 }}>
+          {needsSignature && <Alert severity="info" sx={{ mb: 3 }} action={<Button variant="contained" onClick={focusSignature}>Ký ngay</Button>}>
+            Phiên công chứng đang chờ chữ ký của bạn
+          </Alert>}
           {/* Notary Session Name */}
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', mb: 2 }}>
-            <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: 2 }}>
-              <Typography variant="body2" sx={{ color: black[900], mb: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 2 }}>
+            <Box sx={{ flex: 1, minWidth: 0, mb: 2 }}>
+              <Typography variant="body2" sx={{ color: 'text.primary', mb: 2 }}>
                 Tên phiên công chứng
               </Typography>
               <Typography
                 sx={{
                   borderRadius: 1,
-                  backgroundColor: gray[50],
+                  backgroundColor: 'background.default',
                   padding: 2,
-                  fontSize: 15,
+                  fontSize: 16,
                   fontWeight: 500,
-                  color: black[900],
-                  border: `1px solid ${gray[200]}`,
+                  color: 'text.primary',
+                  border: 1, borderColor: 'divider',
                 }}
               >
                 {session.sessionName}
               </Typography>
             </Box>
-            <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: 2 }}>
-              <Typography variant="body2" sx={{ color: black[900], mb: 2 }}>
+            <Box sx={{ flex: 1, minWidth: 0, mb: 2 }}>
+              <Typography variant="body2" sx={{ color: 'text.primary', mb: 2 }}>
                 Số lượng bản sao
               </Typography>
               <Typography
                 sx={{
                   borderRadius: 1,
-                  backgroundColor: gray[50],
+                  backgroundColor: 'background.default',
                   padding: 2,
-                  fontSize: 15,
+                  fontSize: 16,
                   fontWeight: 500,
-                  color: black[900],
-                  border: `1px solid ${gray[200]}`,
+                  color: 'text.primary',
+                  border: 1, borderColor: 'divider',
                 }}
               >
                 {session.amount}
@@ -640,20 +503,20 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
           </Box>
 
           {/* Details Section */}
-          <Box sx={{ display: 'flex', gap: 3, mb: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 3, mb: 2 }}>
             <Box sx={{ flex: '1' }}>
-              <Typography variant="body2" sx={{ color: black[900], mb: 2 }}>
+              <Typography variant="body2" sx={{ color: 'text.primary', mb: 2 }}>
                 Lĩnh vực công chứng
               </Typography>
               <Typography
                 sx={{
                   borderRadius: 1,
-                  backgroundColor: gray[50],
+                  backgroundColor: 'background.default',
                   padding: 2,
-                  fontSize: 15,
+                  fontSize: 16,
                   fontWeight: 500,
-                  color: black[900],
-                  border: `1px solid ${gray[200]}`,
+                  color: 'text.primary',
+                  border: 1, borderColor: 'divider',
                 }}
               >
                 {session.notaryField.name}
@@ -661,18 +524,18 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
             </Box>
 
             <Box sx={{ flex: '1' }}>
-              <Typography variant="body2" sx={{ color: black[900], mb: 2 }}>
+              <Typography variant="body2" sx={{ color: 'text.primary', mb: 2 }}>
                 Dịch vụ công chứng
               </Typography>
               <Typography
                 sx={{
                   borderRadius: 1,
-                  backgroundColor: gray[50],
+                  backgroundColor: 'background.default',
                   padding: 2,
-                  fontSize: 15,
+                  fontSize: 16,
                   fontWeight: 500,
-                  color: black[900],
-                  border: `1px solid ${gray[200]}`,
+                  color: 'text.primary',
+                  border: 1, borderColor: 'divider',
                 }}
               >
                 {session.notaryService.name}
@@ -682,20 +545,20 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
 
           {/* Duration */}
           <Box sx={{ mb: 2 }}>
-            <Typography variant="body2" sx={{ color: black[900], mb: 2 }}>
+            <Typography variant="body2" sx={{ color: 'text.primary', mb: 2 }}>
               Thời gian diễn ra phiên công chứng
             </Typography>
-            <Box sx={{ display: 'flex', gap: 3, mb: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 3, mb: 2 }}>
               <Box sx={{ flex: 1 }}>
                 <Typography
                   sx={{
                     borderRadius: 1,
-                    backgroundColor: gray[50],
+                    backgroundColor: 'background.default',
                     padding: 2,
-                    fontSize: 15,
+                    fontSize: 16,
                     fontWeight: 500,
-                    color: black[900],
-                    border: `1px solid ${gray[200]}`,
+                    color: 'text.primary',
+                    border: 1, borderColor: 'divider',
                   }}
                 >
                   {formatDate(session.startDate)} - {formatTime(session.startDate)}
@@ -706,12 +569,12 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
                 <Typography
                   sx={{
                     borderRadius: 1,
-                    backgroundColor: gray[50],
+                    backgroundColor: 'background.default',
                     padding: 2,
-                    fontSize: 15,
+                    fontSize: 16,
                     fontWeight: 500,
-                    color: black[900],
-                    border: `1px solid ${gray[200]}`,
+                    color: 'text.primary',
+                    border: 1, borderColor: 'divider',
                   }}
                 >
                   {formatDate(session.endDate)} - {formatTime(session.endDate)}
@@ -752,7 +615,7 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
           )}
           <Box sx={{ display: 'flex', gap: 2, flexDirection: 'column' }}>
             <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Typography sx={{ fontSize: 14, fontWeight: 500, textTransform: 'capitalize', color: black[900], mb: 1 }}>
+              <Typography sx={{ fontSize: 16, fontWeight: 500, textTransform: 'capitalize', color: 'text.primary', mb: 1 }}>
                 Danh sách tài liệu đã đăng tải
               </Typography>
 
@@ -776,19 +639,20 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
                 size="small"
                 sx={{
                   p: 1.5,
-                  backgroundColor: primary[500],
+                  backgroundColor: 'primary.main',
                   alignSelf: 'flex-end',
                   display: session.status.status === 'unknown' ? 'block' : 'none',
                 }}
                 onClick={handleUploadDocument}
                 disabled={isUploading || session.status.status !== 'unknown'}
               >
-                <Typography sx={{ fontSize: 14, fontWeight: 600, textTransform: 'none', color: white[50] }}>
+                <Typography sx={{ fontSize: 16, fontWeight: 600, textTransform: 'none', color: 'primary.contrastText' }}>
                   {isUploading ? 'Đang tải lên...' : 'Gửi tài liệu'}
                 </Typography>
               </Button>
             </Box>
             <SessionFeedback
+              signaturePadId={`${titleId}-signature`}
               signature={session.signature}
               output={session.output}
               feedback={session.status.feedback}
@@ -812,8 +676,8 @@ const NotarizationSessionDetailsModal = ({ open, onClose, session }) => {
               </Button>
             </Box>
           )}
-        </Box>
-      </Modal>
+        </DialogContent>
+      </Dialog>
 
       {/* Join Session Modal - moved outside the main modal */}
       <JoinSessionModal sessionId={session._id} open={showJoinSessionModal} setOpen={setShowJoinSessionModal} />

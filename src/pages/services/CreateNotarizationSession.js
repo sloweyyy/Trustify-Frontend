@@ -36,7 +36,7 @@ const CreateNotarizationSession = () => {
   }, []);
   useEffect(() => { fetchSessions(); }, [fetchSessions]);
   useEffect(() => {
-    const timer = setTimeout(() => setAppliedSearch(searchValue), 300);
+    const timer = setTimeout(() => { setAppliedSearch(searchValue); setCurrentPage(1); }, 300);
     return () => clearTimeout(timer);
   }, [searchValue]);
   useEffect(() => {

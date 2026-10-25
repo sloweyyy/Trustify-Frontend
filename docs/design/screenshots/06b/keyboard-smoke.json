@@ -1,0 +1,30 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "dialogFits": true,
+      "enterOpen": true,
+      "signatureFocus": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "width": 720,
+      "dialogFits": true,
+      "enterOpen": true,
+      "signatureFocus": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "width": 1440,
+      "dialogFits": true,
+      "enterOpen": true,
+      "signatureFocus": true,
+      "escapeClose": true,
+      "focusRestored": true
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T06:08:59.307Z"
+}

@@ -4,7 +4,7 @@ import { getDocumentNameByCode } from '../../utils/constants';
 import FileAttachmentList from '../shared/FileAttachmentList';
 import SignaturePad from '../shared/SignaturePad';
 
-const NotaryFeedback = ({ signature, output = [], feedback, onSignatureSave, loading, signaturePadId }) => {
+const NotaryFeedback = ({ signature, output = [], feedback, onSignatureSave, loading, signaturePadId, signatureContent }) => {
   const { content, severity, missingFiles } = useMemo(() => {
     if (!feedback) return { content: 'Chưa có ghi chú từ công chứng viên.', severity: 'info', missingFiles: [] };
     if (feedback.startsWith('Missing documents')) {
@@ -31,7 +31,7 @@ const NotaryFeedback = ({ signature, output = [], feedback, onSignatureSave, loa
           <Typography component="h3" variant="subtitle1" sx={{ mb: 2 }}>Tài liệu phản hồi</Typography>
           <FileAttachmentList files={output} getName={(file) => file.filename} onOpen={(file) => window.open(file.firebaseUrl, '_blank')} sourceLabel="Tài liệu từ công chứng viên" confirmed />
         </Box>
-        {!signature?.approvalStatus?.user?.approved ? <SignaturePad id={signaturePadId} onSave={onSignatureSave} loading={loading} /> : signature?.signatureImage != null && <Box>
+        {signatureContent !== undefined ? signatureContent : !signature?.approvalStatus?.user?.approved ? <SignaturePad id={signaturePadId} onSave={onSignatureSave} loading={loading} /> : signature?.signatureImage != null && <Box>
           <Typography component="h3" variant="subtitle1" sx={{ mb: 2 }}>Chữ ký của bạn</Typography>
           <Box sx={{ bgcolor: '#FFFFFF', border: 1, borderColor: 'divider', borderRadius: 1, p: 2 }}>
             <Box component="img" src={signature.signatureImage} alt="Chữ ký của bạn" sx={{ display: 'block', maxWidth: '100%', maxHeight: 180, objectFit: 'contain' }} />

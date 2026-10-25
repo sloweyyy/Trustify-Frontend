@@ -7,17 +7,20 @@ import NotarizationSessionDetailsModal from '../../../components/services/Notari
 import SessionService from '../../../services/session.service';
 import UserService from '../../../services/user.service';
 import { toast } from 'react-toastify';
+import { ThemeProvider } from '@mui/material/styles';
+import createTrustifyTheme from '../../../config/theme/createTrustifyTheme';
 
 // Mock services and dependencies
 jest.mock('../../../services/session.service');
 jest.mock('../../../services/user.service');
 jest.mock('react-toastify');
+jest.mock('../../../pages/services/JoinSessionModal', () => () => null);
 jest.mock('../../../components/static/AvatarWithCloseButton', () => {
-  return function MockAvatar({ email, onRemove, isCreator }) {
+  return function MockAvatar({ email, onRemove, isCreator, onHideRemoveIcon }) {
     return (
       <div 
         data-testid={`avatar-${email}`}
-        onClick={onRemove}
+        onClick={onHideRemoveIcon ? undefined : onRemove}
         data-creator={isCreator}
       >
         {email}
@@ -29,9 +32,11 @@ jest.mock('../../../components/static/AvatarWithCloseButton', () => {
 describe('NotarizationSessionDetailsModal', () => {
   const mockSession = {
     _id: 'session123',
+    amount: 1, files: [], output: [], status: { status: 'unknown', feedback: '' },
+    signature: { creator: { approved: false }, users: [] },
     sessionName: 'Test Session',
     notaryField: { name: 'Test Field' },
-    notaryService: { name: 'Test Service' },
+    notaryService: { name: 'Test Service', required_documents: [] },
     startDate: '2024-03-20T09:00:00Z',
     endDate: '2024-03-20T10:00:00Z',
     creator: {
@@ -49,7 +54,7 @@ describe('NotarizationSessionDetailsModal', () => {
       user: { user: { email: 'creator@test.com' } },
       ...initialState
     }));
-    return render(<Provider store={store}>{component}</Provider>);
+    return render(<Provider store={store}><ThemeProvider theme={createTrustifyTheme()}>{component}</ThemeProvider></Provider>);
   };
 
   beforeEach(() => {
@@ -87,7 +92,7 @@ describe('NotarizationSessionDetailsModal', () => {
         />
       );
 
-      expect(screen.getAllByText(/20\/3\/2024/)[0]).toBeInTheDocument();
+      expect(screen.getAllByText(/20\/03\/2024/)[0]).toBeInTheDocument();
       expect(screen.getAllByText(/16:00/)[0]).toBeInTheDocument();
     });
 
@@ -119,15 +124,12 @@ describe('NotarizationSessionDetailsModal', () => {
       const input = screen.getByPlaceholderText('Nhập email khách mời');
       const addButton = screen.getByText('Thêm');
 
+      fireEvent.change(input, { target: { value: 'newuser@test.com' } });
       await act(async () => {
-        fireEvent.change(input, { target: { value: 'newuser@test.com' } });
-        // Wait for debounce
         await new Promise(r => setTimeout(r, 1500));
       });
 
-      await act(async () => {
-        fireEvent.click(addButton);
-      });
+      fireEvent.click(addButton);
 
       expect(SessionService.addUser).toHaveBeenCalledWith(
         'session123', 
@@ -148,10 +150,8 @@ describe('NotarizationSessionDetailsModal', () => {
       const input = screen.getByPlaceholderText('Nhập email khách mời');
       const addButton = screen.getByText('Thêm');
 
-      await act(async () => {
-        fireEvent.change(input, { target: { value: 'invalid-email' } });
-        fireEvent.click(addButton);
-      });
+      fireEvent.change(input, { target: { value: 'invalid-email' } });
+      fireEvent.click(addButton);
 
       expect(toast.error).toHaveBeenCalledWith('Địa chỉ email không hợp lệ.');
     });
@@ -167,14 +167,12 @@ describe('NotarizationSessionDetailsModal', () => {
 
       const userAvatar = screen.getByTestId('avatar-user1@test.com');
 
-      await act(async () => {
-        fireEvent.click(userAvatar);
-      });
+      fireEvent.click(userAvatar);
 
-      expect(SessionService.deleteUserOutOfSession).toHaveBeenCalledWith(
+      await waitFor(() => expect(SessionService.deleteUserOutOfSession).toHaveBeenCalledWith(
         'session123',
         'user1@test.com'
-      );
+      ));
     });
 
     it('prevents non-creator from removing guests', () => {
@@ -183,17 +181,19 @@ describe('NotarizationSessionDetailsModal', () => {
       }));
 
       render(
-        <Provider store={store}>
+        <Provider store={store}><ThemeProvider theme={createTrustifyTheme()}>
           <NotarizationSessionDetailsModal 
             open={true} 
             onClose={jest.fn()} 
             session={mockSession}
           />
-        </Provider>
+        </ThemeProvider></Provider>
       );
 
       const userAvatar = screen.getByTestId('avatar-user1@test.com');
       expect(userAvatar.getAttribute('data-creator')).toBeFalsy();
+      fireEvent.click(userAvatar);
+      expect(SessionService.deleteUserOutOfSession).not.toHaveBeenCalled();
     });
   });
 
@@ -210,10 +210,8 @@ describe('NotarizationSessionDetailsModal', () => {
       const input = screen.getByPlaceholderText('Nhập email khách mời');
       const addButton = screen.getByText('Thêm');
 
-      await act(async () => {
-        fireEvent.change(input, { target: { value: 'user1@test.com' } });
-        fireEvent.click(addButton);
-      });
+      fireEvent.change(input, { target: { value: 'user1@test.com' } });
+      fireEvent.click(addButton);
 
       expect(toast.error).toHaveBeenCalledWith('Không tìm thấy người dùng.');
     });
@@ -231,8 +229,8 @@ describe('NotarizationSessionDetailsModal', () => {
 
       const input = screen.getByPlaceholderText('Nhập email khách mời');
 
+      fireEvent.change(input, { target: { value: 'test@test.com' } });
       await act(async () => {
-        fireEvent.change(input, { target: { value: 'test@test.com' } });
         await new Promise(r => setTimeout(r, 1500));
       });
 

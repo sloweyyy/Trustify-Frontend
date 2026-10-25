@@ -48,7 +48,7 @@ describe('SessionCard', () => {
     renderWithProvider(<SessionCard session={mockSession} />);
 
     expect(screen.getByText('Test Session')).toBeInTheDocument();
-    expect(screen.getByText(/Test Creator/)).toBeInTheDocument();
+    expect(screen.getByText('Test Creator', { exact: true })).toBeInTheDocument();
     expect(screen.getByText('Test Field')).toBeInTheDocument();
     expect(screen.getByText('Test Service')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Xem phiên Test Session' })).toHaveAccessibleDescription(/Test Field/);
