@@ -1,0 +1,29 @@
+{
+  "source": "b0c76b5579adf9a29f624b5b5f529fad992b9926",
+  "deployment": "https://vercel.com/sloweyyy/trustify-notary/5G3SSMNHS5Xv15zKu9CMrzviFCHo",
+  "preview": "https://trustify-notary-git-design-02d-file-attachments-sloweyyy.vercel.app",
+  "ready": true,
+  "checkedAt": "2026-10-25T02:09:50.072413+00:00",
+  "roles": {
+    "User": [
+      "Sign-in; select existing field/service; advance to information step",
+      "Device/wallet menu desktop/mobile; native file chooser opens",
+      "Wallet open/Escape returns focus to exact attachment chooser",
+      "390px document width equals viewport; sign-out"
+    ],
+    "Notary": [
+      "Sign-in; read pending queue empty state; desktop capture",
+      "Mobile navigation; sign-out"
+    ],
+    "Admin": [
+      "Sign-in; mobile navigation; shared verify",
+      "390px document width equals viewport; sign-out"
+    ]
+  },
+  "limitations": [
+    "Native file chooser opened on preview, but fixture selection was blocked by the extension file-URL permission. Browser permissions were unchanged. Local Playwright verified actual File selection/removal and read-only review; see local-smoke.json and manifests.",
+    "Wallet/preview dialog internals follow02e; original filenames followUser04."
+  ],
+  "mutations": "Routine auth only. No notarization submission, wallet document selection, signing, payment or account edit.",
+  "screenshots": 8
+}

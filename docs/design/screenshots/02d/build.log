@@ -17,7 +17,7 @@ is not maintianed anymore. It is thus unlikely that this bug will
 ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.
-  
+
 Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
   npx update-browserslist-db@latest
   Why you should do it regularly: https://github.com/browserslist/update-db#readme
@@ -50,7 +50,7 @@ Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
   Why you should do it regularly: https://github.com/browserslist/update-db#readme
 Compiled with warnings.
 
-[eslint] 
+[eslint]
 src/components/ChatAssistant.js
   Line 1:10:  'Box' is defined but never used  no-unused-vars
 

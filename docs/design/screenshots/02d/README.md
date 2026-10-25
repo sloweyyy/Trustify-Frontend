@@ -53,3 +53,7 @@ Known scope: wallet/preview dialog content follows in 02e; original filename dis
 | Before | After |
 | --- | --- |
 | ![Before](before-upload-review-mobile.png) | ![After](after-upload-review-mobile.png) |
+
+## Vercel preview
+
+Primary deployment Ready; User/Notary/Admin clicked through. Eight preview captures are included. Device chooser opens, but selecting a local fixture is blocked by extension file-URL access; permissions were unchanged. Actual selection/removal/review is verified locally. See vercel-checks.json for exact checks and scope.
