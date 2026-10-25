@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-25T02:50:55.265Z",
+  "checks": [
+    "Step changes focus heading",
+    "Invalid required fields show inline errors and focus first input",
+    "Uppercase JPG/JPEG accepted with original names",
+    "Review shows entered data and read-only attachments",
+    "Back preserves requesterInfo",
+    "Native remove updates exact attachment",
+    "Real QA wallet selection/removal is client-state only; no submission",
+    "390px no document overflow;44px final action"
+  ],
+  "writes": [],
+  "fixture": "Generated image/PDF files plus existing QA wallet. No Gửi hồ sơ click."
+}

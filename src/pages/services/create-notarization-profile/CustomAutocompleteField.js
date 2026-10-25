@@ -2,14 +2,14 @@ import React, { useId } from 'react';
 import { Autocomplete, TextField } from '@mui/material';
 import FieldLabel from '../../../components/shared/FieldLabel';
 
-const CustomAutocompleteField = ({ title, options, selectedOption, setSelectedOption, fetchOptions, loadingOptions, required = false, error = false, helperText }) => {
+const CustomAutocompleteField = ({ title, options, selectedOption, setSelectedOption, fetchOptions, loadingOptions, required = false, error = false, helperText, disabled = false }) => {
   const id = useId();
   return (
     <FieldLabel htmlFor={id} label={title} required={required} error={error}>
       <Autocomplete
         clearText="Xóa lựa chọn" openText="Mở danh sách" closeText="Đóng danh sách"
         loadingText="Đang tải…" noOptionsText="Không có lựa chọn phù hợp"
-        id={id} loading={loadingOptions} options={options}
+        id={id} disabled={disabled} loading={loadingOptions} options={options}
         getOptionLabel={(option) => option.name}
         onChange={(event, value) => setSelectedOption(value)}
         renderInput={(params) => (

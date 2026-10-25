@@ -1,0 +1,17 @@
+{
+  "fixture": "Only the field-list GET is intercepted:503 then200. No backend mutation.",
+  "results": [
+    {
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "writes": [],
+  "checkedAt": "2026-10-25T02:53:07.601Z"
+}
