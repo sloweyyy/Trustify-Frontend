@@ -1,0 +1,19 @@
+{
+  "sourceCommit": "0a9d0f5e5cfeef7b45425007b09166e6211d806f",
+  "localUiCaptureCommit": "34ea3af",
+  "nonvisualFollowup": "Inherited Autocomplete accessible control labels localized after the pixel captures; production audit checks no English controls.",
+  "publicImages": "Production after merged #47",
+  "authenticatedImages": "Local actual response shapes anonymized at browser boundary, including synthetic order codes; no tokens saved.",
+  "beforeImages": "References to the unchanged original pre-design audit; deployed source revision was not independently established.",
+  "routeCases": 43,
+  "productionApiException": [
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "status": 500,
+      "path": "/v1/session/getAllSessions"
+    }
+  ],
+  "goalComplete": false,
+  "completionGate": "Frontend issue46 / backend maintainer PR15 not deployed at audit time"
+}

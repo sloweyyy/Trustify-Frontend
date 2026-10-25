@@ -1,0 +1,304 @@
+{
+  "source": "34ea3af4a1589325f38ee2dc35941baffd765ed1",
+  "fixture": "Synthetic GET fixtures and local-only chatbot POST fulfillment. Only auth/login and token refresh go to backend as writes. No document/session/account/payment/signature or real chatbot write is submitted.",
+  "captures": [
+    {
+      "role": "public",
+      "name": "lookup-rejected",
+      "size": "desktop",
+      "file": "public-lookup-rejected-desktop.png",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogFits": true
+    },
+    {
+      "role": "public",
+      "name": "verify-record",
+      "size": "desktop",
+      "file": "public-verify-record-desktop.png",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "role": "public",
+      "name": "lookup-rejected",
+      "size": "mobile",
+      "file": "public-lookup-rejected-mobile.png",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogFits": true
+    },
+    {
+      "role": "public",
+      "name": "verify-record",
+      "size": "mobile",
+      "file": "public-verify-record-mobile.png",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "public",
+      "name": "assistant-error",
+      "size": "mobile",
+      "file": "public-assistant-error-mobile.png",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogFits": true
+    },
+    {
+      "role": "public",
+      "name": "assistant-retry",
+      "size": "mobile",
+      "file": "public-assistant-retry-mobile.png",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogFits": true
+    },
+    {
+      "role": "user",
+      "name": "history-five-states-payment",
+      "size": "desktop",
+      "file": "user-history-five-states-payment-desktop.png",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "role": "user",
+      "name": "history-signature-pad",
+      "size": "desktop",
+      "file": "user-history-signature-pad-desktop.png",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogFits": true
+    },
+    {
+      "role": "user",
+      "name": "history-five-states-payment",
+      "size": "mobile",
+      "file": "user-history-five-states-payment-mobile.png",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "user",
+      "name": "history-signature-pad",
+      "size": "mobile",
+      "file": "user-history-signature-pad-mobile.png",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogFits": true
+    },
+    {
+      "role": "user",
+      "name": "history-read-error",
+      "size": "mobile",
+      "file": "user-history-read-error-mobile.png",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "name": "document-review-queue",
+      "size": "desktop",
+      "file": "notary-document-review-queue-desktop.png",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "role": "notary",
+      "name": "document-review-preview",
+      "size": "desktop",
+      "file": "notary-document-review-preview-desktop.png",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogFits": true
+    },
+    {
+      "role": "notary",
+      "name": "document-signature-queue",
+      "size": "desktop",
+      "file": "notary-document-signature-queue-desktop.png",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "role": "notary",
+      "name": "document-signature-preview",
+      "size": "desktop",
+      "file": "notary-document-signature-preview-desktop.png",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogFits": true
+    },
+    {
+      "role": "notary",
+      "name": "session-review-preview",
+      "size": "desktop",
+      "file": "notary-session-review-preview-desktop.png",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogFits": true
+    },
+    {
+      "role": "notary",
+      "name": "session-signature-preview",
+      "size": "desktop",
+      "file": "notary-session-signature-preview-desktop.png",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "dialogFits": true
+    },
+    {
+      "role": "notary",
+      "name": "document-review-queue",
+      "size": "mobile",
+      "file": "notary-document-review-queue-mobile.png",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "name": "document-review-preview",
+      "size": "mobile",
+      "file": "notary-document-review-preview-mobile.png",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogFits": true
+    },
+    {
+      "role": "notary",
+      "name": "document-signature-queue",
+      "size": "mobile",
+      "file": "notary-document-signature-queue-mobile.png",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "name": "document-signature-preview",
+      "size": "mobile",
+      "file": "notary-document-signature-preview-mobile.png",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogFits": true
+    },
+    {
+      "role": "notary",
+      "name": "session-review-preview",
+      "size": "mobile",
+      "file": "notary-session-review-preview-mobile.png",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogFits": true
+    },
+    {
+      "role": "notary",
+      "name": "session-signature-preview",
+      "size": "mobile",
+      "file": "notary-session-signature-preview-mobile.png",
+      "width": 390,
+      "scrollWidth": 390,
+      "dialogFits": true
+    },
+    {
+      "role": "notary",
+      "name": "queue-read-error",
+      "size": "mobile",
+      "file": "notary-queue-read-error-mobile.png",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "name": "charts-populated",
+      "size": "desktop",
+      "file": "admin-charts-populated-desktop.png",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "role": "admin",
+      "name": "charts-populated",
+      "size": "mobile",
+      "file": "admin-charts-populated-mobile.png",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "name": "charts-read-error",
+      "size": "mobile",
+      "file": "admin-charts-read-error-mobile.png",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "checks": [
+    {
+      "name": "mock-chat-only",
+      "requests": 2,
+      "onlyPromptKeys": true
+    },
+    {
+      "name": "canvas-pointer-stroke-not-saved",
+      "size": "desktop",
+      "inkPixels": 1077
+    },
+    {
+      "name": "canvas-pointer-stroke-not-saved",
+      "size": "mobile",
+      "inkPixels": 595
+    },
+    {
+      "name": "document-review-focus",
+      "size": "desktop",
+      "restored": true
+    },
+    {
+      "name": "document-signature-focus",
+      "size": "desktop",
+      "restored": true
+    },
+    {
+      "name": "document-review-focus",
+      "size": "mobile",
+      "restored": true
+    },
+    {
+      "name": "document-signature-focus",
+      "size": "mobile",
+      "restored": true
+    },
+    {
+      "name": "charts-have-text-alternatives",
+      "size": "desktop",
+      "tables": 2,
+      "canvases": 2
+    },
+    {
+      "name": "charts-have-text-alternatives",
+      "size": "mobile",
+      "tables": 2,
+      "canvases": 2
+    }
+  ],
+  "blocked": [],
+  "mocked": [
+    {
+      "method": "POST",
+      "path": "/v1/chatbot",
+      "keys": [
+        "prompt"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/chatbot",
+      "keys": [
+        "prompt"
+      ]
+    }
+  ],
+  "errors": [],
+  "finishedAt": "2026-10-25T15:26:03.285Z"
+}

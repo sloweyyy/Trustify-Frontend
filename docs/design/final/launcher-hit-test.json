@@ -1,0 +1,22 @@
+{
+  "width": 390,
+  "height": 844,
+  "before": {
+    "centerCovered": true,
+    "hit": "Trợ lý"
+  },
+  "after": {
+    "bounds": {
+      "x": 249.875,
+      "y": 723.46875,
+      "width": 64.40625,
+      "height": 20,
+      "top": 723.46875,
+      "right": 314.28125,
+      "bottom": 743.46875,
+      "left": 249.875
+    },
+    "centerCovered": false,
+    "hit": "Đăng ký"
+  }
+}
