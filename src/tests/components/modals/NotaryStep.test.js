@@ -1,87 +1,20 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 import NotaryStep from '../../../components/modals/NotaryStep';
-import { primary } from '../../../config/theme/themePrimitives';
 
-describe('NotaryStep Component', () => {
-  const steps = ['Chờ xử lý', 'Đang xử lý', 'Đang xác minh', 'Sẵn sàng ký số', 'Hoàn tất', 'Không hợp lệ'];
+test('progress is informational and uses canonical labels', () => {
+  render(<NotaryStep currentStep={3} status="digitalSignature" />);
+  expect(screen.getByRole('region', { name: 'Tiến trình hồ sơ' })).toBeInTheDocument();
+  expect(screen.getByText('Chờ ký số')).toBeInTheDocument(); expect(screen.getByText('Bước xác minh')).toBeInTheDocument();
+  expect(screen.queryByRole('button')).not.toBeInTheDocument(); expect(screen.queryByText('Sẵn sàng ký số')).not.toBeInTheDocument();
+});
 
-  beforeEach(() => {
-    jest.clearAllMocks();
-    console.log = jest.fn();
-  });
+test('rejected does not imply that the hồ sơ is pending or completed', () => {
+  render(<NotaryStep currentStep={0} status="rejected" />);
+  expect(screen.getByRole('alert')).toHaveTextContent('Hồ sơ bị từ chối'); expect(screen.queryByText('Hoàn tất')).not.toBeInTheDocument();
+});
 
-  test('renders all steps', () => {
-    render(<NotaryStep currentStep={0} />);
-
-    steps.forEach((stepLabel) => {
-      expect(screen.getByText(stepLabel)).toBeInTheDocument();
-    });
-  });
-
-  test('highlights current step correctly', () => {
-    const currentStep = 2;
-    render(<NotaryStep currentStep={currentStep} />);
-
-    const activeStepLabel = screen.getByText('Đang xác minh');
-    expect(activeStepLabel).toBeInTheDocument();
-  });
-
-  test('renders check icon for current step', () => {
-    render(<NotaryStep currentStep={1} />);
-
-    const checkIcon = screen.getByTestId('CheckCircleIcon');
-    expect(checkIcon).toBeInTheDocument();
-    expect(checkIcon).toHaveStyle({ color: primary[500] });
-  });
-
-  test('disables steps after current step', () => {
-    render(<NotaryStep currentStep={2} />);
-
-    // Steps after index 2 should be disabled
-    const futureSteps = screen.getAllByRole('button').slice(3);
-    futureSteps.forEach((step) => {
-      expect(step).toBeDisabled();
-    });
-  });
-
-  test('enables steps before and at current step', () => {
-    render(<NotaryStep currentStep={2} />);
-
-    // Steps before and at index 2 should be enabled
-    const activeSteps = screen.getAllByRole('button').slice(0, 3);
-    activeSteps.forEach((step) => {
-      expect(step).not.toBeDisabled();
-    });
-  });
-
-  test('handles step click correctly', () => {
-    render(<NotaryStep currentStep={3} />);
-
-    const stepButton = screen.getAllByRole('button')[1];
-    fireEvent.click(stepButton);
-
-    expect(console.log).toHaveBeenCalledWith('index', 1);
-  });
-
-  test('shows correct step numbers', () => {
-    render(<NotaryStep currentStep={2} />);
-
-    // Previous steps should show numbers
-    const previousSteps = screen.getAllByText(/[1-2]/);
-    expect(previousSteps).toHaveLength(2);
-  });
-
-  test('applies custom styles to completed steps', () => {
-    render(<NotaryStep currentStep={3} />);
-
-    const completedStepLabels = steps.slice(0, 3).map((label) => screen.getByText(label));
-
-    completedStepLabels.forEach((label) => {
-      expect(label).toHaveStyle({
-        color: primary[500],
-      });
-    });
-  });
+test('unknown states do not invent progress', () => {
+  render(<NotaryStep currentStep={0} status="unknown" />);
+  expect(screen.getByText('Chưa có thông tin tiến trình hồ sơ.')).toBeInTheDocument(); expect(screen.queryByText('Chờ xử lý')).not.toBeInTheDocument();
 });

@@ -1,0 +1,141 @@
+
+> trustify@0.1.0 test
+> react-scripts test --watchAll=false --runInBand --runTestsByPath src/tests/components/modals/HistoryDetailModal.test.js src/tests/components/modals/NotaryStep.test.js
+
+PASS src/tests/components/modals/HistoryDetailModal.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      12 | const record = { _id: 'HS-123', userId: 'user-456', status: { status: 'pending' }, requesterInfo: { fullName: 'Nguyễn Thị Mỹ', citizenId: '000000000000', phoneNumber: '0000000000', email: 'qa@example.com' }, notarizationField: { name: 'Sao y' }, notarizationService: { name: 'Chứng thực bản sao' }, files: [{ filename: 'Giấy tờ gốc.PDF', firebaseUrl: 'https://example.com/file.pdf' }, { filename: 'Ảnh gốc.JPEG', firebaseUrl: 'https://example.com/image.jpeg' }], output: [] };
+      13 | const wrapper = ({ children }) => <ThemeProvider theme={createTrustifyTheme()}>{children}</ThemeProvider>;
+    > 14 | const show = (props = {}) => render(<HistoryDetailModal open handleClose={jest.fn()} data={[record]} notaryId={record._id} {...props} />, { wrapper });
+         |                                    ^
+      15 | beforeEach(() => { jest.clearAllMocks(); NotarizationService.approveSignatureByUser.mockResolvedValue({}); });
+      16 |
+      17 | test('dialog has one accessible title, readable information and a named close action', () => {
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at show (src/tests/components/modals/HistoryDetailModal.test.js:14:36)
+      at Object.<anonymous> (src/tests/components/modals/HistoryDetailModal.test.js:18:28)
+
+    console.error
+      Warning: An update to HistoryDetailModal inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at HistoryDetailModal (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/modals/HistoryDetailModal.js:26:31)
+          at DefaultPropsProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+          at RtlProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/RtlProvider/index.js:14:3)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/ThemeProvider/ThemeProvider.js:55:5)
+          at ThemeProviderNoVars (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+          at wrapper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/tests/components/modals/HistoryDetailModal.test.js:13:20)
+
+      40 |       toast.success('Lưu chữ ký thành công');
+      41 |
+    > 42 |       setNotarizationData((prev) => ({
+         |       ^
+      43 |         ...prev,
+      44 |         signature: {
+      45 |           ...prev.signature,
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at setNotarizationData (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at handleSignatureSave (src/components/modals/HistoryDetailModal.js:42:7)
+
+    console.error
+      Warning: An update to HistoryDetailModal inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at HistoryDetailModal (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/modals/HistoryDetailModal.js:26:31)
+          at DefaultPropsProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/DefaultPropsProvider/DefaultPropsProvider.js:17:3)
+          at RtlProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/RtlProvider/index.js:14:3)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/private-theming/node/ThemeProvider/ThemeProvider.js:40:5)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/system/node/ThemeProvider/ThemeProvider.js:55:5)
+          at ThemeProviderNoVars (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProviderNoVars.js:15:10)
+          at ThemeProvider (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/styles/ThemeProvider.js:16:3)
+          at wrapper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/tests/components/modals/HistoryDetailModal.test.js:13:20)
+
+      62 |       }
+      63 |     } finally {
+    > 64 |       setLoadingSignature(false);
+         |       ^
+      65 |     }
+      66 |   };
+      67 |
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at setLoadingSignature (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at handleSignatureSave (src/components/modals/HistoryDetailModal.js:64:7)
+
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+
+PASS src/tests/components/modals/NotaryStep.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      4 |
+      5 | test('progress is informational and uses canonical labels', () => {
+    > 6 |   render(<NotaryStep currentStep={3} status="digitalSignature" />);
+        |         ^
+      7 |   expect(screen.getByRole('region', { name: 'Tiến trình hồ sơ' })).toBeInTheDocument();
+      8 |   expect(screen.getByText('Chờ ký số')).toBeInTheDocument(); expect(screen.getByText('Bước xác minh')).toBeInTheDocument();
+      9 |   expect(screen.queryByRole('button')).not.toBeInTheDocument(); expect(screen.queryByText('Sẵn sàng ký số')).not.toBeInTheDocument();
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/tests/components/modals/NotaryStep.test.js:6:9)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+
+Test Suites: 2 passed, 2 total
+Tests:       12 passed, 12 total
+Snapshots:   0 total
+Time:        3.327 s, estimated 9 s
+Ran all test suites within paths "src/tests/components/modals/HistoryDetailModal.test.js", "src/tests/components/modals/NotaryStep.test.js".

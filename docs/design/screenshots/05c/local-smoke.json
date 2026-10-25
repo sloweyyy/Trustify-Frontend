@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 388,
+      "clientWidth": 388,
+      "minText": 18,
+      "closeHeight": 44,
+      "idsUnique": true,
+      "focusTrap": true,
+      "escapeRestoresOpener": true
+    },
+    {
+      "width": 656,
+      "height": 500,
+      "scrollWidth": 654,
+      "clientWidth": 654,
+      "minText": 18,
+      "closeHeight": 44,
+      "idsUnique": true,
+      "focusTrap": true,
+      "escapeRestoresOpener": true
+    },
+    {
+      "width": 1200,
+      "height": 1000,
+      "scrollWidth": 1198,
+      "clientWidth": 1198,
+      "minText": 18,
+      "closeHeight": 44,
+      "idsUnique": true,
+      "focusTrap": true,
+      "escapeRestoresOpener": true
+    }
+  ],
+  "writes": [],
+  "errors": [],
+  "note": "720x500 is a layout-equivalent200% check; no native zoom claim. No files opened and no signature saved.",
+  "checkedAt": "2026-10-25T04:35:10.416Z"
+}
