@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import PublicPage from '../../components/public/PublicPage';
 import NFTService from '../../services/nft.service';
 import VerificationStatusBox from '../../components/services/VerificationStatusBox';
+import FileMatchCheck from '../../components/services/FileMatchCheck';
 const VerifyNotarizationProfile = () => {
   const [inputValue, setInputValue] = useState('');
   const [displayText, setDisplayText] = useState('');
@@ -67,7 +68,10 @@ const VerifyNotarizationProfile = () => {
         <Button variant="contained" onClick={handleSearchClick} disabled={searchLoading} sx={{ minWidth: 120, width: { xs: '100%', sm: 'auto' } }}>{searchLoading ? 'Đang kiểm tra…' : 'Xác minh'}</Button>
       </Box>
     </Paper>
-    <Box sx={{ maxWidth: 900, minWidth: 0 }}>{renderStatusBox()}</Box>
+    <Box sx={{ maxWidth: 900, minWidth: 0 }}>
+      {renderStatusBox()}
+      {status.found && nftData?.mintAddress && <FileMatchCheck key={nftData.mintAddress} mintAddress={nftData.mintAddress} />}
+    </Box>
     <Typography color="text.secondary" sx={{ mt: 3 }}>Mã bản ghi khác với mã hồ sơ. Việc tìm thấy bản ghi không đồng nghĩa đã kiểm tra nội dung hoặc giá trị pháp lý của tài liệu.</Typography>
   </PublicPage>;
 };

@@ -24,8 +24,22 @@ const getNFTMetadata = async (mintAddress) => {
   }
 };
 
+/**
+ * Check a file against the SHA-256 fingerprint recorded for a mint address.
+ * The server only hashes the file; it does not store it.
+ * @returns {Promise<{match: boolean|null, fileHash: string, recordedHash: string|null, notarizedAt: string|null}>}
+ */
+const verifyFile = async (mintAddress, file) => {
+  const form = new FormData();
+  form.append('mintAddress', mintAddress);
+  form.append('file', file);
+  const response = await axiosConfig.post(`${NFT_ENDPOINT}/verify-file`, form);
+  return response.data;
+};
+
 const NFTService = {
   getNFTMetadata,
+  verifyFile,
 };
 
 export default NFTService;

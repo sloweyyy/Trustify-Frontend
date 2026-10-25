@@ -49,7 +49,7 @@ const HorizontalCard = ({ document }) => {
       </Paper>
       <TransferModal open={open} onClose={() => setOpen(false)} document={document} />
       <PurchaseModal open={openPurchase} onClose={() => setOpenPurchase(false)} document={document} />
-      {previewDocument && <FilePreviewModal open={!!previewDocument} onClose={() => setPreviewDocument(null)} metadataUrl={previewDocument?.ipfsLink} filename={previewDocument?.filename} />}
+      {previewDocument && <FilePreviewModal open={!!previewDocument} onClose={() => setPreviewDocument(null)} fileUrl={previewDocument?.fileUrl} metadataUrl={previewDocument?.ipfsLink || previewDocument?.metadataUri} filename={previewDocument?.filename} />}
     </>
   );
 };

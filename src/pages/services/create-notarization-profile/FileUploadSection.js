@@ -53,7 +53,7 @@ const FileUploadSection = ({
       <FileAttachmentList files={documentWalletFiles} getName={(file) => file.document.displayName || file.document.filename}
         onOpen={(file) => setPreviewFile(file.document)} onRemove={handleRemoveDocumentWalletFile} sourceLabel="Từ ví tài liệu" confirmed={confirmed} />
       {openWalletModal && <UserWalletModal open={openWalletModal} onClose={handleCloseUserWalletModal} handleDocumentWalletFileChange={handleDocumentWalletFileChange} />}
-      {previewFile && <FilePreviewModal open={!!previewFile} onClose={() => setPreviewFile(null)} metadataUrl={previewFile.ipfsLink} filename={previewFile.filename} />}
+      {previewFile && <FilePreviewModal open={!!previewFile} onClose={() => setPreviewFile(null)} fileUrl={previewFile.fileUrl} metadataUrl={previewFile.ipfsLink || previewFile.metadataUri} filename={previewFile.filename} />}
     </Box>
   );
 };
