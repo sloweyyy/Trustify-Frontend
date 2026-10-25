@@ -1,77 +1,13 @@
-import { Box, Modal, Typography, Tabs, Tab, Avatar, Grid } from '@mui/material';
-import React, { useState, useEffect, useCallback } from 'react';
-import { black, gray, white } from '../../../config/theme/themePrimitives';
-import 'react-toastify/dist/ReactToastify.css';
-import InfoField from './InfoField';
-import DetailModalSkeleton from './DetailModalSkeleton';
+import React, { useState, useEffect, useCallback, useId } from 'react';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Tab, Tabs, useMediaQuery, useTheme } from '@mui/material';
 import UserService from '../../../services/user.service';
-import NotaryDocumentCard from './NotaryDocumentCard';
-
-const documents = [
-  {
-    docType: 'Công chứng hợp đồng mua bán nhà đất',
-    documentId: '6722157ce89b01001f5ca296',
-    date: '24/09/2024',
-    status: 'Đang xử lý',
-  },
-  {
-    docType: 'Công chứng hợp đồng mua bán nhà đất',
-    documentId: '6722157ce89b01001f5ca297',
-    date: '25/09/2024',
-    status: 'Hoàn thành',
-  },
-  {
-    docType: 'Công chứng hợp đồng mua bán nhà đất',
-    documentId: '6722157ce89b01001f5ca298',
-    date: '26/09/2024',
-    status: 'Chờ xác nhận',
-  },
-  {
-    docType: 'Công chứng hợp đồng mua bán nhà đất',
-    documentId: '6722157ce89b01001f5ca299',
-    date: '27/09/2024',
-    status: 'Đang xử lý',
-  },
-  {
-    docType: 'Công chứng hợp đồng mua bán nhà đất',
-    documentId: '6722157ce89b01001f5ca300',
-    date: '28/09/2024',
-    status: 'Hoàn thành',
-  },
-  {
-    docType: 'Công chứng hợp đồng mua bán nhà đất',
-    documentId: '6722157ce89b01001f5ca301',
-    date: '29/09/2024',
-    status: 'Chờ xác nhận',
-  },
-  {
-    docType: 'Công chứng hợp đồng mua bán nhà đất',
-    documentId: '6722157ce89b01001f5ca302',
-    date: '30/09/2024',
-    status: 'Đang xử lý',
-  },
-  {
-    docType: 'Công chứng hợp đồng mua bán nhà đất',
-    documentId: '6722157ce89b01001f5ca303',
-    date: '01/10/2024',
-    status: 'Hoàn thành',
-  },
-];
-
-const TabPanel = (props) => {
-  const { children, value, index, ...other } = props;
-  return (
-    <Box role="tabpanel" hidden={value !== index} {...other}>
-      {value === index && (
-        <Box sx={{ p: 1 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </Box>
-  );
-};
-
+import AccountFields from '../../../components/admin/AccountFields';
+import { EmptyState, ErrorState, LoadingState } from '../../../components/shared/PageFeedback';
 const EditUserProfileModal = ({ open, handleClose, userId }) => {
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const titleId = useId();
+  const [error, setError] = useState(false);
   const [tabValue, setTabValue] = useState(0);
   const [loading, setLoading] = useState(false);
 
@@ -94,6 +30,7 @@ const EditUserProfileModal = ({ open, handleClose, userId }) => {
 
   const fetchUserData = useCallback(async () => {
     setLoading(true);
+    setError(false);
     try {
       const response = await UserService.getUserById(userId);
       setUserData({
@@ -109,7 +46,7 @@ const EditUserProfileModal = ({ open, handleClose, userId }) => {
         street: response.address?.street || '',
       });
     } catch (error) {
-      console.log(error);
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -121,144 +58,15 @@ const EditUserProfileModal = ({ open, handleClose, userId }) => {
     }
   }, [open, fetchUserData]);
 
-  return (
-    <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '80vw',
-          maxHeight: '90vh',
-          borderRadius: 2,
-          backgroundColor: white[50],
-          p: 3,
-        }}
-      >
-        {/* Form Fields Section */}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            borderRadius: 1,
-          }}
-        >
-          {/* Avatar Section */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, p: 3 }}>
-            <Avatar src="/avatar.png" sx={{ width: 64, height: 64, borderRadius: '50%' }} />
-            <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 1 }}>
-              <Typography sx={{ fontSize: 16, fontWeight: 600 }}>{!loading ? userData.name : ''}</Typography>
-              <Typography sx={{ fontSize: 14, fontWeight: 400, color: gray[500] }}>
-                {!loading ? userData.email : ''}
-              </Typography>
-            </Box>
-          </Box>
-          {/* Tab Panel */}
-          <Tabs sx={{ p: 1 }} value={tabValue} onChange={handleTabChange}>
-            <Tab label="Thông tin cá nhân" sx={{ textTransform: 'none' }} />
-            <Tab label="Tài liệu công chứng" sx={{ textTransform: 'none' }} />
-          </Tabs>
-
-          {/* Tab Information */}
-          <TabPanel value={tabValue} index={0}>
-            {loading ? (
-              <DetailModalSkeleton></DetailModalSkeleton>
-            ) : (
-              <Box
-                sx={{
-                  height: '50vh',
-                  display: 'flex',
-                  p: 2,
-                  flexDirection: 'column',
-                  gap: 2,
-                  borderRadius: 1,
-                  border: `1px solid ${black[50]}`,
-                  backgroundColor: white[50],
-                }}
-              >
-                <Box
-                  sx={{
-                    display: 'flex',
-                    gap: 1,
-                    alignSelf: 'stretch',
-                  }}
-                >
-                  <InfoField caption={'Họ và tên'} value={userData.name}></InfoField>
-                  <InfoField caption={'CMND/CCCD'} value={userData.identification}></InfoField>
-                </Box>
-
-                <Box
-                  sx={{
-                    gap: 1,
-                    display: 'flex',
-                    alignSelf: 'stretch',
-                  }}
-                >
-                  <InfoField caption={'Email'} value={userData.email}></InfoField>
-                  <InfoField caption={'Số điện thoại'} value={userData.phone}></InfoField>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: 'flex',
-                    gap: 1,
-                    alignSelf: 'stretch',
-                  }}
-                >
-                  <InfoField caption={'Tỉnh/Thành phố'} value={userData.city}></InfoField>
-                  <InfoField caption={'Quận/Huyện'} value={userData.district}></InfoField>
-                  <InfoField caption={'Xã/Phường'} value={userData.ward}></InfoField>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: 'flex',
-                    gap: 1,
-                    alignSelf: 'stretch',
-                  }}
-                >
-                  <InfoField caption={'Số nhà, đường/phố'} value={userData.street}></InfoField>
-                </Box>
-              </Box>
-            )}
-          </TabPanel>
-
-          {/* Tab Notary Docs */}
-          <TabPanel value={tabValue} index={1}>
-            <Box
-              sx={{
-                maxWidth: '100%',
-                overflowY: 'auto',
-                margin: 'center',
-                justifyItems: 'center',
-                justifyContent: 'space-between',
-                height: '50vh',
-                p: 2,
-                backgroundColor: white[50],
-                borderRadius: 1,
-                border: `1px solid ${black[50]}`,
-              }}
-            >
-              <Grid container spacing={3} alignItems="center">
-                {documents.map((doc, index) => (
-                  <Grid item xs={12} sm={12} md={6} key={index}>
-                    <NotaryDocumentCard
-                      docType={doc.docType}
-                      documentId={doc.documentId}
-                      date={doc.date}
-                      status={doc.status}
-                    />
-                  </Grid>
-                ))}
-              </Grid>
-            </Box>
-          </TabPanel>
-        </Box>
-      </Box>
-    </Modal>
-  );
+  const fields = [['Họ và tên', userData.name], ['CMND/CCCD', userData.identification], ['Email', userData.email], ['Số điện thoại', userData.phone], ['Tỉnh/Thành phố', userData.city], ['Quận/Huyện', userData.district], ['Xã/Phường', userData.ward], ['Số nhà, đường/phố', userData.street]];
+  return <Dialog open={open} onClose={handleClose} fullScreen={mobile} fullWidth maxWidth="md" aria-labelledby={titleId}>
+    <DialogTitle id={titleId}>Thông tin người dùng</DialogTitle>
+    <DialogContent dividers>
+      <Tabs value={tabValue} onChange={handleTabChange} variant="scrollable" scrollButtons="auto" aria-label="Nhóm thông tin người dùng" sx={{ mb: 3 }}><Tab id={`${titleId}-tab-0`} aria-controls={`${titleId}-panel-0`} label="Thông tin cá nhân" /><Tab id={`${titleId}-tab-1`} aria-controls={`${titleId}-panel-1`} label="Tài liệu công chứng" /></Tabs>
+      <div role="tabpanel" hidden={tabValue !== 0} id={`${titleId}-panel-0`} aria-labelledby={`${titleId}-tab-0`}>{tabValue === 0 && (loading ? <LoadingState label="Đang tải thông tin người dùng…" /> : error ? <ErrorState title="Chưa thể tải thông tin người dùng" description="Vui lòng thử lại để tải thông tin tài khoản." onRetry={fetchUserData} /> : <AccountFields fields={fields} />)}</div>
+      <div role="tabpanel" hidden={tabValue !== 1} id={`${titleId}-panel-1`} aria-labelledby={`${titleId}-tab-1`}>{tabValue === 1 && <><EmptyState title="Chưa có dữ liệu tài liệu tại đây" description="Màn hình này chưa cung cấp tài liệu theo người dùng. Bạn có thể tra cứu tại Quản lý công chứng." /><Button href="/admin/notary-management" variant="outlined">Mở Quản lý công chứng</Button></>}</div>
+    </DialogContent>
+    <DialogActions><Button variant="outlined" onClick={handleClose}>Đóng</Button></DialogActions>
+  </Dialog>;
 };
-
 export default EditUserProfileModal;
