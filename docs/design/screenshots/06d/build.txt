@@ -1,0 +1,172 @@
+
+> trustify@0.1.0 build
+> react-scripts build
+
+Creating an optimized production build...
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Compiled with warnings.
+
+[eslint]
+src/components/ChatAssistant.js
+  Line 1:10:  'Box' is defined but never used  no-unused-vars
+
+src/components/notary/NotaryAnalyticsSession.js
+  Line 3:33:  'Typography' is defined but never used  no-unused-vars
+
+src/components/services/TransferModal.js
+  Line 81:23:  React Hook useCallback received a function whose dependencies are unknown. Pass an inline function instead  react-hooks/exhaustive-deps
+
+src/pages/admin/employee-management/CreateNotaryAccountModal.js
+  Line 3:32:  'red' is defined but never used  no-unused-vars
+
+src/pages/admin/employee-management/DataTable.js
+  Line 15:30:  'Button' is defined but never used                                                                                     no-unused-vars
+  Line 57:16:  'setPage' is assigned a value but never used                                                                           no-unused-vars
+  Line 58:20:  'setPageSize' is assigned a value but never used                                                                       no-unused-vars
+  Line 169:6:  React Hook React.useMemo has a missing dependency: 'filterList.All'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/admin/user-management/UserDataTable.js
+  Line 2:20:   'useEffect' is defined but never used                                                                                  no-unused-vars
+  Line 16:30:  'Button' is defined but never used                                                                                     no-unused-vars
+  Line 190:6:  React Hook React.useMemo has a missing dependency: 'filterList.All'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/admin/user-management/UserOverview.js
+  Line 2:10:  'Diversity3Rounded' is defined but never used  no-unused-vars
+  Line 4:10:  'black' is defined but never used              no-unused-vars
+  Line 4:17:  'gray' is defined but never used               no-unused-vars
+
+src/pages/services/LookupNotarizationProfile.js
+  Line 3:10:  'black' is defined but never used  no-unused-vars
+
+src/pages/signin/ForgotPasswordModal.js
+  Line 37:13:  'errorMessage' is assigned a value but never used  no-unused-vars
+
+src/pages/static/policy/PaymentSecurity.js
+  Line 3:31:  'white' is defined but never used  no-unused-vars
+
+src/pages/static/product/ForIndividuals.js
+  Line 2:75:  'ListItemIcon' is defined but never used            no-unused-vars
+  Line 2:89:  'ListItemText' is defined but never used            no-unused-vars
+  Line 4:8:   'CheckCircleOutlineIcon' is defined but never used  no-unused-vars
+
+src/pages/static/product/ForNotaryOffices.js
+  Line 2:68:  'Card' is defined but never used         no-unused-vars
+  Line 2:74:  'CardContent' is defined but never used  no-unused-vars
+  Line 3:25:  'white' is defined but never used        no-unused-vars
+
+src/routes/PaymentRoute.js
+  Line 1:8:  'React' is defined but never used  no-unused-vars
+
+src/services/auth.service.js
+  Line 57:9:  Expected an error object to be thrown  no-throw-literal
+
+src/services/user.service.js
+  Line 4:7:  'USER_EMAIL_ENDPOINT' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+File sizes after gzip:
+
+  753.89 kB          build/static/js/561.fed3c614.chunk.js
+  244.87 kB          build/static/js/main.bc04862d.js
+  93.16 kB           build/static/js/470.2dda5671.chunk.js
+  64.86 kB           build/static/js/281.e3815cf9.chunk.js
+  62.14 kB           build/static/js/485.dd923f4b.chunk.js
+  48 kB              build/static/js/963.2ed0d00b.chunk.js
+  12.34 kB (-130 B)  build/static/js/38.516962ba.chunk.js
+  11.81 kB           build/static/js/344.4e3cc2c8.chunk.js
+  10.93 kB           build/static/js/803.d9727973.chunk.js
+  8.59 kB            build/static/js/139.b95857af.chunk.js
+  8.27 kB            build/static/js/624.c86b061a.chunk.js
+  8.1 kB (+64 B)     build/static/js/942.d70d5a5f.chunk.js
+  7.71 kB            build/static/js/335.7cbf06e5.chunk.js
+  7.18 kB            build/static/js/532.cfd2bfe1.chunk.js
+  7.04 kB            build/static/js/466.0400950b.chunk.js
+  6.8 kB             build/static/js/731.c018e642.chunk.js
+  6.17 kB            build/static/js/87.36d5b4e4.chunk.js
+  5.68 kB            build/static/js/781.6fc576d9.chunk.js
+  5.41 kB            build/static/js/170.89080b21.chunk.js
+  5.33 kB            build/static/js/968.a259d873.chunk.js
+  5.24 kB            build/static/js/677.0f4ec172.chunk.js
+  5.11 kB            build/static/js/856.75749c6e.chunk.js
+  5.04 kB            build/static/js/252.baf5b1bd.chunk.js
+  5.01 kB            build/static/js/594.603dda60.chunk.js
+  4.98 kB            build/static/js/880.b05d524d.chunk.js
+  4.95 kB            build/static/js/760.4bf975ce.chunk.js
+  4.74 kB            build/static/js/848.101826a9.chunk.js
+  4.69 kB            build/static/js/977.7c89bc7c.chunk.js
+  4.1 kB             build/static/js/203.51148def.chunk.js
+  3.92 kB            build/static/js/494.7dda73a3.chunk.js
+  3.5 kB             build/static/js/180.7e3a4422.chunk.js
+  3.48 kB            build/static/js/94.5e838dec.chunk.js
+  3.42 kB            build/static/js/307.3603a6b6.chunk.js
+  3.37 kB            build/static/js/691.0459baa2.chunk.js
+  3.17 kB            build/static/js/872.3854397b.chunk.js
+  2.91 kB            build/static/js/845.c7f07237.chunk.js
+  2.89 kB            build/static/js/629.29710061.chunk.js
+  2.77 kB            build/static/css/139.b6b2bc79.chunk.css
+  2.77 kB            build/static/css/203.b6b2bc79.chunk.css
+  2.77 kB            build/static/css/315.b6b2bc79.chunk.css
+  2.77 kB            build/static/css/335.b6b2bc79.chunk.css
+  2.77 kB            build/static/css/344.b6b2bc79.chunk.css
+  2.77 kB            build/static/css/494.b6b2bc79.chunk.css
+  2.77 kB            build/static/css/848.b6b2bc79.chunk.css
+  2.77 kB            build/static/css/600.b6b2bc79.chunk.css
+  2.77 kB            build/static/css/38.b6b2bc79.chunk.css
+  2.75 kB            build/static/js/426.1d763caf.chunk.js
+  2.74 kB            build/static/js/600.0556b61f.chunk.js
+  2.58 kB            build/static/js/537.ea6e6f93.chunk.js
+  2.5 kB             build/static/js/133.f3008489.chunk.js
+  2.25 kB            build/static/js/308.5e608d61.chunk.js
+  1.87 kB            build/static/js/315.47c882cc.chunk.js
+  1.78 kB            build/static/js/453.b6a0ba03.chunk.js
+  1.49 kB            build/static/js/530.ca56510d.chunk.js
+  1.23 kB            build/static/js/324.601b8fb3.chunk.js
+  1.22 kB            build/static/js/63.bdfe1f83.chunk.js
+  947 B              build/static/css/main.e8b6e28d.css
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
