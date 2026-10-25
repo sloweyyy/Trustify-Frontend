@@ -26,7 +26,11 @@ const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTyp
   const highlightRef = useRef(null);
   const pagedHighlight = useRef(null);
   const focusedHighlight = useRef(null);
-  useEffect(() => { setPage(0); }, [filterStatus, searchText]);
+  const previousFilters = useRef({ filterStatus, searchText });
+  useEffect(() => {
+    if (previousFilters.current.filterStatus !== filterStatus || previousFilters.current.searchText !== searchText) setPage(0);
+    previousFilters.current = { filterStatus, searchText };
+  }, [filterStatus, searchText]);
   const filteredRows = useMemo(() => {
     let filtered = [...rows];
     if (filterStatus !== statusTypes.All) filtered = filtered.filter((row) => row.status === filterStatus);

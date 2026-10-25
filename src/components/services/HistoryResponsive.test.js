@@ -52,7 +52,7 @@ test('payment read failure offers retry without implying that nothing is owed', 
 
 
 test.each([false, true])('a newly submitted ID is revealed once without changing the sort order (%s)', (mobile) => {
-  useMediaQuery.mockReturnValue(mobile); render(<HistoryDataTable rows={rows} headCells={heads} statusTypes={STATUS_TYPES} filterStatus={STATUS_TYPES.All} searchText="" data={[]} highlightId="HS-11" />, { wrapper });
+  useMediaQuery.mockReturnValue(mobile); render(<React.StrictMode><HistoryDataTable rows={rows} headCells={heads} statusTypes={STATUS_TYPES} filterStatus={STATUS_TYPES.All} searchText="" data={[]} highlightId="HS-11" /></React.StrictMode>, { wrapper });
   expect(screen.getByText('HS-11')).toBeInTheDocument(); expect(screen.getByText('Vừa gửi')).toBeInTheDocument();
   expect(screen.getByText('11–12 trong 12')).toBeInTheDocument();
   expect(screen.queryByText('HS-00')).not.toBeInTheDocument();
