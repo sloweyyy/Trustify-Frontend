@@ -1,123 +1,67 @@
-import React, { useState, useEffect } from 'react';
-import { Modal, Box, Typography, IconButton, CircularProgress, Paper } from '@mui/material';
-import { Close } from '@mui/icons-material';
-import { white, black, gray, red } from '../../config/theme/themePrimitives';
+import React, { useEffect, useId, useState } from 'react';
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Typography, useMediaQuery } from '@mui/material';
+import { CloseRounded, OpenInNewRounded } from '@mui/icons-material';
 import IPFSService from '../../services/ipfs.service';
+import { ErrorState, LoadingState } from '../shared/PageFeedback';
 
 const FilePreviewModal = ({ open, onClose, metadataUrl, filename }) => {
+  const id = useId();
+  const fullScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const [loading, setLoading] = useState(true);
   const [fileUrl, setFileUrl] = useState('');
-  const [error, setError] = useState(null);
-  const isPDF = filename && filename.toLowerCase().endsWith('.pdf');
-  const isImage = filename && /\.(jpg|jpeg|png|gif|bmp|svg)$/i.test(filename);
+  const [error, setError] = useState(false);
+  const [retry, setRetry] = useState(0);
+  const isPDF = /\.pdf$/i.test(filename || '');
+  const isImage = /\.(jpg|jpeg|png|gif|bmp|svg)$/i.test(filename || '');
 
   useEffect(() => {
-    if (open && metadataUrl) {
-      fetchFile();
-    }
-    // Reset state when modal closes
-    return () => {
-      if (!open) {
-        setFileUrl('');
-        setError(null);
+    if (!open) return;
+    let active = true;
+    setLoading(true); setError(false); setFileUrl('');
+    const fetchFile = async () => {
+      try {
+        if (!metadataUrl) throw new Error('Missing metadata');
+        const url = await IPFSService.getFileUrlFromMetadata(metadataUrl);
+        if (!url) throw new Error('Missing file URL');
+        if (active) setFileUrl(url);
+      } catch {
+        if (active) setError(true);
+      } finally {
+        if (active) setLoading(false);
       }
     };
-  }, [open, metadataUrl]);
-
-  const fetchFile = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      const url = await IPFSService.getFileUrlFromMetadata(metadataUrl);
-      setFileUrl(url);
-    } catch (error) {
-      console.error('Error fetching file from metadata:', error);
-      setError('Failed to load the file. Please try again later.');
-    } finally {
-      setLoading(false);
-    }
-  };
+    fetchFile();
+    return () => { active = false; };
+  }, [open, metadataUrl, retry]);
 
   return (
-    <Modal open={open} onClose={onClose} aria-labelledby="file-preview-modal" aria-describedby="file-preview-content">
-      <Paper
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '80%',
-          height: '80%',
-          bgcolor: white[50],
-          boxShadow: 24,
-          p: 2,
-          display: 'flex',
-          flexDirection: 'column',
-          overflow: 'hidden',
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            mb: 2,
-          }}
-        >
-          <Typography variant="h6">{filename || 'File Preview'}</Typography>
-          <IconButton onClick={onClose}>
-            <Close />
-          </IconButton>
+    <Dialog open={open} onClose={onClose} fullScreen={fullScreen} fullWidth maxWidth="lg" aria-labelledby={`${id}-title`}
+      PaperProps={{ sx: { height: fullScreen ? '100dvh' : '90dvh', minWidth: 0 } }}>
+      <DialogTitle component="div" id={`${id}-header`} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+        <Box sx={{ flex: 1, minWidth: 0 }}>
+          <Typography component="h2" variant="h6" id={`${id}-title`}>Xem tài liệu</Typography>
+          <Typography color="text.secondary" sx={{ overflowWrap: 'anywhere' }}>{filename || 'Tài liệu'}</Typography>
         </Box>
-
-        <Box
-          sx={{
-            flexGrow: 1,
-            overflow: 'auto',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            bgcolor: gray[100],
-            borderRadius: 1,
-          }}
-        >
-          {loading ? (
-            <CircularProgress />
-          ) : error ? (
-            <Typography color="error">{error}</Typography>
-          ) : isPDF ? (
-            <iframe
-              src={`${fileUrl}#toolbar=1&navpanes=1`}
-              title="PDF Viewer"
-              width="100%"
-              height="100%"
-              style={{ border: 'none' }}
-            />
-          ) : isImage ? (
-            <img src={fileUrl} alt={filename} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
-          ) : (
-            <Box sx={{ p: 3, textAlign: 'center' }}>
-              <Typography>This file type cannot be previewed directly.</Typography>
-              <a
-                href={fileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'block',
-                  marginTop: '16px',
-                  color: red[500],
-                  textDecoration: 'none',
-                }}
-              >
-                Open file in new tab
-              </a>
-            </Box>
-          )}
-        </Box>
-      </Paper>
-    </Modal>
+        <IconButton aria-label="Đóng xem tài liệu" onClick={onClose}><CloseRounded /></IconButton>
+      </DialogTitle>
+      <DialogContent dividers sx={{ display: 'flex', flexDirection: 'column', minHeight: 0, p: { xs: 2, sm: 3 } }}>
+        {loading ? <LoadingState label="Đang tải tài liệu…" /> : error ? (
+          <ErrorState title="Chưa thể mở tài liệu" description="Bạn có thể thử tải lại hoặc đóng để quay về danh sách." onRetry={() => setRetry((value) => value + 1)} />
+        ) : isPDF ? (
+          <Box component="iframe" src={`${fileUrl}#toolbar=1&navpanes=1`} title={`Tài liệu PDF: ${filename || 'Tài liệu'}`}
+            sx={{ width: '100%', flex: 1, minHeight: 240, border: 0, bgcolor: '#fff' }} />
+        ) : isImage ? (
+          <Box sx={{ display: 'flex', flex: 1, minHeight: 0, justifyContent: 'center', alignItems: 'center', bgcolor: '#fff' }}>
+            <Box component="img" src={fileUrl} alt={filename || 'Tài liệu'} onError={() => setError(true)}
+              sx={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+          </Box>
+        ) : <Typography>Không xem trước được định dạng này. Mở tệp để xem.</Typography>}
+      </DialogContent>
+      <DialogActions>
+        <Button variant="text" onClick={onClose}>Đóng</Button>
+        {!loading && !error && fileUrl && <Button component="a" variant="outlined" href={fileUrl} target="_blank" rel="noopener noreferrer" endIcon={<OpenInNewRounded />}>Mở tài liệu trong tab mới</Button>}
+      </DialogActions>
+    </Dialog>
   );
 };
-
 export default FilePreviewModal;

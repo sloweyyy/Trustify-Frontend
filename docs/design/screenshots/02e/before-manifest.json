@@ -1,0 +1,136 @@
+{
+  "fixture": "Wallet GET and IPFS GET responses intercepted locally. No NFT/document selected or submitted.",
+  "baseline": "febf4dd",
+  "results": [
+    {
+      "id": "wallet-success",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": []
+    },
+    {
+      "id": "wallet-success",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": []
+    },
+    {
+      "id": "wallet-empty",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": []
+    },
+    {
+      "id": "wallet-empty",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": []
+    },
+    {
+      "id": "wallet-error",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": []
+    },
+    {
+      "id": "wallet-error",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": []
+    },
+    {
+      "id": "wallet-loading",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": []
+    },
+    {
+      "id": "wallet-loading",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": []
+    },
+    {
+      "id": "preview-success",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": []
+    },
+    {
+      "id": "preview-success",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": []
+    },
+    {
+      "id": "preview-error",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": []
+    },
+    {
+      "id": "preview-error",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": []
+    },
+    {
+      "id": "preview-loading",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": []
+    },
+    {
+      "id": "preview-loading",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": []
+    },
+    {
+      "id": "preview-unsupported",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": []
+    },
+    {
+      "id": "preview-unsupported",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": []
+    }
+  ],
+  "writes": [],
+  "checkedAt": "2026-10-25T02:25:57.103Z"
+}

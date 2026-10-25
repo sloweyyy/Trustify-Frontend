@@ -1,0 +1,301 @@
+{
+  "fixture": "Wallet GET and IPFS GET responses intercepted locally. No NFT/document selected or submitted.",
+  "baseline": "febf4dd",
+  "results": [
+    {
+      "id": "wallet-success",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": [
+        {
+          "name": "Đóng ví tài liệu",
+          "x": 1251,
+          "y": 292.78125,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "wallet-success",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": [
+        {
+          "name": "Đóng ví tài liệu",
+          "x": 321,
+          "y": 21,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "wallet-empty",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": [
+        {
+          "name": "Đóng ví tài liệu",
+          "x": 1251,
+          "y": 303.3125,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "wallet-empty",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": [
+        {
+          "name": "Đóng ví tài liệu",
+          "x": 321,
+          "y": 21,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "wallet-error",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": [
+        {
+          "name": "Đóng ví tài liệu",
+          "x": 1251,
+          "y": 356.765625,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "wallet-error",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": [
+        {
+          "name": "Đóng ví tài liệu",
+          "x": 321,
+          "y": 21,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "wallet-loading",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": [
+        {
+          "name": "Đóng ví tài liệu",
+          "x": 1251,
+          "y": 366.3125,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "wallet-loading",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": [
+        {
+          "name": "Đóng ví tài liệu",
+          "x": 321,
+          "y": 21,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "preview-success",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": [
+        {
+          "name": "Đóng xem tài liệu",
+          "x": 1251,
+          "y": 71,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "preview-success",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": [
+        {
+          "name": "Đóng xem tài liệu",
+          "x": 321,
+          "y": 21,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "preview-error",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": [
+        {
+          "name": "Đóng xem tài liệu",
+          "x": 1251,
+          "y": 71,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "preview-error",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": [
+        {
+          "name": "Đóng xem tài liệu",
+          "x": 321,
+          "y": 21,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "preview-loading",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": [
+        {
+          "name": "Đóng xem tài liệu",
+          "x": 1251,
+          "y": 71,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "preview-loading",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": [
+        {
+          "name": "Đóng xem tài liệu",
+          "x": 321,
+          "y": 21,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "preview-unsupported",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "closeButtons": [
+        {
+          "name": "Đóng xem tài liệu",
+          "x": 1251,
+          "y": 71,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    },
+    {
+      "id": "preview-unsupported",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "closeButtons": [
+        {
+          "name": "Đóng xem tài liệu",
+          "x": 321,
+          "y": 21,
+          "width": 44,
+          "height": 44,
+          "color": "rgb(36, 38, 43)",
+          "svgWidth": 24
+        }
+      ]
+    }
+  ],
+  "writes": [],
+  "checkedAt": "2026-10-25T02:27:26.262Z",
+  "keyboardChecks": [
+    "Nested wallet preview Escape restores its preview button",
+    "Eight Tab presses remain inside wallet Dialog"
+  ],
+  "geometryChecks": "Every close button >=44px and within viewport; every document scrollWidth equals1440/390."
+}
