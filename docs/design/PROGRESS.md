@@ -64,3 +64,6 @@ All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:
 - 05b — Payment result presentation, PR #20, 2026-10-25 11:22: shared themed result card, Vietnamese redirect-aware copy and shared loading state. Callback query handling, guard,1500ms timer and return destinations retained. Local callback fixtures only; no real payment updates.
 
 - PR #20: build/CRA ESLint/11 tests pass. Ten before/after pairs at1440/390;52px return action and keyboard Enter at390/720/1440 pass with zero non-auth writes. Primary Vercel Ready; guest/User/Notary/Admin safe ERROR-without-orderCode result and navigation/logout checks pass. Four preview captures. Ready for Claude review.
+
+- PR #20 approved and merged; production mainb049aff Ready, HTTP200/no uncaught errors at11:33. Claude06 follow-up: consider primary Xem ví tài liệu after payment, with certificate-issuance guidance and home secondary.
+- 05c — History detail dialog/lifecycle, PR pending, 2026-10-25 11:40: responsive MUI Dialog, readable information, shared attachment/status presentation and honest rejected/unknown progress. Signature save handler retained verbatim; legacy signature/feedback internals follow05d. Build/CRA ESLint/12 tests pass; keyboard/focus/bounds checks pass390/720/1440 with no non-auth writes.

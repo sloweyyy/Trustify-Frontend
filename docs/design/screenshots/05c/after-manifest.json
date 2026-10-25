@@ -1,0 +1,104 @@
+{
+  "baseline": "b049aff",
+  "fixture": "History/payment GET fixtures only; all non-auth writes blocked. Document links not activated.",
+  "results": [
+    {
+      "state": "pending",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "attachments",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "progress",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "pending",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "state": "attachments",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "state": "progress",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "state": "verification",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "verification",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "state": "digitalSignature",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "digitalSignature",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "state": "completed",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "completed",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "state": "rejected",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "rejected",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "state": "unknown",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "state": "unknown",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T04:35:57.603Z"
+}

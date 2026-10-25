@@ -1,43 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { Box, IconButton, Modal, Typography } from '@mui/material';
-import { ArrowBack, PictureAsPdf, PhotoRounded } from '@mui/icons-material';
-import { dark, red, black, white, gray, yellow, blue, green } from '../../config/theme/themePrimitives';
+import React, { useEffect, useId, useState } from 'react';
+import { Box, Dialog, DialogContent, DialogTitle, IconButton, Stack, Typography, useMediaQuery } from '@mui/material';
+import { CloseRounded } from '@mui/icons-material';
 import { toast } from 'react-toastify';
 import NotaryStep from './NotaryStep';
-import NotaryFeedback from '../services/NotaryFeedback.js';
-import useWindowSize from '../../hooks/useWindowSize';
-import NotarizationService from '../../services/notarization.service.js';
+import NotaryFeedback from '../services/NotaryFeedback';
+import DocumentStatusChip from '../shared/DocumentStatusChip';
+import FileAttachmentList from '../shared/FileAttachmentList';
+import { EmptyState } from '../shared/PageFeedback';
+import NotarizationService from '../../services/notarization.service';
 
 const InfoRow = ({ label, value }) => (
-  <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-    <Typography sx={{ flex: 1, fontSize: 12, fontWeight: 600 }}>{label}</Typography>
-    <Typography sx={{ fontSize: 12, fontWeight: 500 }}>{value}</Typography>
+  <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'minmax(150px, 1fr) 2fr' }, gap: { xs: 0.5, sm: 2 } }}>
+    <Typography component="dt" color="text.secondary">{label}</Typography>
+    <Typography component="dd" sx={{ m: 0, overflowWrap: 'anywhere' }}>{value || 'Chưa có thông tin'}</Typography>
   </Box>
 );
 
 const Section = ({ title, children }) => (
-  <Box
-    sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 2,
-      p: 2,
-      backgroundColor: gray[50],
-      borderRadius: 1,
-    }}
-  >
-    <Typography sx={{ fontSize: 12, fontWeight: 600, textTransform: 'uppercase', color: black[900] }}>{title}</Typography>
+  <Stack component="section" spacing={2} sx={{ border: 1, borderColor: 'divider', borderRadius: 1, p: { xs: 2, sm: 3 }, minWidth: 0 }}>
+    <Typography component="h3" variant="subtitle1">{title}</Typography>
     {children}
-  </Box>
+  </Stack>
 );
 
-const HistoryDetailModal = ({ open, handleClose, data, notaryId }) => {
+const HistoryDetailModal = ({ open, handleClose, data = [], notaryId }) => {
   const [notarizationData, setNotarizationData] = useState(data.find((item) => item._id === notaryId));
-  const [currentStep, setCurrentStep] = useState(0);
   const [loadingSignature, setLoadingSignature] = useState(false);
-  const [documentFiles, setDocumentFiles] = useState([]);
-  const [imageFiles, setImageFiles] = useState([]);
-  const { width, height } = useWindowSize();
+  const fullScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+  const id = useId();
 
   const handleSignatureSave = async (signatureImageUrl) => {
     const signatureImageFile = new File([signatureImageUrl], notarizationData?.userId + '.png', { type: 'image/png' });
@@ -75,219 +65,60 @@ const HistoryDetailModal = ({ open, handleClose, data, notaryId }) => {
     }
   };
 
-  const renderStatusBox = (status) => {
-    const statusConfig = {
-      default: { text: 'Chưa xác nhận', backgroundColor: gray[50], color: gray[500] },
-      pending: { text: 'Chờ xử lý', backgroundColor: dark[50], color: dark[500] },
-      processing: { text: 'Đang xử lý', backgroundColor: yellow[50], color: yellow[500] },
-      verification: { text: 'Đang xác minh', backgroundColor: '#f3ebfa', color: '#7007C1' },
-      digitalSignature: { text: 'Sẵn sàng ký số', backgroundColor: blue[50], color: blue[500] },
-      completed: { text: 'Hoàn tất', backgroundColor: green[50], color: green[500] },
-    };
-
-    const { text, backgroundColor, color } = statusConfig[status] || statusConfig.default;
-
-    return (
-      <Box
-        sx={{
-          backgroundColor,
-          color,
-          borderRadius: '30px',
-          py: 0.5,
-          px: 2,
-        }}
-      >
-        <Typography sx={{ fontSize: 12, fontWeight: 500 }}>{text}</Typography>
-      </Box>
-    );
-  };
-
-  const renderFile = (file, isImage) => {
-    const iconConfig = isImage
-      ? { bgColor: yellow[50], color: yellow[500], Icon: PhotoRounded }
-      : { bgColor: red[50], color: red[500], Icon: PictureAsPdf };
-
-    return (
-      <Box
-        key={file.filename}
-        sx={{
-          display: 'flex',
-          gap: 2,
-          p: 1,
-          borderRadius: 1,
-          border: `1px solid ${black[50]}`,
-          alignItems: 'center',
-          boxShadow: 1,
-          width: 'fit-content',
-        }}
-      >
-        <Box
-          sx={{
-            backgroundColor: iconConfig.bgColor,
-            color: iconConfig.color,
-            borderRadius: 100,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            p: 1,
-          }}
-        >
-          <iconConfig.Icon sx={{ fontSize: 14 }} />
-        </Box>
-        <Typography
-          onClick={() => window.open(file.firebaseUrl)}
-          sx={{
-            fontSize: 12,
-            fontWeight: 500,
-            cursor: 'pointer',
-            textOverflow: 'ellipsis',
-            overflow: 'hidden',
-            ':hover': { textDecoration: 'underline' },
-          }}
-        >
-          {file.filename}
-        </Typography>
-      </Box>
-    );
-  };
-
   useEffect(() => {
-    const foundData = data.find((item) => item._id === notaryId);
-    if (foundData) {
-      setNotarizationData(foundData);
-    }
+    setNotarizationData(data.find((item) => item._id === notaryId));
   }, [data, notaryId]);
 
-  useEffect(() => {
-    if (notarizationData?.files) {
-      const [docs, images] = notarizationData.files.reduce(
-        ([docAcc, imgAcc], file) => {
-          const filename = file.filename?.toLowerCase();
-          if (filename?.endsWith('.pdf') || filename?.endsWith('.docx')) docAcc.push(file);
-          if (['.png', '.jpg', '.jpeg'].some((ext) => filename?.endsWith(ext))) imgAcc.push(file);
-          return [docAcc, imgAcc];
-        },
-        [[], []],
-      );
-      setDocumentFiles(docs);
-      setImageFiles(images);
-    }
-
-    const statusSteps = {
-      pending: 0,
-      processing: 1,
-      verification: 2,
-      digitalSignature: 3,
-      completed: 4,
-    };
-
-    setCurrentStep(statusSteps[notarizationData?.status?.status] ?? 0);
-  }, [notarizationData]);
+  const files = notarizationData?.files || [];
+  const documentFiles = files.filter((file) => /\.(pdf|docx)$/i.test(file.filename || ''));
+  const imageFiles = files.filter((file) => /\.(png|jpe?g)$/i.test(file.filename || ''));
+  const status = notarizationData?.status?.status;
+  const currentStep = { pending: 0, processing: 1, verification: 2, digitalSignature: 3, completed: 4 }[status] ?? 0;
+  const renderFiles = (items, label) => <FileAttachmentList files={items} getName={(file) => file.filename}
+    onOpen={(file) => window.open(file.firebaseUrl)} sourceLabel={label} confirmed />;
 
   return (
-    <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-      <Box>
-        <Box>
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: `calc(${width}px - 20%)`,
-              height: `calc(${height}px - 20%)`,
-              backgroundColor: white[50],
-              borderRadius: 2,
-              overflowY: 'scroll',
-              display: 'flex',
-              flexDirection: 'column',
-              boxShadow: 1,
-              p: 2,
-              gap: 1,
-              scrollbarWidth: { xs: 'none', sm: 'auto' },
-            }}
-          >
-            {/* Header Section */}
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: { xs: 'flex-start', sm: 'center' },
-                flexDirection: { xs: 'column', sm: 'row' },
-                gap: 1,
-              }}
-            >
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, width: '100%' }}>
-                <IconButton onClick={handleClose}>
-                  <ArrowBack
-                    sx={{
-                      color: black[900],
-                    }}
-                    fontSize="small"
-                  />
-                </IconButton>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: { xs: 'flex-start', sm: 'center' },
-                    flexDirection: { xs: 'column', sm: 'row' },
-                    gap: 1,
-                    width: '100%',
-                  }}
-                >
-                  <Typography sx={{ fontSize: 'clamp(14px, 2vw, 16px)', fontWeight: 600, color: black[900] }}>
-                    Chi tiết hồ sơ công chứng {notarizationData._id && `- Mã số: #${notarizationData._id}`}
-                  </Typography>
-                  {renderStatusBox(notarizationData.status.status)}
-                </Box>
-              </Box>
-            </Box>
-            {/* User Information Section */}
+    <Dialog open={open} onClose={handleClose} fullScreen={fullScreen} fullWidth maxWidth="lg" aria-labelledby={`${id}-title`}>
+      <DialogTitle id={`${id}-header`} component="div" sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
+        <Stack spacing={1} sx={{ flex: 1, minWidth: 0 }}>
+          <Typography component="h2" variant="h5" id={`${id}-title`}>Chi tiết hồ sơ công chứng</Typography>
+          {notarizationData && <>
+            <Typography color="text.secondary" sx={{ overflowWrap: 'anywhere' }}>Mã hồ sơ: {notarizationData._id}</Typography>
+            <Box><DocumentStatusChip status={status} /></Box>
+          </>}
+        </Stack>
+        <IconButton aria-label="Đóng chi tiết hồ sơ" onClick={handleClose}><CloseRounded /></IconButton>
+      </DialogTitle>
+      <DialogContent dividers>
+        {!notarizationData ? <EmptyState title="Chưa có thông tin hồ sơ" description="Đóng hộp thoại và kiểm tra lại hồ sơ trong Lịch sử." /> : (
+          <Stack spacing={3}>
             <Section title="Thông tin khách hàng">
-              <InfoRow label="Họ và tên:" value={notarizationData?.requesterInfo?.fullName} />
-              <InfoRow label="Số CMND/CCCD:" value={notarizationData?.requesterInfo?.citizenId} />
-              <InfoRow label="Số điện thoại:" value={notarizationData?.requesterInfo?.phoneNumber} />
-              <InfoRow label="Email:" value={notarizationData?.requesterInfo?.email} />
+              <Stack component="dl" spacing={2} sx={{ m: 0 }}>
+                <InfoRow label="Họ và tên" value={notarizationData.requesterInfo?.fullName} />
+                <InfoRow label="Số CMND/CCCD" value={notarizationData.requesterInfo?.citizenId} />
+                <InfoRow label="Số điện thoại" value={notarizationData.requesterInfo?.phoneNumber} />
+                <InfoRow label="Email" value={notarizationData.requesterInfo?.email} />
+              </Stack>
             </Section>
-
-            {/* Notarization Information Section */}
             <Section title="Thông tin công chứng">
-              <InfoRow label="Lĩnh vực công chứng:" value={notarizationData?.notarizationField?.name} />
-              <InfoRow label="Dịch vụ công chứng:" value={notarizationData?.notarizationService?.name} />
+              <Stack component="dl" spacing={2} sx={{ m: 0 }}>
+                <InfoRow label="Lĩnh vực công chứng" value={notarizationData.notarizationField?.name} />
+                <InfoRow label="Dịch vụ công chứng" value={notarizationData.notarizationService?.name} />
+              </Stack>
             </Section>
-
-            {documentFiles.length > 0 && (
-              <Section title="Tệp">{documentFiles.map((file) => renderFile(file, false))}</Section>
+            {documentFiles.length > 0 && <Section title="Tệp">{renderFiles(documentFiles, 'Tài liệu đã gửi')}</Section>}
+            {imageFiles.length > 0 && <Section title="Ảnh">{renderFiles(imageFiles, 'Ảnh đã gửi')}</Section>}
+            {status !== undefined && (
+              <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '240px minmax(0, 1fr)' }, gap: 3, alignItems: 'start' }}>
+                <NotaryStep currentStep={currentStep} status={status} />
+                <NotaryFeedback signature={notarizationData.signature} output={notarizationData.output || []}
+                  feedback={notarizationData.status.feedback} onSignatureSave={handleSignatureSave} loading={loadingSignature} />
+              </Box>
             )}
-            {imageFiles.length > 0 && <Section title="Ảnh">{imageFiles.map((file) => renderFile(file, true))}</Section>}
-
-            {notarizationData.status.status !== undefined && (
-              <>
-                {/* Steps Section */}
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    gap: 4,
-                    p: { xs: 0, sm: 2 },
-                  }}
-                >
-                  <NotaryStep currentStep={currentStep} />
-                  <NotaryFeedback
-                    signature={notarizationData.signature}
-                    output={notarizationData.output}
-                    feedback={notarizationData.status.feedback}
-                    onSignatureSave={handleSignatureSave}
-                    loading={loadingSignature}
-                  />
-                </Box>
-              </>
-            )}
-          </Box>
-        </Box>
-      </Box>
-    </Modal>
+          </Stack>
+        )}
+      </DialogContent>
+    </Dialog>
   );
 };
 
