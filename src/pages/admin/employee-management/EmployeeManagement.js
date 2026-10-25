@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Header from './Header';
 import { Box, TextField, InputAdornment } from '@mui/material';
-import { black } from '../../../config/theme/themePrimitives';
 import Overview from './Overview';
 import DataTable from './DataTable';
 import FilterButton from './FilterButton';
@@ -238,7 +237,7 @@ const EmployeeManagement = () => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon sx={{ color: black[300] }} />
+                  <SearchIcon sx={{ color: 'text.secondary' }} />
                 </InputAdornment>
               ),
             }}

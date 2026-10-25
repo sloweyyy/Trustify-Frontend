@@ -1,7 +1,6 @@
 import { Box, Button, Typography, TextField, InputAdornment } from '@mui/material';
 import React from 'react';
 import { AppsRounded, Forward10Rounded, Forward30Rounded, Forward5Rounded, SearchRounded } from '@mui/icons-material';
-import { black, gray, primary } from '../../../config/theme/themePrimitives';
 
 const CustomSessionDataGridToolbar = ({ onFilterChange, currentFilter, searchText, setSearchText }) => {
   const filterOptions = ['Tất cả', 'Phiên ngắn hạn', 'Phiên trung hạn', 'Phiên dài hạn'];
@@ -15,11 +14,12 @@ const CustomSessionDataGridToolbar = ({ onFilterChange, currentFilter, searchTex
             aria-pressed={currentFilter === status}
             onClick={() => onFilterChange(status)}
             sx={{
-              borderBottom: currentFilter === status ? `2px solid ${primary[500]}` : 'none',
+              borderBottom: 2,
+              borderColor: currentFilter === status ? 'primary.main' : 'transparent',
               color: currentFilter === status ? 'primary.main' : 'text.secondary',
               borderRadius: 0,
               ':hover': {
-                backgroundColor: gray[50],
+                backgroundColor: 'action.hover',
               },
               mx: 0.5,
             }}
@@ -59,7 +59,7 @@ const CustomSessionDataGridToolbar = ({ onFilterChange, currentFilter, searchTex
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <SearchRounded sx={{ color: black[300] }} />
+                <SearchRounded sx={{ color: 'text.secondary' }} />
               </InputAdornment>
             ),
           }}

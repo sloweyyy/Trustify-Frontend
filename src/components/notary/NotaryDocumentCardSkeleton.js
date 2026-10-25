@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Divider, Skeleton } from '@mui/material';
-import { black, gray } from '../../config/theme/themePrimitives';
 
 const NotaryDocumentCardSkeleton = () => {
   return (
@@ -10,7 +9,8 @@ const NotaryDocumentCardSkeleton = () => {
         flexDirection: { xs: 'column', sm: 'row' },
         gap: 1,
         padding: 1,
-        border: `1px solid ${black[50]}`,
+        border: 1,
+        borderColor: 'divider',
         borderRadius: 1,
         alignItems: 'center',
       }}
@@ -22,7 +22,7 @@ const NotaryDocumentCardSkeleton = () => {
           gap: 1,
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '0px 16px',
+          px: 2,
           minWidth: 120,
         }}
       >
@@ -38,7 +38,7 @@ const NotaryDocumentCardSkeleton = () => {
           gap: 1,
           alignItems: 'flex-start',
           justifyContent: 'center',
-          padding: '0px 16px',
+          px: 2,
         }}
       >
         <Skeleton variant="text" width={100} height={20} />
@@ -55,7 +55,7 @@ const NotaryDocumentCardSkeleton = () => {
           gap: 1,
           alignItems: 'flex-start',
           justifyContent: 'center',
-          padding: '0px 16px',
+          px: 2,
         }}
       >
         <Skeleton variant="text" width={50} height={16} />
@@ -65,8 +65,8 @@ const NotaryDocumentCardSkeleton = () => {
       <Skeleton
         variant="rectangular"
         sx={{
-          borderRadius: '4px',
-          bgcolor: gray[100],
+          borderRadius: 0.5,
+          bgcolor: 'action.hover',
           height: 32,
           width: 80,
         }}
