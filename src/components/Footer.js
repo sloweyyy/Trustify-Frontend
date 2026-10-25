@@ -1,204 +1,55 @@
-import { Box, Container, Typography, IconButton, List, ListItem, ListItemText } from '@mui/material';
+import React from 'react';
+import { Box, Container, Typography, IconButton, Link } from '@mui/material';
 import { LinkedIn, Facebook, GitHub } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
 
-const Footer = () => {
-  const navigate = useNavigate();
+const policies = [
+  ['Chính sách bảo mật', '/privacy-policy'], ['Bảo mật thanh toán', '/payment-security'],
+  ['Điều khoản sử dụng', '/terms-of-service'], ['Hướng dẫn sử dụng', '/user-guide'],
+  ['Quy chế hoạt động', '/operating-regulations'], ['Cơ chế giải quyết khiếu nại', '/dispute-resolution'],
+];
+const products = [['Giá', '/pricing'], ['Dành cho cá nhân', '/for-individuals'], ['Dành cho VPCC', '/for-notary-offices']];
+const social = [
+  { label: 'Facebook', href: 'https://www.facebook.com/slowey.ipynb', icon: <Facebook /> },
+  { label: 'GitHub', href: 'https://github.com/sloweyyy', icon: <GitHub /> },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sloweyne/', icon: <LinkedIn /> },
+];
+const linkStyle = { color: 'inherit', display: 'inline-flex', alignItems: 'center', minHeight: 44, overflowWrap: 'anywhere', '&:focus-visible': { outlineColor: 'primary.contrastText' } };
+const FooterLinks = ({ title, links }) => (
+  <Box component="nav" aria-label={title} sx={{ minWidth: 0 }}>
+    <Typography component="h2" variant="h6" sx={{ mb: 1 }}>{title}</Typography>
+    <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
+      {links.map(([label, to]) => <Box component="li" key={to}><Link component={RouterLink} to={to} onClick={() => window.scrollTo(0, 0)} underline="hover" sx={linkStyle}>{label}</Link></Box>)}
+    </Box>
+  </Box>
+);
 
-  const HomeData = [
-    { text: 'Chính sách bảo mật', route: '/privacy-policy' },
-    { text: 'Bảo mật thanh toán', route: '/payment-security' },
-    { text: 'Điều khoản sử dụng', route: '/terms-of-service' },
-    { text: 'Hướng dẫn sử dụng', route: '/user-guide' },
-    { text: 'Quy chế hoạt động', route: '/operating-regulations' },
-    { text: 'Cơ chế giải quyết khiếu nại', route: '/dispute-resolution' },
-  ];
-
-  const ProductsData = [
-    { text: 'Giá', route: '/pricing' },
-    { text: 'Dành cho cá nhân', route: '/for-individuals' },
-    { text: 'Dành cho VPCC', route: '/for-notary-offices' },
-  ];
-
-  const AboutUsData = [
-    'Trụ sở chính: Dĩ An, Bình Dương',
-    'Email: sloweycontact@gmail.com',
-    'Số điện thoại: +84 909 090 909',
-  ];
-
-  const handleNavigate = (route) => {
-    if (route) {
-      navigate(route);
-      window.scrollTo(0, 0);
-    }
-  };
-
-  return (
-    <Box sx={{ backgroundColor: 'primary.main', py: 5, width: '100%' }} data-testid="footer-content">
-      <Container>
-        <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} spacing={5}>
-          <Box flex={1} mb={{ xs: 4, md: 0 }}>
-            <Box>
-              <BrandLogo variant="inverse" width={180} />
-              <Typography variant="h4" fontWeight="bold" color="white" mt={3} sx={{ cursor: 'default' }}>
-                Hồ sơ rõ ràng. An tâm từng bước.
-              </Typography>
-              <Typography variant="body1" color="white" mt={3} sx={{ cursor: 'default' }}>
-                Kết nối với chúng tôi:
-              </Typography>
-              <IconButton
-                sx={{
-                  color: 'white',
-                  padding: 0,
-                  mr: 2,
-                  mt: 1,
-                  '&:hover': {
-                    backgroundColor: 'transparent',
-                  },
-                  '&:focus': {
-                    outline: 'none',
-                  },
-                }}
-                size="large"
-                onClick={() => window.open('https://www.facebook.com/slowey.ipynb', '_blank')}
-              >
-                <Facebook />
-              </IconButton>
-              <IconButton
-                sx={{
-                  color: 'white',
-                  padding: 0,
-                  mr: 2,
-                  mt: 1,
-                  '&:hover': {
-                    backgroundColor: 'transparent',
-                  },
-                  '&:focus': {
-                    outline: 'none',
-                  },
-                }}
-                size="large"
-                onClick={() => window.open('https://github.com/sloweyyy', '_blank')}
-              >
-                <GitHub />
-              </IconButton>
-              <IconButton
-                sx={{
-                  color: 'white',
-                  padding: 0,
-                  mr: 2,
-                  mt: 1,
-                  '&:hover': {
-                    backgroundColor: 'transparent',
-                  },
-                  '&:focus': {
-                    outline: 'none',
-                  },
-                }}
-                size="large"
-                onClick={() => window.open('https://www.linkedin.com/in/sloweyne/', '_blank')}
-              >
-                <LinkedIn />
-              </IconButton>
-            </Box>
-          </Box>
-          <Box flex={2}>
-            <Box display="flex" justifyContent="space-between">
-              <Box flex={1}>
-                <Typography variant="h6" fontWeight="bold" color="white" sx={{ cursor: 'default' }}>
-                  Trang chủ
-                </Typography>
-                <List sx={{ width: 'fit-content' }}>
-                  {HomeData.map((item, index) => (
-                    <ListItem key={index} disableGutters sx={{ width: 'fit-content' }}>
-                      <ListItemText
-                        primary={item.text}
-                        sx={{
-                          color: 'white',
-                          cursor: 'pointer',
-                          display: 'inline-block',
-                          position: 'relative',
-                          '&::after': {
-                            content: '""',
-                            position: 'absolute',
-                            width: '0',
-                            height: '2px',
-                            bottom: '-2px',
-                            left: '0',
-                            backgroundColor: 'white',
-                            transition: 'width 0.3s ease',
-                          },
-                          '&:hover::after': {
-                            width: '100%',
-                          },
-                          width: 'fit-content',
-                        }}
-                        onClick={() => handleNavigate(item.route)}
-                      />
-                    </ListItem>
-                  ))}
-                </List>
-              </Box>
-              <Box flex={1}>
-                <Typography variant="h6" fontWeight="bold" color="white" sx={{ cursor: 'default' }}>
-                  Sản phẩm
-                </Typography>
-                <List sx={{ width: 'fit-content' }}>
-                  {ProductsData.map((item, index) => (
-                    <ListItem key={index} disableGutters sx={{ width: 'fit-content' }}>
-                      <ListItemText
-                        primary={item.text}
-                        sx={{
-                          color: 'white',
-                          cursor: 'pointer',
-                          display: 'inline-block',
-                          position: 'relative',
-                          '&::after': {
-                            content: '""',
-                            position: 'absolute',
-                            width: '0',
-                            height: '2px',
-                            bottom: '-2px',
-                            left: '0',
-                            backgroundColor: 'white',
-                            transition: 'width 0.3s ease',
-                          },
-                          '&:hover::after': {
-                            width: '100%',
-                          },
-                          width: 'fit-content',
-                        }}
-                        onClick={() => handleNavigate(item.route)}
-                      />
-                    </ListItem>
-                  ))}
-                </List>
-              </Box>
-              <Box flex={1}>
-                <Typography variant="h6" fontWeight="bold" color="white" sx={{ cursor: 'default' }}>
-                  Về chúng tôi
-                </Typography>
-                <List>
-                  {AboutUsData.map((text, index) => (
-                    <ListItem key={index} disableGutters>
-                      <ListItemText
-                        primary={text}
-                        primaryTypographyProps={{
-                          color: 'white',
-                        }}
-                        sx={{ cursor: 'default' }}
-                      />
-                    </ListItem>
-                  ))}
-                </List>
-              </Box>
-            </Box>
+const Footer = () => (
+  <Box component="footer" sx={{ bgcolor: 'primary.dark', color: 'primary.contrastText', py: { xs: 4, md: 6 } }} data-testid="footer-content">
+    <Container maxWidth="lg">
+      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: '1fr 2fr' }, gap: { xs: 4, md: 5 } }}>
+        <Box sx={{ minWidth: 0 }}>
+          <BrandLogo variant="inverse" width={168} />
+          <Typography sx={{ mt: 2, fontWeight: 600, fontSize: '1.25rem' }}>Hồ sơ rõ ràng. An tâm từng bước.</Typography>
+          <Typography sx={{ mt: 2 }}>Kết nối với chúng tôi:</Typography>
+          <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
+            {social.map(({ label, href, icon }) => <IconButton key={label} component="a" href={href} target="_blank" rel="noopener noreferrer"
+              aria-label={label} sx={{ color: 'inherit', '&.Mui-focusVisible': { outlineColor: 'primary.contrastText' } }}>{icon}</IconButton>)}
           </Box>
         </Box>
-      </Container>
-    </Box>
-  );
-};
-
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'minmax(0, 1fr)', sm: 'repeat(2, minmax(0, 1fr))', lg: 'repeat(3, minmax(0, 1fr))' }, gap: 3 }}>
+          <FooterLinks title="Thông tin và hướng dẫn" links={policies} />
+          <FooterLinks title="Dịch vụ" links={products} />
+          <Box sx={{ minWidth: 0 }}>
+            <Typography component="h2" variant="h6" sx={{ mb: 1 }}>Liên hệ</Typography>
+            <Typography>Trụ sở chính: Dĩ An, Bình Dương</Typography>
+            <Link href="mailto:sloweycontact@gmail.com" sx={linkStyle}>Email: sloweycontact@gmail.com</Link>
+            <Link href="tel:+84909090909" sx={linkStyle}>Số điện thoại: +84 909 090 909</Link>
+          </Box>
+        </Box>
+      </Box>
+    </Container>
+  </Box>
+);
 export default Footer;

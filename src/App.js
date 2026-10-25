@@ -102,7 +102,7 @@ function App() {
         <ScrollToTop />
         <Box sx={{ display: { xs: 'block', md: 'flex' }, minHeight: '100dvh' }}>
           {isAuthenticated && <Sidebar />}
-          <Box component={isAuthenticated ? 'main' : 'div'} id="page-content" tabIndex={isAuthenticated ? -1 : undefined} sx={{ flex: 1, minWidth: 0, width: '100%' }}>
+          <Box component={isAuthenticated ? 'main' : 'div'} id="page-content" tabIndex={-1} sx={{ flex: 1, minWidth: 0, width: '100%' }}>
             {!isAuthenticated && <Header />}
             <Routes>
               {/* Public Routes */}

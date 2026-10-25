@@ -1,0 +1,424 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "size": "desktop",
+      "file": "before-home-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/",
+      "size": "mobile",
+      "file": "before-home-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 703
+      }
+    },
+    {
+      "route": "/services",
+      "size": "desktop",
+      "file": "before-services-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/services",
+      "size": "mobile",
+      "file": "before-services-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 399
+      }
+    },
+    {
+      "route": "/lookup",
+      "size": "desktop",
+      "file": "before-lookup-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/lookup",
+      "size": "mobile",
+      "file": "before-lookup-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/verify",
+      "size": "desktop",
+      "file": "before-verify-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/verify",
+      "size": "mobile",
+      "file": "before-verify-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/pricing",
+      "size": "desktop",
+      "file": "before-pricing-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/pricing",
+      "size": "mobile",
+      "file": "before-pricing-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/for-individuals",
+      "size": "desktop",
+      "file": "before-for-individuals-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/for-individuals",
+      "size": "mobile",
+      "file": "before-for-individuals-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/for-notary-offices",
+      "size": "desktop",
+      "file": "before-for-notary-offices-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/for-notary-offices",
+      "size": "mobile",
+      "file": "before-for-notary-offices-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/user-guide",
+      "size": "desktop",
+      "file": "before-user-guide-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/user-guide",
+      "size": "mobile",
+      "file": "before-user-guide-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 645
+      }
+    },
+    {
+      "route": "/privacy-policy",
+      "size": "desktop",
+      "file": "before-privacy-policy-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/privacy-policy",
+      "size": "mobile",
+      "file": "before-privacy-policy-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/payment-security",
+      "size": "desktop",
+      "file": "before-payment-security-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/payment-security",
+      "size": "mobile",
+      "file": "before-payment-security-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/terms-of-service",
+      "size": "desktop",
+      "file": "before-terms-of-service-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/terms-of-service",
+      "size": "mobile",
+      "file": "before-terms-of-service-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/operating-regulations",
+      "size": "desktop",
+      "file": "before-operating-regulations-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/operating-regulations",
+      "size": "mobile",
+      "file": "before-operating-regulations-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/dispute-resolution",
+      "size": "desktop",
+      "file": "before-dispute-resolution-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/dispute-resolution",
+      "size": "mobile",
+      "file": "before-dispute-resolution-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/signin",
+      "size": "desktop",
+      "file": "before-signin-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/signin",
+      "size": "mobile",
+      "file": "before-signin-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/signup",
+      "size": "desktop",
+      "file": "before-signup-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/signup",
+      "size": "mobile",
+      "file": "before-signup-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/forgot-password",
+      "size": "desktop",
+      "file": "before-forgot-password-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/forgot-password",
+      "size": "mobile",
+      "file": "before-forgot-password-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/reset-password",
+      "size": "desktop",
+      "file": "before-reset-password-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/reset-password",
+      "size": "mobile",
+      "file": "before-reset-password-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/third-party",
+      "size": "desktop",
+      "file": "before-third-party-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/third-party",
+      "size": "mobile",
+      "file": "before-third-party-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/payment/redirect",
+      "size": "desktop",
+      "file": "before-payment-redirect-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/payment/redirect",
+      "size": "mobile",
+      "file": "before-payment-redirect-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    }
+  ],
+  "errors": [],
+  "checkedAt": "2026-10-25T00:52:38.774Z"
+}

@@ -1,0 +1,25 @@
+{
+  "routeMarkupSha256": "e15ec55ab2c2dc1fa08c9b630daea3d96931d884e65e906d9df0ee26100d3dad",
+  "routeMarkupUnchanged": true,
+  "serviceStoreRouteDependencyFilesUnchanged": true,
+  "navigationDestinationsUnchanged": [
+    "/user/create-notarization-profile",
+    "/user/history",
+    "/user/notarization-session",
+    "/user/document-wallet",
+    "/verify",
+    "/admin/dashboard",
+    "/admin/employee-management",
+    "/admin/user-management",
+    "/admin/notary-management",
+    "/verify",
+    "/verify",
+    "/notary/dashboard",
+    "/notary/pending-notarization-documents",
+    "/notary/awaiting-signature-documents",
+    "/notary/notary-session-management",
+    "/notary/notarization-history",
+    "/verify",
+    "/profile"
+  ]
+}

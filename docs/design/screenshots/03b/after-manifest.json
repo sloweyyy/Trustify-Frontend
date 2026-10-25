@@ -1,0 +1,424 @@
+{
+  "results": [
+    {
+      "route": "/",
+      "size": "desktop",
+      "file": "after-home-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/",
+      "size": "mobile",
+      "file": "after-home-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 703
+      }
+    },
+    {
+      "route": "/services",
+      "size": "desktop",
+      "file": "after-services-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/services",
+      "size": "mobile",
+      "file": "after-services-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 399
+      }
+    },
+    {
+      "route": "/lookup",
+      "size": "desktop",
+      "file": "after-lookup-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/lookup",
+      "size": "mobile",
+      "file": "after-lookup-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/verify",
+      "size": "desktop",
+      "file": "after-verify-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/verify",
+      "size": "mobile",
+      "file": "after-verify-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/pricing",
+      "size": "desktop",
+      "file": "after-pricing-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/pricing",
+      "size": "mobile",
+      "file": "after-pricing-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/for-individuals",
+      "size": "desktop",
+      "file": "after-for-individuals-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/for-individuals",
+      "size": "mobile",
+      "file": "after-for-individuals-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/for-notary-offices",
+      "size": "desktop",
+      "file": "after-for-notary-offices-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/for-notary-offices",
+      "size": "mobile",
+      "file": "after-for-notary-offices-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/user-guide",
+      "size": "desktop",
+      "file": "after-user-guide-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/user-guide",
+      "size": "mobile",
+      "file": "after-user-guide-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 645
+      }
+    },
+    {
+      "route": "/privacy-policy",
+      "size": "desktop",
+      "file": "after-privacy-policy-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/privacy-policy",
+      "size": "mobile",
+      "file": "after-privacy-policy-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/payment-security",
+      "size": "desktop",
+      "file": "after-payment-security-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/payment-security",
+      "size": "mobile",
+      "file": "after-payment-security-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/terms-of-service",
+      "size": "desktop",
+      "file": "after-terms-of-service-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/terms-of-service",
+      "size": "mobile",
+      "file": "after-terms-of-service-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/operating-regulations",
+      "size": "desktop",
+      "file": "after-operating-regulations-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/operating-regulations",
+      "size": "mobile",
+      "file": "after-operating-regulations-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/dispute-resolution",
+      "size": "desktop",
+      "file": "after-dispute-resolution-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/dispute-resolution",
+      "size": "mobile",
+      "file": "after-dispute-resolution-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/signin",
+      "size": "desktop",
+      "file": "after-signin-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/signin",
+      "size": "mobile",
+      "file": "after-signin-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/signup",
+      "size": "desktop",
+      "file": "after-signup-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/signup",
+      "size": "mobile",
+      "file": "after-signup-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/forgot-password",
+      "size": "desktop",
+      "file": "after-forgot-password-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/forgot-password",
+      "size": "mobile",
+      "file": "after-forgot-password-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/reset-password",
+      "size": "desktop",
+      "file": "after-reset-password-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/reset-password",
+      "size": "mobile",
+      "file": "after-reset-password-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/third-party",
+      "size": "desktop",
+      "file": "after-third-party-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/third-party",
+      "size": "mobile",
+      "file": "after-third-party-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "route": "/payment/redirect",
+      "size": "desktop",
+      "file": "after-payment-redirect-desktop.png",
+      "width": 1440,
+      "height": 1000,
+      "geometry": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      }
+    },
+    {
+      "route": "/payment/redirect",
+      "size": "mobile",
+      "file": "after-payment-redirect-mobile.png",
+      "width": 390,
+      "height": 844,
+      "geometry": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      }
+    }
+  ],
+  "errors": [],
+  "checkedAt": "2026-10-25T00:59:26.420Z"
+}
