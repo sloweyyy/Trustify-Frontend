@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useId } from 'react';
 import { Box, Typography, TextField, IconButton, Button, Autocomplete, Modal, styled } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { black, gray, white } from '../../config/theme/themePrimitives';
 import { LocalizationProvider } from '@mui/x-date-pickers';
+import FieldLabel from '../../components/shared/FieldLabel';
 import DateTimePickerSection from '../../components/shared/DateTimeFields';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
@@ -22,8 +23,9 @@ const debounce = (func, wait) => {
   };
 };
 
-const CustomAutocomplete = ({ options, value, onChange, placeholder, loading, fetchOptions, isSubmitting }) => (
+const CustomAutocomplete = ({ id, options, value, onChange, placeholder, loading, fetchOptions, isSubmitting }) => (
   <Autocomplete
+    id={id}
     loading={loading}
     options={options}
     getOptionLabel={(option) => option.name}
@@ -33,7 +35,6 @@ const CustomAutocomplete = ({ options, value, onChange, placeholder, loading, fe
         {...params}
         inputProps={{ ...params.inputProps, readOnly: true }}
         sx={{
-          '& fieldset': { border: 'none' },
           mt: 1,
           backgroundColor: gray[50],
           borderRadius: 1,
@@ -67,6 +68,7 @@ const CustomAutocomplete = ({ options, value, onChange, placeholder, loading, fe
 );
 
 const GuestSection = ({
+  id,
   value,
   options,
   handleInputChange,
@@ -77,7 +79,7 @@ const GuestSection = ({
   isSubmitting,
 }) => (
   <Box sx={{ mb: 2 }}>
-    <Typography variant="body2">Thêm khách mời</Typography>
+    <FieldLabel htmlFor={id} label="Thêm khách mời" disabled={isSubmitting}>
     <Box
       sx={{
         display: 'flex',
@@ -89,6 +91,7 @@ const GuestSection = ({
     >
       {/* Guest Autocomplete */}
       <Autocomplete
+        id={id}
         value={value}
         loading={loading}
         options={options}
@@ -102,7 +105,6 @@ const GuestSection = ({
             placeholder="Nhập email khách mời"
             sx={{
               flexGrow: 1,
-              '& fieldset': { border: 'none' },
               '& .MuiInputBase-input': { fontSize: '1rem' },
             }}
             onKeyDown={(event) => event.key === 'Enter' && handleAddGuest()}
@@ -135,6 +137,8 @@ const GuestSection = ({
       </Button>
     </Box>
 
+    </FieldLabel>
+
     {/* Added Guests */}
     <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 2 }}>
       {users.map((guest, index) => (
@@ -145,7 +149,6 @@ const GuestSection = ({
 );
 
 const CustomTextField = styled(TextField)(({ theme }) => ({
-  '& fieldset': { border: 'none' },
   marginTop: theme.spacing(1),
   backgroundColor: gray[50],
   borderRadius: theme.shape.borderRadius,
@@ -155,6 +158,7 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
 }));
 
 const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
+  const fieldId = useId();
   const [startDate, setStartDate] = useState(dayjs());
   const [startTime, setStartTime] = useState(dayjs());
 
@@ -368,31 +372,35 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
           {/* Notary Session Name */}
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, flexWrap: 'wrap', mb: 2 }}>
             <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: 2 }}>
-              <Typography variant="body2">Tên phiên công chứng</Typography>
+              <FieldLabel htmlFor={`${fieldId}-name`} label="Tên phiên công chứng" disabled={isSubmitting}>
               <CustomTextField
+                id={`${fieldId}-name`}
                 placeholder="Nhập tên phiên công chứng"
-                inputProps={{ 'aria-label': 'Tên phiên công chứng' }}
                 fullWidth
                 onChange={handleSessionNameChange}
                 disabled={isSubmitting}
               />
+              </FieldLabel>
             </Box>
             <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: 2 }}>
-              <Typography variant="body2">Số lượng bản sao</Typography>
+              <FieldLabel htmlFor={`${fieldId}-amount`} label="Số lượng bản sao" disabled={isSubmitting}>
               <CustomTextField
+                id={`${fieldId}-amount`}
                 placeholder="Nhập số lượng bản sao"
                 fullWidth
                 onChange={handleAmountChange}
                 disabled={isSubmitting}
               />
+              </FieldLabel>
             </Box>
           </Box>
 
           {/* Notary Service and Field */}
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, flexWrap: 'wrap', mb: 2 }}>
             <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: { xs: 2, sm: 0 } }}>
-              <Typography variant="body2">Lĩnh vực công chứng</Typography>
+              <FieldLabel htmlFor={`${fieldId}-field`} label="Lĩnh vực công chứng" disabled={isSubmitting}>
               <CustomAutocomplete
+                id={`${fieldId}-field`}
                 options={notarizationFields}
                 value={notaryField}
                 onChange={(e, value) => setNotaryField(value)}
@@ -401,10 +409,12 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
                 fetchOptions={fetchNotarizationField}
                 isSubmitting={isSubmitting}
               />
+              </FieldLabel>
             </Box>
             <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: { xs: 2, sm: 0 } }}>
-              <Typography variant="body2">Dịch vụ công chứng</Typography>
+              <FieldLabel htmlFor={`${fieldId}-service`} label="Dịch vụ công chứng" disabled={isSubmitting}>
               <CustomAutocomplete
+                id={`${fieldId}-service`}
                 options={notarizationServices}
                 value={notaryService}
                 onChange={(e, value) => setNotaryService(value)}
@@ -413,6 +423,7 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
                 fetchOptions={fetchNotarizationService}
                 isSubmitting={isSubmitting}
               />
+              </FieldLabel>
             </Box>
           </Box>
 
@@ -450,6 +461,7 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
 
           {/* Guests */}
           <GuestSection
+            id={`${fieldId}-guests`}
             value={email}
             options={options}
             handleInputChange={handleInputChange}

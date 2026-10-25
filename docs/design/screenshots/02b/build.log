@@ -147,12 +147,12 @@ To ignore, add // eslint-disable-next-line to the line before.
 File sizes after gzip:
 
   753.89 kB         build/static/js/561.fed3c614.chunk.js
-  238.5 kB (+6 B)   build/static/js/main.0732aadd.js
+  238.49 kB (-5 B)  build/static/js/main.de786a1f.js
   93.16 kB          build/static/js/470.2dda5671.chunk.js
   63.84 kB          build/static/js/124.a7c5493c.chunk.js
   60.33 kB          build/static/js/461.0d5f31c7.chunk.js
   48 kB             build/static/js/344.fe9467e7.chunk.js
-  11.64 kB (+25 B)  build/static/js/38.31f01143.chunk.js
+  11.72 kB (+83 B)  build/static/js/38.36a04ca6.chunk.js
   10.93 kB          build/static/js/803.d9727973.chunk.js
   9.31 kB           build/static/js/701.28e5cd31.chunk.js
   9.11 kB           build/static/js/942.7dce640f.chunk.js
