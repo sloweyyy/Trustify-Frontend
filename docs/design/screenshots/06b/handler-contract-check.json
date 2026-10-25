@@ -1,0 +1,16 @@
+{
+  "baseline": "6984ee66d119eb54586330de0d930cc40fccecc4",
+  "handlers": {
+    "handleAddGuest": true,
+    "handleDeleteGuest": true,
+    "handleDocumentWalletChange": true,
+    "handleFileChange": true,
+    "handleUploadDocument": true,
+    "handleRemoveFile": true,
+    "handleRemoveDocumentWalletFile": true,
+    "handleRemoveUploadedFile": true,
+    "handleSignatureSave": true,
+    "handleSendForNotarization": true
+  },
+  "note": "Original mutation handler bodies retained byte for byte; no services/API changes."
+}

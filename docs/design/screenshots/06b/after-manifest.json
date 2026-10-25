@@ -1,0 +1,140 @@
+{
+  "baseline": "6984ee6",
+  "fixture": "Session GET fixtures only. Current QA user ID is read from the authorized login response and used only in the local fixture; tokens/credentials are never saved. All non-auth writes blocked; no participant/upload/signature operation.",
+  "results": [
+    {
+      "name": "draft-header",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "draft-feedback",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "draft-header",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "draft-feedback",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "processing-header",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "processing-feedback",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "processing-header",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "processing-feedback",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "sign-header",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "sign-feedback",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "sign-header",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "sign-feedback",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "signed-header",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "signed-feedback",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "signed-header",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "signed-feedback",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "missing-header",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "missing-feedback",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "missing-header",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "missing-feedback",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "members",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "members",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T06:08:55.754Z"
+}
