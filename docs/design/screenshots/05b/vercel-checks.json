@@ -1,0 +1,15 @@
+{
+  "source": "816b1d4",
+  "primaryDeployment": "https://vercel.com/sloweyyy/trustify-notary/Aif6fLFYLZ56Ry9XzZHc5Jw3qce2",
+  "state": "Ready",
+  "safeQuery": "?status=ERROR (no orderCode)",
+  "roles": [
+    "guest: result/return to home",
+    "user: sign in, result1440/390,52px action,390px bounds,logout",
+    "notary: sign in, result390, navigation,logout",
+    "admin: sign in, result390,390px bounds,Enter returns existing admin dashboard via /,logout"
+  ],
+  "paymentCallbacksActivated": false,
+  "realPaymentsUpdated": false,
+  "checkedAt": "2026-10-25T04:20:59.977Z"
+}

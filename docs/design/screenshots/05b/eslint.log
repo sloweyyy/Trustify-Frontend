@@ -12,4 +12,3 @@ is not maintianed anymore[0;33m. It is thus unlikely that this bug will
 ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
-  
