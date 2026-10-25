@@ -1,0 +1,19 @@
+{
+  "source": "c8f7da2",
+  "primaryDeployment": "https://vercel.com/sloweyyy/trustify-notary/HJPLbDmjjqxdVwYAsJNCmcAmhsGk",
+  "state": "Ready",
+  "browser": "Existing signed-in Chrome",
+  "user": {
+    "result": "QA account has no sessions; successful empty state checked at1440/390. Populated/search/pagination scenarios use local GET fixtures.",
+    "mobile": {
+      "viewport": 390,
+      "scrollWidth": 390,
+      "createHeight": 48
+    },
+    "createForm": "Opened existing labelled Vietnamese form without filling/submitting; close restores focus to create button."
+  },
+  "notary": "Sign-in/mobile navigation/logout",
+  "admin": "Sign-in/mobile navigation/shared verification page/logout",
+  "realWrites": "Authentication only; no create,join,upload,signature or payment action.",
+  "checkedAt": "2026-10-25T05:34:22.818Z"
+}

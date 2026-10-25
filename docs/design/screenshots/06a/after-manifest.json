@@ -1,0 +1,68 @@
+{
+  "baseline": "bb65710",
+  "fixture": "Session GET fixtures only. All non-auth writes blocked. No create,join,upload or signing submitted.",
+  "results": [
+    {
+      "name": "list",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "filtered",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "no-results",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "empty",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "error",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "loading",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "list",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "filtered",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "no-results",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "empty",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "error",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "loading",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T05:27:41.753Z"
+}
