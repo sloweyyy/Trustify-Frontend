@@ -87,3 +87,5 @@ All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:
 
 - PR #24 approved and merged; production main7654ac1 Ready, HTTP200/no uncaught errors at16:32. Claude non-blocking given-name avatar initial follow-up included06c.
 - 06c — Session creation/invitation dialogs, PR #26 (draft), 2026-10-25 16:35 +07: named MUI Dialogs, mobile full-screen creation/footer actions, theme colors/readable copy; unchanged mutation/reset handlers and date fields. Given-name avatar initial correction. Build/CRA ESLint/15 tests and390/720/1440 keyboard/bounds checks pass;8 before/after pairs. Preview pending.
+
+- PR #26, needs-human, 2026-10-25 16:42 +07: preview Ready for e7229da, but required all-role click-through blocked: Cua navigation timed out, then inventory/recovery timed out three times (kernel reset); fresh headless browser redirected to Vercel sign-in before QA credentials. No credentials submitted there, no protection/configuration changes. Build/ESLint/15 tests/8 pairs/local keyboard checks pass. Draft retained; ready-for-review not added. Continuing independent wallet slice from main.
