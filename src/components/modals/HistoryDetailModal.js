@@ -1,5 +1,5 @@
 import React, { useEffect, useId, useState } from 'react';
-import { Box, Dialog, DialogContent, DialogTitle, IconButton, Stack, Typography, useMediaQuery } from '@mui/material';
+import { Alert, Box, Button, Dialog, DialogContent, DialogTitle, IconButton, Stack, Typography, useMediaQuery } from '@mui/material';
 import { CloseRounded } from '@mui/icons-material';
 import { toast } from 'react-toastify';
 import NotaryStep from './NotaryStep';
@@ -73,6 +73,12 @@ const HistoryDetailModal = ({ open, handleClose, data = [], notaryId }) => {
   const documentFiles = files.filter((file) => /\.(pdf|docx)$/i.test(file.filename || ''));
   const imageFiles = files.filter((file) => /\.(png|jpe?g)$/i.test(file.filename || ''));
   const status = notarizationData?.status?.status;
+  const needsSignature = status === 'digitalSignature' && notarizationData?.output?.length > 0 && !notarizationData?.signature?.approvalStatus?.user?.approved;
+  const focusSignature = () => {
+    const target = document.getElementById(`${id}-signature`);
+    target?.focus({ preventScroll: true });
+    target?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  };
   const currentStep = { pending: 0, processing: 1, verification: 2, digitalSignature: 3, completed: 4 }[status] ?? 0;
   const renderFiles = (items, label) => <FileAttachmentList files={items} getName={(file) => file.filename}
     onOpen={(file) => window.open(file.firebaseUrl)} sourceLabel={label} confirmed />;
@@ -92,6 +98,9 @@ const HistoryDetailModal = ({ open, handleClose, data = [], notaryId }) => {
       <DialogContent dividers>
         {!notarizationData ? <EmptyState title="Chưa có thông tin hồ sơ" description="Đóng hộp thoại và kiểm tra lại hồ sơ trong Lịch sử." /> : (
           <Stack spacing={3}>
+            {needsSignature && <Alert severity="info" action={<Button variant="contained" onClick={focusSignature}>Ký ngay</Button>}>
+              Hồ sơ đang chờ chữ ký của bạn
+            </Alert>}
             <Section title="Thông tin khách hàng">
               <Stack component="dl" spacing={2} sx={{ m: 0 }}>
                 <InfoRow label="Họ và tên" value={notarizationData.requesterInfo?.fullName} />
@@ -111,7 +120,7 @@ const HistoryDetailModal = ({ open, handleClose, data = [], notaryId }) => {
             {status !== undefined && (
               <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '240px minmax(0, 1fr)' }, gap: 3, alignItems: 'start' }}>
                 <NotaryStep currentStep={currentStep} status={status} />
-                <NotaryFeedback signature={notarizationData.signature} output={notarizationData.output || []}
+                <NotaryFeedback signaturePadId={`${id}-signature`} signature={notarizationData.signature} output={notarizationData.output || []}
                   feedback={notarizationData.status.feedback} onSignatureSave={handleSignatureSave} loading={loadingSignature} />
               </Box>
             )}
