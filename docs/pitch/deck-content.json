@@ -93,12 +93,12 @@
     "transcript": [
       "Document verification with a record to inspect",
       "Document file",
-      "Stored off-chain through IPFS and Pinata.",
+      "Supabase Storage in the demo.\nIPFS/Pinata support in code.",
       "Certificate reference",
       "NFT metadata on Solana devnet links the record to the file.",
       "Current integration uses a test network. A blockchain record alone does not establish legal validity."
     ],
-    "notes": "Blockchain implementation: https://github.com/sloweyyy/Trustify-Backend/blob/main/src/config/blockchain.js and src/services/notarization.service.js. Verification UI: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/design/screenshots/final/states/public-verify-record-desktop.png. Files are uploaded off-chain to IPFS/Pinata and metadata references are minted on Solana devnet. NFT possession/metadata is not proof of legal validity or complete confidentiality."
+    "notes": "Blockchain implementation: https://github.com/sloweyyy/Trustify-Backend/blob/main/src/config/blockchain.js and src/services/notarization.service.js. Verification UI: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/design/screenshots/final/states/public-verify-record-desktop.png. The public demo stores files and metadata in Supabase Storage. IPFS/Pinata pinning is supported in code. Metadata references are minted on Solana devnet. Live-demo configuration verified by the maintainer in https://github.com/sloweyyy/Trustify-Frontend/pull/50. NFT possession/metadata is not proof of legal validity or complete confidentiality."
   },
   {
     "number": 8,
@@ -109,16 +109,16 @@
       "React 18, Redux Toolkit and Material UI",
       "Vietnamese workspaces for users, notaries and admins",
       "Application services",
-      "Node.js, Express and MongoDB",
-      "JWT and Google OAuth, with PayOS payments",
+      "Node.js, Express, MongoDB and PayOS",
+      "JWT and Google OAuth. The public demo simulates payments.",
       "Document records",
-      "Solana Web3.js, Metaplex and IPFS",
-      "Devnet NFT minting and file references",
+      "Solana Web3.js and Metaplex",
+      "Supabase Storage in the demo. IPFS/Pinata support in code.",
       "Assistant",
       "Gemini integration",
       "Guidance on documents and procedures"
     ],
-    "notes": "Verified against frontend package.json/README and backend package.json, src/config/blockchain.js, src/services/chatbot.service.js and src/services/payment.service.js. Source: https://github.com/sloweyyy/Trustify-Frontend and https://github.com/sloweyyy/Trustify-Backend. Gemini supplies procedural guidance, not implemented document generation. PayOS is the implemented payment gateway, not crypto checkout."
+    "notes": "Verified against frontend package.json/README and backend package.json, src/config/blockchain.js, src/services/chatbot.service.js and src/services/payment.service.js. Source: https://github.com/sloweyyy/Trustify-Frontend and https://github.com/sloweyyy/Trustify-Backend. Gemini supplies procedural guidance, not implemented document generation. PayOS is the supported payment integration. The current public demo simulates payments, as verified by the maintainer in https://github.com/sloweyyy/Trustify-Frontend/pull/50. The demo uses Supabase Storage for files/metadata, with IPFS/Pinata support in code."
   },
   {
     "number": 9,
@@ -175,9 +175,10 @@
       "Help shape a practical workflow for\nVietnamese applicants and notaries.",
       "Try the demo",
       "trustify-notary.vercel.app",
+      "Simulated payments. Solana devnet.",
       "Meet the project",
       "linkedin.com/in/sloweyne"
     ],
-    "notes": "Call to action proposes discussions with licensed notary offices and product/security reviewers. No existing partnerships or endorsements implied. Demo: https://trustify-notary.vercel.app. Contact: https://www.linkedin.com/in/sloweyne/. Source: https://github.com/sloweyyy/Trustify-Frontend and https://github.com/sloweyyy/Trustify-Backend. Deck updated25October2026."
+    "notes": "Call to action proposes discussions with licensed notary offices and product/security reviewers. No existing partnerships or endorsements implied. Demo: https://trustify-notary.vercel.app. Contact: https://www.linkedin.com/in/sloweyne/. Source: https://github.com/sloweyyy/Trustify-Frontend and https://github.com/sloweyyy/Trustify-Backend. The current public demo simulates payments and uses Supabase Storage. Maintainer configuration check: https://github.com/sloweyyy/Trustify-Frontend/pull/50. Deck updated25October2026."
   }
 ]

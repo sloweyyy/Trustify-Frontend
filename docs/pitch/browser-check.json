@@ -1,6 +1,6 @@
 {
   "base": "http://127.0.0.1:4179",
-  "checkedAt": "2026-10-25T16:53:44.988Z",
+  "checkedAt": "2026-10-25T17:02:27.536Z",
   "routes": [
     {
       "route": "/pitch",
@@ -48,13 +48,13 @@
       "name": "trustify-pitch.pdf",
       "status": 200,
       "type": "application/pdf",
-      "bytes": 1450017
+      "bytes": 1470502
     },
     {
       "name": "trustify-pitch.pptx",
       "status": 200,
       "type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "bytes": 578275
+      "bytes": 578734
     },
     {
       "name": "share-preview.jpg",
