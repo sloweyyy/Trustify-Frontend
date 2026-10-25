@@ -3,7 +3,6 @@ import { Box, TextField, InputAdornment } from '@mui/material';
 import UserOverview from './UserOverview';
 import UserDataTable from './UserDataTable';
 import Header from './Header';
-import { black } from '../../../config/theme/themePrimitives';
 import FilterButton from './FilterButton';
 import AppsIcon from '@mui/icons-material/Apps';
 import { ErrorState, LoadingState } from '../../../components/shared/PageFeedback';
@@ -224,7 +223,7 @@ const UserManagement = () => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon sx={{ color: black[300] }} />
+                  <SearchIcon sx={{ color: 'text.secondary' }} />
                 </InputAdornment>
               ),
             }}

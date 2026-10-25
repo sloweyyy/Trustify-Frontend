@@ -2,17 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Box, Card, CardActionArea, CardContent, Divider, Typography } from '@mui/material';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import AvatarIcon from '../static/AvatarIcon';
-import { black, green, red, yellow, blue } from '../../config/theme/themePrimitives';
 import DetailProcessingSessionModal from './DetailProcessingSessionModal';
 import DetailReadyToSignSessionModal from './DetailReadyToSignSessionModal';
 import { GestureRounded } from '@mui/icons-material';
 import DocumentStatusChip, { StatusChip } from '../shared/DocumentStatusChip';
 
 const NotarySessionCard = ({ session }) => {
-  const [remainingTimeColor, setRemainingTimeColor] = useState({
-    color: black[500],
-    backgroundColor: black[50],
-  });
+  const [remainingTimeTone, setRemainingTimeTone] = useState('neutral');
   const [timeRemaining, setTimeRemaining] = useState('');
   const [openProcessingModal, setOpenProcessingModal] = useState(false);
   const [openReadyToSignModal, setOpenReadyToSignModal] = useState(false);
@@ -41,16 +37,16 @@ const NotarySessionCard = ({ session }) => {
         }
 
         if (daysRemaining >= 5) {
-          setRemainingTimeColor({ color: green[500], backgroundColor: green[50] });
+          setRemainingTimeTone('success');
         } else if (daysRemaining >= 2) {
-          setRemainingTimeColor({ color: yellow[500], backgroundColor: yellow[50] });
+          setRemainingTimeTone('warning');
         } else {
-          setRemainingTimeColor({ color: red[500], backgroundColor: red[50] });
+          setRemainingTimeTone('error');
         }
 
         setTimeRemaining('Còn ' + timeStrings.join(' '));
       } else {
-        setRemainingTimeColor({ color: black[500], backgroundColor: black[50] });
+        setRemainingTimeTone('neutral');
         setTimeRemaining('Đã kết thúc');
       }
     };
@@ -144,12 +140,12 @@ const NotarySessionCard = ({ session }) => {
                 <Box sx={{ display: 'flex', alignItems: 'center', mt: 1, gap: 1 }}>
                   <GestureRounded
                     sx={{
-                      color: blue[500],
+                      color: 'info.main',
                       fontSize: 16,
                       verticalAlign: 'middle',
                     }}
                   />
-                  <Typography sx={{ fontSize: 16, fontWeight: 400, color: blue[500] }}>
+                  <Typography sx={{ fontSize: 16, fontWeight: 400, color: 'info.main' }}>
                     Có chữ ký từ người tham gia
                   </Typography>
                 </Box>
@@ -163,10 +159,10 @@ const NotarySessionCard = ({ session }) => {
             </Box>
 
             <Box
-              sx={{
+              sx={(theme) => ({
                 alignSelf: 'flex-start',
-                backgroundColor: remainingTimeColor.backgroundColor,
-                color: remainingTimeColor.color,
+                backgroundColor: theme.trustify.status[remainingTimeTone]?.bg || theme.trustify.surface.subtle,
+                color: theme.trustify.status[remainingTimeTone]?.fg || theme.palette.text.secondary,
                 gap: 1,
                 px: 1,
                 py: 0.5,
@@ -175,7 +171,7 @@ const NotarySessionCard = ({ session }) => {
                 alignItems: 'center',
                 mt: 2,
                 width: 'fit-content',
-              }}
+              })}
             >
               <ScheduleIcon sx={{ width: 12, height: 12 }} />
               <Typography sx={{ fontSize: 16, fontWeight: 400 }}>{timeRemaining}</Typography>
