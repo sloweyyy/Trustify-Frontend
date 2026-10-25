@@ -27,6 +27,7 @@ const Overview = ({count , notaryCount, secretaryCount}) => {
     <Box
         sx={{
           display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
           padding: '24px',
           alignItems: 'flex-start',
           gap: '16px',
@@ -82,7 +83,7 @@ const Overview = ({count , notaryCount, secretaryCount}) => {
           </Typography>
         </Box>
         <Box flex={0.5}/>
-        <Box sx={{width: '60%', height: '100%'}}>
+        <Box sx={{width: { xs: '100%', sm: '60%' }, height: '100%', minWidth: 0}}>
           <Pie data={adminPieChartData} options={adminPieChartOptions} height={247}/>
         </Box>
         <Box flex={0.5}/>

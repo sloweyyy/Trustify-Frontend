@@ -36,3 +36,6 @@ All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:
 
 - PR #12 merged after Claude round-2 approval; production main 5e14c895 Ready, homepage HTTP200/no uncaught errors at 07:12.
 - 02c — Feedback states, PR #13, 2026-10-25 07:18: confirmation Dialog, themed Toastify, shared loading/empty/error and two Notary queue adoptions. Build/ESLint/19 tests and local all-role browser checks pass; 18 paired before/after captures plus four simulated GET fixtures. Primary Vercel Ready; all-role click-through, User stay/Notary logout/Admin Escape, both queue empties and public loader verified; 12 preview captures. Ready for Claude review.
+
+- PR #13 approved and merged; production main b25ab519 Ready, HTTP200/no uncaught errors at07:25. Claude requested03 before further02x slices.
+- 03 — Authenticated shell, 2026-10-25 07:32: temporary Drawer below md, mobile appbar, accessible current links/skip link, desktop collapse; removed wizard fixed width and reflowed overflowing Admin toolbars/chart and Notary pagination. Build/ESLint/21 tests pass. All20 supported QA route/role combinations have document width390 at390px, with zero page errors; keyboard/focus checks pass.40 before/after pairs+9 nav captures. Vercel QA pending; public header/footer follows03b.

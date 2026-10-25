@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Box, Divider, Drawer, IconButton, List } from '@mui/material';
+import { AppBar, Toolbar, Box, Divider, Drawer, IconButton, List, Typography, useMediaQuery } from '@mui/material';
 import {
+  Menu as MenuIcon,
+  Close,
   Article,
   HistoryEdu,
   KeyboardDoubleArrowLeft,
@@ -9,7 +11,6 @@ import {
   Wallet,
   VerifiedUser,
 } from '@mui/icons-material';
-import { dark, primary, white, red } from '../config/theme/themePrimitives';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { userLogout } from '../stores/actions/authAction';
@@ -26,6 +27,7 @@ import {
 } from '@mui/icons-material';
 import SidebarItem from './static/SidebarItem';
 import BrandLogo from './BrandLogo';
+import { focusRing } from '../config/theme/themeHelpers';
 const MENUS = {
   LOGOUT: 'logout',
   PROFILE: 'profile',
@@ -34,7 +36,8 @@ const MENUS = {
 
 const Sidebar = () => {
   const [openSideBar, setOpenSideBar] = useState(true);
-  const [selectedMenu, setSelectedMenu] = useState(null);
+  const desktop = useMediaQuery((theme) => theme.breakpoints.up('md'));
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [openLogoutModal, setOpenLogoutModal] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -57,8 +60,6 @@ const Sidebar = () => {
     } else if (menu.type === 'verify') {
       window.location.href = menu.href;
     } else {
-      setSelectedMenu(menu.type);
-      console.log('Navigating to:', menu.href);
       navigate(menu.href);
     }
   };
@@ -99,7 +100,7 @@ const Sidebar = () => {
         {
           type: 'dashboard',
           icon: <GridViewRounded />,
-          title: 'Dashboard',
+          title: 'Tổng quan',
           href: '/admin/dashboard',
         },
         {
@@ -139,7 +140,7 @@ const Sidebar = () => {
         {
           type: 'dashboard',
           icon: <GridViewRounded />,
-          title: 'Dashboard',
+          title: 'Tổng quan',
           href: '/notary/dashboard',
         },
         {
@@ -177,101 +178,54 @@ const Sidebar = () => {
     return items;
   }, [role]);
 
-  useEffect(() => {
-    const currentMenu = renderSidebarItems().find((item) => item.href === location.pathname);
-    if (currentMenu) {
-      setSelectedMenu(currentMenu.type);
-    }
-  }, [location, renderSidebarItems]);
-
-  const drawerWidth = openSideBar ? '18rem' : '5rem';
-  const drawerTransition = '0.2s ease';
+  const items = renderSidebarItems();
+  const selectedMenu = location.pathname === '/profile' ? MENUS.PROFILE : items.find((item) => item.href === location.pathname)?.type;
+  const expanded = !desktop || openSideBar;
+  const drawerWidth = expanded ? 288 : 80;
+  const roleLabel = { user: 'Cá nhân', notary: 'Công chứng viên', admin: 'Quản trị viên', secretary: 'Thư ký' }[role];
+  useEffect(() => { setMobileOpen(false); }, [location.pathname, desktop]);
 
   return (
-    <Drawer
-      variant="permanent"
-      open={openSideBar}
-      anchor="left"
-      data-testid="sidebar-container"
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
-          width: drawerWidth,
-          boxSizing: 'border-box',
-          transition: drawerTransition,
-          overflow: 'hidden',
-          boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.1)',
-        },
-      }}
-    >
-      <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', p: 2, backgroundColor: white[50] }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, justifyContent: openSideBar ? 'flex-start' : 'center' }}>
-          {openSideBar && (
-            <Box sx={{ flexGrow: 1, ml: 2 }}>
-              <BrandLogo width={144} />
-            </Box>
-          )}
-          <IconButton
-            data-testid="sidebar-toggle"
-            onClick={() => setOpenSideBar(!openSideBar)}
-            sx={{ color: dark[500], fontSize: 20, '&:hover': { backgroundColor: primary[500], color: white[50] } }}
-          >
-            {openSideBar ? <KeyboardDoubleArrowLeft fontSize="inherit" /> : <KeyboardDoubleArrowRight fontSize="inherit" />}
-          </IconButton>
-        </Box>
-
-        <Box flex={1}>
+    <>
+      <Box component="a" href="#page-content" sx={(theme) => ({ position: 'fixed', left: 16, top: -100, zIndex: theme.zIndex.modal + 1,
+        bgcolor: 'background.paper', color: 'primary.main', p: 1.5, '&:focus': { top: 8, ...focusRing(theme) } })}>Đến nội dung chính</Box>
+      {!desktop && <AppBar position="sticky" color="inherit" elevation={0} sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Toolbar sx={{ gap: 1 }}>
+          <IconButton aria-label="Mở menu điều hướng" aria-expanded={mobileOpen} aria-controls="role-navigation" onClick={() => setMobileOpen(true)} color="primary"><MenuIcon /></IconButton>
+          <BrandLogo width={132} />
+          <Box sx={{ flex: 1 }} />
+          <IconButton aria-label="Hồ sơ cá nhân" onClick={() => navigate('/profile')}><AccountCircleRounded /></IconButton>
+        </Toolbar>
+      </AppBar>}
+      <Drawer variant={desktop ? 'permanent' : 'temporary'} open={desktop || mobileOpen}
+        onClose={() => setMobileOpen(false)} data-testid="sidebar-container"
+        sx={{ width: desktop ? drawerWidth : undefined, flexShrink: 0,
+          '& .MuiDrawer-paper': { width: drawerWidth, maxWidth: 'calc(100vw - 32px)', boxSizing: 'border-box', borderRight: 1, borderColor: 'divider' } }}>
+        <Box component="nav" id="role-navigation" aria-label="Điều hướng chính"
+          sx={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', p: 2, bgcolor: 'background.paper' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+            {expanded && <Box sx={{ flex: 1, minWidth: 0 }}><BrandLogo width={144} /><Typography color="text.secondary" sx={{ mt: 1 }}>{roleLabel}</Typography></Box>}
+            <IconButton data-testid="sidebar-toggle" aria-label={desktop ? (expanded ? 'Thu gọn menu' : 'Mở rộng menu') : 'Đóng menu điều hướng'}
+              onClick={() => desktop ? setOpenSideBar(!openSideBar) : setMobileOpen(false)}>
+              {!desktop ? <Close /> : expanded ? <KeyboardDoubleArrowLeft /> : <KeyboardDoubleArrowRight />}
+            </IconButton>
+          </Box>
+          <Box sx={{ flex: 1 }}><List>
+            {items.map((item) => <SidebarItem key={item.type} {...item} selectedMenu={selectedMenu} openSideBar={expanded} onClick={() => handleSelectMenu(item)} />)}
+          </List></Box>
+          <Divider sx={{ my: 2 }} />
           <List>
-            {renderSidebarItems().map((item) => (
-              <SidebarItem
-                key={item.type}
-                type={item.type}
-                icon={item.icon}
-                title={item.title}
-                selectedMenu={selectedMenu}
-                openSideBar={openSideBar}
-                onClick={() => handleSelectMenu(item)}
-              />
-            ))}
+            <SidebarItem icon={<Logout />} type={MENUS.LOGOUT} title="Đăng xuất" selectedMenu={selectedMenu}
+              openSideBar={expanded} onClick={() => setOpenLogoutModal(true)} textColor="error.main" />
+            <SidebarItem icon={<AccountCircleRounded />} type={MENUS.PROFILE} title={user?.name || 'Hồ sơ cá nhân'} href="/profile"
+              selectedMenu={selectedMenu} openSideBar={expanded} onClick={() => handleSelectMenu({ type: MENUS.PROFILE, href: '/profile' })} />
           </List>
         </Box>
+      </Drawer>
+      <YesNoModal yesLabel="Đăng xuất" noLabel="Ở lại" title="Đăng xuất" content="Bạn có chắc chắn muốn đăng xuất?"
+        open={openLogoutModal} setOpen={setOpenLogoutModal} onYes={handleLogout} onNo={() => setOpenLogoutModal(false)} />
 
-        <Divider sx={{ my: 2 }} />
-
-        <List>
-          <SidebarItem
-            icon={<Logout />}
-            type={MENUS.LOGOUT}
-            title={'Đăng xuất'}
-            selectedMenu={selectedMenu}
-            openSideBar={openSideBar}
-            onClick={() => setOpenLogoutModal(true)}
-            textColor={selectedMenu === MENUS.LOGOUT ? primary[500] : red[500]}
-          />
-
-          <SidebarItem
-            icon={<AccountCircleRounded />}
-            type={MENUS.PROFILE}
-            title={user?.name || 'Stranger'}
-            selectedMenu={selectedMenu}
-            openSideBar={openSideBar}
-            onClick={() => handleSelectMenu({ type: MENUS.PROFILE, href: '/profile' })}
-          />
-        </List>
-
-        <YesNoModal
-          yesLabel="Đăng xuất"
-          noLabel="Ở lại"
-          title="Đăng xuất"
-          content="Bạn có chắc chắn muốn đăng xuất?"
-          open={openLogoutModal}
-          setOpen={setOpenLogoutModal}
-          onYes={handleLogout}
-          onNo={() => setOpenLogoutModal(false)}
-        />
-      </Box>
-    </Drawer>
+    </>
   );
 };
 

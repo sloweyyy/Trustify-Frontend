@@ -1,0 +1,57 @@
+{
+  "results": [
+    {
+      "role": "user",
+      "main": {
+        "x": 0,
+        "y": 65,
+        "width": 390,
+        "height": 844
+      },
+      "checks": [
+        "mobile menu keyboard opens",
+        "12 Tab presses remain in Drawer",
+        "navigation closes menu and preserves destination",
+        "Escape restores menu-button focus",
+        "logout cancellation restores opener focus",
+        "desktop widths80/288; accessible collapsed links"
+      ]
+    },
+    {
+      "role": "notary",
+      "main": {
+        "x": 0,
+        "y": 65,
+        "width": 390,
+        "height": 1569.671875
+      },
+      "checks": [
+        "mobile menu keyboard opens",
+        "12 Tab presses remain in Drawer",
+        "navigation closes menu and preserves destination",
+        "Escape restores menu-button focus",
+        "logout cancellation restores opener focus",
+        "desktop widths80/288; accessible collapsed links"
+      ]
+    },
+    {
+      "role": "admin",
+      "main": {
+        "x": 0,
+        "y": 65,
+        "width": 390,
+        "height": 844
+      },
+      "checks": [
+        "mobile menu keyboard opens",
+        "12 Tab presses remain in Drawer",
+        "navigation closes menu and preserves destination",
+        "Escape restores menu-button focus",
+        "logout cancellation restores opener focus",
+        "desktop widths80/288; accessible collapsed links"
+      ]
+    }
+  ],
+  "errors": [],
+  "checkedAt": "2026-10-25T00:31:24.786Z"
+}

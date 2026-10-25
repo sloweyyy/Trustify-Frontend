@@ -1,46 +1,26 @@
 import React from 'react';
-import { ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import { primary, dark } from '../../config/theme/themePrimitives';
+import { ListItem, ListItemButton, ListItemIcon, ListItemText, Tooltip } from '@mui/material';
+import { focusRing } from '../../config/theme/themeHelpers';
 
-const SidebarItem = ({ type, icon, title, selectedMenu, openSideBar, onClick, textColor = dark[500] }) => {
-  const itemStyles = {
-    mb: 1,
-    justifyContent: openSideBar ? 'flex-start' : 'center',
-    borderRadius: '8px',
-    padding: openSideBar ? '0.5rem 1rem' : '0.5rem',
-    '&:hover': {
-      backgroundColor: primary[50],
-    },
-  };
-
-  return (
-    <ListItem disablePadding onClick={onClick} sx={itemStyles}>
-      <ListItemIcon
-        sx={{
-          minWidth: 0,
-          mr: openSideBar ? 2 : 0,
-          justifyContent: 'center',
-          fontSize: 20,
-          color: selectedMenu === type ? primary[500] : textColor,
+const SidebarItem = ({ type, icon, title, href, selectedMenu, openSideBar, onClick, textColor = 'text.primary' }) => (
+  <ListItem disablePadding sx={{ mb: 1 }}>
+    <Tooltip title={openSideBar ? '' : title} placement="right">
+      <ListItemButton component={href ? 'a' : 'button'} href={href} aria-label={title}
+        aria-current={selectedMenu === type ? 'page' : undefined} selected={selectedMenu === type}
+        onClick={(event) => {
+          if (href && (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)) return;
+          if (href) event.preventDefault();
+          onClick?.(event);
         }}
-      >
-        {icon}
-      </ListItemIcon>
-      {openSideBar && (
-        <ListItemText
-          primary={title}
-          sx={{
-            '& .MuiListItemText-primary': {
-              fontSize: '1rem',
-              whiteSpace: 'nowrap',
-              color: selectedMenu === type ? primary[500] : textColor,
-              fontWeight: selectedMenu === type ? 600 : 400,
-            },
-          }}
-        />
-      )}
-    </ListItem>
-  );
-};
-
+        sx={(theme) => ({ width: '100%', minWidth: 0, px: openSideBar ? 2 : 1, py: 1, color: textColor,
+          justifyContent: openSideBar ? 'flex-start' : 'center', textAlign: 'left',
+          '&.Mui-focusVisible': focusRing(theme), '& .MuiListItemIcon-root': { color: 'inherit' } })}>
+        <ListItemIcon sx={{ minWidth: 0, mr: openSideBar ? 1.5 : 0 }}>{icon}</ListItemIcon>
+        {openSideBar && <ListItemText primary={title} sx={{ minWidth: 0, '& .MuiListItemText-primary': {
+          fontSize: '1rem', whiteSpace: 'normal', overflowWrap: 'anywhere', fontWeight: selectedMenu === type ? 600 : 400,
+        } }} />}
+      </ListItemButton>
+    </Tooltip>
+  </ListItem>
+);
 export default SidebarItem;
