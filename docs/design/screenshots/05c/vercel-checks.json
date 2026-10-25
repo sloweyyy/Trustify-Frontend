@@ -1,0 +1,27 @@
+{
+  "source": "bdeafd4",
+  "primaryDeployment": "https://vercel.com/sloweyyy/trustify-notary/AYTdzFXHdiXuPox98XW6NETF9FxD",
+  "state": "Ready",
+  "user": {
+    "actualRecordOpened": true,
+    "desktop": {
+      "viewport": 1440,
+      "dialogWidth": 1200,
+      "scrollWidth": 1198,
+      "clientWidth": 1198
+    },
+    "mobile": {
+      "viewport": 390,
+      "dialogWidth": 390,
+      "scrollWidth": 388,
+      "clientWidth": 388
+    },
+    "uniqueIds": true,
+    "mobileEscapeRestoresOriginalOpener": true,
+    "notes": "Header-only screenshots exclude identity fields/signature. No file opened or signature saved."
+  },
+  "notary": "Sign-in/mobile navigation/pending queue empty state/logout",
+  "admin": "Sign-in/mobile navigation/shared verify/logout",
+  "realWrites": "Authentication only; no payment,notarization or signature actions",
+  "checkedAt": "2026-10-25T04:40:34.485Z"
+}
