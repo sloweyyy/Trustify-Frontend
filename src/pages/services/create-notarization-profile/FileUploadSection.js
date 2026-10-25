@@ -1,311 +1,60 @@
-import React, { useRef, useState } from 'react';
-import { Box, Typography, Button, Menu, MenuItem, CircularProgress } from '@mui/material';
-import { black, green, primary, gray } from '../../../config/theme/themePrimitives';
-import { TaskAltRounded, CloseRounded, OpenInNewRounded, DevicesRounded, Wallet } from '@mui/icons-material';
+import React, { useId, useRef, useState } from 'react';
+import { Box, Typography, Button, Menu, MenuItem } from '@mui/material';
+import { DevicesRounded, Wallet } from '@mui/icons-material';
 import { VALID_FORMATS } from '../../../utils/constants';
 import UserWalletModal from '../../../components/services/UserWalletModal';
-import IPFSService from '../../../services/ipfs.service';
 import FilePreviewModal from '../../../components/services/FilePreviewModal';
+import FileAttachmentList from '../../../components/shared/FileAttachmentList';
 
 const FileUploadSection = ({
-  title,
-  currentFiles,
-  handleCurrentFileChange,
-  handleRemoveCurrentFile,
-  uploadedFiles,
-  handleRemoveUploadedFile,
-  documentWalletFiles,
-  handleDocumentWalletFileChange,
-  handleRemoveDocumentWalletFile,
-  confirmed = false,
+  title, currentFiles, handleCurrentFileChange, handleRemoveCurrentFile,
+  uploadedFiles, handleRemoveUploadedFile, documentWalletFiles,
+  handleDocumentWalletFileChange, handleRemoveDocumentWalletFile, confirmed = false,
 }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const id = useId();
   const inputRef = useRef(null);
-  const open = Boolean(anchorEl);
+  const chooseRef = useRef(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const [openWalletModal, setOpenWalletModal] = useState(false);
   const [previewFile, setPreviewFile] = useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleChooseFromDevice = () => {
-    inputRef.current.click();
-    handleClose();
-  };
-
+  const open = Boolean(anchorEl);
+  const totalFiles = (currentFiles?.length || 0) + (uploadedFiles?.length || 0) + (documentWalletFiles?.length || 0);
+  const handleClose = () => setAnchorEl(null);
+  const handleChooseFromDevice = () => { inputRef.current.click(); handleClose(); };
   const handleCloseUserWalletModal = () => {
     setOpenWalletModal(false);
     handleClose();
+    requestAnimationFrame(() => chooseRef.current?.focus());
   };
-
-  const handleOpenIPFS = (file) => {
-    setPreviewFile(file.document);
-  };
-
-  const totalFiles = (currentFiles?.length || 0) + (uploadedFiles?.length || 0) + (documentWalletFiles?.length || 0);
+  const openDeviceFile = (file) => window.open(file.file.url || file.file.firebaseUrl || URL.createObjectURL(file.file), '_blank', 'noopener,noreferrer');
+  const deviceName = (file) => file.displayName || file.file.name || file.file.filename;
 
   return (
-    <>
-      <Box sx={{ display: 'flex', gap: 1, flexDirection: 'column' }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography sx={{ fontSize: 14, color: black[500], fontWeight: 500 }}>{title}</Typography>
-          {!confirmed ? (
-            <Box
-              sx={{
-                display: 'flex',
-                p: 1,
-                gap: 2,
-                alignItems: 'center',
-                border: `1px solid ${black[50]}`,
-                borderRadius: 1,
-              }}
-            >
-              <Button
-                sx={{
-                  backgroundColor: primary[50],
-                  px: 2,
-                  py: '4px',
-                  borderRadius: 100,
-                  cursor: 'pointer',
-                  ':hover': { transform: 'scale(1.02)' },
-                  transition: 'all 0.3s',
-                }}
-                component="label"
-                onClick={handleClick}
-              >
-                <Typography sx={{ fontSize: 12, fontWeight: 600, textTransform: 'capitalize', color: primary[500] }}>
-                  Chọn tài liệu
-                </Typography>
-              </Button>
-              <Menu
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'center',
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'center',
-                }}
-                PaperProps={{
-                  elevation: 0,
-                  sx: {
-                    overflow: 'visible',
-                    filter: `drop-shadow(0px 2px 8px ${black[100]})`,
-                    mt: 1.5,
-                    '& .MuiMenu-list': { padding: 1 },
-                    '& .MuiMenuItem-root': {
-                      fontSize: 12,
-                      fontWeight: 400,
-                      textTransform: 'none',
-                      width: 160,
-                      color: black[900],
-                      borderRadius: 1,
-                      '&:hover': {
-                        color: primary[500],
-                        backgroundColor: primary[50],
-                        fontWeight: 500,
-                      },
-                    },
-                  },
-                }}
-              >
-                <MenuItem onClick={handleChooseFromDevice} sx={{ gap: 1 }}>
-                  <DevicesRounded sx={{ fontSize: 14 }} />
-                  Chọn từ máy
-                </MenuItem>
-                <MenuItem sx={{ gap: 1 }} onClick={() => setOpenWalletModal(true)}>
-                  <Wallet sx={{ fontSize: 14 }} />
-                  Chọn từ ví tài liệu
-                </MenuItem>
-              </Menu>
-              <input
-                type="file"
-                hidden
-                multiple
-                ref={inputRef}
-                onChange={handleCurrentFileChange}
-                accept="image/*,application/pdf"
-              />
-              <Typography sx={{ fontSize: 12, textTransform: 'capitalize', color: black[900] }}>
-                ({totalFiles} files đã đăng tải)
-              </Typography>
-            </Box>
-          ) : (
-            <Typography sx={{ fontSize: 14, textTransform: 'capitalize', color: black[900] }}>
-              ({totalFiles} files đã đăng tải)
-            </Typography>
-          )}
-        </Box>
-        {uploadedFiles?.map((file, index) => (
-          <Box
-            key={index}
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <Box
-              sx={{
-                display: 'flex',
-                gap: 1,
-                alignItems: 'center',
-                cursor: 'pointer',
-                ':hover': {
-                  textDecoration: 'underline',
-                },
-              }}
-              onClick={() => window.open(file.file.url || file.file.firebaseUrl || URL.createObjectURL(file.file), '_blank')}
-            >
-              <Typography sx={{ display: 'list-item', ml: '1rem', fontSize: 14, color: black[500] }}>
-                {file.file.name || file.file.filename}
-              </Typography>
-              <OpenInNewRounded sx={{ fontSize: 14, color: black[500] }} />
-            </Box>
-            {!confirmed && (
-              <Box sx={{ display: 'flex' }}>
-                <Box sx={{ p: 1 }}>
-                  <TaskAltRounded sx={{ color: green[500], fontSize: 18 }} />
-                </Box>
-                <Box
-                  sx={{
-                    p: 1,
-                    borderRadius: 1,
-                    transition: 'all 0.3s',
-                    ':hover': { backgroundColor: gray[100] },
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => handleRemoveUploadedFile(file)}
-                >
-                  <CloseRounded sx={{ fontSize: 18 }} />
-                </Box>
-              </Box>
-            )}
-          </Box>
-        ))}
-
-        {currentFiles?.map((file, index) => (
-          <Box
-            key={index}
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <Box
-              sx={{
-                display: 'flex',
-                gap: 1,
-                alignItems: 'center',
-                cursor: 'pointer',
-                ':hover': {
-                  textDecoration: 'underline',
-                },
-              }}
-              onClick={() => window.open(file.file.url || file.file.firebaseUrl || URL.createObjectURL(file.file), '_blank')}
-            >
-              <Typography sx={{ display: 'list-item', ml: '1rem', fontSize: 14, color: black[500] }}>
-                {file.file.name || file.file.filename}
-              </Typography>
-              <OpenInNewRounded sx={{ fontSize: 14, color: black[500] }} />
-            </Box>
-            {!confirmed && (
-              <Box sx={{ display: 'flex' }}>
-                <Box sx={{ p: 1 }}>
-                  <TaskAltRounded sx={{ color: green[500], fontSize: 18 }} />
-                </Box>
-                <Box
-                  sx={{
-                    p: 1,
-                    borderRadius: 1,
-                    transition: 'all 0.3s',
-                    ':hover': { backgroundColor: gray[100] },
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => handleRemoveCurrentFile(file)}
-                >
-                  <CloseRounded sx={{ fontSize: 18 }} />
-                </Box>
-              </Box>
-            )}
-          </Box>
-        ))}
-
-        {documentWalletFiles?.map((file, index) => (
-          <Box
-            key={index}
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <Box
-              sx={{
-                display: 'flex',
-                gap: 1,
-                alignItems: 'center',
-                cursor: 'pointer',
-                ':hover': {
-                  textDecoration: 'underline',
-                },
-              }}
-              onClick={() => handleOpenIPFS(file)}
-            >
-              <Typography sx={{ display: 'list-item', ml: '1rem', fontSize: 14, color: black[500] }}>
-                {file.document.filename}
-              </Typography>
-              <OpenInNewRounded sx={{ fontSize: 14, color: black[500] }} />
-            </Box>
-            {!confirmed && (
-              <Box sx={{ display: 'flex' }}>
-                <Box sx={{ p: 1 }}>
-                  <TaskAltRounded sx={{ color: green[500], fontSize: 18 }} />
-                </Box>
-                <Box
-                  sx={{
-                    p: 1,
-                    borderRadius: 1,
-                    transition: 'all 0.3s',
-                    ':hover': { backgroundColor: gray[100] },
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => handleRemoveDocumentWalletFile(file)}
-                >
-                  <CloseRounded sx={{ fontSize: 18 }} />
-                </Box>
-              </Box>
-            )}
-          </Box>
-        ))}
-        {openWalletModal && (
-          <UserWalletModal
-            open={openWalletModal}
-            onClose={handleCloseUserWalletModal}
-            handleDocumentWalletFileChange={handleDocumentWalletFileChange}
-          />
-        )}
+    <Box component="section" aria-labelledby={`${id}-title`} sx={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: 1.5, p: 2, bgcolor: 'background.paper', border: 1, borderColor: 'divider', borderRadius: 2 }}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 1 }}>
+        <Typography component="h3" id={`${id}-title`} sx={{ fontWeight: 600 }}>{title}</Typography>
+        <Typography color="text.secondary">{totalFiles} tài liệu đã chọn</Typography>
       </Box>
-
-      {previewFile && (
-        <FilePreviewModal
-          open={!!previewFile}
-          onClose={() => setPreviewFile(null)}
-          metadataUrl={previewFile.ipfsLink}
-          filename={previewFile.filename}
-        />
-      )}
-    </>
+      {!confirmed && <>
+        <Typography id={`${id}-formats`} color="text.secondary">Định dạng hỗ trợ: {VALID_FORMATS.map((format) => format.slice(1).toUpperCase()).join(', ')}.</Typography>
+        <Button id={`${id}-choose`} ref={chooseRef} variant="outlined" onClick={(event) => setAnchorEl(event.currentTarget)}
+          aria-label={`Chọn tài liệu cho ${title}`} aria-describedby={`${id}-formats`} aria-haspopup="menu" aria-expanded={open}
+          aria-controls={open ? `${id}-menu` : undefined} sx={{ alignSelf: 'flex-start' }}>Chọn tài liệu</Button>
+        <Menu id={`${id}-menu`} anchorEl={anchorEl} open={open} onClose={handleClose}
+          MenuListProps={{ 'aria-labelledby': `${id}-choose` }}>
+          <MenuItem onClick={handleChooseFromDevice} sx={{ gap: 1 }}><DevicesRounded aria-hidden="true" />Chọn từ thiết bị</MenuItem>
+          <MenuItem onClick={() => { handleClose(); setOpenWalletModal(true); }} sx={{ gap: 1 }}><Wallet aria-hidden="true" />Chọn từ ví tài liệu</MenuItem>
+        </Menu>
+        <input aria-label={`Tệp cho ${title}`} type="file" hidden multiple ref={inputRef} onChange={handleCurrentFileChange} accept={VALID_FORMATS.join(',')} />
+      </>}
+      {totalFiles === 0 && <Typography color="text.secondary">Chưa chọn tài liệu.</Typography>}
+      <FileAttachmentList files={uploadedFiles} getName={deviceName} onOpen={openDeviceFile} onRemove={handleRemoveUploadedFile} sourceLabel="Tệp đã chọn" confirmed={confirmed} />
+      <FileAttachmentList files={currentFiles} getName={deviceName} onOpen={openDeviceFile} onRemove={handleRemoveCurrentFile} sourceLabel="Tệp đã chọn" confirmed={confirmed} />
+      <FileAttachmentList files={documentWalletFiles} getName={(file) => file.document.displayName || file.document.filename}
+        onOpen={(file) => setPreviewFile(file.document)} onRemove={handleRemoveDocumentWalletFile} sourceLabel="Từ ví tài liệu" confirmed={confirmed} />
+      {openWalletModal && <UserWalletModal open={openWalletModal} onClose={handleCloseUserWalletModal} handleDocumentWalletFileChange={handleDocumentWalletFileChange} />}
+      {previewFile && <FilePreviewModal open={!!previewFile} onClose={() => setPreviewFile(null)} metadataUrl={previewFile.ipfsLink} filename={previewFile.filename} />}
+    </Box>
   );
 };
-
 export default FileUploadSection;

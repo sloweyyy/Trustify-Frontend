@@ -1,0 +1,71 @@
+{
+  "results": [
+    {
+      "name": "upload-empty",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 1440
+    },
+    {
+      "name": "upload-empty",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 390
+    },
+    {
+      "name": "upload-menu",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 1440
+    },
+    {
+      "name": "upload-menu",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 390
+    },
+    {
+      "name": "upload-selected",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 1440
+    },
+    {
+      "name": "upload-selected",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 403
+    },
+    {
+      "name": "upload-review",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 1440
+    },
+    {
+      "name": "upload-review",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 390
+    }
+  ],
+  "writes": [],
+  "fixture": "Generated local File objects only; no hồ sơ submission or wallet selection.",
+  "checkedAt": "2026-10-25T02:06:01.634Z"
+}
