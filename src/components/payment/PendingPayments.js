@@ -24,11 +24,12 @@ const PendingPayments = () => {
   return (
     <Box component="section" aria-label="Khoản chờ thanh toán" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
       {payments.map((payment) => {
-        const reference = payment.documentId || payment.sessionId || 'Chưa có mã hồ sơ';
+        const documentReference = payment.documentId || payment.sessionId;
+        const reference = documentReference ?? payment.orderCode ?? payment.id ?? 'Chưa có thông tin';
         return <Alert key={payment.id || payment.orderCode} severity="warning"
-          action={<Button color="inherit" variant="outlined" href={payment.checkoutUrl} aria-label={`Thanh toán hồ sơ ${reference}`}>Thanh toán</Button>}>
+          action={<Button color="inherit" variant="outlined" href={payment.checkoutUrl} aria-label={`Thanh toán ${documentReference ? 'hồ sơ' : 'mã'} ${reference}`}>Thanh toán</Button>}>
           <AlertTitle>Chờ thanh toán</AlertTitle>
-          <Typography sx={{ overflowWrap: 'anywhere' }}>Hồ sơ: {reference}</Typography>
+          <Typography sx={{ overflowWrap: 'anywhere' }}>{documentReference ? 'Hồ sơ' : 'Mã thanh toán'}: {reference}</Typography>
           <Typography sx={{ fontWeight: 600, my: 0.5 }}>{formatVnd(payment.amount)}</Typography>
         </Alert>;
       })}

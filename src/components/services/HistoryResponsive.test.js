@@ -59,3 +59,11 @@ test.each([false, true])('a newly submitted ID is revealed once without changing
   fireEvent.click(screen.getByRole('button', { name: 'Trang trước' }));
   expect(screen.getByText('HS-00')).toBeInTheDocument(); expect(screen.queryByText('HS-11')).not.toBeInTheDocument();
 });
+
+
+test('a payment without a document/session reference uses its existing order code', async () => {
+  PaymentService.getMyPayments.mockResolvedValue([{ orderCode: 20261025, amount: 2000, checkoutUrl: 'https://checkout.example/generic' }]);
+  render(<PendingPayments />, { wrapper });
+  expect(await screen.findByText('Mã thanh toán: 20261025')).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Thanh toán mã 20261025' })).toHaveAttribute('href', 'https://checkout.example/generic');
+});
