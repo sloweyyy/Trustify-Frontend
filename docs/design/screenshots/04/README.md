@@ -6,7 +6,7 @@ Build/CRA ESLint/29 tests pass. JPEG/JPG matching is case-insensitive, original 
 
 The three-step wizard uses one primary action, explicit next-step guidance, heading/first-error focus, inline required-field feedback without duplicate popup notices, readable review rows and mobile attachment spacing. An unreachable fourth payment-success composition was removed; no payment step was added. Services/Redux/routes/dependencies remain unchanged.
 
-The local browser selected/removed generated JPG/JPEG files and an existing QA wallet document; the controller only changes client state for selection/removal. The request monitor records zero non-auth writes. The earlier assumption that wallet selection itself updates remote metadata was not supported by the controller; no remote metadata method is called here. Vercel all-role QA pending.
+The local browser selected/removed generated JPG/JPEG files and an existing QA wallet document; the controller only changes client state for selection/removal. The request monitor records zero non-auth writes. The earlier assumption that wallet selection itself updates remote metadata was not supported by the controller; no remote metadata method is called here. Primary Vercel Ready; User full three-step preview/review/back and Notary/Admin navigation/logout pass. Final source rechecks inline-only validation and direct wallet access;11 preview captures. See vercel-checks.json for source revisions and exact scope.
 
 ## step1-service-desktop
 

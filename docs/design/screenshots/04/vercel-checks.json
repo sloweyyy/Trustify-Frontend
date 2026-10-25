@@ -1,0 +1,31 @@
+{
+  "source": "d80a9a0a0761a8beaf236ccd44775cb999bf3a47",
+  "deployment": "https://vercel.com/sloweyyy/trustify-notary/HW82v2G1WNj3HK7cTLB4sXpoE2cT",
+  "preview": "https://trustify-notary-git-design-04-create-profile-sloweyyy.vercel.app",
+  "ready": true,
+  "checkedAt": "2026-10-25T03:04:49.465284+00:00",
+  "initialFlowSource": "650af447746ca2fc9e2de1d7b8a1bc21889cd300",
+  "initialDeployment": "https://vercel.com/sloweyyy/trustify-notary/9nhHbq9imYFcipeN2xhsNJDxTDpx",
+  "roles": {
+    "User": [
+      "Missing service validation does not throw",
+      "Existing Sao y service; populated information; wallet document selection into local state",
+      "Step3 review desktop/mobile; no remove controls; heading focus;390px width",
+      "Back retains values; remove wallet selection; logout",
+      "Final source: required-field feedback is inline only;5 invalid fields, focus amount,0 popup notices; wallet opens directly; logout"
+    ],
+    "Notary": [
+      "Sign-in; pending queue desktop; mobile menu; logout"
+    ],
+    "Admin": [
+      "Sign-in; mobile menu; shared verify; logout"
+    ]
+  },
+  "mutations": "Auth and local form state only. Gửi hồ sơ was never activated. No upload, signing, payment, transfer, purchase, account edit or remote metadata edit.",
+  "limitations": [
+    "Native local file fixture selection remains blocked by extension file-URL permission; JPEG/JPG selection and byte-exact payloads were tested locally/unit-mocked. Permissions unchanged.",
+    "720px layout audit is not native browser zoom.",
+    "Successful/failed submissions are mocked service tests; no real submission."
+  ],
+  "screenshots": 11
+}
