@@ -1,6 +1,5 @@
 import { Box, Paper, Typography, Pagination } from '@mui/material';
 import React, { useState, useEffect } from 'react';
-import { black, gray, white } from '../../config/theme/themePrimitives';
 import NotarizationService from '../../services/notarization.service';
 import { EmptyState, ErrorState, LoadingState } from '../../components/shared/PageFeedback';
 import NotaryDocumentCardSkeleton from '../../components/notary/NotaryDocumentCardSkeleton';
@@ -48,23 +47,24 @@ const AwaitingSignatureDocuments = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        padding: { xs: 2, sm: 4 },
+        padding: { xs: 2, sm: 3 },
         justifyContent: 'space-between',
         gap: 2,
       }}
     >
-      <Paper
+      <Typography component="h1" variant="h4">Tài liệu chờ ký số</Typography>
+      <Paper variant="outlined"
         sx={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
           overflow: 'hidden',
-          border: `1px solid ${gray[200]}`,
+          border: 1, borderColor: 'divider',
           padding: 2,
           gap: 2,
           borderRadius: 1,
-          boxShadow: '0px 2px 4px -2px rgba(19, 25, 39, 0.12), 0px 4px 4px -2px rgba(19, 25, 39, 0.08)',
-          bgcolor: white[50],
+          boxShadow: 'none',
+          bgcolor: 'background.paper',
         }}
       >
         <Box
@@ -77,7 +77,7 @@ const AwaitingSignatureDocuments = () => {
         >
           <Typography
             sx={{
-              color: black[900],
+              color: 'text.primary',
               fontSize: 16,
               fontWeight: 600,
               textTransform: 'none',
@@ -128,6 +128,8 @@ const AwaitingSignatureDocuments = () => {
         }}
       >
         <Pagination
+          aria-label="Phân trang hồ sơ"
+          getItemAriaLabel={(type, page) => type === 'page' ? `Trang ${page}` : type === 'next' ? 'Trang sau' : type === 'previous' ? 'Trang trước' : 'Chuyển trang'}
           count={pagination?.totalPages !== 0 ? pagination?.totalPages : 1}
           page={pageIndex}
           onChange={handlePageChange}

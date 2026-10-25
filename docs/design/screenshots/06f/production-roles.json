@@ -1,0 +1,69 @@
+{
+  "sha": "1bc96bc6f4187773f7ac4df45045786fee84ef58",
+  "checks": [
+    {
+      "role": "user",
+      "size": "desktop",
+      "pageFits": true,
+      "dialogFits": true,
+      "labels": true,
+      "emailPermissionPreserved": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "role": "user",
+      "size": "mobile",
+      "pageFits": true,
+      "dialogFits": true,
+      "labels": true,
+      "emailPermissionPreserved": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "role": "notary",
+      "size": "desktop",
+      "pageFits": true,
+      "dialogFits": true,
+      "labels": true,
+      "emailPermissionPreserved": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "role": "notary",
+      "size": "mobile",
+      "pageFits": true,
+      "dialogFits": true,
+      "labels": true,
+      "emailPermissionPreserved": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "role": "admin",
+      "size": "desktop",
+      "pageFits": true,
+      "dialogFits": true,
+      "labels": true,
+      "emailPermissionPreserved": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "role": "admin",
+      "size": "mobile",
+      "pageFits": true,
+      "dialogFits": true,
+      "labels": true,
+      "emailPermissionPreserved": true,
+      "escapeClose": true,
+      "focusRestored": true
+    }
+  ],
+  "blocked": [],
+  "errors": [],
+  "note": "All-role read-only production QA. Header-only captures exclude actual names, email, phone, government ID and address. No field edited and no save/PUT attempted; verified-email expectation read only from the authorized login response and not persisted.",
+  "checkedAt": "2026-10-25T12:08:21.131Z"
+}
