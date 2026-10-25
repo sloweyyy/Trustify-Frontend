@@ -320,7 +320,7 @@ function App() {
             {!isAuthenticated && <Footer />}
           </Box>
         </Box>
-        {!isAuthenticated && <ChatAssistant />}
+        <ChatAssistant />
         <TrustifyNotifications />
       </Suspense>
     </ThemeProvider>
