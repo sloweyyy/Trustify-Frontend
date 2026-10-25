@@ -30,5 +30,5 @@ test('preview selects existing URLs, gives Word fallback and retains open-origin
   expect(screen.getByTitle('Xem trước ban-sao.pdf')).toHaveAttribute('src', files[0].firebaseUrl);
   fireEvent.click(screen.getByRole('button', { name: 'van-ban.docx' }));
   expect(screen.getByText('Không xem trước được định dạng này. Mở tệp gốc để xem.')).toBeInTheDocument();
-  fireEvent.click(screen.getByRole('button', { name: 'Mở tệp gốc trong cửa sổ mới' })); expect(open).toHaveBeenCalledWith(files[1].firebaseUrl); open.mockRestore();
+  fireEvent.click(screen.getByRole('button', { name: 'Mở tệp gốc trong cửa sổ mới' })); expect(open).toHaveBeenCalledWith(files[1].firebaseUrl, '_blank', 'noopener,noreferrer'); open.mockRestore();
 });
