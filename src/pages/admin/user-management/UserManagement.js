@@ -3,7 +3,7 @@ import { Box, TextField, InputAdornment } from '@mui/material';
 import UserOverview from './UserOverview';
 import UserDataTable from './UserDataTable';
 import Header from './Header';
-import { gray, black, white } from '../../../config/theme/themePrimitives';
+import { black } from '../../../config/theme/themePrimitives';
 import FilterButton from './FilterButton';
 import AppsIcon from '@mui/icons-material/Apps';
 import SkeletonHistoryDataTable from '../../../components/services/SkeletonHistoryDataTable';
@@ -121,9 +121,9 @@ const UserManagement = () => {
     <Box
       sx={{
         display: 'flex',
-        height: '100vh',
+        minWidth: 0,
         flexDirection: 'column',
-        backgroundColor: gray[50],
+        backgroundColor: 'background.default',
       }}
     >
       {/* Header Section */}
@@ -157,7 +157,8 @@ const UserManagement = () => {
               alignSelf: 'stretch',
               flexWrap: 'wrap',
               maxWidth: '100%',
-              borderBottom: '1px solid #C0C0C0',
+              borderBottom: 1,
+              borderColor: 'divider',
             }}
           >
             <FilterButton
@@ -203,8 +204,8 @@ const UserManagement = () => {
           <TextField
             variant="outlined"
             size="small"
-            placeholder="Tìm kiếm"
-            inputProps={{ 'aria-label': 'Tìm kiếm' }}
+            label="Tìm trong trang hiện tại"
+            inputProps={{ 'aria-label': 'Tìm trong trang hiện tại' }}
             onChange={(e) => setSearchText(e.target.value)}
             sx={{
               borderRadius: 1,
@@ -213,7 +214,7 @@ const UserManagement = () => {
               '& .MuiInputBase-input': {
                 fontSize: 16,
               },
-              backgroundColor: white[50],
+              backgroundColor: 'background.paper',
             }}
             InputProps={{
               startAdornment: (
@@ -226,11 +227,11 @@ const UserManagement = () => {
         </Box>
         <Box
           sx={{
-            border: !loadingStatus ? '1px solid var(--black-50, #E0E0E0)' : 'none',
+            border: 0,
             borderRadius: 2,
-            background: white[50],
+            background: 'background.paper',
             p: 1,
-            paddingBottom: 8,
+            paddingBottom: 2,
           }}
         >
           {loadingStatus ? (

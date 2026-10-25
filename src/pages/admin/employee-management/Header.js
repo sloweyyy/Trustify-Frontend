@@ -1,46 +1,14 @@
 import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
-import { white, primary } from '../../../config/theme/themePrimitives';
 import CreateNotaryAccountModal from './CreateNotaryAccountModal';
-
 const Header = () => {
   const [open, setOpen] = React.useState(false);
-
-  return (
-    <>
-      <Box
-        sx={{
-          display: 'flex',
-          p: 2,
-          gap: '8px',
-          backgroundColor: white[50],
-        }}
-      >
-        <Box sx={{ flex: 1, gap: 2 }}>
-          <Typography variant="h6" sx={{ fontWeight: 500 }}>
-            Quản lý nhân viên
-          </Typography>
-        </Box>
-        <Button
-          sx={{
-            backgroundColor: primary[500],
-            color: white[50],
-            '&:hover': {
-              backgroundColor: primary[700],
-            },
-            textTransform: 'none',
-            fontSize: '16px',
-            fontWeight: 500,
-            padding: '4px 16px',
-            borderRadius: 1,
-          }}
-          onClick={() => setOpen(true)}
-        >
-          Thêm nhân viên
-        </Button>
-      </Box>
-      <CreateNotaryAccountModal open={open} onClose={() => setOpen(false)} />
-    </>
-  );
+  return <>
+    <Box sx={{ p: { xs: 2, md: 3 }, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 2 }}>
+      <Box sx={{ flex: 1, minWidth: 200 }}><Typography component="h1" variant="h4">Quản lý nhân viên</Typography><Typography color="text.secondary" sx={{ mt: 1 }}>Tra cứu nhân viên và xem thông tin tài khoản.</Typography></Box>
+      <Button variant="contained" onClick={() => setOpen(true)} sx={{ width: { xs: '100%', sm: 'auto' } }}>Thêm công chứng viên</Button>
+    </Box>
+    <CreateNotaryAccountModal open={open} onClose={() => setOpen(false)} />
+  </>;
 };
 export default Header;
