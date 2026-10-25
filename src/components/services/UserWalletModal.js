@@ -1,299 +1,87 @@
-import { Modal, Box, Typography, Skeleton, Button, CircularProgress } from '@mui/material';
-import React, { useCallback, useEffect, useState } from 'react';
-import { white, black, gray, red, yellow } from '../../config/theme/themePrimitives';
+import React, { useEffect, useId, useState } from 'react';
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, List, ListItem, Typography, useMediaQuery } from '@mui/material';
+import { CloseRounded, DescriptionOutlined, VisibilityOutlined } from '@mui/icons-material';
 import UserWalletService from '../../services/userwallet.service';
-import IPFSService from '../../services/ipfs.service';
-import { Divider } from '@mui/material';
-import { PictureAsPdf, Image } from '@mui/icons-material';
 import FilePreviewModal from './FilePreviewModal';
+import { EmptyState, ErrorState, LoadingState } from '../shared/PageFeedback';
 
+const formatDate = (value) => new Date(value).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
 const UserWalletModal = ({ open, onClose, handleDocumentWalletFileChange }) => {
+  const id = useId();
+  const fullScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const [documents, setDocuments] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [retry, setRetry] = useState(0);
   const [previewDocument, setPreviewDocument] = useState(null);
   const [showMintAddress, setShowMintAddress] = useState(false);
 
-  const fetchDocumentWallet = useCallback(async () => {
-    try {
-      setLoading(true);
-      const response = await UserWalletService.getUserWallet();
-      if (response.status === 200) {
-        const documents = response.data.nftItems.filter((item) => item.amount > 0).sort((a, b) => b.amount - a.amount);
-
-        setDocuments(documents);
-      } else {
-        console.log(response);
-      }
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  }, [documents]);
-
   useEffect(() => {
-    fetchDocumentWallet();
-  }, []);
+    if (!open) return;
+    let active = true;
+    setLoading(true); setError(false);
+    const fetchDocuments = async () => {
+      try {
+        const response = await UserWalletService.getUserWallet();
+        if (response.status !== 200) throw new Error('Wallet unavailable');
+        const items = response.data.nftItems.filter((item) => item.amount > 0).sort((a, b) => b.amount - a.amount);
+        if (active) setDocuments(items);
+      } catch {
+        if (active) setError(true);
+      } finally {
+        if (active) setLoading(false);
+      }
+    };
+    fetchDocuments();
+    return () => { active = false; };
+  }, [open, retry]);
 
-  const handleSelectDocument = (document) => {
-    handleDocumentWalletFileChange(document);
-    onClose();
-  };
-
-  const handleOpenIPFS = (e, document) => {
-    e.stopPropagation();
-    setPreviewDocument(document);
-  };
-
-  const toggleDisplay = () => {
-    setShowMintAddress(!showMintAddress);
-  };
-
-  const cleanFilename = (filename) => {
-    return filename.replace(/^\d+-/, '');
-  };
-
+  const handleSelectDocument = (document) => { handleDocumentWalletFileChange(document); onClose(); };
   return (
     <>
-      <Modal open={open} onClose={onClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-        <Box
-          sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: { sx: '90%', sm: '80%' },
-            height: '80vh',
-            bgcolor: white[50],
-            boxShadow: 24,
-            borderRadius: 1,
-            paddingX: 2,
-            paddingY: 2,
-            overflowY: 'auto',
-            scrollbarWidth: 'none',
-          }}
-        >
-          <Typography variant="h6" sx={{ fontWeight: 500 }}>
-            Ví tài liệu
-          </Typography>
-          <Typography variant="body3">Tài liệu đã được công chứng</Typography>
-
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: 1 }}>
-            <Button variant="outlined" size="small" onClick={toggleDisplay} sx={{ fontSize: 12, padding: '4px 10px' }}>
-              {showMintAddress ? 'Show Filename' : 'Show Mint Address'}
-            </Button>
+      <Dialog open={open} onClose={onClose} fullScreen={fullScreen} fullWidth maxWidth="lg" aria-labelledby={`${id}-title`} aria-describedby={`${id}-description`}
+        PaperProps={{ sx: { maxHeight: fullScreen ? '100dvh' : '90dvh', minWidth: 0 } }}>
+        <DialogTitle component="div" id={`${id}-header`} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+          <Box sx={{ flex: 1, minWidth: 0 }}>
+            <Typography component="h2" variant="h6" id={`${id}-title`}>Ví tài liệu</Typography>
+            <Typography id={`${id}-description`} color="text.secondary">Chọn tài liệu đã công chứng từ ví của bạn. Mỗi bản chứng nhận điện tử (NFT) liên kết với một tài liệu trong ví.</Typography>
           </Box>
-
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: 2 }}>
-            {loading
-              ? Array.from({ length: 5 }).map((_, index) => (
-                  <Skeleton key={index} variant="rectangular" height={80} sx={{ borderRadius: 1 }} />
-                ))
-              : documents.map((document, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      borderRadius: 1,
-                      backgroundColor: white[50],
-                      padding: 1,
-                      border: `1px solid ${gray[200]}`,
-                      alignItems: 'center',
-                      cursor: 'pointer',
-                      transition: 'transform 0.2s',
-                      gap: 1,
-                      '&:hover': {
-                        transform: 'scale(1.02)',
-                        boxShadow: 1,
-                      },
-                    }}
-                    onClick={() => handleSelectDocument(document)}
-                  >
-                    {/* Image Section */}
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        width: 50,
-                        height: 50,
-                        borderRadius: 1,
-                        backgroundColor: document.filename.endsWith('pdf') ? red[50] : yellow[50],
-                        marginX: 2,
-                        position: 'relative',
-                      }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleOpenIPFS(e, document);
-                      }}
-                    >
-                      {document.filename.endsWith('pdf') ? (
-                        <PictureAsPdf
-                          sx={{
-                            fontSize: 30,
-                            color: document.filename.endsWith('pdf') ? red[500] : yellow[500],
-                          }}
-                        />
-                      ) : (
-                        <Image
-                          sx={{
-                            fontSize: 30,
-                            color: document.filename.endsWith('pdf') ? red[500] : yellow[500],
-                          }}
-                        />
-                      )}
-                    </Box>
-                    {/* Vertical Divider */}
-                    <Divider orientation="vertical" flexItem />
-                    {/* Document Name Section */}
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        flex: 1.5,
-                        alignItems: 'flex-start',
-                        marginX: 2,
-                        gap: 1,
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          fontWeight: 600,
-                          fontSize: 12,
-                          color: black[300],
-                        }}
-                      >
-                        {showMintAddress ? 'Mint Address' : 'Tên tài liệu'}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontWeight: 500,
-                          fontSize: 14,
-                          color: black[500],
-                          wordBreak: 'break-all',
-                        }}
-                      >
-                        {showMintAddress ? document.mintAddress : cleanFilename(document.filename)}
-                      </Typography>
-                    </Box>
-                    {/* Date Section */}
-                    <Box sx={{ flex: 0.6 }}>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          justifyContent: 'center',
-                          flex: 0.6,
-                          alignItems: 'flex-start',
-                          marginX: 2,
-                          gap: 1,
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            flex: 1,
-                            fontWeight: 600,
-                            fontSize: 14,
-                            color: black[300],
-                          }}
-                        >
-                          Ngày nhận:
-                        </Typography>
-                        <Typography
-                          sx={{
-                            flex: 1,
-                            fontWeight: 500,
-                            fontSize: 14,
-                            color: black[500],
-                          }}
-                          component={'span'}
-                        >
-                          {new Date(document.mintedAt).toLocaleDateString()}
-                        </Typography>
-                      </Box>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'flex-start',
-                          marginX: 2,
-                          gap: 1,
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            flex: 1,
-                            fontWeight: 600,
-                            fontSize: 14,
-                            color: black[300],
-                          }}
-                        >
-                          Ngày hết hạn:
-                        </Typography>
-                        <Typography
-                          sx={{
-                            flex: 1,
-                            fontWeight: 500,
-                            fontSize: 14,
-                            color: black[500],
-                          }}
-                          component={'span'}
-                        >
-                          {new Date(
-                            new Date(document.mintedAt).setMonth(new Date(document.mintedAt).getMonth() + 6),
-                          ).toLocaleDateString()}
-                        </Typography>
-                      </Box>
-                    </Box>
-
-                    <Divider orientation="vertical" flexItem />
-                    {/* Amount Section */}
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        flex: 0.5,
-                        alignItems: 'flex-start',
-                        marginX: 2,
-                        gap: 1,
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          fontWeight: 600,
-                          fontSize: 12,
-                          color: black[300],
-                        }}
-                      >
-                        Số lượng
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontWeight: 500,
-                          fontSize: 14,
-                          color: black[500],
-                        }}
-                      >
-                        {document.amount}
-                      </Typography>
-                    </Box>
+          <IconButton aria-label="Đóng ví tài liệu" onClick={onClose}><CloseRounded /></IconButton>
+        </DialogTitle>
+        <DialogContent dividers sx={{ p: { xs: 2, sm: 3 } }}>
+          {loading ? <LoadingState label="Đang tải ví tài liệu…" /> : error ? (
+            <ErrorState title="Chưa thể tải ví tài liệu" description="Bạn có thể thử lại hoặc chọn tệp từ thiết bị." onRetry={() => setRetry((value) => value + 1)} />
+          ) : !documents.length ? (
+            <EmptyState title="Chưa có tài liệu để chọn" description="Bạn có thể đóng ví và chọn tệp từ thiết bị để tiếp tục." />
+          ) : <>
+            <Button variant="text" onClick={() => setShowMintAddress((value) => !value)} aria-pressed={showMintAddress}>{showMintAddress ? 'Hiện tên tài liệu' : 'Hiện mã chứng nhận'}</Button>
+            <List disablePadding aria-label="Tài liệu trong ví" sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1 }}>
+              {documents.map((document, index) => {
+                const name = document.filename.replace(/^\d+-/, '');
+                const expiry = new Date(document.mintedAt);
+                expiry.setMonth(expiry.getMonth() + 6);
+                return <ListItem key={document._id || index} disableGutters sx={{ p: 2, border: 1, borderColor: 'divider', borderRadius: 1, display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'flex-start', gap: 2 }}>
+                  <DescriptionOutlined aria-hidden="true" color="primary" />
+                  <Box sx={{ flex: 1, minWidth: 0, width: '100%' }}>
+                    <Typography sx={{ fontWeight: 600, overflowWrap: 'anywhere' }}>{name}</Typography>
+                    {showMintAddress && <Typography color="text.secondary" sx={{ overflowWrap: 'anywhere' }}>Mã chứng nhận: {document.mintAddress}</Typography>}
+                    <Typography color="text.secondary">Ngày nhận: {formatDate(document.mintedAt)}</Typography>
+                    <Typography color="text.secondary">Ngày hết hạn: {formatDate(expiry)}</Typography>
+                    <Typography color="text.secondary">Số lượng: {document.amount}</Typography>
                   </Box>
-                ))}
-          </Box>
-        </Box>
-      </Modal>
-
-      {previewDocument && (
-        <FilePreviewModal
-          open={!!previewDocument}
-          onClose={() => setPreviewDocument(null)}
-          metadataUrl={previewDocument?.ipfsLink}
-          filename={previewDocument?.filename}
-        />
-      )}
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, flexShrink: 0, maxWidth: '100%' }}>
+                    <Button variant="outlined" aria-label={`Xem trước ${name}`} onClick={() => setPreviewDocument(document)} startIcon={<VisibilityOutlined />}>Xem trước</Button>
+                    <Button variant="contained" aria-label={`Chọn tài liệu ${name}`} onClick={() => handleSelectDocument(document)}>Chọn tài liệu</Button>
+                  </Box>
+                </ListItem>;
+              })}
+            </List>
+          </>}
+        </DialogContent>
+        <DialogActions><Button variant="text" onClick={onClose}>Đóng ví</Button></DialogActions>
+      </Dialog>
+      {previewDocument && <FilePreviewModal open={!!previewDocument} onClose={() => setPreviewDocument(null)} metadataUrl={previewDocument.ipfsLink} filename={previewDocument.filename} />}
     </>
   );
 };
-
 export default UserWalletModal;
