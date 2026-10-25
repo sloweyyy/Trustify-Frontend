@@ -1,0 +1,183 @@
+[
+  {
+    "number": 1,
+    "title": "Trustify: Online notarization for Vietnam",
+    "transcript": [
+      "Online\nnotarization\nfor Vietnam",
+      "One workflow for applicants\nand notary offices.",
+      "Product pitch\nOctober 2026"
+    ],
+    "notes": "Product source: https://github.com/sloweyyy/Trustify-Frontend/blob/main/README.md. Approved brand: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/brand/brand-identity.md. Screenshot: final/routes/public-home-desktop.png, current October2026 UI. Team project established2025. This deck pitches a future pilot, not a launched regulated service."
+  },
+  {
+    "number": 2,
+    "title": "Document work needs a visible next step",
+    "transcript": [
+      "Document work needs a visible next step",
+      "01",
+      "Preparation",
+      "People need to know which documents to bring.",
+      "02",
+      "Review",
+      "Applicants need to see what the notary needs next.",
+      "03",
+      "Retrieval",
+      "Issued documents need a clear path back to their records.",
+      "Product hypothesis to validate with applicants and licensed notary offices"
+    ],
+    "notes": "Problem framing is a product hypothesis drawn from the approved brand brief and the application workflow. No user-research study, measured time saving or market-size claim is asserted."
+  },
+  {
+    "number": 3,
+    "title": "Who Trustify serves",
+    "transcript": [
+      "Who Trustify serves",
+      "A shared case connects the people doing the work.",
+      "01",
+      "Individuals",
+      "Prepare a hồ sơ công chứng and follow its progress.",
+      "02",
+      "Businesses",
+      "Coordinate recurring document work with a notary office.",
+      "03",
+      "Notary offices",
+      "Review cases, request corrections and manage sessions."
+    ],
+    "notes": "Approved audiences and positioning: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/brand/brand-identity.md. Business use is an intended audience, not a claim that enterprise tenancy or corporate permissions exist."
+  },
+  {
+    "number": 4,
+    "title": "One case across the entire workflow",
+    "transcript": [
+      "One case across the entire workflow",
+      "1",
+      "Submit",
+      "Service, details and supporting files",
+      "2",
+      "Review",
+      "Notary assessment and requested corrections",
+      "3",
+      "Sign",
+      "Signing step in the application",
+      "4",
+      "Complete",
+      "Payment status, issued files and wallet",
+      "Synthetic demonstration data"
+    ],
+    "notes": "Lifecycle and payment behavior: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/design-system.md and https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/design/final/README.md. Screenshot uses synthetic QA records, not real client data. A signing interface is not by itself a legally qualified digital signature."
+  },
+  {
+    "number": 5,
+    "title": "Guided submission in Vietnamese",
+    "transcript": [
+      "Guided submission in Vietnamese",
+      "Prepare with fewer\nunknowns",
+      "Step-by-step forms\n\nFile selection and preview\n\nA review step before sending"
+    ],
+    "notes": "Implemented applicant wizard: https://github.com/sloweyyy/Trustify-Frontend/blob/main/src. Evidence: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/design/screenshots/final/wizard/after-step1-service-mobile.png and after-upload-selected-desktop.png. Screens show anonymized/synthetic QA content."
+  },
+  {
+    "number": 6,
+    "title": "A focused workspace for notary review",
+    "transcript": [
+      "A focused workspace for notary review",
+      "Queue context\nand document preview",
+      "Review case information alongside the submitted file.\n\nKeep the current state and next action visible.",
+      "Synthetic demonstration case. The sample document has no legal value."
+    ],
+    "notes": "Notary review implementation and UI evidence: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/design/final/README.md and https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/design/screenshots/final/states/notary-document-review-preview-desktop.png. The screenshot uses a sample document and synthetic QA identities. The deck makes no real throughput or processing-time claim."
+  },
+  {
+    "number": 7,
+    "title": "Document verification with a record to inspect",
+    "transcript": [
+      "Document verification with a record to inspect",
+      "Document file",
+      "Stored off-chain through IPFS and Pinata.",
+      "Certificate reference",
+      "NFT metadata on Solana devnet links the record to the file.",
+      "Current integration uses a test network. A blockchain record alone does not establish legal validity."
+    ],
+    "notes": "Blockchain implementation: https://github.com/sloweyyy/Trustify-Backend/blob/main/src/config/blockchain.js and src/services/notarization.service.js. Verification UI: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/design/screenshots/final/states/public-verify-record-desktop.png. Files are uploaded off-chain to IPFS/Pinata and metadata references are minted on Solana devnet. NFT possession/metadata is not proof of legal validity or complete confidentiality."
+  },
+  {
+    "number": 8,
+    "title": "A working technical foundation",
+    "transcript": [
+      "A working technical foundation",
+      "Web application",
+      "React 18, Redux Toolkit and Material UI",
+      "Vietnamese workspaces for users, notaries and admins",
+      "Application services",
+      "Node.js, Express and MongoDB",
+      "JWT and Google OAuth, with PayOS payments",
+      "Document records",
+      "Solana Web3.js, Metaplex and IPFS",
+      "Devnet NFT minting and file references",
+      "Assistant",
+      "Gemini integration",
+      "Guidance on documents and procedures"
+    ],
+    "notes": "Verified against frontend package.json/README and backend package.json, src/config/blockchain.js, src/services/chatbot.service.js and src/services/payment.service.js. Source: https://github.com/sloweyyy/Trustify-Frontend and https://github.com/sloweyyy/Trustify-Backend. Gemini supplies procedural guidance, not implemented document generation. PayOS is the implemented payment gateway, not crypto checkout."
+  },
+  {
+    "number": 9,
+    "title": "Recognition for the team’s prototype",
+    "transcript": [
+      "Recognition for the team’s prototype",
+      "First Prize",
+      "IT Hackathon 2025",
+      "Solana Pragmatic\nInternational University, VNUHCM\nMay 2025",
+      "Top 30",
+      "Web3 HackFest 2025",
+      "Web3 & AI Convergence\nVBI Academy\nJanuary 2025",
+      "Team NotLikeUs. Recognition earned in 2025. Product screenshots reflect the October 2026 interface."
+    ],
+    "notes": "Award names, issuers and dates supplied by the project owner and verified against their existing public LinkedIn Honors entries. https://www.linkedin.com/in/sloweyne/details/honors/. First Prize: Youth Union–Student Association, Faculty of Computer Science and Engineering, International University–VNUHCM, May2025. Top30: VBI Academy, January2025. Hackathon recognition is not evidence of commercial traction or a regulatory endorsement."
+  },
+  {
+    "number": 10,
+    "title": "A business model to validate",
+    "transcript": [
+      "A business model to validate",
+      "The first commercial question is whether offices will pay for clearer case management.",
+      "Office subscription",
+      "A proposed recurring fee for workflow tools and case visibility.",
+      "Platform service fee",
+      "A hypothesis to test only where the applicable service and fee rules allow it.",
+      "Proposed model. Pricing and willingness to pay remain unvalidated."
+    ],
+    "notes": "Proposed commercial model only. No pricing, paying customers, revenue, funding, market size or validated willingness to pay is claimed. Fee design needs review with licensed notary offices and applicable rules before any offer."
+  },
+  {
+    "number": 11,
+    "title": "A pilot with clear readiness gates",
+    "transcript": [
+      "A pilot with clear readiness gates",
+      "01",
+      "Product validation",
+      "Observe applicants and notaries using real tasks in a controlled pilot.",
+      "02",
+      "Legal and security review",
+      "Confirm eligible workflows, identity checks, signing and data handling with qualified partners.",
+      "03",
+      "Operational launch plan",
+      "Set a verified fee catalog, support process and production infrastructure requirements.",
+      "Proposed next step: agree on pilot scope and success measures with a licensed office."
+    ],
+    "notes": "Forward-looking proposal, not a delivery promise or completed certification. No pilot agreements, user-research findings, regulated signing integrations, mainnet launch or commercial scale are claimed. Source for present capabilities: repo README and docs/design/final/README.md."
+  },
+  {
+    "number": 12,
+    "title": "Looking for notary-office pilot partners",
+    "transcript": [
+      "Looking for notary-office\npilot partners",
+      "Help shape a practical workflow for\nVietnamese applicants and notaries.",
+      "Try the demo",
+      "trustify-notary.vercel.app",
+      "Meet the project",
+      "linkedin.com/in/sloweyne"
+    ],
+    "notes": "Call to action proposes discussions with licensed notary offices and product/security reviewers. No existing partnerships or endorsements implied. Demo: https://trustify-notary.vercel.app. Contact: https://www.linkedin.com/in/sloweyne/. Source: https://github.com/sloweyyy/Trustify-Frontend and https://github.com/sloweyyy/Trustify-Backend. Deck updated25October2026."
+  }
+]

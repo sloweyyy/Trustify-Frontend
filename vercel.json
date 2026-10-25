@@ -3,5 +3,18 @@
   "framework": "create-react-app",
   "buildCommand": "CI=false npm run build",
   "outputDirectory": "build",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/pitch",
+      "destination": "/pitch/index.html"
+    },
+    {
+      "source": "/pitch/",
+      "destination": "/pitch/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }

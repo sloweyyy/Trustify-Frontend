@@ -1,0 +1,66 @@
+{
+  "base": "http://127.0.0.1:4179",
+  "checkedAt": "2026-10-25T16:53:44.988Z",
+  "routes": [
+    {
+      "route": "/pitch",
+      "status": 200,
+      "title": "Trustify | Online Notarization for Vietnam — Pitch Deck"
+    },
+    {
+      "route": "/pitch/",
+      "status": 200,
+      "title": "Trustify | Online Notarization for Vietnam — Pitch Deck"
+    },
+    {
+      "route": "/pitch/index.html",
+      "status": 200,
+      "title": "Trustify | Online Notarization for Vietnam — Pitch Deck"
+    }
+  ],
+  "views": [
+    {
+      "width": 1440,
+      "scroll": 1440,
+      "images": 12,
+      "transcripts": 12,
+      "font": "\"Be Vietnam Pro\", sans-serif"
+    },
+    {
+      "width": 390,
+      "scroll": 390,
+      "images": 12,
+      "transcripts": 12,
+      "font": "\"Be Vietnam Pro\", sans-serif"
+    },
+    {
+      "width": 320,
+      "scroll": 320,
+      "images": 12,
+      "transcripts": 12,
+      "font": "\"Be Vietnam Pro\", sans-serif"
+    }
+  ],
+  "errors": [],
+  "writes": [],
+  "downloads": [
+    {
+      "name": "trustify-pitch.pdf",
+      "status": 200,
+      "type": "application/pdf",
+      "bytes": 1450017
+    },
+    {
+      "name": "trustify-pitch.pptx",
+      "status": 200,
+      "type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "bytes": 578275
+    },
+    {
+      "name": "share-preview.jpg",
+      "status": 200,
+      "type": "image/jpeg",
+      "bytes": 63961
+    }
+  ]
+}
