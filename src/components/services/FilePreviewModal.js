@@ -4,7 +4,8 @@ import { CloseRounded, OpenInNewRounded } from '@mui/icons-material';
 import IPFSService from '../../services/ipfs.service';
 import { ErrorState, LoadingState } from '../shared/PageFeedback';
 
-const FilePreviewModal = ({ open, onClose, metadataUrl, filename }) => {
+// Prefer `fileUrl` (a short-lived signed link from the API); older wallet items only have NFT metadata.
+const FilePreviewModal = ({ open, onClose, fileUrl: directUrl, metadataUrl, filename }) => {
   const id = useId();
   const fullScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const [loading, setLoading] = useState(true);
@@ -20,8 +21,8 @@ const FilePreviewModal = ({ open, onClose, metadataUrl, filename }) => {
     setLoading(true); setError(false); setFileUrl('');
     const fetchFile = async () => {
       try {
-        if (!metadataUrl) throw new Error('Missing metadata');
-        const url = await IPFSService.getFileUrlFromMetadata(metadataUrl);
+        if (!directUrl && !metadataUrl) throw new Error('Missing file');
+        const url = directUrl || (await IPFSService.getFileUrlFromMetadata(metadataUrl));
         if (!url) throw new Error('Missing file URL');
         if (active) setFileUrl(url);
       } catch {
@@ -32,7 +33,7 @@ const FilePreviewModal = ({ open, onClose, metadataUrl, filename }) => {
     };
     fetchFile();
     return () => { active = false; };
-  }, [open, metadataUrl, retry]);
+  }, [open, directUrl, metadataUrl, retry]);
 
   return (
     <Dialog open={open} onClose={onClose} fullScreen={fullScreen} fullWidth maxWidth="lg" aria-labelledby={`${id}-title`}
