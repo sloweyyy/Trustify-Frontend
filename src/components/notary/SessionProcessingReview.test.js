@@ -1,0 +1,23 @@
+import React from 'react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { ThemeProvider } from '@mui/material/styles';
+import createTrustifyTheme from '../../config/theme/createTrustifyTheme';
+import DetailProcessingSessionModal from './DetailProcessingSessionModal';
+import SessionService from '../../services/session.service';
+jest.mock('../../services/session.service', () => ({ forwardSessionStatus: jest.fn() }));
+const wrapper = ({ children }) => <ThemeProvider theme={createTrustifyTheme()}>{children}</ThemeProvider>;
+const record = { status: 'processing', sessionId: { id: 'PHIEN-MAU', createdBy: { name: 'Nguyễn Thị Mỹ' }, users: [{ name: 'Trần Văn An' }], files: [] } };
+test.each([['Chấp nhận', 'accept'], ['Từ chối', 'reject']])('%s keeps required feedback/files, document ID and multipart fields', async (name, action) => {
+  const onClose = jest.fn(); SessionService.forwardSessionStatus.mockResolvedValue({ status: 200 });
+  render(<DetailProcessingSessionModal open session={record} onClose={onClose} />, { wrapper });
+  expect(screen.getByText('Nguyễn Thị Mỹ')).toBeInTheDocument(); expect(screen.getByText('Trần Văn An')).toBeInTheDocument();
+  const button = screen.getByRole('button', { name, exact: true }); expect(button).toBeDisabled();
+  fireEvent.change(screen.getByLabelText('Ghi chú xét duyệt', { exact: false }), { target: { value: 'Ghi chú mẫu' } });
+  expect(button).toBeDisabled();
+  const file = new File(['sample'], 'phan-hoi.pdf', { type: 'application/pdf' });
+  fireEvent.change(screen.getByLabelText('Chọn tài liệu phản hồi'), { target: { files: [file] } });
+  expect(button).toBeEnabled(); fireEvent.click(button);
+  await waitFor(() => expect(onClose).toHaveBeenCalledTimes(1));
+  const [id, data] = SessionService.forwardSessionStatus.mock.calls.at(-1);
+  expect(id).toBe('PHIEN-MAU'); expect(data.get('action')).toBe(action); expect(data.get('feedback')).toBe('Ghi chú mẫu'); expect(data.getAll('files')).toEqual([file]);
+});
