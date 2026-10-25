@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import ProvinceSelector from '../../../components/profile/ProvinceSelector';
+import { getProvinces, getDistrictsByProvinceCode, getWardsByDistrictCode } from 'vn-provinces';
 
 // Mock vn-provinces
 jest.mock('vn-provinces', () => ({
@@ -32,13 +33,16 @@ describe('ProvinceSelector', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    getProvinces.mockReturnValue([{ code: '01', name: 'Hà Nội' }, { code: '79', name: 'TP Hồ Chí Minh' }]);
+    getDistrictsByProvinceCode.mockReturnValue([{ code: '001', name: 'Quận 1' }, { code: '002', name: 'Quận 2' }]);
+    getWardsByDistrictCode.mockReturnValue([{ code: '001', name: 'Phường 1' }, { code: '002', name: 'Phường 2' }]);
   });
 
   test('renders all selectors', () => {
     render(<ProvinceSelector {...mockProps} />);
-    expect(screen.getByText('Tỉnh/Thành phố')).toBeInTheDocument();
-    expect(screen.getByText('Quận/Huyện')).toBeInTheDocument();
-    expect(screen.getByText('Xã/Phường/Thị trấn')).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Tỉnh/Thành phố' })).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Quận/Huyện' })).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Xã/Phường/Thị trấn' })).toBeInTheDocument();
   });
 
   test('loads and selects city', async () => {
@@ -58,17 +62,17 @@ describe('ProvinceSelector', () => {
   test('district selector is enabled after city selection', async () => {
     render(<ProvinceSelector {...mockProps} city="Hà Nội" />);
 
-    const districtContainer = screen.getAllByRole('combobox')[1].closest('.MuiAutocomplete-root');
+    const districtInput = screen.getByRole('combobox', { name: 'Quận/Huyện' });
 
-    expect(districtContainer).not.toHaveClass('Mui-disabled');
+    expect(districtInput).toBeEnabled();
   });
 
   test('ward selector is enabled after district selection', async () => {
     render(<ProvinceSelector {...mockProps} city="Hà Nội" district="Quận 1" />);
 
-    const wardContainer = screen.getAllByRole('combobox')[2].closest('.MuiAutocomplete-root');
+    const wardInput = screen.getByRole('combobox', { name: 'Xã/Phường/Thị trấn' });
 
-    expect(wardContainer).not.toHaveClass('Mui-disabled');
+    expect(wardInput).toBeEnabled();
   });
 
   test('changing city clears district and ward', async () => {

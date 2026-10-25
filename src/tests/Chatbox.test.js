@@ -25,6 +25,7 @@ describe('Chatbox Component', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    sendMessageToGemini.mockResolvedValue('Bot response');
   });
 
   describe('Render Tests', () => {
@@ -58,9 +59,8 @@ describe('Chatbox Component', () => {
 
       // Interact
       fireEvent.change(input, { target: { value: 'test message' } });
-      await act(async () => {
-        fireEvent.click(sendButton);
-      });
+      fireEvent.click(sendButton);
+      await screen.findByText('Bot response');
 
       // Assert
       expect(input.value).toBe('');
@@ -68,20 +68,20 @@ describe('Chatbox Component', () => {
     });
 
     it('shows loading state while sending message', async () => {
-      jest
-        .spyOn(require('../services/chat.service'), 'sendMessageToGemini')
-        .mockImplementation(() => new Promise((resolve) => setTimeout(resolve, 100)));
+      let finishReply;
+      sendMessageToGemini.mockImplementation(() => new Promise((resolve) => { finishReply = resolve; }));
 
       render(<Chatbox {...defaultProps} />);
       const input = screen.getByPlaceholderText('Nhập tin nhắn...');
 
       fireEvent.change(input, { target: { value: 'test message' } });
-      await act(async () => {
-        fireEvent.click(screen.getByTestId('send-button'));
-      });
+      fireEvent.click(screen.getByTestId('send-button'));
 
       expect(input).toBeDisabled();
       expect(screen.getByTestId('send-button')).toBeDisabled();
+      await act(async () => { finishReply('Phản hồi mẫu'); });
+      expect(input).toBeEnabled();
+      expect(screen.getByText('Phản hồi mẫu')).toBeInTheDocument();
     });
   });
 
@@ -104,9 +104,8 @@ describe('Chatbox Component', () => {
       const input = screen.getByPlaceholderText('Nhập tin nhắn...');
 
       fireEvent.change(input, { target: { value: 'test message' } });
-      await act(async () => {
-        fireEvent.click(screen.getByTestId('send-button'));
-      });
+      fireEvent.click(screen.getByTestId('send-button'));
+      await screen.findByText('Bot response');
 
       expect(window.HTMLElement.prototype.scrollIntoView).toHaveBeenCalled();
     });
