@@ -4,7 +4,7 @@ Baseline main `febf4dd`. Sixteen before/after pairs cover the wallet picker (pop
 
 Build, CRA ESLint and19 tests pass. Original service calls, metadata URI, positive-amount filtering/sorting, six-month expiry display and selected object callbacks remain. A retry repeats the same GET. Dialogs use unique accessible titles, keyboard trapping and44px close controls; nested preview Escape restores its opener. Manifests show no overflow and zero non-auth writes. Read-only wallet/preview interactions were exercised; callbacks are tested with mocks.
 
-Known scope: wallet page/cards follow User06; document detail layouts follow their role PRs. The existing six-month expiry calculation is retained, not a new policy. PDF metadata/source is unit-tested; no real signatures, transfers, purchases or notarization submissions are used for QA. Vercel all-role QA pending.
+Known scope: wallet page/cards follow User06; document detail layouts follow their role PRs. The existing six-month expiry calculation is retained, not a new policy. PDF metadata/source is unit-tested; no real signatures, transfers, purchases or notarization submissions are used for QA. Primary Vercel Ready; all-role click-through complete. Eight preview captures include the real populated wallet, code display, recoverable metadata failure/retry and Notary/Admin navigation. No document selected. See vercel-checks.json.
 
 ## wallet-success-desktop
 
