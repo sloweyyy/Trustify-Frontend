@@ -1,0 +1,32 @@
+{
+  "source": "5dfc7b70e2a551f281dda73a8aa3eedb27d81d41",
+  "deployment": "https://vercel.com/sloweyyy/trustify-notary/Cxz58x39MahdmpW8ZxSp7KGHAkKP",
+  "preview": "https://trustify-notary-git-design-05a-history-payments-sloweyyy.vercel.app",
+  "ready": true,
+  "checkedAt": "2026-10-25T04:08:40.647304+00:00",
+  "initialRoleFlowSource": "bdc76356b59368b0c915668ea34c5bd81b626e32",
+  "paymentReferenceRecheckSource": "beafa615d1acde946d1b9835610c91fbdb8396d2",
+  "roles": {
+    "User": [
+      "Real2-record history desktop table/mobile cards",
+      "Status + ID search returns original record; no-results and clear-filter recovery",
+      "Enter opens original detail; Escape restores opener",
+      "Existing pending invoice shows its order code when document/session reference is absent; href not activated",
+      "Final source reloaded:2 cards,390px document width;48px payment target; desktop table; logout"
+    ],
+    "Notary": [
+      "Sign-in; pending queue empty state desktop; mobile navigation; logout"
+    ],
+    "Admin": [
+      "Sign-in; mobile navigation; shared verify; logout"
+    ]
+  },
+  "mutations": "Routine auth only on preview. No submission, signature, checkout, payment callback/status update, transfer or account edit.",
+  "successFlow": "Actual serialized Document response (HTTP201/id) and legacy forms are tested locally with intercepted/mocked submissions. All other non-auth writes blocked. No real notarization created.",
+  "screenshots": 8,
+  "knownGaps": [
+    "Existing detail/signature presentation follows05c; payment-result05b.",
+    "Native local file fixture upload remains extension-permission-limited; local tests verify bytes/FormData. Permissions unchanged.",
+    "Some preview images include a browser overlay; clean local captures are the visual comparison reference."
+  ]
+}

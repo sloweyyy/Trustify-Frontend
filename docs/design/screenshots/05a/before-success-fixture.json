@@ -1,0 +1,26 @@
+{
+  "fixture": "The upload POST is fulfilled locally with HTTP201 and the actual created-document body; all other non-auth writes are blocked. No request reaches the notarization backend.",
+  "results": [
+    {
+      "size": "desktop",
+      "width": 1440,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 1440
+    },
+    {
+      "size": "mobile",
+      "width": 390,
+      "url": "http://localhost:3001/user/create-notarization-profile",
+      "scrollWidth": 390
+    }
+  ],
+  "mockPosts": [
+    {
+      "method": "POST",
+      "url": "https://trustify-api-ar4i.onrender.com/v1/notarization/upload-files",
+      "intercepted": true
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T03:45:37.342Z"
+}

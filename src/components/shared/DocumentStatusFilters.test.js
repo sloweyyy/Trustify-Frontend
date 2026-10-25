@@ -3,9 +3,11 @@ import { render, screen } from '@testing-library/react';
 import { ThemeProvider } from '@mui/material/styles';
 import createTrustifyTheme from '../../config/theme/createTrustifyTheme';
 import HistoryDataTable from '../services/HistoryDataTable';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { STATUS_TYPES } from '../../utils/constants';
 
 // This test exercises the table's real filter/search pipeline; detail actions are separate.
+jest.mock('@mui/material/useMediaQuery', () => jest.fn());
 jest.mock('../modals/HistoryDetailModal', () => () => null);
 
 const legacyStatuses = ['Chờ xử lý', 'Đang xử lý', 'Đang xác minh', 'Sẵn sàng ký số', 'Hoàn tất', 'Không hợp lệ', undefined];
@@ -25,6 +27,8 @@ const table = (filterStatus, searchText = '') => (
   </ThemeProvider>
 );
 
+describe.each([false, true])('desktop/mobile parity (%s)', (mobile) => {
+  beforeEach(() => useMediaQuery.mockReturnValue(mobile));
 test.each(Object.values(STATUS_TYPES))('the %s filter preserves the same matching record IDs', (filter) => {
   render(table(filter));
   rows.forEach((row) => {
@@ -43,4 +47,6 @@ test('verification stays distinct, and the newly displayed labels are searchable
   rerender(table(STATUS_TYPES.All, 'Bị từ chối'));
   expect(screen.getByText('HS-5')).toBeInTheDocument();
   expect(screen.queryByText('HS-3')).not.toBeInTheDocument();
+});
+
 });

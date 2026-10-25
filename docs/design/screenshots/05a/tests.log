@@ -1,0 +1,116 @@
+
+> trustify@0.1.0 test
+> react-scripts test --watchAll=false --runInBand --runTestsByPath src/components/services/HistoryResponsive.test.js src/tests/components/services/HistoryDataTable.test.js src/components/shared/DocumentStatusFilters.test.js src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js
+
+PASS src/components/services/HistoryResponsive.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      20 |
+      21 | test.each([false, true])('both layouts open the original document ID without mutating rows (%s)', (mobile) => {
+    > 22 |   useMediaQuery.mockReturnValue(mobile); render(list(), { wrapper });
+         |                                                ^
+      23 |   fireEvent.click(screen.getByRole('button', { name: 'Xem hồ sơ HS-00', exact: true }));
+      24 |   expect(screen.getByRole('dialog', { name: 'HS-00' })).toBeInTheDocument();
+      25 |   fireEvent.click(screen.getByRole('button', { name: 'Đóng hồ sơ' })); expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at src/components/services/HistoryResponsive.test.js:22:48
+
+One of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it may break at any time.
+
+babel-preset-react-app is part of the create-react-app project, which
+is not maintianed anymore. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.
+
+PASS src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      16 | const field = { id: 'field-one', name: 'Lĩnh vực kiểm tra' };
+      17 | const service = { id: 'service-one', name: 'Dịch vụ kiểm tra', required_documents: ['identity_doc'] };
+    > 18 | const setup = () => render(<ThemeProvider theme={createTrustifyTheme()}><CreateNotarizationProfile /></ThemeProvider>);
+         |                           ^
+      19 | const chooseField = async () => {
+      20 |   fireEvent.mouseDown(screen.getByRole('combobox', { name: /^Lĩnh vực công chứng/ }));
+      21 |   fireEvent.click(await screen.findByRole('option', { name: field.name }));
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at setup (src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js:18:27)
+      at Object.<anonymous> (src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js:42:3)
+
+PASS src/tests/components/services/HistoryDataTable.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      58 |
+      59 |   const renderWithWrapper = (props = defaultProps) => {
+    > 60 |     return render(<ThemeProvider theme={createTrustifyTheme()}><HistoryDataTable {...props} /></ThemeProvider>);
+         |                  ^
+      61 |   };
+      62 |
+      63 |   describe('Rendering', () => {
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at renderWithWrapper (src/tests/components/services/HistoryDataTable.test.js:60:18)
+      at Object.<anonymous> (src/tests/components/services/HistoryDataTable.test.js:65:7)
+
+PASS src/components/shared/DocumentStatusFilters.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      31 |   beforeEach(() => useMediaQuery.mockReturnValue(mobile));
+      32 | test.each(Object.values(STATUS_TYPES))('the %s filter preserves the same matching record IDs', (filter) => {
+    > 33 |   render(table(filter));
+         |         ^
+      34 |   rows.forEach((row) => {
+      35 |     const matching = filter === STATUS_TYPES.All || row.status === filter;
+      36 |     expect(screen.queryByText(row.profile) !== null).toBe(matching);
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at src/components/shared/DocumentStatusFilters.test.js:33:9
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+
+Test Suites: 4 passed, 4 total
+Tests:       39 passed, 39 total
+Snapshots:   0 total
+Time:        6.744 s, estimated 9 s
+Ran all test suites within paths "src/components/services/HistoryResponsive.test.js", "src/tests/components/services/HistoryDataTable.test.js", "src/components/shared/DocumentStatusFilters.test.js", "src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js".

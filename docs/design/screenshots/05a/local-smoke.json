@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-10-25T03:28:59.478Z",
+  "checks": [
+    "Mobile cards and desktop table show same fixture IDs",
+    "Status filter/search/clear retain record identity",
+    "Mobile sort matches original comparator",
+    "Enter opens original document detail; Escape restores opener",
+    "Checkout hrefs unchanged and44px controls fit390",
+    "No payment/status/signature mutation; zero non-auth writes"
+  ],
+  "writes": []
+}

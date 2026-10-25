@@ -1,0 +1,134 @@
+{
+  "baseline": "8fba197",
+  "fixture": "History/payment GETs are local fixtures. Checkout links are non-production example URLs and never activated.",
+  "results": [
+    {
+      "name": "history-payments",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "history-payments",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "name": "history-list",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "history-list",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "name": "history-filtered",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "history-filtered",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "name": "history-no-results",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "history-no-results",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "name": "history-empty",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "history-empty",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "name": "history-error",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "history-error",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "name": "history-loading",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "history-loading",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "name": "payment-error",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "payment-error",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    },
+    {
+      "name": "payment-loading",
+      "size": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "payment-loading",
+      "size": "mobile",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390
+    }
+  ],
+  "writes": [],
+  "checkedAt": "2026-10-25T03:26:44.918Z"
+}

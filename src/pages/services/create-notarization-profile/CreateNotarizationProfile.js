@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Backdrop, Box, Card, CircularProgress, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NotarizationService from '../../../services/notarization.service';
@@ -24,6 +25,7 @@ const initialFieldsAndServices = {
 };
 
 const CreateNotarizationProfile = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -168,18 +170,22 @@ const CreateNotarizationProfile = () => {
 
       const response = await NotarizationService.uploadNotarizationDocument(formData);
 
-      if (response.status !== 200) {
-        toast.error('Chưa thể gửi hồ sơ. Thông tin đã nhập vẫn ở đây để bạn thử lại.');
+      const createdDocumentId = typeof response?.id === 'string' ? response.id : typeof response?._id === 'string' ? response._id : null;
+      if (!createdDocumentId && response?.status !== 200) {
+        toast.error('Chưa thể xác nhận việc gửi hồ sơ. Vui lòng kiểm tra Lịch sử trước khi thử lại.');
         return response;
       }
       toast.success('Tạo hồ sơ công chứng thành công');
 
       setNotarizationData(initialNotarizationData);
       setUploadedFiles([]);
+      setDocumentWalletFiles([]);
       setCurrentStep(0);
+      if (createdDocumentId) navigate('/user/history', { state: { submittedDocumentId: createdDocumentId } });
+      else navigate('/user/history');
       return response;
     } catch (error) {
-      toast.error('Chưa thể gửi hồ sơ. Thông tin đã nhập vẫn ở đây để bạn thử lại.');
+      toast.error('Chưa thể xác nhận việc gửi hồ sơ. Vui lòng kiểm tra Lịch sử trước khi thử lại.');
     } finally {
       setLoading(false);
     }
