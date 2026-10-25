@@ -1,10 +1,11 @@
-import { Box, Button, Modal, TextField, Typography } from '@mui/material'
-import { white, gray, black } from '../../config/theme/themePrimitives'
+import { Box, Button, Dialog, DialogTitle, DialogContent, DialogActions, IconButton, TextField, Typography } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
 import React from 'react'
 import UserWalletService from '../../services/userwallet.service'
 import { toast } from 'react-toastify'
 
 const PurchaseModal = ({ open, onClose, document }) => {
+    const titleId = React.useId();
     const [amount, setAmount] = React.useState(1);
     const [loading, setLoading] = React.useState(false);
 
@@ -34,86 +35,27 @@ const PurchaseModal = ({ open, onClose, document }) => {
     }
 
     return (
-        <Modal
-            open={open}
-            onClose={onClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-        >
-            <Box
-                sx={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    width: { xs: '70%', sm: '60%', md: '40%' },
-                    bgcolor: white[50],
-                    boxShadow: 24,
-                    borderRadius: 1,
-                    padding: 4,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 2
-                }}
-            >
-                <Typography variant="h6" id="modal-modal-title">
-                    Mua thêm tài liệu
-                </Typography>
-
-                <TextField
-                    type="number"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                    onInput={handleInput}
-                    onWheel={handleWheel}
-                    placeholder="Nhập số lượng"
-                    sx={{
-                        flexGrow: 1,
-                        '& .MuiOutlinedInput-root': {
-                            '& input[type=number]': {
-                                MozAppearance: 'textfield',
-                            },
-                            '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': {
-                                WebkitAppearance: 'none',
-                                margin: 0,
-                            },
-                            '& fieldset': {
-                                borderColor: 'transparent',
-                            },
-                            '&:hover fieldset': {
-                                borderColor: 'transparent',
-                            },
-                            '&.Mui-focused fieldset': {
-                                borderColor: 'transparent',
-                                borderWidth: 1,
-                            },
-                        },
-                        '& .MuiInputBase-input': { fontSize: '14px' },
-                        borderRadius: 1,
-                        bgcolor: gray[100],
-                        height: '100%',
-                    }}
-                />
-
-                <Button
-                    sx={{
-                        width: '100%',
-                        backgroundColor: black[900],
-                        color: white[50],
-                        borderRadius: 1,
-                        paddingX: 2,
-                        fontSize: 16,
-                        textTransform: 'none',
-                        '&:hover': {
-                            backgroundColor: black[500],
-                        },
-                    }}
-                    onClick={handlePurchase}
-                >
+        <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm" aria-labelledby={titleId}>
+            <DialogTitle component="div" id={`${titleId}-header`} sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
+                <Typography component="h2" variant="h5" id={titleId} sx={{ flex: 1 }}>Mua thêm tài liệu</Typography>
+                <IconButton aria-label="Đóng mua thêm tài liệu" onClick={onClose}><CloseIcon /></IconButton>
+            </DialogTitle>
+            <DialogContent dividers>
+                <Box sx={{ mb: 3 }}>
+                    <Typography color="text.secondary">Tài liệu</Typography>
+                    <Typography sx={{ overflowWrap: 'anywhere', mt: 0.5 }}>{document.filename?.replace(/^\d+-/, '') || 'Tài liệu chưa có tên'}</Typography>
+                </Box>
+                <TextField label="Số lượng mua thêm" type="number" fullWidth value={amount}
+                    onChange={(e) => setAmount(e.target.value)} onInput={handleInput} onWheel={handleWheel}
+                    disabled={loading} placeholder="Nhập số lượng" helperText="Chọn số lượng tài liệu bạn muốn mua thêm." />
+            </DialogContent>
+            <DialogActions sx={{ flexDirection: { xs: 'column-reverse', sm: 'row' }, '& .MuiButton-root': { width: { xs: '100%', sm: 'auto' }, ml: '0 !important' } }}>
+                <Button variant="outlined" onClick={onClose}>Hủy</Button>
+                <Button variant="contained" onClick={handlePurchase} disabled={loading} aria-busy={loading}>
                     {loading ? 'Đang xử lý...' : 'Mua tài liệu'}
                 </Button>
-            </Box>
-        </Modal>
+            </DialogActions>
+        </Dialog>
     )
 }
 

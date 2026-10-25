@@ -1,0 +1,56 @@
+{
+  "baseline": "9c4f257021fc5a1b8b6693e3a584eb572943ba72",
+  "fixture": "GET wallet/email fixtures only. Non-auth writes blocked. No share/purchase submissions.",
+  "results": [
+    {
+      "name": "purchase",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "purchase-quantity",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "share",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "share-recipient",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "purchase",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "purchase-quantity",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "share",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "share-recipient",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T10:28:20.544Z"
+}

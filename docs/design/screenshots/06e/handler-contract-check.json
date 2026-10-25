@@ -1,0 +1,9 @@
+{
+  "purchase.handleInput": true,
+  "purchase.handleWheel": true,
+  "purchase.handlePurchase": true,
+  "share.handleInputChange": true,
+  "share.handleTransferNft": true,
+  "share.handleInput": true,
+  "share.handleWheel": true
+}
