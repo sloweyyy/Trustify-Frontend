@@ -1,0 +1,128 @@
+[
+  {
+    "name": "user-notification",
+    "size": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "url": "http://localhost:3001/user/create-notarization-profile"
+  },
+  {
+    "name": "user-notification",
+    "size": "mobile",
+    "width": 390,
+    "height": 844,
+    "url": "http://localhost:3001/user/create-notarization-profile"
+  },
+  {
+    "name": "user-confirmation",
+    "size": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "url": "http://localhost:3001/user/create-notarization-profile"
+  },
+  {
+    "name": "user-confirmation",
+    "size": "mobile",
+    "width": 390,
+    "height": 844,
+    "url": "http://localhost:3001/user/create-notarization-profile"
+  },
+  {
+    "name": "notary-notification",
+    "size": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "url": "http://localhost:3001/notary/dashboard"
+  },
+  {
+    "name": "notary-notification",
+    "size": "mobile",
+    "width": 390,
+    "height": 844,
+    "url": "http://localhost:3001/notary/dashboard"
+  },
+  {
+    "name": "notary-pending",
+    "size": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "url": "http://localhost:3001/notary/pending-notarization-documents"
+  },
+  {
+    "name": "notary-pending",
+    "size": "mobile",
+    "width": 390,
+    "height": 844,
+    "url": "http://localhost:3001/notary/pending-notarization-documents"
+  },
+  {
+    "name": "notary-signature",
+    "size": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "url": "http://localhost:3001/notary/awaiting-signature-documents"
+  },
+  {
+    "name": "notary-signature",
+    "size": "mobile",
+    "width": 390,
+    "height": 844,
+    "url": "http://localhost:3001/notary/awaiting-signature-documents"
+  },
+  {
+    "name": "notary-confirmation",
+    "size": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "url": "http://localhost:3001/notary/awaiting-signature-documents"
+  },
+  {
+    "name": "notary-confirmation",
+    "size": "mobile",
+    "width": 390,
+    "height": 844,
+    "url": "http://localhost:3001/notary/awaiting-signature-documents"
+  },
+  {
+    "name": "admin-notification",
+    "size": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "url": "http://localhost:3001/admin/dashboard"
+  },
+  {
+    "name": "admin-notification",
+    "size": "mobile",
+    "width": 390,
+    "height": 844,
+    "url": "http://localhost:3001/admin/dashboard"
+  },
+  {
+    "name": "admin-confirmation",
+    "size": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "url": "http://localhost:3001/admin/dashboard"
+  },
+  {
+    "name": "admin-confirmation",
+    "size": "mobile",
+    "width": 390,
+    "height": 844,
+    "url": "http://localhost:3001/admin/dashboard"
+  },
+  {
+    "name": "public-loading",
+    "size": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "url": "http://localhost:3001/third-party"
+  },
+  {
+    "name": "public-loading",
+    "size": "mobile",
+    "width": 390,
+    "height": 844,
+    "url": "http://localhost:3001/third-party"
+  }
+]

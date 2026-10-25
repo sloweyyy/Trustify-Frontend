@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 import { Box } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
+import TrustifyNotifications from './components/shared/TrustifyNotifications';
 import UserService from './services/user.service';
 import TokenService from './services/token.service';
 import Cookies from 'js-cookie';
@@ -96,8 +96,8 @@ function App() {
   }, []);
 
   return (
-    <Suspense fallback={<Loader />}>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Suspense fallback={<Loader />}>
         <CssBaseline />
         <ScrollToTop />
         <Box display={'flex'}>
@@ -320,9 +320,9 @@ function App() {
           </Box>
         </Box>
         {!isAuthenticated && <ChatAssistant />}
-        <ToastContainer position="bottom-right" autoClose={2500} newestOnTop rtl={false} pauseOnFocusLoss pauseOnHover />
-      </ThemeProvider>
-    </Suspense>
+        <TrustifyNotifications />
+      </Suspense>
+    </ThemeProvider>
   );
 }
 

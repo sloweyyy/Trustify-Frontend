@@ -261,6 +261,8 @@ const Sidebar = () => {
         </List>
 
         <YesNoModal
+          yesLabel="Đăng xuất"
+          noLabel="Ở lại"
           title="Đăng xuất"
           content="Bạn có chắc chắn muốn đăng xuất?"
           open={openLogoutModal}

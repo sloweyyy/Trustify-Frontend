@@ -33,3 +33,6 @@ All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:
 - 02b — Shared form controls, PR #12, 2026-10-25 07:02: build, CRA ESLint and 22 tests pass; 15 before/after pairs and all-role local read-only QA complete. Vercel primary Ready; authenticated User/Notary/Admin preview click-through complete, 10 preview screenshots. Ready for Claude review.
 
 - PR #12 review round 1: removed three border-suppressing rules and linked all five session fields through FieldLabel/useId. Local 1440/390 captures and computed border checks pass; build/ESLint/23 tests pass. Vercel updated deployment Ready; five linked inputs have solid 1px borders, and 1440/390 preview screenshots refreshed. Re-requesting Claude review. Profile save action footer follows in step 06.
+
+- PR #12 merged after Claude round-2 approval; production main 5e14c895 Ready, homepage HTTP200/no uncaught errors at 07:12.
+- 02c — Feedback states, 2026-10-25 07:18: confirmation Dialog, themed Toastify, shared loading/empty/error and two Notary queue adoptions. Build/ESLint/19 tests and local all-role browser checks pass; 18 paired before/after captures plus four simulated GET fixtures. Vercel preview QA pending.

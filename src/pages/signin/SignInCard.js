@@ -16,7 +16,6 @@ import { GoogleIcon } from './CustomIcons';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { userLogin } from '../../stores/actions/authAction';
-import { API_BASE_URL } from '../../services/config';
 import { signInWithGoogle } from '../../services/auth.service';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
@@ -68,7 +67,7 @@ export default function SignInCard() {
       .unwrap()
       .then((response) => {
         if (response) {
-          toast.success('Đăng nhập thành công');
+          toast.success('Đăng nhập thành công', { role: 'status' });
           navigate('/');
         }
       })

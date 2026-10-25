@@ -1,0 +1,26 @@
+{
+  "checks": [
+    "503 service envelope becomes error; explicit retry returns empty",
+    {
+      "width": 1440,
+      "dialog": {
+        "x": 420,
+        "y": 315.15625,
+        "width": 600,
+        "height": 213.6875
+      }
+    },
+    {
+      "width": 390,
+      "dialog": {
+        "x": 16,
+        "y": 300.3125,
+        "width": 358,
+        "height": 243.375
+      }
+    }
+  ],
+  "errors": [],
+  "simulation": "Only local GET responses intercepted for loading/error fixtures. No backend writes.",
+  "checkedAt": "2026-10-25T00:18:14.303Z"
+}

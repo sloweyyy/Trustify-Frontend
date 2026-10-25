@@ -2,25 +2,37 @@ import { Box, Paper, Typography, Pagination } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { black, gray, white } from '../../config/theme/themePrimitives';
 import NotarizationService from '../../services/notarization.service';
+import { EmptyState, ErrorState, LoadingState } from '../../components/shared/PageFeedback';
 import NotaryDocumentCardSkeleton from '../../components/notary/NotaryDocumentCardSkeleton';
 import NotaryDocumentCard from '../../components/notary/NotaryDocumentCard';
 
 const AwaitingSignatureDocuments = () => {
   const [documents, setDocuments] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [pageIndex, setPageIndex] = useState(1);
   const [pagination, setPagination] = useState({});
 
   const fetchDigitalSignatureDocuments = async (page) => {
     setLoading(true);
-    const response = await NotarizationService.getNotarizationByRole({
-      status: 'readyToSign',
-      page,
-      limit: 6,
-    });
-    setDocuments(response.documents);
-    setPagination(response.pagination);
-    setLoading(false);
+    setError(false);
+    try {
+      const response = await NotarizationService.getNotarizationByRole({
+        status: 'readyToSign',
+        page,
+        limit: 6,
+      });
+      if (!Array.isArray(response?.documents)) {
+        setError(true);
+        return;
+      }
+      setDocuments(response.documents);
+      setPagination(response.pagination);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -36,7 +48,7 @@ const AwaitingSignatureDocuments = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        padding: 4,
+        padding: { xs: 2, sm: 4 },
         justifyContent: 'space-between',
         gap: 2,
       }}
@@ -68,17 +80,17 @@ const AwaitingSignatureDocuments = () => {
               color: black[900],
               fontSize: 16,
               fontWeight: 600,
-              textTransform: 'capitalize',
+              textTransform: 'none',
             }}
           >
-            Danh sách chờ Ký số
+            Danh sách chờ ký số
           </Typography>
 
           <Typography
             sx={{
-              color: black[300],
-              fontSize: 14,
-              fontWeight: 500,
+              color: 'text.secondary',
+              fontSize: 16,
+              fontWeight: 400,
             }}
           >
             Các yêu cầu chờ ký số sẽ hiển thị ở đây
@@ -95,14 +107,21 @@ const AwaitingSignatureDocuments = () => {
             scrollbarWidth: { xs: 'none', sm: 'auto' },
           }}
         >
-          {loading
-            ? Array.from({ length: 6 }).map((_, index) => <NotaryDocumentCardSkeleton key={index} />)
-            : documents.map((document, index) => <NotaryDocumentCard key={index} document={document} />)}
+          {loading ? (
+            <LoadingState label="Đang tải hồ sơ…">
+              {Array.from({ length: 6 }).map((_, index) => <NotaryDocumentCardSkeleton key={index} />)}
+            </LoadingState>
+          ) : error ? (
+            <ErrorState title="Chưa thể tải hồ sơ" description="Hồ sơ chưa tải được. Bạn có thể thử lại."
+              onRetry={() => fetchDigitalSignatureDocuments(pageIndex)} />
+          ) : documents.length === 0 ? (
+            <EmptyState title="Chưa có hồ sơ chờ ký số" description="Các hồ sơ chờ ký số sẽ hiển thị tại đây khi được chuyển đến bạn." />
+          ) : documents.map((document, index) => <NotaryDocumentCard key={index} document={document} />)}
         </Box>
       </Paper>
 
       {/* Thêm Pagination */}
-      <Box
+      {!loading && !error && documents.length > 0 && <Box
         sx={{
           display: 'flex',
           justifyContent: 'flex-end',
@@ -115,7 +134,7 @@ const AwaitingSignatureDocuments = () => {
           color="primary"
           shape="rounded"
         />
-      </Box>
+      </Box>}
     </Box>
   );
 };
