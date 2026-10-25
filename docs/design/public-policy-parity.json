@@ -1,0 +1,31 @@
+{
+  "baseline": "f9898e0",
+  "note": "Normalized JSX text inside the policy body; decorative hero excluded. No live legal-content validation.",
+  "files": [
+    {
+      "name": "DisputeResolution.js",
+      "policyBodyTextUnchanged": true,
+      "sha256": "804fdc1e14e58ab3584a225f21f5eb7a51894a9f2619a2dd3b78618d1c0e5807"
+    },
+    {
+      "name": "OperatingRegulations.js",
+      "policyBodyTextUnchanged": true,
+      "sha256": "5d3e13e5708de273aad973180d2eef3a618673b0403b9454e94cd18eaff1afd8"
+    },
+    {
+      "name": "PaymentSecurity.js",
+      "policyBodyTextUnchanged": true,
+      "sha256": "b2ce35ca774a66c1a57675b7e1f36d0fdd20a93a0a7145312fd2ea13b433ca78"
+    },
+    {
+      "name": "PrivacyPolicy.js",
+      "policyBodyTextUnchanged": true,
+      "sha256": "9773d0c23759ec449b3fe977530e743c56818a825b0deb8990dcb78c9b2a36d2"
+    },
+    {
+      "name": "TermsOfService.js",
+      "policyBodyTextUnchanged": true,
+      "sha256": "f5b4b89f25d4d2d600425f2cbb2d1eb7e2823d7520859cf894b98aa7f5df0b46"
+    }
+  ]
+}

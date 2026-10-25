@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Box, Typography, TextField, Button } from '@mui/material';
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import { dark, primary, gray } from '../../config/theme/themePrimitives';
+import { Box, Button, Paper, TextField, Typography } from '@mui/material';
 import { toast } from 'react-toastify';
+import PublicPage from '../../components/public/PublicPage';
 import NFTService from '../../services/nft.service';
 import VerificationStatusBox from '../../components/services/VerificationStatusBox';
-
 const VerifyNotarizationProfile = () => {
   const [inputValue, setInputValue] = useState('');
   const [displayText, setDisplayText] = useState('');
@@ -27,7 +25,6 @@ const VerifyNotarizationProfile = () => {
 
       try {
         const response = await NFTService.getNFTMetadata(inputValue);
-        console.log('NFT Response:', response);
 
         if (response.mintAddress) {
           setDisplayText(response.mintAddress);
@@ -53,143 +50,25 @@ const VerifyNotarizationProfile = () => {
 
   const renderStatusBox = () => {
     if (status.notFound) {
-      return <VerificationStatusBox status={status} displayText={displayText} nftData={nftData} />;
+      return <VerificationStatusBox status={status} displayText={displayText} nftData={nftData} onRetry={handleSearchClick} />;
     }
     if (status.searching) {
       return <VerificationStatusBox status={status} displayText={displayText} />;
     }
     if (status.found) {
-      return <VerificationStatusBox status={status} displayText={displayText} nftData={nftData} />;
+      return <VerificationStatusBox status={status} displayText={displayText} nftData={nftData} onRetry={handleSearchClick} />;
     }
   };
 
-  return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      {/* Header Section */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          py: { xs: 4, md: 6 },
-          px: 2,
-        }}
-      >
-        <Box sx={{ textAlign: 'center', maxWidth: 800 }}>
-          <Typography
-            variant="h2"
-            sx={{
-              fontWeight: 700,
-              color: dark[500],
-              mb: 2,
-              fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-            }}
-          >
-            Xác minh hồ sơ công chứng
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              color: dark[400],
-              maxWidth: 600,
-              mx: 'auto',
-              fontSize: { xs: 14, md: 16 },
-              lineHeight: 1.6,
-            }}
-          >
-            Nhập địa chỉ mint NFT để xác minh tính xác thực và toàn vẹn của hồ sơ công chứng được lưu trữ trên blockchain
-          </Typography>
-        </Box>
-
-        <Box
-          sx={{
-            display: 'flex',
-            width: { xs: '100%', sm: '80%', md: '60%', lg: '50%' },
-            maxWidth: 600,
-            mt: 4,
-            gap: 2,
-            flexDirection: { xs: 'column', sm: 'row' },
-          }}
-        >
-          <TextField
-            variant="outlined"
-            size="medium"
-            placeholder="Nhập địa chỉ mint NFT (ví dụ: HCisfveXe1PrqYTknbod9cvVMUYgmAwLZVaWGW18dj3z)"
-            autoFocus
-            value={inputValue}
-            onChange={handleInputChange}
-            sx={{
-              flex: 1,
-              '& .MuiInputBase-input': {
-                fontSize: 14,
-                py: 1.5,
-              },
-              '& .MuiOutlinedInput-root': {
-                borderRadius: 2,
-                '&:hover .MuiOutlinedInput-notchedOutline': {
-                  borderColor: primary[300],
-                },
-                '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  borderColor: primary[500],
-                  borderWidth: 2,
-                },
-              },
-            }}
-            disabled={searchLoading}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                handleSearchClick();
-              }
-            }}
-          />
-          <Button
-            disabled={searchLoading}
-            startIcon={<SearchRoundedIcon />}
-            variant="contained"
-            disableElevation
-            sx={{
-              px: 3,
-              py: 1.5,
-              backgroundColor: primary[500],
-              color: 'white',
-              borderRadius: 2,
-              fontWeight: 600,
-              textTransform: 'none',
-              minWidth: { xs: 'auto', sm: 120 },
-              '&:hover': {
-                backgroundColor: primary[600],
-              },
-              '&:disabled': {
-                backgroundColor: gray[300],
-                color: gray[500],
-              },
-            }}
-            onClick={handleSearchClick}
-          >
-            <Typography variant="button" sx={{ fontSize: 14 }}>
-              Xác minh
-            </Typography>
-          </Button>
-        </Box>
+  return <PublicPage title="Xác minh hồ sơ công chứng" intro="Đối chiếu thông tin bản ghi tài liệu (NFT) trên blockchain. Bản ghi không thay thế kết quả xem xét hồ sơ hoặc xác nhận của người có thẩm quyền.">
+    <Paper variant="outlined" sx={{ p: { xs: 2, md: 3 }, maxWidth: 760, mb: 3 }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, alignItems: 'flex-start' }}>
+        <TextField fullWidth label="Mã bản ghi tài liệu (địa chỉ mint NFT)" helperText="Sao chép mã từ phần thông tin tài liệu trong ví tài liệu. Mạng hiện tại: Solana devnet thử nghiệm." value={inputValue} onChange={handleInputChange} disabled={searchLoading} onKeyDown={(event) => { if (event.key === 'Enter' && !searchLoading) handleSearchClick(); }} />
+        <Button variant="contained" onClick={handleSearchClick} disabled={searchLoading} sx={{ minWidth: 120, width: { xs: '100%', sm: 'auto' } }}>{searchLoading ? 'Đang kiểm tra…' : 'Xác minh'}</Button>
       </Box>
-
-      {/* Results Section */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          backgroundColor: gray[50],
-          flex: 1,
-          py: 4,
-          px: 2,
-        }}
-      >
-        {renderStatusBox()}
-      </Box>
-    </Box>
-  );
+    </Paper>
+    <Box sx={{ maxWidth: 900, minWidth: 0 }}>{renderStatusBox()}</Box>
+    <Typography color="text.secondary" sx={{ mt: 3 }}>Mã bản ghi khác với mã hồ sơ. Việc tìm thấy bản ghi không đồng nghĩa đã kiểm tra nội dung hoặc giá trị pháp lý của tài liệu.</Typography>
+  </PublicPage>;
 };
-
 export default VerifyNotarizationProfile;

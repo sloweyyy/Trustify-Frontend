@@ -17,19 +17,9 @@ import { useNavigate } from 'react-router-dom';
 import { signInWithGoogle } from '../../services/auth.service';
 
 const Card = styled(MuiCard)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignSelf: 'center',
-  width: '100%',
-  padding: theme.spacing(4),
-  gap: theme.spacing(2),
-  boxShadow: 'hsla(220, 30%, 5%, 0.05) 0px 5px 15px 0px, hsla(220, 25%, 10%, 0.05) 0px 15px 35px -5px',
-  [theme.breakpoints.up('sm')]: {
-    width: '450px',
-  },
-  ...theme.applyStyles('dark', {
-    boxShadow: 'hsla(220, 30%, 5%, 0.5) 0px 5px 15px 0px, hsla(220, 25%, 10%, 0.08) 0px 15px 35px -5px',
-  }),
+  display: 'flex', flexDirection: 'column', width: '100%', minWidth: 0,
+  padding: theme.spacing(3), gap: theme.spacing(2), boxShadow: 'none',
+  backgroundColor: theme.palette.background.paper,
 }));
 
 export default function SignUpCard() {
@@ -44,23 +34,17 @@ export default function SignUpCard() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      name: data.get('name'),
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
 
     try {
-      const response = await AuthService.register(data.get('name'), data.get('email'), data.get('password'));
-      console.log(response);
+      await AuthService.register(data.get('name'), data.get('email'), data.get('password'));
       toast.success('Đăng ký thành công! Vui lòng kiểm tra email để kích hoạt tài khoản.');
       navigate('/signin/');
     } catch (error) {
-      console.error('Registration error:', error);
       if (error.code === 400) {
         toast.error('Email đã tồn tại');
       } else {
-        toast.error(`Đăng ký thất bại: ${error}`);
+        toast.error('Chưa đăng ký được tài khoản. Bạn kiểm tra thông tin rồi thử lại.');
       }
     }
   };
@@ -81,6 +65,7 @@ export default function SignUpCard() {
       </Typography>
       <Box
         component="form"
+        aria-label="Biểu mẫu đăng ký"
         onSubmit={handleSubmit}
         noValidate
         sx={{
@@ -100,7 +85,6 @@ export default function SignUpCard() {
             name="name"
             placeholder="Nguyễn Văn A"
             autoComplete="name"
-            autoFocus
             required
             fullWidth
             variant="outlined"
@@ -116,7 +100,7 @@ export default function SignUpCard() {
             id="email"
             type="email"
             name="email"
-            placeholder="your@email.com"
+            placeholder="tenban@example.com"
             autoComplete="email"
             required
             fullWidth

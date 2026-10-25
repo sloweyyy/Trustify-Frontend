@@ -1,61 +1,19 @@
 import React from 'react';
-import { Container, Typography, Box, Paper, Grid } from '@mui/material';
+import PublicArticle from '../../../components/public/PublicArticle';
+import { Typography, Box, Paper, Grid } from '@mui/material';
 import { dark, gray, primary } from '../../../config/theme/themePrimitives';
-import SecurityIcon from '@mui/icons-material/Security';
+
 
 const PrivacyPolicy = () => {
-  return (
-    <Box>
-      {/* Header Section */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          py: 10,
-          backgroundColor: primary[50],
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <Box
-          sx={{
-            position: 'absolute',
-            width: '50vw',
-            height: '50vw',
-            top: '70%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            borderRadius: '50%',
-            filter: 'blur(200px)',
-            background: `linear-gradient(180deg, ${primary[50]} 0%, ${primary[50]} 30%, ${primary[100]} 100%)`,
-            zIndex: 0,
-          }}
-        />
-        <Box sx={{ position: 'relative', zIndex: 1, textAlign: 'center', px: 4 }}>
-          <Typography variant="h6" color={primary[500]} gutterBottom>
-            CHÍNH SÁCH
-          </Typography>
-          <Typography variant="h2" fontWeight="bold" color={dark[500]} gutterBottom>
-            Chính sách bảo mật
-          </Typography>
-          <Typography variant="subtitle1" color={dark[500]} sx={{ maxWidth: 800, mx: 'auto', mb: 3 }}>
-            Chúng tôi cam kết bảo vệ quyền riêng tư và thông tin cá nhân của bạn thông qua các biện pháp bảo mật tiên tiến.
-          </Typography>
-          <SecurityIcon sx={{ fontSize: 60, color: primary[300], mb: 2 }} />
-        </Box>
-      </Box>
-
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Paper elevation={0} sx={{ p: 4, borderRadius: 2 }}>
+  return <PublicArticle title="Chính sách bảo mật">
+        <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}>
           <Typography variant="body1" paragraph sx={{ mb: 4 }}>
             Chúng tôi cam kết bảo vệ quyền riêng tư và thông tin cá nhân của bạn. Chính sách bảo mật này mô tả cách chúng tôi
             thu thập, sử dụng, lưu trữ và bảo vệ thông tin cá nhân của bạn khi sử dụng dịch vụ công chứng trực tuyến của
             chúng tôi.
           </Typography>
 
-          <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+          <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
             Thông tin chúng tôi thu thập
           </Typography>
           <Typography variant="body1" paragraph sx={{ mb: 3 }}>
@@ -79,8 +37,8 @@ const PrivacyPolicy = () => {
 
           <Grid container spacing={4} sx={{ my: 5 }}>
             <Grid item xs={12} md={6}>
-              <Paper elevation={0} sx={{ p: 4, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
-                <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                   Mục đích sử dụng thông tin
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ mb: 3 }}>
@@ -107,8 +65,8 @@ const PrivacyPolicy = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Paper elevation={0} sx={{ p: 4, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
-                <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                   Bảo mật thông tin
                 </Typography>
                 <Typography variant="body1" paragraph>
@@ -116,7 +74,7 @@ const PrivacyPolicy = () => {
                   khỏi mất mát, truy cập trái phép, tiết lộ, thay đổi hoặc phá hủy. Các biện pháp này bao gồm mã hóa dữ liệu,
                   hạn chế truy cập, và quy trình kiểm soát nội bộ nghiêm ngặt.
                 </Typography>
-                <Typography variant="h6" gutterBottom fontWeight="bold" color={dark[500]} sx={{ mt: 3 }}>
+                <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={dark[500]} sx={{ mt: 3 }}>
                   Thời gian lưu trữ
                 </Typography>
                 <Typography variant="body1" paragraph>
@@ -127,7 +85,7 @@ const PrivacyPolicy = () => {
             </Grid>
           </Grid>
 
-          <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+          <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
             Quyền của bạn
           </Typography>
           <Typography variant="body1" paragraph sx={{ mb: 3 }}>
@@ -151,7 +109,7 @@ const PrivacyPolicy = () => {
             </Typography>
           </Box>
 
-          <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+          <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
             Thay đổi chính sách bảo mật
           </Typography>
           <Typography variant="body1" paragraph sx={{ mb: 4 }}>
@@ -160,8 +118,8 @@ const PrivacyPolicy = () => {
             thông báo trên trang web hoặc gửi email trực tiếp cho bạn.
           </Typography>
 
-          <Box sx={{ backgroundColor: gray[50], p: 4, borderRadius: 2, mt: 5 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+          <Box sx={{ backgroundColor: gray[50], p: { xs: 2, md: 3 }, borderRadius: 2, mt: 5 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               Liên hệ với chúng tôi
             </Typography>
             <Typography variant="body1">
@@ -181,9 +139,8 @@ const PrivacyPolicy = () => {
             </Box>
           </Box>
         </Paper>
-      </Container>
-    </Box>
-  );
+
+  </PublicArticle>;
 };
 
 export default PrivacyPolicy;

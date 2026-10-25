@@ -1,54 +1,12 @@
 import React from 'react';
-import { Container, Typography, Box, Paper, Grid, Divider } from '@mui/material';
+import PublicArticle from '../../../components/public/PublicArticle';
+import { Typography, Box, Paper, Grid, Divider } from '@mui/material';
 import { dark, gray, primary } from '../../../config/theme/themePrimitives';
-import GavelIcon from '@mui/icons-material/Gavel';
+
 
 const TermsOfService = () => {
-  return (
-    <Box>
-      {/* Header Section */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          py: 10,
-          backgroundColor: primary[50],
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <Box
-          sx={{
-            position: 'absolute',
-            width: '50vw',
-            height: '50vw',
-            top: '70%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            borderRadius: '50%',
-            filter: 'blur(200px)',
-            background: `linear-gradient(180deg, ${primary[50]} 0%, ${primary[50]} 30%, ${primary[100]} 100%)`,
-            zIndex: 0,
-          }}
-        />
-        <Box sx={{ position: 'relative', zIndex: 1, textAlign: 'center', px: 4 }}>
-          <Typography variant="h6" color={primary[500]} gutterBottom>
-            CHÍNH SÁCH
-          </Typography>
-          <Typography variant="h2" fontWeight="bold" color={dark[500]} gutterBottom>
-            Điều khoản sử dụng
-          </Typography>
-          <Typography variant="subtitle1" color={dark[500]} sx={{ maxWidth: 800, mx: 'auto', mb: 3 }}>
-            Các quy định và điều khoản khi sử dụng dịch vụ công chứng trực tuyến của chúng tôi
-          </Typography>
-          <GavelIcon sx={{ fontSize: 60, color: primary[300], mb: 2 }} />
-        </Box>
-      </Box>
-
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Paper elevation={0} sx={{ p: 4, borderRadius: 2 }}>
+  return <PublicArticle title="Điều khoản sử dụng">
+        <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}>
           <Typography variant="body1" paragraph sx={{ mb: 4 }}>
             Xin chào mừng đến với hệ thống công chứng trực tuyến của chúng tôi. Bằng việc truy cập và sử dụng dịch vụ, bạn
             đồng ý tuân thủ và chấp nhận các điều khoản và điều kiện sau đây. Vui lòng đọc kỹ trước khi sử dụng dịch vụ.
@@ -56,8 +14,8 @@ const TermsOfService = () => {
 
           <Grid container spacing={4} sx={{ mb: 6 }}>
             <Grid item xs={12} md={6}>
-              <Paper elevation={0} sx={{ p: 4, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
-                <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                   1. Giới thiệu dịch vụ
                 </Typography>
                 <Typography variant="body1">
@@ -69,8 +27,8 @@ const TermsOfService = () => {
               </Paper>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Paper elevation={0} sx={{ p: 4, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
-                <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                   2. Đăng ký và tài khoản
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 2 }}>
@@ -92,7 +50,7 @@ const TermsOfService = () => {
           </Grid>
 
           <Box sx={{ mb: 5 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               3. Quy trình công chứng
             </Typography>
             <Typography variant="body1" paragraph>
@@ -102,8 +60,8 @@ const TermsOfService = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ mb: 5, backgroundColor: gray[50], p: 4, borderRadius: 2 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+          <Box sx={{ mb: 5, backgroundColor: gray[50], p: { xs: 2, md: 3 }, borderRadius: 2 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               4. Trách nhiệm của người dùng
             </Typography>
             <Typography variant="body1" paragraph>
@@ -132,7 +90,7 @@ const TermsOfService = () => {
 
           <Grid container spacing={4} sx={{ mb: 5 }}>
             <Grid item xs={12} md={6}>
-              <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                 5. Phí dịch vụ và thanh toán
               </Typography>
               <Typography variant="body1">
@@ -142,7 +100,7 @@ const TermsOfService = () => {
               </Typography>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                 6. Quyền sở hữu trí tuệ
               </Typography>
               <Typography variant="body1">
@@ -155,7 +113,7 @@ const TermsOfService = () => {
           </Grid>
 
           <Box sx={{ mb: 5 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               7. Giới hạn trách nhiệm
             </Typography>
             <Typography variant="body1">
@@ -167,7 +125,7 @@ const TermsOfService = () => {
           </Box>
 
           <Box sx={{ mb: 5 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               8. Chấm dứt dịch vụ
             </Typography>
             <Typography variant="body1">
@@ -177,8 +135,8 @@ const TermsOfService = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ mb: 5, backgroundColor: primary[50], p: 4, borderRadius: 2 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+          <Box sx={{ mb: 5, backgroundColor: primary[50], p: { xs: 2, md: 3 }, borderRadius: 2 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               9. Thay đổi điều khoản
             </Typography>
             <Typography variant="body1">
@@ -189,7 +147,7 @@ const TermsOfService = () => {
           </Box>
 
           <Box sx={{ mb: 5 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               10. Luật áp dụng và giải quyết tranh chấp
             </Typography>
             <Typography variant="body1">
@@ -199,8 +157,8 @@ const TermsOfService = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ backgroundColor: gray[50], p: 4, borderRadius: 2, mt: 5 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+          <Box sx={{ backgroundColor: gray[50], p: { xs: 2, md: 3 }, borderRadius: 2, mt: 5 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               11. Liên hệ
             </Typography>
             <Typography variant="body1">
@@ -219,9 +177,8 @@ const TermsOfService = () => {
             </Box>
           </Box>
         </Paper>
-      </Container>
-    </Box>
-  );
+
+  </PublicArticle>;
 };
 
 export default TermsOfService;
