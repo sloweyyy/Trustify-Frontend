@@ -1,0 +1,214 @@
+
+> trustify@0.1.0 build
+> react-scripts build
+
+Creating an optimized production build...
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+One of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it may break at any time.
+
+babel-preset-react-app is part of the create-react-app project, which
+is not maintianed anymore. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.
+
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 18 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Compiled with warnings.
+
+[eslint]
+src/components/ChatAssistant.js
+  Line 1:10:  'Box' is defined but never used  no-unused-vars
+
+src/components/notary/NotaryAnalyticsSession.js
+  Line 3:33:  'Typography' is defined but never used  no-unused-vars
+
+src/components/payment/PaymentRedirect.js
+  Line 12:9:  'navigate' is assigned a value but never used  no-unused-vars
+
+src/components/services/FilePreviewModal.js
+  Line 4:17:  'black' is defined but never used                                                                             no-unused-vars
+  Line 25:6:  React Hook useEffect has a missing dependency: 'fetchFile'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/components/services/HorizontalCard.js
+  Line 2:44:  'CircularProgress' is defined but never used  no-unused-vars
+
+src/components/services/NotarizationSessionDetailsModal.js
+  Line 11:33:   'STATUS_TYPES' is defined but never used                                                                    no-unused-vars
+  Line 14:8:    'NotaryFeedback' is defined but never used                                                                  no-unused-vars
+  Line 103:23:  React Hook useCallback received a function whose dependencies are unknown. Pass an inline function instead  react-hooks/exhaustive-deps
+
+src/components/services/TransferModal.js
+  Line 81:23:  React Hook useCallback received a function whose dependencies are unknown. Pass an inline function instead  react-hooks/exhaustive-deps
+
+src/components/services/UserWalletModal.js
+  Line 1:52:  'CircularProgress' is defined but never used                                                                            no-unused-vars
+  Line 5:8:   'IPFSService' is defined but never used                                                                                 no-unused-vars
+  Line 31:6:  React Hook useCallback has an unnecessary dependency: 'documents'. Either exclude it or remove the dependency array     react-hooks/exhaustive-deps
+  Line 35:6:  React Hook useEffect has a missing dependency: 'fetchDocumentWallet'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/admin/employee-management/CreateNotaryAccountModal.js
+  Line 3:32:  'red' is defined but never used  no-unused-vars
+
+src/pages/admin/employee-management/DataTable.js
+  Line 15:30:  'Button' is defined but never used                                                                                     no-unused-vars
+  Line 57:16:  'setPage' is assigned a value but never used                                                                           no-unused-vars
+  Line 58:20:  'setPageSize' is assigned a value but never used                                                                       no-unused-vars
+  Line 169:6:  React Hook React.useMemo has a missing dependency: 'filterList.All'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/admin/user-management/UserDataTable.js
+  Line 2:20:   'useEffect' is defined but never used                                                                                  no-unused-vars
+  Line 16:30:  'Button' is defined but never used                                                                                     no-unused-vars
+  Line 190:6:  React Hook React.useMemo has a missing dependency: 'filterList.All'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/admin/user-management/UserOverview.js
+  Line 2:10:  'Diversity3Rounded' is defined but never used  no-unused-vars
+  Line 4:10:  'black' is defined but never used              no-unused-vars
+  Line 4:17:  'gray' is defined but never used               no-unused-vars
+
+src/pages/services/CreateNotarizationSession.js
+  Line 64:24:  React Hook useCallback received a function whose dependencies are unknown. Pass an inline function instead    react-hooks/exhaustive-deps
+  Line 123:6:  React Hook useEffect has a missing dependency: 'sessionId'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  Line 130:6:  React Hook useEffect has a missing dependency: 'dispatch'. Either include it or remove the dependency array   react-hooks/exhaustive-deps
+
+src/pages/services/LookupNotarizationProfile.js
+  Line 3:10:  'black' is defined but never used  no-unused-vars
+
+src/pages/services/create-notarization-profile/FileUploadSection.js
+  Line 2:51:  'CircularProgress' is defined but never used  no-unused-vars
+  Line 5:10:  'VALID_FORMATS' is defined but never used     no-unused-vars
+  Line 7:8:   'IPFSService' is defined but never used       no-unused-vars
+
+src/pages/signin/ForgotPasswordModal.js
+  Line 37:13:  'errorMessage' is assigned a value but never used  no-unused-vars
+
+src/pages/static/policy/PaymentSecurity.js
+  Line 3:31:  'white' is defined but never used  no-unused-vars
+
+src/pages/static/product/ForIndividuals.js
+  Line 2:75:  'ListItemIcon' is defined but never used            no-unused-vars
+  Line 2:89:  'ListItemText' is defined but never used            no-unused-vars
+  Line 4:8:   'CheckCircleOutlineIcon' is defined but never used  no-unused-vars
+
+src/pages/static/product/ForNotaryOffices.js
+  Line 2:68:  'Card' is defined but never used         no-unused-vars
+  Line 2:74:  'CardContent' is defined but never used  no-unused-vars
+  Line 3:25:  'white' is defined but never used        no-unused-vars
+
+src/routes/PaymentRoute.js
+  Line 1:8:  'React' is defined but never used  no-unused-vars
+
+src/services/auth.service.js
+  Line 57:9:  Expected an error object to be thrown  no-throw-literal
+
+src/services/user.service.js
+  Line 4:7:  'USER_EMAIL_ENDPOINT' is assigned a value but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+File sizes after gzip:
+
+  756.62 kB         build/static/js/330.2114ed66.chunk.js
+  244.34 kB (+6 B)  build/static/js/main.f930a3a3.js
+  93.16 kB          build/static/js/470.2dda5671.chunk.js
+  65.23 kB          build/static/js/270.4bc70e0a.chunk.js
+  61.56 kB          build/static/js/49.7cf94d78.chunk.js
+  48 kB             build/static/js/963.2ed0d00b.chunk.js
+  11.72 kB          build/static/js/38.36a04ca6.chunk.js
+  10.93 kB          build/static/js/803.d9727973.chunk.js
+  10.65 kB          build/static/js/701.f851fc03.chunk.js
+  9.13 kB           build/static/js/942.a9a4f526.chunk.js
+  8.27 kB           build/static/js/624.c86b061a.chunk.js
+  7.18 kB           build/static/js/532.cfd2bfe1.chunk.js
+  7.16 kB           build/static/js/335.1fa322fd.chunk.js
+  6.92 kB           build/static/js/969.c9d147d8.chunk.js
+  6.17 kB           build/static/js/87.36d5b4e4.chunk.js
+  6.04 kB           build/static/js/966.7c52a574.chunk.js
+  5.93 kB           build/static/js/151.85695879.chunk.js
+  5.86 kB           build/static/js/615.a46e2ae6.chunk.js
+  5.61 kB           build/static/js/766.71ef8169.chunk.js
+  5.51 kB           build/static/js/848.d7652f5b.chunk.js
+  5.47 kB           build/static/js/800.6d07d3e8.chunk.js
+  5.33 kB           build/static/js/968.a259d873.chunk.js
+  5.14 kB           build/static/js/344.cd1a6ccb.chunk.js
+  5.11 kB           build/static/js/856.75749c6e.chunk.js
+  4.95 kB           build/static/js/760.4bf975ce.chunk.js
+  4.8 kB            build/static/js/583.25245731.chunk.js
+  4.69 kB           build/static/js/977.7c89bc7c.chunk.js
+  4.6 kB            build/static/js/204.d176cb9b.chunk.js
+  4.57 kB           build/static/js/594.6f472c07.chunk.js
+  4.1 kB            build/static/js/203.51148def.chunk.js
+  3.92 kB           build/static/js/494.7dda73a3.chunk.js
+  3.9 kB            build/static/js/180.bd6203cf.chunk.js
+  3.54 kB           build/static/js/600.8a14a88b.chunk.js
+  3.48 kB           build/static/js/94.5e838dec.chunk.js
+  3.42 kB           build/static/js/307.3603a6b6.chunk.js
+  3.17 kB           build/static/js/872.3854397b.chunk.js
+  2.91 kB           build/static/js/845.c7f07237.chunk.js
+  2.89 kB           build/static/js/629.29710061.chunk.js
+  2.77 kB           build/static/css/203.6e597009.chunk.css
+  2.77 kB           build/static/css/315.6e597009.chunk.css
+  2.77 kB           build/static/css/335.6e597009.chunk.css
+  2.77 kB           build/static/css/494.6e597009.chunk.css
+  2.77 kB           build/static/css/701.6e597009.chunk.css
+  2.77 kB           build/static/css/848.6e597009.chunk.css
+  2.77 kB           build/static/css/969.6e597009.chunk.css
+  2.77 kB           build/static/css/600.6e597009.chunk.css
+  2.77 kB           build/static/css/38.6e597009.chunk.css
+  2.58 kB           build/static/js/537.ea6e6f93.chunk.js
+  2.58 kB           build/static/js/667.c3f7bcf6.chunk.js
+  2.34 kB           build/static/js/639.ba281bda.chunk.js
+  1.87 kB           build/static/js/315.47c882cc.chunk.js
+  1.78 kB           build/static/js/453.b6a0ba03.chunk.js
+  1.49 kB           build/static/js/530.ca56510d.chunk.js
+  1.23 kB           build/static/js/324.0941fb9e.chunk.js
+  1.23 kB           build/static/js/63.3275aad2.chunk.js
+  947 B             build/static/css/main.e8b6e28d.css
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment

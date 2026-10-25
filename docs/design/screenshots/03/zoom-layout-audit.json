@@ -1,0 +1,127 @@
+{
+  "source": "PR14 implementation; source unchanged during review",
+  "method": "720×500 CSS viewport with deviceScaleFactor2: desktop200% layout equivalent, not native browser zoom",
+  "results": [
+    {
+      "role": "user",
+      "route": "/user/create-notarization-profile",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "user",
+      "route": "/user/history",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "user",
+      "route": "/user/notarization-session",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "user",
+      "route": "/user/document-wallet",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "user",
+      "route": "/profile",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "user",
+      "route": "/payment/redirect",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "notary",
+      "route": "/notary/dashboard",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "notary",
+      "route": "/notary/pending-notarization-documents",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "notary",
+      "route": "/notary/awaiting-signature-documents",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notarization-history",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notary-session-management",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "notary",
+      "route": "/profile",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "notary",
+      "route": "/payment/redirect",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "admin",
+      "route": "/admin/dashboard",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "admin",
+      "route": "/admin/employee-management",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "admin",
+      "route": "/admin/user-management",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "admin",
+      "route": "/admin/settings",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "admin",
+      "route": "/profile",
+      "width": 720,
+      "scrollWidth": 720
+    },
+    {
+      "role": "admin",
+      "route": "/payment/redirect",
+      "width": 720,
+      "scrollWidth": 720
+    }
+  ],
+  "errors": []
+}

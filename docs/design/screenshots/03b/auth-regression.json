@@ -1,0 +1,126 @@
+{
+  "reason": "Page-level Suspense keeps shell transitions/focus mounted while route content loads.",
+  "results": [
+    {
+      "role": "user",
+      "route": "/user/create-notarization-profile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "user",
+      "route": "/user/history",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "user",
+      "route": "/user/notarization-session",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "user",
+      "route": "/user/document-wallet",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "user",
+      "route": "/profile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "user",
+      "route": "/payment/redirect",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/notary/dashboard",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/notary/pending-notarization-documents",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/notary/awaiting-signature-documents",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notarization-history",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notary-session-management",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/profile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/payment/redirect",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/admin/dashboard",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/admin/employee-management",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/admin/user-management",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/admin/settings",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/profile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/payment/redirect",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "errors": []
+}

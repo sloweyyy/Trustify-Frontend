@@ -1,0 +1,87 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 65
+      },
+      "footer": {
+        "x": 0,
+        "y": 1065,
+        "width": 1440,
+        "height": 443.375
+      }
+    },
+    {
+      "width": 1280,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 65
+      },
+      "footer": {
+        "x": 0,
+        "y": 1065,
+        "width": 1280,
+        "height": 443.375
+      }
+    },
+    {
+      "width": 720,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 720,
+        "height": 65
+      },
+      "footer": {
+        "x": 0,
+        "y": 1065,
+        "width": 720,
+        "height": 763.171875
+      }
+    },
+    {
+      "width": 390,
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 65
+      },
+      "footer": {
+        "x": 0,
+        "y": 909,
+        "width": 390,
+        "height": 954.171875
+      }
+    }
+  ],
+  "contrast": {
+    "fg": [
+      255,
+      255,
+      255
+    ],
+    "bg": [
+      100,
+      17,
+      35
+    ],
+    "ratio": 12.755765322079576
+  },
+  "errors": [],
+  "checks": [
+    "44px header/footer link targets",
+    "header/footer within viewport at390/720/1280/1440",
+    "skip link focuses content",
+    "Drawer focus trap and Escape restoration",
+    "route click closes Drawer and restores opener"
+  ],
+  "footerBaseline": "Main production b9b098a; initial page baselines were captured locally at same commit.",
+  "checkedAt": "2026-10-25T01:21:46.696Z"
+}

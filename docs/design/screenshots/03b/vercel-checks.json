@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "6b9439632ae3118fce2200fb28439cdce6a59c2d",
+  "deployment": "https://vercel.com/sloweyyy/trustify-notary/A6KvhW4wFyAS7de8gLUU2dcuU4dE",
+  "preview": "https://trustify-notary-git-design-03b-public-shell-sloweyyy.vercel.app",
+  "ready": true,
+  "checkedAt": "2026-10-25T01:34:22.376735+00:00",
+  "publicChecks": [
+    "desktop/mobile header and footer",
+    "menu Escape/Enter/navigation sequence",
+    "policy destination correct",
+    "footer Enter returns focus to page-content",
+    "skip target excludes header and next Tab enters textbox"
+  ],
+  "roles": "User/Notary/Admin sign-in → private menu → shared verify via existing full reload → sign-out. Public footer absent during auth/restored after logout. All verify widths390.",
+  "mutations": "Routine sign-in/out only. No forms submitted, account changes, notarization, signing or payments. Contact/social links were not activated.",
+  "screenshots": 10,
+  "knownGaps": [
+    "Existing Home703px/Services399px/UserGuide645px body overflow is tracked for Public09",
+    "Old public claims/copy and small chatbot launcher remain for09/10"
+  ]
+}

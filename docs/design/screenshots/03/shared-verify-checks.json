@@ -1,0 +1,20 @@
+[
+  {
+    "role": "user",
+    "route": "/verify",
+    "clientWidth": 390,
+    "scrollWidth": 390
+  },
+  {
+    "role": "notary",
+    "route": "/verify",
+    "clientWidth": 390,
+    "scrollWidth": 390
+  },
+  {
+    "role": "admin",
+    "route": "/verify",
+    "clientWidth": 390,
+    "scrollWidth": 390
+  }
+]
