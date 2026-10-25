@@ -1,0 +1,95 @@
+{
+  "method": "Native Chrome Cmd+equal ×5 after Cmd+0; toolbar accessibility explicitly showed Zoom:200%. Baseline devicePixelRatio2 became4. DOM observations read through the same dedicated Chrome QA tab.",
+  "base": "http://127.0.0.1:4176",
+  "scope": "Eight representative screens across all four roles plus User sign-out dialog; separate172-case responsive passes are not claimed as native browser zoom.",
+  "checks": [
+    {
+      "role": "user",
+      "route": "/user/create-notarization-profile",
+      "zoom": "200%",
+      "width": 780,
+      "scrollWidth": 780,
+      "dpr": 4,
+      "heading": "Tạo hồ sơ công chứng"
+    },
+    {
+      "role": "user",
+      "route": "/user/history",
+      "zoom": "200%",
+      "width": 780,
+      "scrollWidth": 780,
+      "dpr": 4,
+      "heading": "Lịch sử hồ sơ công chứng"
+    },
+    {
+      "role": "user",
+      "route": "/user/document-wallet",
+      "zoom": "200%",
+      "width": 780,
+      "scrollWidth": 780,
+      "dpr": 4,
+      "heading": "Ví tài liệu"
+    },
+    {
+      "role": "user",
+      "route": "/profile",
+      "zoom": "200%",
+      "width": 780,
+      "scrollWidth": 780,
+      "dpr": 4,
+      "context": "Sign-out confirmation dialog",
+      "dialogFits": true
+    },
+    {
+      "role": "notary",
+      "route": "/notary/dashboard",
+      "zoom": "200%",
+      "width": 780,
+      "scrollWidth": 780,
+      "dpr": 4,
+      "heading": "Tổng quan công chứng"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notarization-history",
+      "zoom": "200%",
+      "width": 780,
+      "scrollWidth": 780,
+      "dpr": 4,
+      "heading": "Lịch sử công chứng"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/dashboard",
+      "zoom": "200%",
+      "width": 780,
+      "scrollWidth": 780,
+      "dpr": 4,
+      "heading": "Tổng quan quản trị",
+      "englishOpenButtons": 0
+    },
+    {
+      "role": "admin",
+      "route": "/admin/employee-management",
+      "zoom": "200%",
+      "width": 780,
+      "scrollWidth": 780,
+      "dpr": 4,
+      "heading": "Quản lý nhân viên"
+    },
+    {
+      "role": "public",
+      "route": "/signup",
+      "zoom": "200%",
+      "width": 780,
+      "scrollWidth": 780,
+      "dpr": 4,
+      "heading": "Đăng ký"
+    }
+  ],
+  "keyboardObservation": {
+    "userDrawerEscapeRestored": "Mở menu điều hướng"
+  },
+  "cleanup": "Dedicated QA tab closed via browser API. Mac locked before native zoom reset; localhost4176 per-origin temporary zoom may remain200%. No production-site zoom was changed. Retry reset only if the native Mac is available later; this does not block source or browser-extension QA.",
+  "recordedAt": "2026-10-25T22:37:50.435953+07:00"
+}

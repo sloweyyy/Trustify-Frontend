@@ -1,0 +1,119 @@
+{
+  "mode": "production",
+  "base": "https://trustify-notary.vercel.app",
+  "sha": "e6df39aaf1b5ed867b5ddfd6b95c0ba5572b5b1c",
+  "uiBaseline": "d9ad42c",
+  "sourceDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "startedAt": "2026-10-25T16:08:15.103Z",
+  "writes": [],
+  "pageErrors": [],
+  "apiFailures": [],
+  "routes": [
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "size": "desktop",
+      "status": 200,
+      "actualPath": "/admin/notary-management",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "headings": 1,
+      "smallTargets": [],
+      "unlabelledInputs": [],
+      "englishControls": [],
+      "duplicateIds": [],
+      "overflowElements": [],
+      "font": "\"Be Vietnam Pro\", Arial, sans-serif",
+      "readErrorActions": 0,
+      "mobileEmptyVisible": 0,
+      "sessionGridRows": 0
+    },
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "size": "mobile",
+      "status": 200,
+      "actualPath": "/admin/notary-management",
+      "width": 390,
+      "scrollWidth": 390,
+      "headings": 1,
+      "smallTargets": [],
+      "unlabelledInputs": [],
+      "englishControls": [],
+      "duplicateIds": [],
+      "overflowElements": [],
+      "font": "\"Be Vietnam Pro\", Arial, sans-serif",
+      "readErrorActions": 0,
+      "mobileEmptyVisible": 1,
+      "sessionGridRows": 0
+    },
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "size": "narrow",
+      "status": 200,
+      "actualPath": "/admin/notary-management",
+      "width": 320,
+      "scrollWidth": 320,
+      "headings": 1,
+      "smallTargets": [],
+      "unlabelledInputs": [],
+      "englishControls": [],
+      "duplicateIds": [],
+      "overflowElements": [],
+      "font": "\"Be Vietnam Pro\", Arial, sans-serif",
+      "readErrorActions": 0,
+      "mobileEmptyVisible": 1,
+      "sessionGridRows": 0
+    },
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "size": "tablet",
+      "status": 200,
+      "actualPath": "/admin/notary-management",
+      "width": 768,
+      "scrollWidth": 768,
+      "headings": 1,
+      "smallTargets": [],
+      "unlabelledInputs": [],
+      "englishControls": [],
+      "duplicateIds": [],
+      "overflowElements": [],
+      "font": "\"Be Vietnam Pro\", Arial, sans-serif",
+      "readErrorActions": 0,
+      "mobileEmptyVisible": 0,
+      "sessionGridRows": 0
+    }
+  ],
+  "assistant": [
+    {
+      "role": "admin",
+      "size": "desktop",
+      "fit": true,
+      "bounds": {
+        "x": 1056,
+        "y": 376,
+        "width": 360,
+        "height": 600
+      },
+      "focusRestored": true
+    },
+    {
+      "role": "admin",
+      "size": "mobile",
+      "fit": true,
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844
+      },
+      "focusRestored": true
+    }
+  ],
+  "notes": [
+    "Local auth display identity and GET JSON display fields are anonymized at the browser boundary. IDs in screenshot data are synthetic; credentials/tokens are never written to evidence. Production checks use actual reads without response changes. Only login and token refresh POST are allowed. No create/edit/upload/share/sign/approve/reject/payment/password-reset/chat message is submitted. Bare payment redirect only; never a synthetic live orderCode."
+  ],
+  "finishedAt": "2026-10-25T16:08:19.635Z"
+}

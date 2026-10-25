@@ -1,6 +1,6 @@
 # Trustify — Nhận diện thương hiệu
 
-**Giai đoạn 1 · Đã duyệt hướng B · 25/10/2026.** Người dùng xác nhận “Logo B, continue”. Chọn B — Nét ký tận tâm; tiếp tục palette, typography, giọng nói và khẩu hiệu đã đề xuất. Không thay đổi mã ứng dụng, API, backend, Redux hay luồng nghiệp vụ.
+**Giai đoạn 1 · Đã duyệt hướng B · 25/10/2026.** Người dùng xác nhận “Logo B, continue”. Chọn B — Nét ký tận tâm; tiếp tục palette, typography, giọng nói và khẩu hiệu đã đề xuất. Đây là mốc đặc tả thương hiệu trước triển khai. Xem [gallery và kết quả triển khai cuối](../design/final/README.md); hợp đồng API, Redux và luồng nghiệp vụ được giữ nguyên.
 
 Xem [bảng nhận diện trực quan](index.html), [ảnh xem trước](previews/brand-board.png), [đánh giá giao diện hiện tại](audit/existing-screen-audit.md) và [thư viện ảnh trước thay đổi](audit/index.html).
 

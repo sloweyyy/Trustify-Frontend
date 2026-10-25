@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-10-25T16:07:35.431Z",
+  "path": "/v1/session/getAllSessions",
+  "query": "limit=25&page=1",
+  "status": 200,
+  "resultsCount": 0,
+  "totalResults": 0,
+  "page": 1,
+  "limit": 25,
+  "totalPages": 0
+}

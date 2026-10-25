@@ -1,0 +1,30 @@
+{
+  "sourceCommit": "0a9d0f5e5cfeef7b45425007b09166e6211d806f",
+  "localUiCaptureCommit": "34ea3af",
+  "nonvisualFollowup": "Inherited Autocomplete accessible control labels localized after the pixel captures; production audit checks no English controls.",
+  "publicImages": "Production after merged #47",
+  "authenticatedImages": "Local actual response shapes anonymized at browser boundary, including synthetic order codes; no tokens saved.",
+  "beforeImages": "References to the unchanged original pre-design audit; deployed source revision was not independently established.",
+  "routeCases": 43,
+  "completionGate": "Final report Claude review/merge and latest-main deployment verification before opening completion issue",
+  "initialProductionApiException": [
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "status": 500,
+      "path": "/v1/session/getAllSessions"
+    }
+  ],
+  "productionApiException": [],
+  "productionApiGateResolved": true,
+  "resolutionEvidence": "admin-session-api-recheck.json and admin-production-recheck.json",
+  "reconstructedBefore": {
+    "sourceCommit": "d75854a2609666e8965a6a04b9bd781f23785060",
+    "views": 7,
+    "images": 14,
+    "method": "Untouched git archive built with the unchanged dependency lockfile and current authorized API URL. Reconstructed repository-baseline appearance, not an original live capture. QA identity display is anonymized in login response. Bare payment route only, no orderCode.",
+    "originalSourceEdited": false,
+    "captureEvidence": "reconstructed-before.json"
+  },
+  "all43CasesHaveBeforeAndAfter": true
+}

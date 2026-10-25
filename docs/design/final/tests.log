@@ -1,0 +1,73 @@
+PASS src/components/notary/SessionProcessingReview.test.js (9.305 s)
+PASS src/components/notary/ReviewDocument.test.js (9.36 s)
+PASS src/components/notary/SessionSignatureReview.test.js (9.422 s)
+PASS src/components/notary/HistoryReview.test.js (9.428 s)
+PASS src/tests/components/services/HistoryDataTable.test.js (9.532 s)
+PASS src/components/public/PublicFlows.test.js (9.552 s)
+PASS src/tests/components/profile/PersonalInformation.test.js (9.659 s)
+PASS src/components/services/HistoryResponsive.test.js (9.662 s)
+PASS src/components/shared/GridToolbarFocus.test.js (9.715 s)
+PASS src/tests/Sidebar.test.js (9.726 s)
+PASS src/tests/components/modals/EditUserProfileModal.test.js (9.741 s)
+PASS src/pages/services/CreateNotarizationSession.test.js (10.008 s)
+PASS src/components/ChatAssistant.test.js
+PASS src/components/services/DocumentDialogs.test.js
+PASS src/components/services/SessionFeedback.test.js
+PASS src/pages/admin/dashboard/AdminDashboard.test.js
+PASS src/components/shared/SignatureFeedback.test.js
+PASS src/components/payment/PaymentRedirect.test.js
+PASS src/tests/Chatbox.test.js
+PASS src/components/notary/NotarySessionCard.test.js
+PASS src/components/admin/ManagementReads.test.js
+PASS src/tests/Header.test.js
+PASS src/components/shared/DocumentStatusChip.test.js
+PASS src/components/admin/ManagementRecords.test.js
+PASS src/tests/components/services/NotarizationSessionDetailsModal.test.js (12.943 s)
+PASS src/pages/services/NotarySessionForm.test.js
+PASS src/components/shared/DateTimeFields.test.js
+PASS src/tests/components/modals/HistoryDetailModal.test.js
+PASS src/tests/components/profile/ProvinceSelector.test.js
+PASS src/pages/services/create-notarization-profile/FileUploadSection.test.js
+PASS src/tests/components/profile/SkeletonPersonalInfo.test.js
+PASS src/tests/components/services/UploadedFileList.test.js
+PASS src/components/notary/NotaryOverview.test.js
+PASS src/components/shared/DocumentStatusFilters.test.js
+PASS src/tests/components/services/StatusBox.test.js
+PASS src/tests/components/services/SessionCard.test.js
+PASS src/components/services/HorizontalCard.test.js
+PASS src/tests/Footer.test.js
+PASS src/pages/profile/UserProfile.test.js
+PASS src/tests/components/home/FAQ.test.js
+PASS src/pages/notary/NotaryLists.test.js
+PASS src/components/admin/ManagementDialogs.test.js
+PASS src/components/public/PublicAuth.test.js
+PASS src/tests/components/modals/LabeledTextField.test.js
+PASS src/tests/components/services/StatusFilterButton.test.js
+PASS src/components/services/WalletActionDialogs.test.js
+PASS src/pages/notary/QueueFeedback.test.js
+PASS src/components/shared/FormControlContracts.test.js
+PASS src/pages/services/JoinSessionModal.test.js
+PASS src/tests/components/static/SidebarItem.test.js
+PASS src/pages/services/DocumentWallet.test.js
+PASS src/tests/components/services/SkeletonHistoryDataTable.test.js
+PASS src/tests/components/modals/YesNoModal.test.js
+PASS src/tests/components/services/Contact.test.js
+PASS src/tests/components/profile/InfoField.test.js
+PASS src/tests/components/static/StepCard.test.js
+PASS src/tests/components/static/AvatarWithCloseButton.test.js
+PASS src/tests/components/modals/NotaryStep.test.js
+PASS src/tests/components/static/AvatarIcon.test.js
+PASS src/tests/components/static/VideoCard.test.js
+PASS src/components/modals/CreateNotarizationProfileStepper.test.js
+PASS src/components/static/AvatarIcon.name.test.js
+PASS src/pages/admin/dashboard/metricPresentation.test.js
+PASS src/tests/components/static/FooterCard.test.js
+PASS src/components/shared/PageFeedback.test.js
+PASS src/config/theme/createTrustifyTheme.test.js
+PASS src/tests/components/services/Guide.test.js
+PASS src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js (17.017 s)
+Test Suites: 68 passed, 68 total
+Tests:       350 passed, 350 total
+Snapshots:   0 total
+Time:        17.926 s, estimated 19 s
+Ran all test suites.
