@@ -1,0 +1,58 @@
+
+> trustify@0.1.0 test
+> react-scripts test --watchAll=false --runInBand --runTestsByPath src/components/payment/PaymentRedirect.test.js
+
+  console.error
+    Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      12 | const show = (query = '', props = {}, strict = false) => {
+      13 |   const redirect = <PaymentRedirect {...props} />;
+    > 14 |   return render(<MemoryRouter initialEntries={['/payment/redirect' + query]}><ThemeProvider theme={createTrustifyTheme()}><Routes>
+         |                ^
+      15 |     <Route path="/payment/redirect" element={strict ? <React.StrictMode>{redirect}</React.StrictMode> : redirect} />
+      16 |     <Route path="/" element={<h1>Trang chủ thử nghiệm</h1>} />
+      17 |     <Route path="/custom" element={<h1>Đích đã cấu hình</h1>} />
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at show (src/components/payment/PaymentRedirect.test.js:14:16)
+      at Object.<anonymous> (src/components/payment/PaymentRedirect.test.js:24:3)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+PASS src/components/payment/PaymentRedirect.test.js
+  ✓ PAID retains its callback and calls it only once in Strict Mode (43 ms)
+  ✓ CANCELLED retains its CANCELLED update and configured destination (9 ms)
+  ✓ ERROR retains its CANCELLED update and configured destination (10 ms)
+  ✓ ?status=CANCELLED without an order code never writes (4 ms)
+  ✓ ?status=ERROR without an order code never writes (3 ms)
+  ✓ unknown/incomplete query retains the 1500ms fallback () (7 ms)
+  ✓ unknown/incomplete query retains the 1500ms fallback (?status=UNKNOWN&orderCode=fixture) (6 ms)
+  ✓ unknown/incomplete query retains the 1500ms fallback (?status=PAID) (6 ms)
+  ✓ callback failure preserves the existing result handling without inventing bank confirmation (61 ms)
+  ✓ presentation props retain existing caller contracts ([Function PaymentSuccess]) (7 ms)
+  ✓ presentation props retain existing caller contracts ([Function PaymentCancel]) (5 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       11 passed, 11 total
+Snapshots:   0 total
+Time:        2.405 s, estimated 3 s
+Ran all test suites within paths "src/components/payment/PaymentRedirect.test.js".
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  

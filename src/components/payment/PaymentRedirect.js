@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Box, CircularProgress, Typography } from '@mui/material';
-import { primary, black } from '../../config/theme/themePrimitives';
+import { useLocation } from 'react-router-dom';
+import { Box } from '@mui/material';
+import { LoadingState } from '../shared/PageFeedback';
 import PaymentSuccess from './PaymentSuccess';
 import PaymentCancel from './PaymentCancel';
 import PaymentService from '../../services/payment.service';
@@ -9,7 +9,6 @@ import PaymentService from '../../services/payment.service';
 const PaymentRedirect = ({ successRedirectPath = '/', cancelRedirectPath = '/', onRetry = null }) => {
   const [status, setStatus] = useState('loading');
   const location = useLocation();
-  const navigate = useNavigate();
   const hasUpdatedPayment = useRef(false);
 
   useEffect(() => {
@@ -53,21 +52,8 @@ const PaymentRedirect = ({ successRedirectPath = '/', cancelRedirectPath = '/', 
 
   if (status === 'loading') {
     return (
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '60vh',
-          gap: 3,
-          p: 3,
-        }}
-      >
-        <CircularProgress size={60} sx={{ color: primary[500] }} />
-        <Typography sx={{ fontSize: 18, fontWeight: 500, color: black[700], textAlign: 'center' }}>
-          Đang xử lý giao dịch của bạn...
-        </Typography>
+      <Box sx={{ width: '100%', minHeight: '40vh', display: 'grid', placeItems: 'center' }}>
+        <LoadingState label="Đang đọc kết quả thanh toán…" />
       </Box>
     );
   }

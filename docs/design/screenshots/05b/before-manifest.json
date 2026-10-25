@@ -1,0 +1,80 @@
+{
+  "baseline": "739c5ca",
+  "fixture": "PAID callback PUTs fulfilled locally. Other non-auth writes blocked; no real payment updated.",
+  "callbacks": [
+    {
+      "method": "PUT",
+      "body": "{\"status\":\"PAID\"}",
+      "intercepted": true
+    },
+    {
+      "method": "PUT",
+      "body": "{\"status\":\"PAID\"}",
+      "intercepted": true
+    }
+  ],
+  "blocked": [],
+  "results": [
+    {
+      "name": "success",
+      "size": "desktop",
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "name": "success",
+      "size": "mobile",
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "name": "cancel",
+      "size": "desktop",
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "name": "cancel",
+      "size": "mobile",
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "name": "error",
+      "size": "desktop",
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "name": "error",
+      "size": "mobile",
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "name": "unknown",
+      "size": "desktop",
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "name": "unknown",
+      "size": "mobile",
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "name": "loading",
+      "size": "desktop",
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "name": "loading",
+      "size": "mobile",
+      "scrollWidth": 390,
+      "viewport": 390
+    }
+  ],
+  "checkedAt": "2026-10-25T04:16:00.300Z"
+}
