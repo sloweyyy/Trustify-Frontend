@@ -17,7 +17,7 @@ const ReviewDocumentPreview = ({ files = [] }) => {
       </ListItem>)}
     </List> : <Typography sx={{ mt: 2 }}>Hồ sơ chưa có tệp đính kèm.</Typography>}
     {file && <Box sx={{ border: 1, borderColor: 'divider', borderRadius: 1, p: 1, minWidth: 0 }}>
-      <Button fullWidth variant="text" endIcon={<OpenInNewRounded />} onClick={() => window.open(file.firebaseUrl)} sx={{ mb: 1 }}>Mở tệp gốc trong cửa sổ mới</Button>
+      <Button fullWidth variant="text" endIcon={<OpenInNewRounded />} onClick={() => window.open(file.firebaseUrl, '_blank', 'noopener,noreferrer')} sx={{ mb: 1 }}>Mở tệp gốc trong cửa sổ mới</Button>
       {isPdf ? <Box component="iframe" title={`Xem trước ${name}`} src={file.firebaseUrl} sx={{ width: '100%', height: { xs: 400, lg: '65vh' }, border: 0 }} />
         : isImage ? <Box component="img" src={file.firebaseUrl} alt={`Xem trước ${name}`} sx={{ display: 'block', width: '100%', height: 'auto', maxHeight: '65vh', objectFit: 'contain', bgcolor: 'common.white' }} />
           : <Typography>Không xem trước được định dạng này. Mở tệp gốc để xem.</Typography>}
