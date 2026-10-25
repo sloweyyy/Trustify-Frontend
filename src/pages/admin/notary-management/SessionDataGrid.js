@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import ReadOnlyServerGrid from '../../../components/admin/ReadOnlyServerGrid';
 import { Box, Typography } from '@mui/material';
 import CustomSessionDataGridToolbar from './CustomSessionDataGridToolbar';
 import dayjs from 'dayjs';
@@ -9,13 +9,13 @@ const SessionDataGrid = ({ data, paginationModel, setPaginationModel, loading })
 
   const renderTextCell = (value) => (
     <Box sx={{ display: 'flex', alignItems: 'center', height: '100%', width: '100%', textWrap: 'wrap' }}>
-      <Typography sx={{ fontSize: 14 }}>{value}</Typography>
+      <Typography sx={{ fontSize: 16 }}>{value}</Typography>
     </Box>
   );
 
   const renderTextHeader = (label) => (
     <Box sx={{ display: 'flex', alignItems: 'center', height: '100%', width: '100%' }}>
-      <Typography sx={{ fontSize: 14, fontWeight: 600 }}>{label}</Typography>
+      <Typography sx={{ fontSize: 16, fontWeight: 600 }}>{label}</Typography>
     </Box>
   );
 
@@ -101,31 +101,6 @@ const SessionDataGrid = ({ data, paginationModel, setPaginationModel, loading })
     return matchesStatus && matchesSearch;
   });
 
-  return (
-    <Box sx={{ maxHeight: 500, width: '100%' }}>
-      <DataGrid
-        rows={filteredRows}
-        columns={columns}
-        paginationModel={paginationModel}
-        onPaginationModelChange={setPaginationModel}
-        paginationMode="server"
-        rowCount={data?.totalResults}
-        rowHeight={70}
-        pageSizeOptions={[25, 50, 100]}
-        slots={{ toolbar: CustomSessionDataGridToolbar }}
-        slotProps={{
-          toolbar: { searchText, setSearchText, onFilterChange: setFilter, currentFilter: filter },
-        }}
-        loading={loading}
-        disableSelectionOnClick
-        checkboxSelection
-        disableRowSelectionOnClick
-        disableColumnMenu
-        disableColumnResize
-        getRowId={(row) => row.id}
-      />
-    </Box>
-  );
+  return <ReadOnlyServerGrid title="Danh sách phiên công chứng" rows={filteredRows || []} columns={columns} paginationModel={paginationModel} setPaginationModel={setPaginationModel} count={data?.totalResults || 0} loading={loading} Toolbar={CustomSessionDataGridToolbar} toolbarProps={{ searchText, setSearchText, onFilterChange: setFilter, currentFilter: filter }} />;
 };
-
 export default SessionDataGrid;

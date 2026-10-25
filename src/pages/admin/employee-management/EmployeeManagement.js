@@ -12,7 +12,7 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 import RuleIcon from '@mui/icons-material/Rule';
 import SearchIcon from '@mui/icons-material/Search';
 import AdminService from '../../../services/admin.service';
-import SkeletonHistoryDataTable from '../../../components/services/SkeletonHistoryDataTable';
+import { ErrorState, LoadingState } from '../../../components/shared/PageFeedback';
 
 const headCells = [
   {
@@ -72,26 +72,32 @@ const EmployeeManagement = () => {
     pageSize: 5,
     page: 1,
   })
-  const [loadingStatus, setLoadingStatus] = useState(false);
-  const [employeeCount, setEmployeeCount] = useState(0);
-  const [notaryCount, setNotaryCount] = useState(0);
-  const [secretaryCount, setSecretaryCount] = useState(0);
+  const [loadingStatus, setLoadingStatus] = useState(true);
+  const [listError, setListError] = useState(false);
+  const [countsLoading, setCountsLoading] = useState(true);
+  const [countsError, setCountsError] = useState(false);
+  const [employeeCount, setEmployeeCount] = useState(null);
+  const [notaryCount, setNotaryCount] = useState(null);
+  const [secretaryCount, setSecretaryCount] = useState(null);
 
-  const getEmployeesCount = async () => {
-    setLoadingStatus(true);
+  const getEmployeesCount = useCallback(async () => {
+    setCountsLoading(true);
+    setCountsError(false);
     try{
       const response = await AdminService.getEmployeesCount ();
                
       setNotaryCount(response.notaryCount);
       setSecretaryCount(response.secretaryCount);
     }
+    catch (error) { setCountsError(true); }
     finally{
-      setLoadingStatus(false);
+      setCountsLoading(false);
     }
-  }
+  }, []);
 
   const getEmployeesList = useCallback(async () => {
     setLoadingStatus(true);
+    setListError(false);
     try{
       const {page, pageSize} = paginationModel;
       const response = await AdminService.getEmployeesMetrics(null,pageSize,page-1);      
@@ -114,6 +120,7 @@ const EmployeeManagement = () => {
       setData(rows);
       setEmployeeCount(response.totalResults);
     }
+    catch (error) { setListError(true); }
     finally{
       setLoadingStatus(false);
     }
@@ -121,7 +128,7 @@ const EmployeeManagement = () => {
 
   useEffect(() => {
     getEmployeesCount();
-  }, [])
+  }, [getEmployeesCount])
 
   useEffect(() => {
     getEmployeesList();
@@ -129,12 +136,12 @@ const EmployeeManagement = () => {
 
   return (
     <Box
-      sx={{ display: 'flex', flexDirection: 'column', width: '100%', minWidth: 0, background: 'background.default', gap: '16px' }}
+      sx={{ display: 'flex', flexDirection: 'column', width: '100%', minWidth: 0, bgcolor: 'background.default', gap: '16px' }}
     >
       <Header />
 
       <Box sx={{ p: '0px 16px' }}>
-        <Overview count={employeeCount} notaryCount={notaryCount} secretaryCount={secretaryCount}/>
+        <Overview count={employeeCount} notaryCount={notaryCount} secretaryCount={secretaryCount} loading={countsLoading} error={countsError} onRetry={getEmployeesCount}/>
       </Box>
 
       <Box
@@ -241,14 +248,14 @@ const EmployeeManagement = () => {
           sx={{
             border: 0,
             borderRadius: 1,
-            background: 'background.paper',
+            bgcolor: 'background.paper',
             p: '8px',
             paddingBottom: 2
           }}
         >
           {loadingStatus ? (
-            <SkeletonHistoryDataTable headCells={headCells}></SkeletonHistoryDataTable>
-          ) : (
+            <LoadingState label="Đang tải danh sách nhân viên…" />
+          ) : listError ? <ErrorState title="Chưa thể tải danh sách nhân viên" onRetry={getEmployeesList} /> : (
             <DataTable
             filterStatus={filterOption}
             searchText={searchText}

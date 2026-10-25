@@ -6,7 +6,7 @@ import Header from './Header';
 import { black } from '../../../config/theme/themePrimitives';
 import FilterButton from './FilterButton';
 import AppsIcon from '@mui/icons-material/Apps';
-import SkeletonHistoryDataTable from '../../../components/services/SkeletonHistoryDataTable';
+import { ErrorState, LoadingState } from '../../../components/shared/PageFeedback';
 import FiberNewRoundedIcon from '@mui/icons-material/FiberNewRounded';
 import AccessTimeFilledRoundedIcon from '@mui/icons-material/AccessTimeFilledRounded';
 import WaterfallChartRoundedIcon from '@mui/icons-material/WaterfallChartRounded';
@@ -71,9 +71,10 @@ const UserManagement = () => {
   const [filterOption, setFilterOption] = useState(filterList.All);
   const [filterClicked, setFilterClicked] = useState(filterList.All);
   const [searchText, setSearchText] = useState('');
-  const [loadingStatus, setLoadingStatus] = useState(false);
+  const [loadingStatus, setLoadingStatus] = useState(true);
+  const [error, setError] = useState(false);
   const [data, setData] = useState([]);
-  const [userCount, setUserCount] = useState(0);
+  const [userCount, setUserCount] = useState(null);
   const [paginationModel, setPaginationModel] = useState({
     pageSize: 10,
     page: 1,
@@ -81,10 +82,12 @@ const UserManagement = () => {
 
   const fetchAllUsers = useCallback(async () => {
     setLoadingStatus(true);
+    setError(false);
     try {
       const { page, pageSize } = paginationModel;
       const response = await UserService.getAllUsers('user', null, pageSize, page);
-      const users = Array.isArray(response.results) ? response.results : [];
+      if (!Array.isArray(response?.results)) throw new Error('Invalid user response');
+      const users = response.results;
       setUserCount(response.totalResults);
 
       const rows = await Promise.all(
@@ -102,12 +105,14 @@ const UserManagement = () => {
             item.name || '',
             item.email || '',
             status,
-            item.documentCount || '',
+            item.documentCount ?? 'Chưa có số liệu',
             item.userType || '',
           );
         }),
       );
       setData(rows);
+    } catch (error) {
+      setError(true);
     } finally {
       setLoadingStatus(false);
     }
@@ -235,8 +240,8 @@ const UserManagement = () => {
           }}
         >
           {loadingStatus ? (
-            <SkeletonHistoryDataTable headCells={headCells} />
-          ) : (
+            <LoadingState label="Đang tải danh sách người dùng…" />
+          ) : error ? <ErrorState title="Chưa thể tải danh sách người dùng" onRetry={fetchAllUsers} /> : (
             <UserDataTable
               filterStatus={filterOption}
               searchText={searchText}
