@@ -1,88 +1,32 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { fireEvent, render, screen } from '@testing-library/react';
 import YesNoModal from '../../../components/modals/YesNoModal';
 
-describe('YesNoModal', () => {
-  const defaultProps = {
-    title: 'Test Title',
-    content: 'Test Content',
-    open: true,
-    setOpen: jest.fn(),
-    onYes: jest.fn(),
-    onNo: jest.fn(),
-  };
+const props = () => ({ title: 'Đăng xuất', content: 'Bạn có chắc chắn muốn đăng xuất?', open: true, setOpen: jest.fn(), onYes: jest.fn(), onNo: jest.fn() });
 
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
+test('named dialog preserves confirmation and cancellation callbacks', () => {
+  const callbacks = props();
+  render(<YesNoModal {...callbacks} yesLabel="Đăng xuất" noLabel="Ở lại" />);
+  expect(screen.getByRole('dialog', { name: 'Đăng xuất' })).toHaveAccessibleDescription(callbacks.content);
+  fireEvent.click(screen.getByRole('button', { name: 'Ở lại' }));
+  expect(callbacks.onNo).toHaveBeenCalledTimes(1);
+  expect(callbacks.onYes).not.toHaveBeenCalled();
+  fireEvent.click(screen.getByRole('button', { name: 'Đăng xuất' }));
+  expect(callbacks.onYes).toHaveBeenCalledTimes(1);
+});
 
-  test('renders modal when open', () => {
-    render(<YesNoModal {...defaultProps} />);
+test('Escape and close dismiss through setOpen without confirming', () => {
+  const callbacks = props();
+  render(<YesNoModal {...callbacks} />);
+  fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Escape' });
+  expect(callbacks.setOpen).toHaveBeenCalledWith(false);
+  fireEvent.click(screen.getByRole('button', { name: 'Đóng hộp thoại' }));
+  expect(callbacks.setOpen).toHaveBeenCalledTimes(2);
+  expect(callbacks.onYes).not.toHaveBeenCalled();
+  expect(callbacks.onNo).not.toHaveBeenCalled();
+});
 
-    expect(screen.getByText('Test Title')).toBeInTheDocument();
-    expect(screen.getByText('Test Content')).toBeInTheDocument();
-  });
-
-  test('does not render when closed', () => {
-    render(<YesNoModal {...defaultProps} open={false} />);
-
-    expect(screen.queryByText('Test Title')).not.toBeInTheDocument();
-  });
-
-  test('handles Yes button click', () => {
-    render(<YesNoModal {...defaultProps} />);
-
-    const yesButton = screen.getByText('Có');
-    fireEvent.click(yesButton);
-
-    expect(defaultProps.onYes).toHaveBeenCalledTimes(1);
-  });
-
-  test('handles No button click', () => {
-    render(<YesNoModal {...defaultProps} />);
-
-    const noButton = screen.getByText('Không');
-    fireEvent.click(noButton);
-
-    expect(defaultProps.onNo).toHaveBeenCalledTimes(1);
-  });
-
-  test('closes modal on backdrop click', () => {
-    render(<YesNoModal {...defaultProps} />);
-
-    const backdrop = screen.getByRole('presentation').firstChild;
-    fireEvent.click(backdrop);
-
-    expect(defaultProps.setOpen).toHaveBeenCalledWith(false);
-  });
-
-  test('applies correct styles', () => {
-    render(<YesNoModal {...defaultProps} />);
-
-    const modal = screen.getByRole('presentation');
-    const container = modal.querySelector('.MuiBox-root');
-
-    expect(container).toHaveStyle({
-      position: 'absolute',
-      borderRadius: '8px',
-      backgroundColor: '#ffffff',
-    });
-  });
-
-  test('button text transforms correctly', () => {
-    render(<YesNoModal {...defaultProps} />);
-
-    const yesButton = screen.getByText('Có');
-    const noButton = screen.getByText('Không');
-
-    expect(yesButton).toHaveStyle({ textTransform: 'initial' });
-    expect(noButton).toHaveStyle({ textTransform: 'initial' });
-  });
-
-  test('has correct aria labels', () => {
-    render(<YesNoModal {...defaultProps} />);
-
-    expect(screen.getByLabelText('Test Title')).toBeInTheDocument();
-  });
+test('closed confirmation is absent from the accessibility tree', () => {
+  render(<YesNoModal {...props()} open={false} />);
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 });

@@ -1,0 +1,20 @@
+{
+  "sourceCommit": "8e929d4",
+  "preview": "https://trustify-notary-git-design-02c-feedback-states-sloweyyy.vercel.app",
+  "deployment": "https://vercel.com/sloweyyy/trustify-notary/CbAoUn1gZHNsdjkvzy3XiGPsDyXa",
+  "ready": true,
+  "checkedAt": "2026-10-25T00:21:37.334784+00:00",
+  "roles": {
+    "user": "sign in, confirmation at1440/390, stay preserves session, confirm logs out",
+    "notary": "sign in, both empty queues at1440/390, confirmation and logout",
+    "admin": "sign in, confirmation at1440/390, Escape preserves session, confirmed logout"
+  },
+  "public": "third-party themed loading state at1440/390",
+  "mutations": "Only routine sign-in/sign-out. No legal/account/payment mutations. Error fixture only local GET interception.",
+  "knownGaps": [
+    "Existing sidebar overflow at390; required Design03 fix",
+    "Sidebar opener keyboard semantics/focus restoration belongs to Design03",
+    "Remaining informational toast roles migrate with their screens",
+    "Vercel toolbar can appear on preview screenshots"
+  ]
+}

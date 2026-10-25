@@ -1,52 +1,22 @@
-import React from 'react';
-import { Modal, Box, Typography, Button } from '@mui/material';
-import { dark, white, primary } from '../../config/theme/themePrimitives';
+import React, { useId } from 'react';
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, IconButton, Button } from '@mui/material';
+import Close from '@mui/icons-material/Close';
 
-const YesNoModal = ({ title, content, open, setOpen, onYes, onNo }) => {
-    const handleClose = () => setOpen(false);
-
-    return (
-        <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="yes-no-modal-title"
-            aria-describedby="yes-no-modal-description"
-        >
-            <Box
-                sx={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    width: 400,
-                    borderRadius: '8px',
-                    paddingX: 4,
-                    paddingY: 3,
-                    backgroundColor: white[50],
-                    border: 'none',
-                }}
-            >
-                <Typography id="yes-no-modal-title" variant="h6" component="h2">
-                    {title}
-                </Typography>
-                <Typography id="yes-no-modal-description" sx={{ mt: 1 }}>
-                    {content}
-                </Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'right', mt: 5, gap: 2 }}>
-                    <Button variant="contained" onClick={onYes} sx={{ backgroundColor: primary[500] }}>
-                        <Typography textTransform={'initial'} color={white[50]}>
-                            Có
-                        </Typography>
-                    </Button>
-                    <Button variant="contained" onClick={onNo} sx={{ backgroundColor: dark[500] }}>
-                        <Typography textTransform={'initial'} color={white[50]}>
-                            Không
-                        </Typography>
-                    </Button>
-                </Box>
-            </Box>
-        </Modal>
-    );
+const YesNoModal = ({ title, content, open, setOpen, onYes, onNo, yesLabel = 'Có', noLabel = 'Không' }) => {
+  const id = useId();
+  const handleClose = () => setOpen(false);
+  return (
+    <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth
+      aria-labelledby={`${id}-title`} aria-describedby={`${id}-description`}
+      sx={{ '& .MuiDialog-paper': { m: 2, width: 'calc(100% - 32px)', maxHeight: 'calc(100dvh - 32px)' } }}>
+      <DialogTitle id={`${id}-title`} sx={{ pr: 8 }}>{title}</DialogTitle>
+      <IconButton aria-label="Đóng hộp thoại" onClick={handleClose} sx={{ position: 'absolute', right: 8, top: 8 }}><Close /></IconButton>
+      <DialogContent><DialogContentText id={`${id}-description`} color="text.primary">{content}</DialogContentText></DialogContent>
+      <DialogActions sx={{ '& .MuiButton-root': { flex: { xs: 1, sm: 'initial' } } }}>
+        <Button variant="outlined" onClick={onNo} autoFocus>{noLabel}</Button>
+        <Button variant="contained" onClick={onYes}>{yesLabel}</Button>
+      </DialogActions>
+    </Dialog>
+  );
 };
-
 export default YesNoModal;

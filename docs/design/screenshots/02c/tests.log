@@ -1,0 +1,378 @@
+
+> trustify@0.1.0 test
+> react-scripts test --watch=false --runInBand --runTestsByPath src/components/shared/PageFeedback.test.js src/pages/notary/QueueFeedback.test.js src/tests/components/modals/YesNoModal.test.js src/config/theme/createTrustifyTheme.test.js
+
+PASS src/pages/notary/QueueFeedback.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      10 |   test(`${status}: service error envelope can retry the identical read request, then show empty`, async () => {
+      11 |     NotarizationService.getNotarizationByRole.mockResolvedValueOnce({ status: 503, message: 'offline' }).mockResolvedValueOnce({ documents: [], pagination: { totalPages: 0 } });
+    > 12 |     render(<Component />);
+         |           ^
+      13 |     expect(await screen.findByRole('alert')).toHaveTextContent('Chưa thể tải hồ sơ');
+      14 |     expect(NotarizationService.getNotarizationByRole).toHaveBeenCalledTimes(1);
+      15 |     fireEvent.click(screen.getByRole('button', { name: 'Thử lại' }));
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/pages/notary/QueueFeedback.test.js:12:11)
+
+    console.error
+      Warning: An update to ProcessingNotarizationDocuments inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at ProcessingNotarizationDocuments (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/notary/ProcessingNotarizationDocuments.js:10:45)
+
+      27 |         return;
+      28 |       }
+    > 29 |       setDocuments(response.documents);
+         |       ^
+      30 |       setPagination(response.pagination);
+      31 |     } catch {
+      32 |       setError(true);
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at setDocuments (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at fetchProcessingDocuments (src/pages/notary/ProcessingNotarizationDocuments.js:29:7)
+
+    console.error
+      Warning: An update to ProcessingNotarizationDocuments inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at ProcessingNotarizationDocuments (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/notary/ProcessingNotarizationDocuments.js:10:45)
+
+      28 |       }
+      29 |       setDocuments(response.documents);
+    > 30 |       setPagination(response.pagination);
+         |       ^
+      31 |     } catch {
+      32 |       setError(true);
+      33 |     } finally {
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at setPagination (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at fetchProcessingDocuments (src/pages/notary/ProcessingNotarizationDocuments.js:30:7)
+
+    console.error
+      Warning: An update to ProcessingNotarizationDocuments inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at ProcessingNotarizationDocuments (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/notary/ProcessingNotarizationDocuments.js:10:45)
+
+      32 |       setError(true);
+      33 |     } finally {
+    > 34 |       setLoading(false);
+         |       ^
+      35 |     }
+      36 |   };
+      37 |
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at setLoading (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at fetchProcessingDocuments (src/pages/notary/ProcessingNotarizationDocuments.js:34:7)
+
+    console.error
+      Warning: An update to AwaitingSignatureDocuments inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at AwaitingSignatureDocuments (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/notary/AwaitingSignatureDocuments.js:10:45)
+
+      27 |         return;
+      28 |       }
+    > 29 |       setDocuments(response.documents);
+         |       ^
+      30 |       setPagination(response.pagination);
+      31 |     } catch {
+      32 |       setError(true);
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at setDocuments (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at fetchDigitalSignatureDocuments (src/pages/notary/AwaitingSignatureDocuments.js:29:7)
+
+    console.error
+      Warning: An update to AwaitingSignatureDocuments inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at AwaitingSignatureDocuments (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/notary/AwaitingSignatureDocuments.js:10:45)
+
+      28 |       }
+      29 |       setDocuments(response.documents);
+    > 30 |       setPagination(response.pagination);
+         |       ^
+      31 |     } catch {
+      32 |       setError(true);
+      33 |     } finally {
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at setPagination (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at fetchDigitalSignatureDocuments (src/pages/notary/AwaitingSignatureDocuments.js:30:7)
+
+    console.error
+      Warning: An update to AwaitingSignatureDocuments inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at AwaitingSignatureDocuments (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/pages/notary/AwaitingSignatureDocuments.js:10:45)
+
+      32 |       setError(true);
+      33 |     } finally {
+    > 34 |       setLoading(false);
+         |       ^
+      35 |     }
+      36 |   };
+      37 |
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at setLoading (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at fetchDigitalSignatureDocuments (src/pages/notary/AwaitingSignatureDocuments.js:34:7)
+
+PASS src/tests/components/modals/YesNoModal.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+       7 | test('named dialog preserves confirmation and cancellation callbacks', () => {
+       8 |   const callbacks = props();
+    >  9 |   render(<YesNoModal {...callbacks} yesLabel="Đăng xuất" noLabel="Ở lại" />);
+         |         ^
+      10 |   expect(screen.getByRole('dialog', { name: 'Đăng xuất' })).toHaveAccessibleDescription(callbacks.content);
+      11 |   fireEvent.click(screen.getByRole('button', { name: 'Ở lại' }));
+      12 |   expect(callbacks.onNo).toHaveBeenCalledTimes(1);
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/tests/components/modals/YesNoModal.test.js:9:9)
+
+    console.error
+      Warning: An update to ForwardRef(TouchRipple) inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at TouchRipple (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/ButtonBase/TouchRipple.js:134:59)
+          at button
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at ButtonBase (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/ButtonBase/ButtonBase.js:91:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Button (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Button/Button.js:322:30)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at DialogActions (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/DialogActions/DialogActions.js:55:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Paper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Paper/Paper.js:75:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Transition (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/react-transition-group/cjs/Transition.js:135:30)
+          at Fade (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Fade/Fade.js:33:42)
+          at FocusTrap (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Unstable_TrapFocus/FocusTrap.js:85:5)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Portal (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Portal/Portal.js:33:5)
+          at Modal (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Modal/Modal.js:90:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Dialog (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Dialog/Dialog.js:200:59)
+          at YesNoModal (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/modals/YesNoModal.js:5:23)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at node_modules/@mui/material/node/ButtonBase/TouchRipple.js:171:5
+      at node_modules/@mui/material/node/ButtonBase/TouchRipple.js:264:7
+      at Object.pulsate (node_modules/@mui/material/node/ButtonBase/TouchRipple.js:274:5)
+      at node_modules/@mui/material/node/useLazyRipple/useLazyRipple.js:77:47
+
+    console.error
+      Warning: An update to ForwardRef(TouchRipple) inside a test was not wrapped in act(...).
+
+      When testing, code that causes React state updates should be wrapped into act(...):
+
+      act(() => {
+        /* fire events that update state */
+      });
+      /* assert on the output */
+
+      This ensures that you're testing the behavior the user would see in the browser. Learn more at https://reactjs.org/link/wrap-tests-with-act
+          at TouchRipple (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/ButtonBase/TouchRipple.js:134:59)
+          at button
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at ButtonBase (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/ButtonBase/ButtonBase.js:91:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Button (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Button/Button.js:322:30)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at DialogActions (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/DialogActions/DialogActions.js:55:59)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Paper (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Paper/Paper.js:75:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Transition (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/react-transition-group/cjs/Transition.js:135:30)
+          at Fade (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Fade/Fade.js:33:42)
+          at FocusTrap (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Unstable_TrapFocus/FocusTrap.js:85:5)
+          at div
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Portal (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Portal/Portal.js:33:5)
+          at Modal (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Modal/Modal.js:90:59)
+          at /Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@emotion/react/dist/emotion-element-b1930563.cjs.js:73:23
+          at Dialog (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/node_modules/@mui/material/node/Dialog/Dialog.js:200:59)
+          at YesNoModal (/Users/slowey/Documents/Workspace/Trustify/Trustify-Frontend/src/components/modals/YesNoModal.js:5:23)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom.development.js:27628:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:25547:5)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom.development.js:16708:7)
+      at node_modules/@mui/material/node/ButtonBase/TouchRipple.js:171:5
+      at node_modules/@mui/material/node/ButtonBase/TouchRipple.js:264:7
+      at Object.pulsate (node_modules/@mui/material/node/ButtonBase/TouchRipple.js:274:5)
+      at node_modules/@mui/material/node/useLazyRipple/useLazyRipple.js:77:47
+
+PASS src/config/theme/createTrustifyTheme.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      59 |
+      60 |   test('a destructive outlined button retains its intent color', () => {
+    > 61 |     render(<ThemeProvider theme={createTrustifyTheme()}><Button variant="outlined" color="error">Từ chối hồ sơ</Button></ThemeProvider>);
+         |           ^
+      62 |     expect(screen.getByRole('button', { name: 'Từ chối hồ sơ' })).toHaveStyle({ color: '#B42318', borderColor: '#B42318' });
+      63 |   });
+      64 |
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/config/theme/createTrustifyTheme.test.js:61:11)
+
+PASS src/components/shared/PageFeedback.test.js
+  ● Console
+
+    console.error
+      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+
+      4 |
+      5 | test('loading announces a single useful label and hides placeholder content', () => {
+    > 6 |   render(<LoadingState label="Đang tải hồ sơ…"><span>Dòng tạm</span></LoadingState>);
+        |         ^
+      7 |   expect(screen.getByRole('status')).toHaveTextContent('Đang tải hồ sơ…');
+      8 |   expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
+      9 | });
+
+      at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+      at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+      at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/components/shared/PageFeedback.test.js:6:9)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+
+Test Suites: 4 passed, 4 total
+Tests:       19 passed, 19 total
+Snapshots:   0 total
+Time:        2.058 s
+Ran all test suites within paths "src/components/shared/PageFeedback.test.js", "src/pages/notary/QueueFeedback.test.js", "src/tests/components/modals/YesNoModal.test.js", "src/config/theme/createTrustifyTheme.test.js".
+Jest did not exit one second after the test run has completed.
+
+This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
+One of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it may break at any time.
+
+babel-preset-react-app is part of the create-react-app project, which
+is not maintianed anymore. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.
