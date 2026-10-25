@@ -107,8 +107,8 @@ const DetailDocumentModal = ({ open, onClose, document }) => {
   ];
   return (
     <Dialog open={open} onClose={onClose} fullScreen={mobile} fullWidth maxWidth="xl" aria-labelledby={titleId}>
-      <DialogTitle id={titleId} sx={{ pr: 8 }}>
-        Xét duyệt hồ sơ công chứng
+      <DialogTitle id={`${titleId}-header`} sx={{ pr: 8 }}>
+        <Box component="span" id={titleId}>Xét duyệt hồ sơ công chứng</Box>
         <Typography component="span" sx={{ display: 'block', mt: 1, overflowWrap: 'anywhere' }}>Mã hồ sơ: {source?.id}</Typography>
         <Box sx={{ mt: 1 }}><DocumentStatusChip status={document?.status} /></Box>
         <IconButton aria-label="Đóng chi tiết hồ sơ" onClick={onClose} sx={{ position: 'absolute', top: 12, right: 12 }}><CloseRounded /></IconButton>

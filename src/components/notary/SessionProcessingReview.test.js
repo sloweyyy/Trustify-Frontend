@@ -10,6 +10,7 @@ const record = { status: 'processing', sessionId: { id: 'PHIEN-MAU', createdBy: 
 test.each([['Chấp nhận', 'accept'], ['Từ chối', 'reject']])('%s keeps required feedback/files, document ID and multipart fields', async (name, action) => {
   const onClose = jest.fn(); SessionService.forwardSessionStatus.mockResolvedValue({ status: 200 });
   render(<DetailProcessingSessionModal open session={record} onClose={onClose} />, { wrapper });
+  expect(screen.getByRole('dialog', { name: 'Xét duyệt phiên công chứng', exact: true })).toBeInTheDocument();
   expect(screen.getByText('Nguyễn Thị Mỹ')).toBeInTheDocument(); expect(screen.getByText('Trần Văn An')).toBeInTheDocument();
   const button = screen.getByRole('button', { name, exact: true }); expect(button).toBeDisabled();
   fireEvent.change(screen.getByLabelText('Ghi chú xét duyệt', { exact: false }), { target: { value: 'Ghi chú mẫu' } });

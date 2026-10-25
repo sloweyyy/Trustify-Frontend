@@ -11,6 +11,7 @@ const record = { status: 'processing', documentId: { id: 'HS-MAU', requesterInfo
 test.each([['Chấp nhận', 'accept'], ['Từ chối', 'reject']])('%s keeps required feedback/files, document ID and multipart fields', async (name, action) => {
   const onClose = jest.fn(); NotarizationService.forwardDocumentStatus.mockResolvedValue({ status: 200 });
   render(<DetailDocumentModal open document={record} onClose={onClose} />, { wrapper });
+  expect(screen.getByRole('dialog', { name: 'Xét duyệt hồ sơ công chứng', exact: true })).toBeInTheDocument();
   const button = screen.getByRole('button', { name, exact: true }); expect(button).toBeDisabled();
   fireEvent.change(screen.getByLabelText('Ghi chú xét duyệt', { exact: false }), { target: { value: 'Ghi chú mẫu' } });
   expect(button).toBeDisabled();

@@ -10,6 +10,6 @@ const questions = [
 ];
 const FAQSection = () => {
   const id = useId();
-  return <Container component="section" maxWidth="md" sx={{ py: { xs: 4, md: 6 } }}><Typography component="h2" variant="h4" fontWeight={600} sx={{ mb: 3 }}>Câu hỏi thường gặp</Typography>{questions.map(([question, answer], index) => <Accordion key={question}><AccordionSummary id={`${id}-${index}-header`} aria-controls={`${id}-${index}-content`} expandIcon={<ExpandMoreRounded />}><Typography component="h3" variant="body1" fontWeight={600}>{question}</Typography></AccordionSummary><AccordionDetails id={`${id}-${index}-content`}><Typography color="text.secondary">{answer}</Typography></AccordionDetails></Accordion>)}</Container>;
+  return <Container component="section" maxWidth="md" sx={{ py: { xs: 4, md: 6 } }}><Typography component="h2" variant="h4" fontWeight={600} sx={{ mb: 3 }}>Câu hỏi thường gặp</Typography>{questions.map(([question, answer], index) => <Accordion key={question}><AccordionSummary id={`${id}-${index}-header`} aria-controls={`${id}-${index}-content`} expandIcon={<ExpandMoreRounded />}><Typography component="h3" variant="body1" fontWeight={600}>{question}</Typography></AccordionSummary><AccordionDetails><Typography color="text.secondary">{answer}</Typography></AccordionDetails></Accordion>)}</Container>;
 };
 export default FAQSection;

@@ -54,7 +54,7 @@ const Chatbox = ({ showChatbox, setShowChatbox, dialogId }) => {
     return () => { visual.removeEventListener('resize', update); visual.removeEventListener('scroll', update); };
   }, [mobile, showChatbox]);
   return <Dialog open={showChatbox} onClose={handleClose} fullScreen={mobile} maxWidth={false} aria-labelledby={title} data-testid="chatbox-container" PaperProps={{ id: dialogId, sx: mobile ? { m: 0, height: viewport?.height || '100dvh', maxHeight: viewport?.height || '100dvh', top: viewport?.top || 0, position: 'fixed', width: '100%' } : { position: 'fixed', right: 24, bottom: 24, m: 0, width: 360, height: 600, maxWidth: 'calc(100vw - 48px)', maxHeight: 'calc(100dvh - 48px)' } }}>
-    <DialogTitle id={title} sx={{ pr: 8 }}>Trợ lý hướng dẫn<IconButton aria-label="Đóng trợ lý" onClick={handleClose} data-testid="close-button" sx={{ position: 'absolute', right: 12, top: 12 }}><CloseRounded /></IconButton></DialogTitle>
+    <DialogTitle id={`${title}-header`} sx={{ pr: 8 }}><Box component="span" id={title}>Trợ lý hướng dẫn</Box><IconButton aria-label="Đóng trợ lý" onClick={handleClose} data-testid="close-button" sx={{ position: 'absolute', right: 12, top: 12 }}><CloseRounded /></IconButton></DialogTitle>
     <DialogContent dividers sx={{ minHeight: 0, p: 2 }}>
       <Typography color="text.secondary" sx={{ mb: 2 }}>Bạn cần hướng dẫn về bước nào? Thông tin hướng dẫn không thay thế ý kiến của công chứng viên.</Typography>
       {!messages.length && <Box sx={{ display: 'grid', gap: 1, mb: 2 }}>{suggestions.map((question) => <Button variant="outlined" key={question} sx={{ justifyContent: 'flex-start', textAlign: 'left' }} onClick={() => { setNewMessage(question); inputRef.current?.focus(); }}>{question}</Button>)}</Box>}

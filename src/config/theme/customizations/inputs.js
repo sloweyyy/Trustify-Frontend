@@ -83,7 +83,7 @@ export const inputsCustomizations = {
   },
   MuiInputLabel: { styleOverrides: { root: {
     fontSize: '1rem', lineHeight: 1.6,
-    '&.MuiInputLabel-outlined.MuiInputLabel-shrink': { transform: 'translate(14px, -12px) scale(1)' },
+    '&.MuiInputLabel-outlined.MuiInputLabel-shrink': { transform: 'translate(14px, -12px) scale(1)', maxWidth: 'calc(100% - 28px)' },
   } } },
   MuiFormLabel: { styleOverrides: { root: ({ theme }) => ({ fontSize: '1rem', fontWeight: 600, lineHeight: 1.6, color: theme.palette.text.primary }) } },
   MuiFormHelperText: { styleOverrides: { root: { fontSize: '.875rem', lineHeight: 1.6, margin: '4px 0 0' } } },
