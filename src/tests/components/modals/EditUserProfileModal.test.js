@@ -4,7 +4,6 @@ import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import EditUserProfileModal from '../../../components/modals/EditUserProfileModal';
-import { updateUser } from '../../../stores/actions/userAction';
 
 // Create mock store
 const createMockStore = () => {
@@ -34,6 +33,7 @@ const createMockStore = () => {
 };
 
 // Mock dependencies
+jest.mock('react-toastify/dist/ReactToastify.css', () => ({}));
 jest.mock('react-toastify', () => ({
   toast: {
     success: jest.fn(),
@@ -56,6 +56,8 @@ describe('EditUserProfileModal', () => {
   beforeEach(() => {
     store = createMockStore();
     jest.clearAllMocks();
+    const { updateUser } = require('../../../stores/actions/userAction');
+    updateUser.mockImplementation(() => () => ({ unwrap: () => Promise.resolve() }));
   });
 
   test('renders modal when open', () => {
@@ -67,7 +69,7 @@ describe('EditUserProfileModal', () => {
 
     const header = screen.getAllByRole('heading', {
       name: /Cập nhật hồ sơ/i,
-      level: 6,
+      level: 2,
     })[0];
     expect(header).toBeInTheDocument();
   });
@@ -120,7 +122,7 @@ describe('EditUserProfileModal', () => {
     await waitFor(() => {
       expect(updateUser).toHaveBeenCalledWith({
         id: '1', 
-        updatedUserInfo: expect.any(Object),
+        updatedUserInfo: { name: 'Test User', email: 'test@example.com', phoneNumber: '0123456789', citizenId: '123456789012' },
       });
     });
   

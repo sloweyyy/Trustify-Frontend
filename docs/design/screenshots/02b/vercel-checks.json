@@ -1,0 +1,27 @@
+{
+  "sourceCommit": "8ea9931fa61594fb03d6733db80e74bb92cdd9ed",
+  "preview": "https://trustify-notary-git-design-02b-form-controls-sloweyyy.vercel.app",
+  "deployment": "https://vercel.com/sloweyyy/trustify-notary/BRmHQRGtejtknpHBDjbspsr1Y6YA",
+  "ready": true,
+  "checkedAt": "2026-10-25T00:00:30.094739+00:00",
+  "roles": {
+    "user": [
+      "profile open/cancel desktop/mobile",
+      "wizard field/service selection and advance to step 2",
+      "session open/calendar Vietnamese weekdays/select date/cancel"
+    ],
+    "notary": [
+      "profile open/cancel desktop/mobile"
+    ],
+    "admin": [
+      "profile open/cancel desktop/mobile"
+    ]
+  },
+  "mutations": "No account saves, document submissions, signatures or payments",
+  "knownGap": "Existing shell overflows mobile; Design 03 acceptance covers all authenticated routes",
+  "reviewRound1": {
+    "sourceCommit": "4e1d4f2",
+    "deployment": "https://vercel.com/sloweyyy/trustify-notary/GaRYpuA1rtoiijSQLjA7S5A7Q68z",
+    "checks": "Five associated inputs, solid 1px outlines, session captures at1440/390, cancel without submit"
+  }
+}

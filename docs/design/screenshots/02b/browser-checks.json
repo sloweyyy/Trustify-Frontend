@@ -1,0 +1,54 @@
+{
+  "results": [
+    {
+      "role": "user",
+      "profile": "associated labels, raw values, city clearing, cancel/reset passed",
+      "geometry": {
+        "left": 16,
+        "right": 374,
+        "top": 16,
+        "bottom": 828,
+        "scrollHeight": 1104,
+        "clientHeight": 812
+      },
+      "fieldStyle": {
+        "font": 16,
+        "height": 52
+      }
+    },
+    {
+      "role": "notary",
+      "profile": "associated labels, raw values, city clearing, cancel/reset passed",
+      "geometry": {
+        "left": 16,
+        "right": 374,
+        "top": 16,
+        "bottom": 828,
+        "scrollHeight": 1104,
+        "clientHeight": 812
+      },
+      "fieldStyle": {
+        "font": 16,
+        "height": 52
+      }
+    },
+    {
+      "role": "admin",
+      "profile": "associated labels, raw values, city clearing, cancel/reset passed",
+      "geometry": {
+        "left": 16,
+        "right": 374,
+        "top": 16,
+        "bottom": 828,
+        "scrollHeight": 1104,
+        "clientHeight": 812
+      },
+      "fieldStyle": {
+        "font": 16,
+        "height": 52
+      }
+    }
+  ],
+  "errors": [],
+  "checkedAt": "2026-10-24T23:34:40.528Z"
+}

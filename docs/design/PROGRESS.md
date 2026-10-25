@@ -6,7 +6,7 @@ All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:
 | --- | --- | --- | --- | --- |
 | Brand assets | #8 | Merged | 2026-10-25 | Approved Logo B, favicon and public brand assets. |
 | 01 — Tokens and MUI | #10 (supersedes #9) | Merged; production healthy | 2026-10-25 05:08 | Existing implementation renamed to required design/01 branch; GitHub closed #9 on branch rename. Theme, auth composition, fonts, AA status colors; build/tests passed. Build + 7 tests + CRA ESLint pass; 144 route screenshots and authenticated Vercel QA completed. |
-| 02 — Shared status slice | #11 | Awaiting Claude, round 2 | 2026-10-25 05:54 | 760 source lines. Central chips/filter adapter, canonical rejected + legacy invalid support, verification separation, and stable Admin toolbar focus. Build, CRA ESLint, 30 tests, real QA filters and all-three-role Vercel click-through pass; 16 before/after + 8 preview screenshots. Remaining shared primitives are separate small PRs. |
+| 02 — Shared status slice | #11 | Merged; production healthy | 2026-10-25 06:10 | 760 source lines. Central chips/filter adapter, canonical rejected + legacy invalid support, verification separation, and stable Admin toolbar focus. Build, CRA ESLint, 30 tests, real QA filters and all-three-role Vercel click-through pass; 16 before/after + 8 preview screenshots. Remaining shared primitives are separate small PRs. |
 
 ## Remaining sequence
 
@@ -28,3 +28,8 @@ All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:
 - List autofocus: removed in User history and both Admin notarization/session toolbars in slice 02; audit remaining role lists when touched.
 
 - PR #11 review round 1: nowrap labels, centered chips, minimum status-column widths, and true 390px viewport images implemented. Build/ESLint/30 tests and browser geometry/pixel-width checks pass; updated Vercel preview verified with all three QA roles; actual Admin chip center within 0.5px and all 24 image widths verified. Re-requesting Claude review.
+
+- PR #11 merged with review approval; main production Ready and homepage healthy. Design 03 acceptance: temporary Drawer at xs/sm and no horizontal overflow at 390px on every authenticated route. Admin empty pagination count follows in step 08.
+- 02b — Shared form controls, PR #12, 2026-10-25 07:02: build, CRA ESLint and 22 tests pass; 15 before/after pairs and all-role local read-only QA complete. Vercel primary Ready; authenticated User/Notary/Admin preview click-through complete, 10 preview screenshots. Ready for Claude review.
+
+- PR #12 review round 1: removed three border-suppressing rules and linked all five session fields through FieldLabel/useId. Local 1440/390 captures and computed border checks pass; build/ESLint/23 tests pass. Vercel updated deployment Ready; five linked inputs have solid 1px borders, and 1440/390 preview screenshots refreshed. Re-requesting Claude review. Profile save action footer follows in step 06.

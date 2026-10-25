@@ -1,7 +1,6 @@
-import { ArrowBack } from '@mui/icons-material';
+import { CloseRounded } from '@mui/icons-material';
 import { Box, Button, IconButton, Modal, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
-import { black, primary } from '../../config/theme/themePrimitives';
 import LabeledTextField from './LabeledTextField';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
@@ -61,7 +60,7 @@ const EditUserProfileModal = ({ open, handleClose }) => {
     });
   };
 
-  const isFormDataValid = ({ name, citizenId, email, phoneNumber, province, district, town, street }) => {
+  const isFormDataValid = ({ name, citizenId, email, phoneNumber }) => {
     if (!name || !/^[A-Za-zÀ-ỹ\s]+$/.test(name)) {
       toast.error('Vui lòng nhập Họ tên hợp lệ');
       return false;
@@ -86,6 +85,7 @@ const EditUserProfileModal = ({ open, handleClose }) => {
 
   const handleSaveChanges = async () => {
     if (!isFormDataValid(tempForm)) {
+      return;
     } else {
       const updateBody = {};
 
@@ -128,16 +128,19 @@ const EditUserProfileModal = ({ open, handleClose }) => {
   };
 
   return (
-    <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+    <Modal open={open} onClose={handleClose} aria-labelledby="edit-profile-title">
       <Box
+        role="dialog" aria-modal="true" aria-labelledby="edit-profile-title"
         sx={{
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: '70vw',
+          width: { xs: 'calc(100% - 32px)', md: 720 },
+          maxHeight: 'calc(100dvh - 32px)',
+          overflowY: 'auto',
           bgcolor: 'background.paper',
-          p: '24px',
+          p: { xs: 2, sm: 3 },
           borderRadius: 2,
         }}
       >
@@ -146,29 +149,21 @@ const EditUserProfileModal = ({ open, handleClose }) => {
           sx={{
             display: 'flex',
             flexDirection: 'row',
+            flexWrap: 'wrap',
             justifyContent: 'space-between',
             alignItems: 'center',
-            gap: '10px',
+            gap: 1.5,
           }}
         >
-          <IconButton sx={{ padding: 0 }} disableRipple onClick={handleClose}>
-            <ArrowBack sx={{ width: '24px', height: '24px', color: black[900] }} />
+          <IconButton aria-label="Đóng cập nhật hồ sơ" disableRipple onClick={handleClose}>
+            <CloseRounded />
           </IconButton>
-          <Typography variant="h6" flex={1} color={black[900]}>
+          <Typography id="edit-profile-title" variant="h6" component="h2" flex={1} sx={{ minWidth: 0 }}>
             Cập nhật hồ sơ
           </Typography>
           <Button
             variant="contained"
-            sx={{
-              backgroundColor: black[50],
-              color: black[900],
-              border: `1px solid transparent`,
-              '&:hover': {
-                border: `1px solid ${primary[500]}`,
-                color: primary[500],
-              },
-              textTransform: 'none',
-            }}
+            sx={{ width: { xs: '100%', sm: 'auto' }, flexShrink: 0 }}
             onClick={handleSaveChanges}
           >
             Lưu thay đổi
@@ -181,41 +176,46 @@ const EditUserProfileModal = ({ open, handleClose }) => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            alignItems: 'left',
-            gap: '10px',
+            alignItems: 'stretch',
+            gap: 1.5,
             marginTop: '20px',
-            border: `1px solid ${black[50]}`,
-            borderRadius: '8px',
+            border: 1,
+            borderColor: 'divider',
+            borderRadius: 1,
             padding: '16px',
             columnGap: '16px',
           }}
         >
-          <Typography variant="subtitle2" flex={1} color={black[900]}>
+          <Typography variant="subtitle2" flex={1} color="text.primary">
             Cập nhật hồ sơ
           </Typography>
 
-          <Box sx={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
             <LabeledTextField
               label="Họ và tên"
+              autoComplete="name"
               value={tempForm.name}
               onChange={(value) => handleInputChange('name', value)}
             />
             <LabeledTextField
               label="CMND/CCCD"
+              inputMode="numeric"
               value={tempForm.citizenId}
               onChange={(value) => handleInputChange('citizenId', value)}
             />
           </Box>
 
-          <Box sx={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
             <LabeledTextField
               label="Email"
+              type="email" autoComplete="email"
               value={tempForm.email}
               onChange={(value) => handleInputChange('email', value)}
               disabled={tempForm.isEmailVerified}
             />
             <LabeledTextField
               label="Số điện thoại"
+              type="tel" inputMode="tel" autoComplete="tel"
               value={tempForm.phoneNumber}
               onChange={(value) => handleInputChange('phoneNumber', value)}
             />
@@ -229,16 +229,17 @@ const EditUserProfileModal = ({ open, handleClose }) => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            alignItems: 'left',
-            gap: '10px',
+            alignItems: 'stretch',
+            gap: 1.5,
             marginTop: '20px',
-            border: `1px solid ${black[50]}`,
-            borderRadius: '8px',
+            border: 1,
+            borderColor: 'divider',
+            borderRadius: 1,
             padding: '16px',
             columnGap: '16px',
           }}
         >
-          <Typography variant="subtitle2" color={black[900]}>
+          <Typography variant="subtitle2" color="text.primary">
             Địa chỉ liên hệ
           </Typography>
 
@@ -251,9 +252,10 @@ const EditUserProfileModal = ({ open, handleClose }) => {
             onWardChange={(value) => handleInputChange('town', value)}
           />
 
-          <Box sx={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
             <LabeledTextField
               label="Số nhà, đường/phố"
+              autoComplete="street-address"
               value={tempForm?.street || ''}
               onChange={(value) => handleInputChange('street', value)}
             />

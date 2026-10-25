@@ -1,0 +1,142 @@
+[
+  {
+    "role": "user",
+    "route": "/user/create-notarization-profile",
+    "name": "create-step-1",
+    "width": 1440,
+    "height": 1000,
+    "file": "after-user-create-step-1-desktop.png",
+    "actualUrl": "http://localhost:3001/user/create-notarization-profile",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "user",
+    "route": "/user/create-notarization-profile",
+    "name": "create-step-1",
+    "width": 390,
+    "height": 844,
+    "file": "after-user-create-step-1-mobile.png",
+    "actualUrl": "http://localhost:3001/user/create-notarization-profile",
+    "scrollWidth": 1056
+  },
+  {
+    "role": "user",
+    "route": "/user/create-notarization-profile",
+    "name": "create-step-2",
+    "width": 1440,
+    "height": 1000,
+    "file": "after-user-create-step-2-desktop.png",
+    "actualUrl": "http://localhost:3001/user/create-notarization-profile",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "user",
+    "route": "/user/create-notarization-profile",
+    "name": "create-step-2",
+    "width": 390,
+    "height": 844,
+    "file": "after-user-create-step-2-mobile.png",
+    "actualUrl": "http://localhost:3001/user/create-notarization-profile",
+    "scrollWidth": 1056
+  },
+  {
+    "role": "user",
+    "route": "/user/history",
+    "name": "history-payment",
+    "width": 1440,
+    "height": 1000,
+    "file": "after-user-history-payment-desktop.png",
+    "actualUrl": "http://localhost:3001/user/history",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "user",
+    "route": "/user/history",
+    "name": "history-payment",
+    "width": 390,
+    "height": 844,
+    "file": "after-user-history-payment-mobile.png",
+    "actualUrl": "http://localhost:3001/user/history",
+    "scrollWidth": 1146
+  },
+  {
+    "role": "user",
+    "route": "/user/notarization-session",
+    "name": "session-form",
+    "width": 1440,
+    "height": 1000,
+    "file": "after-user-session-form-desktop.png",
+    "actualUrl": "http://localhost:3001/user/notarization-session",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "user",
+    "route": "/user/notarization-session",
+    "name": "session-form",
+    "width": 390,
+    "height": 844,
+    "file": "after-user-session-form-mobile.png",
+    "actualUrl": "http://localhost:3001/user/notarization-session",
+    "scrollWidth": 444
+  },
+  {
+    "role": "user",
+    "route": "/profile",
+    "name": "profile-edit",
+    "width": 1440,
+    "height": 1000,
+    "file": "after-user-profile-edit-desktop.png",
+    "actualUrl": "http://localhost:3001/profile",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "user",
+    "route": "/profile",
+    "name": "profile-edit",
+    "width": 390,
+    "height": 844,
+    "file": "after-user-profile-edit-mobile.png",
+    "actualUrl": "http://localhost:3001/profile",
+    "scrollWidth": 686
+  },
+  {
+    "role": "notary",
+    "route": "/profile",
+    "name": "profile-edit",
+    "width": 1440,
+    "height": 1000,
+    "file": "after-notary-profile-edit-desktop.png",
+    "actualUrl": "http://localhost:3001/profile",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "notary",
+    "route": "/profile",
+    "name": "profile-edit",
+    "width": 390,
+    "height": 844,
+    "file": "after-notary-profile-edit-mobile.png",
+    "actualUrl": "http://localhost:3001/profile",
+    "scrollWidth": 686
+  },
+  {
+    "role": "admin",
+    "route": "/profile",
+    "name": "profile-edit",
+    "width": 1440,
+    "height": 1000,
+    "file": "after-admin-profile-edit-desktop.png",
+    "actualUrl": "http://localhost:3001/profile",
+    "scrollWidth": 1440
+  },
+  {
+    "role": "admin",
+    "route": "/profile",
+    "name": "profile-edit",
+    "width": 390,
+    "height": 844,
+    "file": "after-admin-profile-edit-mobile.png",
+    "actualUrl": "http://localhost:3001/profile",
+    "scrollWidth": 686
+  }
+]
