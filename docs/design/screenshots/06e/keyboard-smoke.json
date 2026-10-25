@@ -1,0 +1,92 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "name": "Mua thêm tài liệu",
+      "dialogFits": true,
+      "body16": true,
+      "close44": true,
+      "uniqueIds": true,
+      "tabTrap": true,
+      "enterOpen": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "width": 390,
+      "name": "Chia sẻ tài liệu",
+      "dialogFits": true,
+      "body16": true,
+      "close44": true,
+      "uniqueIds": true,
+      "tabTrap": true,
+      "enterOpen": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "width": 720,
+      "name": "Mua thêm tài liệu",
+      "dialogFits": true,
+      "body16": true,
+      "close44": true,
+      "uniqueIds": true,
+      "tabTrap": true,
+      "enterOpen": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "width": 720,
+      "name": "Chia sẻ tài liệu",
+      "dialogFits": true,
+      "body16": true,
+      "close44": true,
+      "uniqueIds": true,
+      "tabTrap": true,
+      "enterOpen": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "width": 1440,
+      "name": "Mua thêm tài liệu",
+      "dialogFits": true,
+      "body16": true,
+      "close44": true,
+      "uniqueIds": true,
+      "tabTrap": true,
+      "enterOpen": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "width": 1440,
+      "name": "Chia sẻ tài liệu",
+      "dialogFits": true,
+      "body16": true,
+      "close44": true,
+      "uniqueIds": true,
+      "tabTrap": true,
+      "enterOpen": true,
+      "escapeClose": true,
+      "focusRestored": true
+    },
+    {
+      "width": 390,
+      "name": "Mua thêm tài liệu",
+      "rootTextScale": 2,
+      "dialogFits": true,
+      "input32": true
+    },
+    {
+      "width": 390,
+      "name": "Chia sẻ tài liệu",
+      "rootTextScale": 2,
+      "dialogFits": true,
+      "input32": true
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T10:30:05.319Z"
+}

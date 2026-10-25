@@ -1,0 +1,34 @@
+{
+  "sha": "9c4f257021fc5a1b8b6693e3a584eb572943ba72",
+  "url": "https://trustify-notary.vercel.app",
+  "checks": [
+    {
+      "role": "user",
+      "size": "desktop",
+      "itemCount": 2,
+      "walletFits": true,
+      "recordToggle": true,
+      "note": "Header-only screenshot excludes real document names and record codes; no preview/share/purchase action."
+    },
+    {
+      "role": "user",
+      "size": "mobile",
+      "itemCount": 2,
+      "walletFits": true,
+      "recordToggle": true,
+      "note": "Header-only screenshot excludes real document names and record codes; no preview/share/purchase action."
+    },
+    {
+      "role": "notary",
+      "sessionNavigation": true
+    },
+    {
+      "role": "admin",
+      "verifyNavigation": true
+    }
+  ],
+  "blocked": [],
+  "errors": [],
+  "note": "Read-only all-role verification per Claude review exception on PR26 and approval on PR27. No actual file preview, share, purchase or payment activated.",
+  "checkedAt": "2026-10-25T10:07:49.668Z"
+}
