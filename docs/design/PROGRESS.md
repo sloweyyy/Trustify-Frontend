@@ -2,6 +2,14 @@
 
 All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:approved` label.
 
+## Current process — owner update, 2026-10-25 19:24 +07
+
+This supersedes the original per-PR QA requirements and the earlier protected-preview workaround. Complete the full approved design implementation first. Each small PR still requires Claude code review (`review:approved`) before merge, `CI=false npm run build`, and changed-file lint. Run targeted automated checks when they verify a material logic risk; avoid repetitive verification of presentation-only changes.
+
+Defer before/after screenshot capture, browser click-throughs, keyboard/zoom/responsive visual QA, and all-role production QA until all implementation is done. Do not wait for a preview or run production browser QA after every merge. Review deployment failures if reported; perform the comprehensive deployment and production-health verification at the final QA stage. Keep existing API, route, Redux and business-logic guardrails, small PRs, no direct main pushes, and one-minute review polling.
+
+Final QA must cover public, User, Notary, Admin and chatbot flows at desktop/mobile widths, keyboard/focus, zoom, lifecycle/payment/NFT labels and the complete before/after gallery. Fix findings in reviewed PRs, then verify production and publish the final “Design revamp complete” issue. The full goal remains active until that is complete.
+
 | Step | PR | Status | Updated | Summary |
 | --- | --- | --- | --- | --- |
 | Brand assets | #8 | Merged | 2026-10-25 | Approved Logo B, favicon and public brand assets. |
@@ -103,3 +111,7 @@ All timestamps use Asia/Ho_Chi_Minh (UTC+07). Merge requires Claude’s `review:
 
 - PR #30 approved and merged; production main1bc96bc Ready/HTTP200, all-role read-only profile QA passed at2026-10-25 19:08 +07. View/edit fit1440/390, labels/verified-email permission and Escape/focus restoration pass. Twelve header-only captures exclude real identity data; zero non-auth writes/uncaught errors.
 - 07 — Notary overview and both document queues, PR #31 (ready for Claude review), 2026-10-25 19:16 +07: readable metrics/recent records, keyboard document openers, full-width mobile queue cards and Vietnamese pagination. Same four metric reads, first-five history order, queue status/page/limit and exact modal record props retained. Thirteen targeted tests and CRA ESLint pass; six before/after screenshot pairs with synthetic GET fixtures and zero non-auth writes. CI=false npm run build passes (remaining warnings in untouched files); detail dialog interiors/history/session management follow07b. Protected-preview exception from Claude on#26 applies; post-merge production all-role QA required.
+
+- PR #31 approved and merged at2026-10-25 19:20 +07; main870bbca primary deployment Ready. Owner subsequently moved remaining QA to one final pass; continuing07b without further per-PR browser QA.
+
+- 07b — Notary processing review dialog, PR pending, 2026-10-25 19:22 +07: responsive named Dialog, desktop40/60 information/preview layout, visible decision footer, readable fields/feedback/file controls, selectable PDF/image preview and Word fallback. Six review/multipart/upload/delete handlers retained byte-for-byte; no service/API changes. Three focused multipart/preview tests, CI=false npm run build and changed-file CRA ESLint pass (remaining build warnings in untouched files). Per owner update, screenshots/browser/production QA deferred to final comprehensive pass. Baseline for final before screenshots: main870bbca.
