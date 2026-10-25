@@ -1,0 +1,8 @@
+{
+  "create.handleCreateSession": true,
+  "create.handleAddGuest": true,
+  "create.handleOnClose": true,
+  "create.resetForm": true,
+  "join.onAccept": true,
+  "join.onReject": true
+}
