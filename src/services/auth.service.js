@@ -54,6 +54,8 @@ const register = async (name, email, password) => {
   } catch (error) {
     if (error.response) {
       if (error.response.status === 400 && error.response.data.message.includes('email')) {
+        // Existing registration callers expect this string rejection, not an Error object.
+        // eslint-disable-next-line no-throw-literal
         throw 'Email already exists';
       }
       throw error.response.data.message || 'Registration failed';
