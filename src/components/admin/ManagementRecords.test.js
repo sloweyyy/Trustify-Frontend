@@ -1,0 +1,23 @@
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { ThemeProvider } from '@mui/material/styles';
+import createTrustifyTheme from '../../config/theme/createTrustifyTheme';
+import EmployeeTable from '../../pages/admin/employee-management/DataTable';
+import UserTable from '../../pages/admin/user-management/UserDataTable';
+import EmployeeDetailModal from '../../pages/admin/employee-management/EmployeeDetailModal';
+import UserDetailModal from '../../pages/admin/user-management/UserDetailModal';
+jest.mock('../../pages/admin/employee-management/EmployeeDetailModal', () => jest.fn(() => null));
+jest.mock('../../pages/admin/user-management/UserDetailModal', () => jest.fn(() => null));
+const wrapper = ({ children }) => <ThemeProvider theme={createTrustifyTheme()}>{children}</ThemeProvider>;
+test.each([[EmployeeTable, EmployeeDetailModal, 'employeeId'], [UserTable, UserDetailModal, 'userId']])('management table preserves order, local search, exact detail ID and page conversion', (Component, Modal, idKey) => {
+  const rows = [{ id: 'b', ordinalNumber: 1, name: 'Bình', position: 'Công chứng viên', userType: 'Mới', status: 'Trực tuyến' }, { id: 'a', ordinalNumber: 2, name: 'An', position: 'Thư ký', userType: 'Cũ', status: 'Ngoại tuyến' }];
+  const original = [...rows]; const paginationModel = { page: 1, pageSize: 5 }; const setPaginationModel = jest.fn();
+  const props = { rows, count: 20, headCells: [{ id: 'name', label: 'Tên' }, { id: 'status', label: 'Trạng thái' }], filterList: { All: 'Tất cả' }, filterStatus: 'Tất cả', searchText: '', paginationModel, setPaginationModel };
+  const { rerender } = render(<Component {...props} />, { wrapper });
+  expect(screen.getAllByRole('button', { name: /^Xem chi tiết / }).map((e) => e.getAttribute('aria-label'))).toEqual(['Xem chi tiết Bình', 'Xem chi tiết An']);
+  fireEvent.click(screen.getByRole('button', { name: 'Sắp xếp theo tên' }));
+  expect(screen.getAllByRole('button', { name: /^Xem chi tiết / })[0]).toHaveAttribute('aria-label', 'Xem chi tiết An'); expect(rows).toEqual(original);
+  fireEvent.click(screen.getByRole('button', { name: 'Xem chi tiết An' })); expect(Modal.mock.calls.filter(([props]) => props.open).at(-1)[0][idKey]).toBe('a');
+  fireEvent.click(screen.getByRole('button', { name: 'Trang sau' })); expect(setPaginationModel.mock.calls.at(-1)[0](paginationModel)).toEqual({ page: 2, pageSize: 5 });
+  rerender(<Component {...props} searchText="bình" />); expect(screen.getByRole('button', { name: 'Xem chi tiết Bình' })).toBeInTheDocument(); expect(screen.queryByRole('button', { name: 'Xem chi tiết An' })).not.toBeInTheDocument();
+});

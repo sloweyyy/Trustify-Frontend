@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Header from './Header';
 import { Box, TextField, InputAdornment } from '@mui/material';
-import { black, white } from '../../../config/theme/themePrimitives';
+import { black } from '../../../config/theme/themePrimitives';
 import Overview from './Overview';
 import DataTable from './DataTable';
 import FilterButton from './FilterButton';
@@ -129,7 +129,7 @@ const EmployeeManagement = () => {
 
   return (
     <Box
-      sx={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100vh', background: '#F9FAFB', gap: '16px' }}
+      sx={{ display: 'flex', flexDirection: 'column', width: '100%', minWidth: 0, background: 'background.default', gap: '16px' }}
     >
       <Header />
 
@@ -161,7 +161,8 @@ const EmployeeManagement = () => {
               alignSelf: 'stretch',
               flexWrap: 'wrap',
               maxWidth: '100%',
-              borderBottom: '1px solid #C0C0C0',
+              borderBottom: 1,
+              borderColor: 'divider',
             }}
           >
             <FilterButton
@@ -216,8 +217,8 @@ const EmployeeManagement = () => {
           <TextField
             variant="outlined"
             size="small"
-            placeholder="Tìm kiếm"
-            inputProps={{ 'aria-label': 'Tìm kiếm' }}
+            label="Tìm trong trang hiện tại"
+            inputProps={{ 'aria-label': 'Tìm trong trang hiện tại' }}
             onChange={(e) => setSearchText(e.target.value)}
             sx={{
               borderRadius: 1,
@@ -238,11 +239,11 @@ const EmployeeManagement = () => {
         </Box>
         <Box
           sx={{
-            border: !loadingStatus ? '1px solid var(--black-50, #E0E0E0)' : 'none',
-            borderRadius: '24px',
-            background: white[50],
+            border: 0,
+            borderRadius: 1,
+            background: 'background.paper',
             p: '8px',
-            paddingBottom: '64px'
+            paddingBottom: 2
           }}
         >
           {loadingStatus ? (
