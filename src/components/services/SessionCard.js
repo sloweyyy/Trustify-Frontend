@@ -31,12 +31,12 @@ const SessionCard = React.memo(({ session }) => {
           </Box>
           <Box><Typography color="text.secondary" sx={{ mb: 1 }}>Người tham gia</Typography>
             <Stack spacing={1.5}>
-              <Stack direction="row" spacing={1} alignItems="center"><Box aria-hidden="true"><AvatarIcon email={session.creator.email || '?'} /></Box>
+              <Stack direction="row" spacing={1} alignItems="center"><Box aria-hidden="true"><AvatarIcon name={session.creator.name} email={session.creator.email || '?'} /></Box>
                 <Box sx={{ minWidth: 0 }}><Typography sx={{ overflowWrap: 'anywhere' }}>{session.creator.name || session.creator.email}</Typography><Typography color="text.secondary">Người tạo</Typography></Box>
               </Stack>
               {participants.map((member, index) => <Stack key={member._id || member.email || index} direction="row" spacing={1} alignItems="center">
                 <Badge aria-hidden="true" variant="dot" color={member.status === 'pending' ? 'warning' : member.status === 'accepted' ? 'success' : member.status === 'rejected' ? 'error' : 'default'}>
-                  <AvatarIcon email={member.email || '?'} />
+                  <AvatarIcon name={member.name} email={member.email || '?'} />
                 </Badge>
                 <Box sx={{ minWidth: 0 }}><Typography sx={{ overflowWrap: 'anywhere' }}>{member.name || member.email || 'Người tham gia'}</Typography>
                   <Typography color="text.secondary">{memberLabels[member.status] || 'Chưa có thông tin tham gia'}</Typography></Box>

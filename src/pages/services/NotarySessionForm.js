@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useMemo, useId } from 'react';
-import { Box, Typography, TextField, IconButton, Button, Autocomplete, Modal, styled } from '@mui/material';
+import { Box, Typography, TextField, IconButton, Button, Autocomplete, Dialog, DialogTitle, DialogContent, DialogActions, useMediaQuery, styled } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { black, gray, white } from '../../config/theme/themePrimitives';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import FieldLabel from '../../components/shared/FieldLabel';
 import DateTimePickerSection from '../../components/shared/DateTimeFields';
@@ -27,6 +26,7 @@ const CustomAutocomplete = ({ id, options, value, onChange, placeholder, loading
   <Autocomplete
     id={id}
     loading={loading}
+    openText="Mở danh sách" closeText="Đóng danh sách" clearText="Xóa lựa chọn"
     options={options}
     getOptionLabel={(option) => option.name}
     onChange={onChange}
@@ -36,7 +36,7 @@ const CustomAutocomplete = ({ id, options, value, onChange, placeholder, loading
         inputProps={{ ...params.inputProps, readOnly: true }}
         sx={{
           mt: 1,
-          backgroundColor: gray[50],
+          backgroundColor: 'background.default',
           borderRadius: 1,
           '& .MuiInputBase-input': {
             fontSize: '1rem',
@@ -60,9 +60,9 @@ const CustomAutocomplete = ({ id, options, value, onChange, placeholder, loading
     value={value}
     onOpen={fetchOptions}
     disabled={isSubmitting}
-    loadingText={<Typography sx={{ fontSize: '1rem', fontWeight: 400, color: gray[600] }}>Đang tải...</Typography>}
+    loadingText={<Typography sx={{ fontSize: '1rem', fontWeight: 400, color: 'text.secondary' }}>Đang tải...</Typography>}
     noOptionsText={
-      <Typography sx={{ fontSize: '1rem', fontWeight: 400, color: gray[600] }}>Không tìm thấy kết quả</Typography>
+      <Typography sx={{ fontSize: '1rem', fontWeight: 400, color: 'text.secondary' }}>Không tìm thấy kết quả</Typography>
     }
   />
 );
@@ -85,13 +85,14 @@ const GuestSection = ({
         display: 'flex',
         alignItems: 'center',
         mt: 1,
-        backgroundColor: gray[50],
+        backgroundColor: 'background.default',
         borderRadius: 1,
       }}
     >
       {/* Guest Autocomplete */}
       <Autocomplete
         id={id}
+        openText="Mở danh sách" closeText="Đóng danh sách" clearText="Xóa lựa chọn"
         value={value}
         loading={loading}
         options={options}
@@ -120,17 +121,17 @@ const GuestSection = ({
           </li>
         )}
         disabled={isSubmitting}
-        loadingText={<Typography sx={{ fontSize: '1rem', fontWeight: 400, color: gray[600] }}>Đang tải...</Typography>}
+        loadingText={<Typography sx={{ fontSize: '1rem', fontWeight: 400, color: 'text.secondary' }}>Đang tải...</Typography>}
         noOptionsText={
-          <Typography sx={{ fontSize: '1rem', fontWeight: 400, color: gray[600] }}>Không tìm thấy kết quả</Typography>
+          <Typography sx={{ fontSize: '1rem', fontWeight: 400, color: 'text.secondary' }}>Không tìm thấy kết quả</Typography>
         }
       />
 
       <Button
         size="small"
-        variant="contained"
+        variant="outlined"
         onClick={handleAddGuest}
-        sx={{ fontSize: '1rem', backgroundColor: white[50], color: black[900], textTransform: 'none', mr: 1 }}
+        sx={{ fontSize: '1rem', textTransform: 'none', mr: 1 }}
         disabled={isSubmitting}
       >
         Thêm
@@ -150,7 +151,7 @@ const GuestSection = ({
 
 const CustomTextField = styled(TextField)(({ theme }) => ({
   marginTop: theme.spacing(1),
-  backgroundColor: gray[50],
+  backgroundColor: theme.palette.background.default,
   borderRadius: theme.shape.borderRadius,
   '& .MuiInputBase-input': {
     fontSize: '1rem',
@@ -159,6 +160,7 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
 
 const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
   const fieldId = useId();
+  const fullScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const [startDate, setStartDate] = useState(dayjs());
   const [startTime, setStartTime] = useState(dayjs());
 
@@ -346,32 +348,19 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
   };
 
   return (
-    <Modal open={open} onClose={handleOnClose} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <Box
-        role="dialog" aria-modal="true" aria-labelledby="session-form-title"
-        sx={{
-          width: { xs: 'calc(100% - 32px)', sm: '80vw', md: '70vw' },
-          maxHeight: 'calc(100dvh - 32px)',
-          p: { xs: 2, sm: 4 },
-          backgroundColor: white[50],
-          borderRadius: 2,
-          overflowY: 'auto',
-        }}
-      >
+    <Dialog open={open} onClose={handleOnClose} fullScreen={fullScreen} fullWidth maxWidth="md" aria-labelledby={`${fieldId}-title`}>
+      <DialogTitle component="div" id={`${fieldId}-header`} sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
+        <Box sx={{ flex: 1, minWidth: 0 }}>
+          <Typography id={`${fieldId}-title`} component="h2" variant="h5">Tạo phiên công chứng</Typography>
+          <Typography sx={{ mt: 1, color: 'text.secondary' }}>Điền thông tin phiên, chọn thời gian và thêm người cùng tham gia.</Typography>
+        </Box>
+        <IconButton aria-label="Đóng tạo phiên công chứng" onClick={handleOnClose} disabled={isSubmitting}><CloseIcon /></IconButton>
+      </DialogTitle>
+      <DialogContent dividers sx={{ p: { xs: 2, sm: 3 } }}>
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="vi">
-          {/* Header */}
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-            <Typography id="session-form-title" component="h2" variant="h6" sx={{ flexGrow: 1 }}>
-              Tạo phiên công chứng
-            </Typography>
-            <IconButton aria-label="Đóng tạo phiên công chứng" onClick={handleOnClose} disabled={isSubmitting}>
-              <CloseIcon />
-            </IconButton>
-          </Box>
-
           {/* Notary Session Name */}
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, flexWrap: 'wrap', mb: 2 }}>
-            <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: 2 }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 2 }}>
+            <Box sx={{ flex: 1, minWidth: 0, mb: 2 }}>
               <FieldLabel htmlFor={`${fieldId}-name`} label="Tên phiên công chứng" disabled={isSubmitting}>
               <CustomTextField
                 id={`${fieldId}-name`}
@@ -382,7 +371,7 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
               />
               </FieldLabel>
             </Box>
-            <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: 2 }}>
+            <Box sx={{ flex: 1, minWidth: 0, mb: 2 }}>
               <FieldLabel htmlFor={`${fieldId}-amount`} label="Số lượng bản sao" disabled={isSubmitting}>
               <CustomTextField
                 id={`${fieldId}-amount`}
@@ -396,8 +385,8 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
           </Box>
 
           {/* Notary Service and Field */}
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, flexWrap: 'wrap', mb: 2 }}>
-            <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: { xs: 2, sm: 0 } }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 2 }}>
+            <Box sx={{ flex: 1, minWidth: 0, mb: { xs: 2, sm: 0 } }}>
               <FieldLabel htmlFor={`${fieldId}-field`} label="Lĩnh vực công chứng" disabled={isSubmitting}>
               <CustomAutocomplete
                 id={`${fieldId}-field`}
@@ -411,7 +400,7 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
               />
               </FieldLabel>
             </Box>
-            <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: { xs: 2, sm: 0 } }}>
+            <Box sx={{ flex: 1, minWidth: 0, mb: { xs: 2, sm: 0 } }}>
               <FieldLabel htmlFor={`${fieldId}-service`} label="Dịch vụ công chứng" disabled={isSubmitting}>
               <CustomAutocomplete
                 id={`${fieldId}-service`}
@@ -427,8 +416,8 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
             </Box>
           </Box>
 
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, flexWrap: 'wrap', mb: 2 }}>
-            <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: { xs: 2, sm: 0 } }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, mb: 2 }}>
+            <Box sx={{ flex: 1, minWidth: 0, mb: { xs: 2, sm: 0 } }}>
               <Typography variant="body2">Thời gian bắt đầu</Typography>
               <DateTimePickerSection
                 startDate={startDate}
@@ -439,7 +428,7 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
               />
             </Box>
 
-            <Box sx={{ flex: '1 1 30%', mr: { xs: 0, sm: 2 }, mb: { xs: 2, sm: 0 } }}>
+            <Box sx={{ flex: 1, minWidth: 0, mb: { xs: 2, sm: 0 } }}>
               <Typography variant="body2">Thời gian kết thúc</Typography>
               <DateTimePickerSection
                 startDate={endDate}
@@ -453,7 +442,7 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
 
           {/* Duration */}
           <Box sx={{ mb: 2 }}>
-            <Typography variant="caption" sx={{ color: black[400] }}>
+            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               Sự kiện này sẽ diễn ra từ {startDate.format('DD/MM/YYYY')} - {startTime.format('HH:mm')} đến{' '}
               {endDate ? endDate.format('DD/MM/YYYY') : '.. / .. / ..'} - {endTime ? endTime.format('HH:mm') : '.. : ..'}
             </Typography>
@@ -472,37 +461,15 @@ const NotarySessionForm = ({ open, setOpen, handleSuccess }) => {
             isSubmitting={isSubmitting}
           />
 
-          {/* Actions */}
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button
-              variant="outlined"
-              sx={{
-                minWidth: 100,
-                mr: 2,
-                fontSize: '1rem',
-                fontWeight: 600,
-                textTransform: 'none',
-                border: `1px solid ${black[50]}`,
-                color: black[400],
-              }}
-              onClick={handleOnClose}
-              disabled={isSubmitting}
-            >
-              Hủy
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{ minWidth: 100, fontSize: '1rem', fontWeight: 600, textTransform: 'none' }}
-              onClick={handleCreateSession}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Đang xử lý...' : 'Xác nhận'}
-            </Button>
-          </Box>
         </LocalizationProvider>
-      </Box>
-    </Modal>
+      </DialogContent>
+      <DialogActions sx={{ flexDirection: { xs: 'column-reverse', sm: 'row' }, '& .MuiButton-root': { width: { xs: '100%', sm: 'auto' }, ml: '0 !important' } }}>
+        <Button variant="outlined" onClick={handleOnClose} disabled={isSubmitting}>Hủy</Button>
+        <Button variant="contained" onClick={handleCreateSession} disabled={isSubmitting}>
+          {isSubmitting ? 'Đang xử lý...' : 'Xác nhận'}
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 };
 

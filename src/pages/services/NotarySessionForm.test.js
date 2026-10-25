@@ -23,3 +23,15 @@ test('session labels identify all editable controls and cancel never submits', (
   expect(setOpen).toHaveBeenCalledWith(false);
   expect(SessionService.createSession).not.toHaveBeenCalled();
 });
+
+test('named dialog retains typed values until dismissal; Escape never creates a session', () => {
+  const close = jest.fn();
+  render(<ThemeProvider theme={createTrustifyTheme()}><NotarySessionForm open setOpen={close} handleSuccess={jest.fn()} /></ThemeProvider>);
+  const dialog = screen.getByRole('dialog', { name: 'Tạo phiên công chứng', exact: true });
+  const name = screen.getByLabelText('Tên phiên công chứng', { exact: true });
+  fireEvent.change(name, { target: { value: 'Phiên gia đình' } });
+  expect(name).toHaveValue('Phiên gia đình');
+  fireEvent.keyDown(dialog, { key: 'Escape' });
+  expect(close).toHaveBeenCalledWith(false);
+  expect(SessionService.createSession).not.toHaveBeenCalled();
+});
