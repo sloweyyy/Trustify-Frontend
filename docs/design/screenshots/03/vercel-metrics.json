@@ -1,0 +1,44 @@
+[
+  {
+    "role": "user",
+    "route": "/user/create-notarization-profile",
+    "width": 390,
+    "scrollWidth": 390,
+    "main": 390
+  },
+  {
+    "role": "user",
+    "route": "/user/history",
+    "main": 390,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "role": "notary",
+    "route": "/notary/pending-notarization-documents",
+    "main": 390,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "role": "notary",
+    "route": "/notary/notary-session-management",
+    "main": 390,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "role": "admin",
+    "route": "/admin/employee-management",
+    "main": 390,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "role": "admin",
+    "route": "/admin/user-management",
+    "main": 390,
+    "scrollWidth": 390,
+    "width": 390
+  }
+]

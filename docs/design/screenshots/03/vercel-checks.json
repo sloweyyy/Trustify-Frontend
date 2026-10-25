@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "5c065f8",
+  "deployment": "https://vercel.com/sloweyyy/trustify-notary/HaZLfDn5eRfrTQvJHUJDj9Nu2Txo",
+  "preview": "https://trustify-notary-git-design-03-authenticated-shell-sloweyyy.vercel.app",
+  "ready": true,
+  "checkedAt": "2026-10-25T00:38:12.778435+00:00",
+  "roles": {
+    "user": "mobile wizard, Drawer navigation to populated history, menu auto-close, desktop collapse/expand, logout",
+    "notary": "empty pending queue, mobile menu navigation to sessions, normal-flow pagination, logout",
+    "admin": "desktop employee view, mobile reflowed filters/chart, Drawer navigation to user management, Enter opens/Escape closes and restores menu-button focus"
+  },
+  "geometry": "All six measured views have clientWidth=scrollWidth=mainWidth=390. Full local audit covers20 route-role combinations.",
+  "mutations": "Routine sign-in/out only. No account, notarization, signature or payment writes.",
+  "screenshots": 12,
+  "knownGaps": [
+    "Existing local table scroll remains until responsive cards migrate",
+    "Legacy secretary blank pages have no supplied QA login; menu unit-tested",
+    "Public header/footer03b and remaining shared upload/table-card work pending",
+    "Vercel preview toolbar may appear in captures"
+  ]
+}

@@ -6,7 +6,7 @@ Build, CRA ESLint and 21 targeted tests pass. Browser checks confirm full-width 
 
 No backend/services/Redux/route definitions changed. No account/document/signature/payment mutations; payment result was opened without transaction parameters. Legacy secretary routes are blank placeholders with no supplied QA account; role menu is unit-tested. Full route-role metrics are in overflow-audit.json.
 
-Vercel preview QA pending. Public header/footer follows separately in03b. Remaining shared upload/table-card work resumes after the shell, as Claude requested on PR13. Black wizard CTA and screen-specific polish remain for User04.
+Vercel primary Ready; all three QA-role click-through checks pass. Six measured preview views have document/main widths390px at390px. Keyboard restoration confirmed. See vercel-checks.json. Public header/footer follows separately in03b. Remaining shared upload/table-card work resumes after the shell, as Claude requested on PR13. Black wizard CTA and screen-specific polish remain for User04.
 
 | Role | Route | Before width at390 | After width |
 | --- | --- | --- | --- |
@@ -284,3 +284,29 @@ Vercel preview QA pending. Public header/footer follows separately in03b. Remain
 ![after-user-menu-collapsed-desktop](after-user-menu-collapsed-desktop.png)
 
 ![after-user-menu-mobile](after-user-menu-mobile.png)
+
+## Vercel preview
+
+![vercel-admin-employees-desktop](vercel-admin-employees-desktop.png)
+
+![vercel-admin-employees-mobile](vercel-admin-employees-mobile.png)
+
+![vercel-admin-menu-mobile](vercel-admin-menu-mobile.png)
+
+![vercel-admin-users-mobile](vercel-admin-users-mobile.png)
+
+![vercel-notary-menu-mobile](vercel-notary-menu-mobile.png)
+
+![vercel-notary-queue-desktop](vercel-notary-queue-desktop.png)
+
+![vercel-notary-queue-mobile](vercel-notary-queue-mobile.png)
+
+![vercel-notary-sessions-mobile](vercel-notary-sessions-mobile.png)
+
+![vercel-user-collapsed-desktop](vercel-user-collapsed-desktop.png)
+
+![vercel-user-history-mobile](vercel-user-history-mobile.png)
+
+![vercel-user-menu-mobile](vercel-user-menu-mobile.png)
+
+![vercel-user-wizard-mobile](vercel-user-wizard-mobile.png)
