@@ -1,0 +1,38 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "height": 844,
+      "createHeight": 48,
+      "searchNoMatches": true,
+      "pagination": true,
+      "existingDetailEnterEscapeFocus": true,
+      "existingCreateOpenCloseFocus": true,
+      "noOverflow": true
+    },
+    {
+      "width": 720,
+      "height": 500,
+      "createHeight": 48,
+      "searchNoMatches": true,
+      "pagination": true,
+      "existingDetailEnterEscapeFocus": true,
+      "existingCreateOpenCloseFocus": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "createHeight": 48,
+      "searchNoMatches": true,
+      "pagination": true,
+      "existingDetailEnterEscapeFocus": true,
+      "existingCreateOpenCloseFocus": true,
+      "noOverflow": true
+    }
+  ],
+  "writes": [],
+  "errors": [],
+  "note": "720x500 is layout-equivalent200% QA, not native browser zoom. No session,participant,upload or signature write.",
+  "checkedAt": "2026-10-25T05:27:37.844Z"
+}
