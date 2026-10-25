@@ -1,57 +1,15 @@
 import React from 'react';
-import { Container, Typography, Box, Paper, Grid, Divider } from '@mui/material';
+import PublicArticle from '../../../components/public/PublicArticle';
+import { Typography, Box, Paper, Grid, Divider } from '@mui/material';
 import { dark, gray, primary } from '../../../config/theme/themePrimitives';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import GroupIcon from '@mui/icons-material/Group';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+
 
 const OperatingRegulations = () => {
-  return (
-    <Box>
-      {/* Header Section */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          py: 10,
-          backgroundColor: primary[50],
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <Box
-          sx={{
-            position: 'absolute',
-            width: '50vw',
-            height: '50vw',
-            top: '70%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            borderRadius: '50%',
-            filter: 'blur(200px)',
-            background: `linear-gradient(180deg, ${primary[50]} 0%, ${primary[50]} 30%, ${primary[100]} 100%)`,
-            zIndex: 0,
-          }}
-        />
-        <Box sx={{ position: 'relative', zIndex: 1, textAlign: 'center', px: 4 }}>
-          <Typography variant="h6" color={primary[500]} gutterBottom>
-            CHÍNH SÁCH
-          </Typography>
-          <Typography variant="h2" fontWeight="bold" color={dark[500]} gutterBottom>
-            Quy chế hoạt động
-          </Typography>
-          <Typography variant="subtitle1" color={dark[500]} sx={{ maxWidth: 800, mx: 'auto', mb: 3 }}>
-            Các quy định về quyền, nghĩa vụ và quy trình hoạt động của hệ thống công chứng trực tuyến
-          </Typography>
-          <AccountBalanceIcon sx={{ fontSize: 60, color: primary[300], mb: 2 }} />
-        </Box>
-      </Box>
-
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Paper elevation={0} sx={{ p: 4, borderRadius: 2 }}>
+  return <PublicArticle title="Quy chế hoạt động">
+        <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}>
           <Typography variant="body1" paragraph sx={{ mb: 4 }}>
             Quy chế này quy định cụ thể về hoạt động của hệ thống công chứng trực tuyến, bao gồm các quy định về quyền và
             nghĩa vụ của các bên tham gia, quy trình hoạt động, và các vấn đề liên quan khác.
@@ -60,7 +18,7 @@ const OperatingRegulations = () => {
           <Box sx={{ mb: 6 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
               <FactCheckIcon sx={{ fontSize: 30, color: primary[500], mr: 2 }} />
-              <Typography variant="h5" fontWeight="bold" color={dark[500]}>
+              <Typography component="h2" variant="h5" fontWeight={600} color={dark[500]}>
                 I. Nguyên tắc hoạt động
               </Typography>
             </Box>
@@ -101,7 +59,7 @@ const OperatingRegulations = () => {
                       },
                     }}
                   >
-                    <Typography variant="h6" gutterBottom fontWeight="bold" color={dark[500]}>
+                    <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={dark[500]}>
                       {item.title}
                     </Typography>
                     <Typography variant="body1">{item.desc}</Typography>
@@ -115,10 +73,10 @@ const OperatingRegulations = () => {
 
           <Grid container spacing={5} sx={{ mb: 6 }}>
             <Grid item xs={12} md={5}>
-              <Box sx={{ backgroundColor: primary[50], p: 4, borderRadius: 2, height: '100%' }}>
+              <Box sx={{ backgroundColor: primary[50], p: { xs: 2, md: 3 }, borderRadius: 2, height: '100%' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                   <GroupIcon sx={{ fontSize: 30, color: primary[500], mr: 2 }} />
-                  <Typography variant="h5" fontWeight="bold" color={dark[500]}>
+                  <Typography component="h2" variant="h5" fontWeight={600} color={dark[500]}>
                     II. Đối tượng áp dụng
                   </Typography>
                 </Box>
@@ -142,7 +100,7 @@ const OperatingRegulations = () => {
             <Grid item xs={12} md={7}>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                 <AdminPanelSettingsIcon sx={{ fontSize: 30, color: primary[500], mr: 2 }} />
-                <Typography variant="h5" fontWeight="bold" color={dark[500]}>
+                <Typography component="h2" variant="h5" fontWeight={600} color={dark[500]}>
                   III. Quy trình công chứng trực tuyến
                 </Typography>
               </Box>
@@ -183,14 +141,14 @@ const OperatingRegulations = () => {
             </Grid>
           </Grid>
 
-          <Box sx={{ backgroundColor: gray[50], p: 4, borderRadius: 2, mb: 6 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+          <Box sx={{ backgroundColor: gray[50], p: { xs: 2, md: 3 }, borderRadius: 2, mb: 6 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               IV. Quyền và nghĩa vụ của người dùng
             </Typography>
 
             <Grid container spacing={4}>
               <Grid item xs={12} md={6}>
-                <Typography variant="h6" gutterBottom fontWeight="bold" color={dark[500]}>
+                <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={dark[500]}>
                   1. Quyền của người dùng
                 </Typography>
                 <Box component="ul" sx={{ pl: 3 }}>
@@ -210,7 +168,7 @@ const OperatingRegulations = () => {
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <Typography variant="h6" gutterBottom fontWeight="bold" color={dark[500]}>
+                <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={dark[500]}>
                   2. Nghĩa vụ của người dùng
                 </Typography>
                 <Box component="ul" sx={{ pl: 3 }}>
@@ -235,7 +193,7 @@ const OperatingRegulations = () => {
           </Box>
 
           <Box sx={{ mb: 6 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               V. Trách nhiệm của đơn vị vận hành
             </Typography>
             <Grid container spacing={3}>
@@ -285,7 +243,7 @@ const OperatingRegulations = () => {
 
           <Grid container spacing={5}>
             <Grid item xs={12} md={6}>
-              <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                 VI. Xử lý vi phạm
               </Typography>
               <Typography variant="body1">
@@ -296,7 +254,7 @@ const OperatingRegulations = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                 VII. Điều khoản sửa đổi và bổ sung
               </Typography>
               <Typography variant="body1">
@@ -307,9 +265,8 @@ const OperatingRegulations = () => {
             </Grid>
           </Grid>
         </Paper>
-      </Container>
-    </Box>
-  );
+
+  </PublicArticle>;
 };
 
 export default OperatingRegulations;

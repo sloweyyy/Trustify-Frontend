@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container, Typography, Box, Paper, Grid } from '@mui/material';
-import { dark, gray, primary, white } from '../../../config/theme/themePrimitives';
+import PublicArticle from '../../../components/public/PublicArticle';
+import { Typography, Box, Paper, Grid } from '@mui/material';
+import { dark, gray, primary } from '../../../config/theme/themePrimitives';
 import SecurityIcon from '@mui/icons-material/Security';
 import LockIcon from '@mui/icons-material/Lock';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
-import PaymentsIcon from '@mui/icons-material/Payments';
+
 
 const PaymentSecurity = () => {
   const securityFeatures = [
@@ -34,59 +35,16 @@ const PaymentSecurity = () => {
     },
   ];
 
-  return (
-    <Box>
-      {/* Header Section */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          py: 10,
-          backgroundColor: primary[50],
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <Box
-          sx={{
-            position: 'absolute',
-            width: '50vw',
-            height: '50vw',
-            top: '70%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            borderRadius: '50%',
-            filter: 'blur(200px)',
-            background: `linear-gradient(180deg, ${primary[50]} 0%, ${primary[50]} 30%, ${primary[100]} 100%)`,
-            zIndex: 0,
-          }}
-        />
-        <Box sx={{ position: 'relative', zIndex: 1, textAlign: 'center', px: 4 }}>
-          <Typography variant="h6" color={primary[500]} gutterBottom>
-            CHÍNH SÁCH
-          </Typography>
-          <Typography variant="h2" fontWeight="bold" color={dark[500]} gutterBottom>
-            Bảo mật thanh toán
-          </Typography>
-          <Typography variant="subtitle1" color={dark[500]} sx={{ maxWidth: 800, mx: 'auto', mb: 3 }}>
-            Bảo vệ thông tin và giao dịch thanh toán của khách hàng với các biện pháp bảo mật hàng đầu
-          </Typography>
-          <PaymentsIcon sx={{ fontSize: 60, color: primary[300], mb: 2 }} />
-        </Box>
-      </Box>
-
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Paper elevation={0} sx={{ p: 4, borderRadius: 2 }}>
+  return <PublicArticle title="Bảo mật thanh toán">
+        <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}>
           <Typography variant="body1" paragraph sx={{ mb: 4 }}>
             Tại hệ thống công chứng trực tuyến của chúng tôi, bảo mật thông tin thanh toán của khách hàng luôn là ưu tiên
             hàng đầu. Chúng tôi cam kết áp dụng các biện pháp bảo mật tốt nhất để đảm bảo mọi giao dịch của bạn đều được bảo
             vệ an toàn.
           </Typography>
 
-          <Box sx={{ py: 3, mb: 6, backgroundColor: primary[50], borderRadius: 2, p: 4 }}>
-            <Typography variant="h5" fontWeight="bold" color={dark[500]} gutterBottom textAlign="center">
+          <Box sx={{ py: 3, mb: 6, backgroundColor: primary[50], borderRadius: 2, p: { xs: 2, md: 3 } }}>
+            <Typography component="h2" variant="h5" fontWeight={600} color={dark[500]} gutterBottom textAlign="center">
               Các tính năng bảo mật hàng đầu
             </Typography>
             <Grid container spacing={4} sx={{ mt: 2 }}>
@@ -110,7 +68,7 @@ const PaymentSecurity = () => {
                         {feature.icon}
                       </Box>
                       <Box>
-                        <Typography variant="h6" gutterBottom fontWeight="bold" color={dark[500]}>
+                        <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={dark[500]}>
                           {feature.title}
                         </Typography>
                         <Typography variant="body1">{feature.description}</Typography>
@@ -124,7 +82,7 @@ const PaymentSecurity = () => {
 
           <Grid container spacing={5}>
             <Grid item xs={12} md={6}>
-              <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                 Phương thức thanh toán an toàn
               </Typography>
               <Typography variant="body1" paragraph>
@@ -135,7 +93,7 @@ const PaymentSecurity = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                 Quy trình xử lý thanh toán
               </Typography>
               <Typography variant="body1" paragraph sx={{ mb: 2 }}>
@@ -159,7 +117,7 @@ const PaymentSecurity = () => {
           <Box sx={{ my: 5, py: 4, borderTop: `1px solid ${gray[200]}`, borderBottom: `1px solid ${gray[200]}` }}>
             <Grid container spacing={5}>
               <Grid item xs={12} md={6}>
-                <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                   Lưu trữ thông tin thanh toán
                 </Typography>
                 <Typography variant="body1">
@@ -170,7 +128,7 @@ const PaymentSecurity = () => {
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
                   Bảo vệ khỏi gian lận
                 </Typography>
                 <Typography variant="body1">
@@ -183,7 +141,7 @@ const PaymentSecurity = () => {
           </Box>
 
           <Box sx={{ mb: 5 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               Cam kết hoàn tiền
             </Typography>
             <Typography variant="body1">
@@ -192,8 +150,8 @@ const PaymentSecurity = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ backgroundColor: gray[50], p: 4, borderRadius: 2, mt: 5 }}>
-            <Typography variant="h5" gutterBottom fontWeight="bold" color={dark[500]}>
+          <Box sx={{ backgroundColor: gray[50], p: { xs: 2, md: 3 }, borderRadius: 2, mt: 5 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
               Liên hệ hỗ trợ
             </Typography>
             <Typography variant="body1">
@@ -213,9 +171,8 @@ const PaymentSecurity = () => {
             </Box>
           </Box>
         </Paper>
-      </Container>
-    </Box>
-  );
+
+  </PublicArticle>;
 };
 
 export default PaymentSecurity;

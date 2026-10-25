@@ -23,19 +23,9 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 
 const Card = styled(MuiCard)(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignSelf: 'center',
-  width: '100%',
-  padding: theme.spacing(4),
-  gap: theme.spacing(2),
-  boxShadow: 'hsla(220, 30%, 5%, 0.05) 0px 5px 15px 0px, hsla(220, 25%, 10%, 0.05) 0px 15px 35px -5px',
-  [theme.breakpoints.up('sm')]: {
-    width: '450px',
-  },
-  ...theme.applyStyles('dark', {
-    boxShadow: 'hsla(220, 30%, 5%, 0.5) 0px 5px 15px 0px, hsla(220, 25%, 10%, 0.08) 0px 15px 35px -5px',
-  }),
+  display: 'flex', flexDirection: 'column', width: '100%', minWidth: 0,
+  padding: theme.spacing(3), gap: theme.spacing(2), boxShadow: 'none',
+  backgroundColor: theme.palette.background.paper,
 }));
 
 export default function SignInCard() {
@@ -80,21 +70,8 @@ export default function SignInCard() {
       });
   };
 
-  const handleClickOpen = () => {
-    window.location.href = '/forgot-password';
-  };
-
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
   };
 
   const validateInputs = () => {
@@ -133,14 +110,14 @@ export default function SignInCard() {
           justifyContent: 'center',
           display: 'flex',
         }}
-        disabled={loading}
       >
         Đăng nhập
         {loading && '...'}
       </Typography>
       <Box
         component="form"
-        onSubmit={handleSubmit}
+        aria-label="Biểu mẫu đăng nhập"
+        onSubmit={handleSignIn}
         noValidate
         sx={{
           display: 'flex',
@@ -157,14 +134,12 @@ export default function SignInCard() {
             id="email"
             type="email"
             name="email"
-            placeholder="your@email.com"
+            placeholder="tenban@example.com"
             autoComplete="email"
-            autoFocus
             required
             fullWidth
             variant="outlined"
             color={emailError ? 'error' : 'primary'}
-            sx={{ ariaLabel: 'email' }}
             onChange={(e) => setEmail(e.target.value)}
           />
         </FormControl>
@@ -194,7 +169,7 @@ export default function SignInCard() {
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton
-                    aria-label="toggle password visibility"
+                    aria-label={showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'}
                     onClick={handleClickShowPassword}
                     onMouseDown={handleMouseDownPassword}
                     edge="end"
@@ -212,12 +187,12 @@ export default function SignInCard() {
             justifyContent: 'flex-end',
           }}
         >
-          <Link onClick={handleClickOpen} variant="body2" role="link" sx={{ cursor: 'pointer' }}>
+          <Link href="/forgot-password" variant="body2" sx={{ cursor: 'pointer' }}>
             Quên mật khẩu?
           </Link>
         </Box>
         <ForgotPasswordModal open={open} handleClose={handleClose} />
-        <Button type="submit" fullWidth variant="contained" onClick={handleSignIn} disabled={loading}>
+        <Button type="submit" fullWidth variant="contained" disabled={loading}>
           {loading ? 'Đang đăng nhập...' : 'Đăng nhập'}
         </Button>
 
