@@ -6,7 +6,7 @@ Build, CRA ESLint and 19 targeted tests pass. Local all-role sign-in notificatio
 
 Queue request status/page/limit and service implementation are unchanged. The UI recognizes the existing returned error envelope and offers an explicit read-only retry. Loading/error fixtures intercept only local GET responses; no backend writes or production outage was induced. Populated pagination is covered by tests.
 
-The existing authenticated shell still overflows at 390px; Design 03 must resolve every authenticated route. Modal and toast bounds are checked independently. Upload, stepper and responsive table/card work remain separate shared slices. Vercel preview QA pending.
+The existing authenticated shell still overflows at 390px; Design 03 must resolve every authenticated route. Modal and toast bounds are checked independently. Upload, stepper and responsive table/card work remain separate shared slices. Vercel primary Ready; all three QA roles and public loading clicked through. See vercel-checks.json.
 
 ## admin-confirmation-desktop
 
@@ -125,3 +125,29 @@ The existing authenticated shell still overflows at 390px; Design 03 must resolv
 ![after-notary-queue-loading-desktop](after-notary-queue-loading-desktop.png)
 
 ![after-notary-queue-loading-mobile](after-notary-queue-loading-mobile.png)
+
+## Vercel preview
+
+![vercel-admin-confirmation-desktop](vercel-admin-confirmation-desktop.png)
+
+![vercel-admin-confirmation-mobile](vercel-admin-confirmation-mobile.png)
+
+![vercel-notary-confirmation-desktop](vercel-notary-confirmation-desktop.png)
+
+![vercel-notary-confirmation-mobile](vercel-notary-confirmation-mobile.png)
+
+![vercel-notary-pending-desktop](vercel-notary-pending-desktop.png)
+
+![vercel-notary-pending-mobile](vercel-notary-pending-mobile.png)
+
+![vercel-notary-signature-desktop](vercel-notary-signature-desktop.png)
+
+![vercel-notary-signature-mobile](vercel-notary-signature-mobile.png)
+
+![vercel-public-loading-desktop](vercel-public-loading-desktop.png)
+
+![vercel-public-loading-mobile](vercel-public-loading-mobile.png)
+
+![vercel-user-confirmation-desktop](vercel-user-confirmation-desktop.png)
+
+![vercel-user-confirmation-mobile](vercel-user-confirmation-mobile.png)
