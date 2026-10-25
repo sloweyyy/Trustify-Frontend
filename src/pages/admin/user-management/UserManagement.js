@@ -145,6 +145,8 @@ const UserManagement = () => {
           sx={{
             display: 'flex',
             alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: 1,
             borderRadius: 1,
           }}
         >
@@ -153,6 +155,8 @@ const UserManagement = () => {
               display: 'flex',
               gap: 1,
               alignSelf: 'stretch',
+              flexWrap: 'wrap',
+              maxWidth: '100%',
               borderBottom: '1px solid #C0C0C0',
             }}
           >
@@ -194,20 +198,20 @@ const UserManagement = () => {
             />
           </Box>
 
-          <Box flex={1} />
+          <Box flex={1} sx={{ display: { xs: 'none', sm: 'block' } }} />
 
           <TextField
             variant="outlined"
             size="small"
             placeholder="Tìm kiếm"
-            autoFocus
+            inputProps={{ 'aria-label': 'Tìm kiếm' }}
             onChange={(e) => setSearchText(e.target.value)}
             sx={{
               borderRadius: 1,
-              width: '20%',
-              minWidth: '150px',
+              width: { xs: '100%', sm: '20%' },
+              minWidth: { xs: 0, sm: 150 },
               '& .MuiInputBase-input': {
-                fontSize: 14,
+                fontSize: 16,
               },
               backgroundColor: white[50],
             }}

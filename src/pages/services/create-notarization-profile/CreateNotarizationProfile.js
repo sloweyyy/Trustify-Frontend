@@ -240,8 +240,8 @@ const CreateNotarizationProfile = () => {
         alignItems: 'center',
         backgroundColor: gray[50],
         gap: 3,
-        height: '100vh',
-        overflowY: 'auto',
+        minHeight: 'calc(100dvh - 64px)',
+        width: '100%',
         scrollBehavior: 'smooth',
       }}
     >
@@ -264,12 +264,13 @@ const CreateNotarizationProfile = () => {
         <CreateNotarizationProfileStepper currentStep={currentStep} />
       </Box>
 
-      <Box sx={{ py: 5 }}>
+      <Box sx={{ py: { xs: 3, md: 5 }, px: { xs: 2, md: 3 }, width: '100%', maxWidth: 1008 }}>
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            minWidth: '48rem',
+            minWidth: 0,
+            width: '100%',
             backgroundColor: white[50],
             borderRadius: 1,
             boxShadow: 1,

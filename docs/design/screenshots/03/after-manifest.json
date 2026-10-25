@@ -1,0 +1,1159 @@
+{
+  "results": [
+    {
+      "role": "user",
+      "route": "/user/create-notarization-profile",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-user-user-create-notarization-profile-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/user/create-notarization-profile"
+    },
+    {
+      "role": "user",
+      "route": "/user/create-notarization-profile",
+      "width": 390,
+      "height": 844,
+      "file": "after-user-user-create-notarization-profile-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": [
+          {
+            "tag": "SPAN",
+            "cls": "MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-s8x5jm-MuiLinearProgress-bar1",
+            "width": 358,
+            "right": 135
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/user/create-notarization-profile"
+    },
+    {
+      "role": "user",
+      "route": "/user/history",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-user-user-history-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/user/history"
+    },
+    {
+      "role": "user",
+      "route": "/user/history",
+      "width": 390,
+      "height": 844,
+      "file": "after-user-user-history-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": [
+          {
+            "tag": "TABLE",
+            "cls": "MuiTable-root css-1vd1jrh-MuiTable-root",
+            "width": 808,
+            "right": 833
+          },
+          {
+            "tag": "THEAD",
+            "cls": "MuiTableHead-root css-15wwp11-MuiTableHead-root",
+            "width": 808,
+            "right": 833
+          },
+          {
+            "tag": "TR",
+            "cls": "MuiTableRow-root MuiTableRow-head css-1b0qosx-MuiTableRow-root",
+            "width": 808,
+            "right": 833
+          },
+          {
+            "tag": "TH",
+            "cls": "MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-8ukwrn-MuiTableCell-root",
+            "width": 128,
+            "right": 494
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButtonBase-root MuiTableSortLabel-root MuiTableSortLabel-directionAsc css-1sukw84-MuiButtonBase-root-MuiTableSortLabel-root",
+            "width": 96,
+            "right": 478
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 474
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 12,
+            "right": 471
+          },
+          {
+            "tag": "TH",
+            "cls": "MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-8ukwrn-MuiTableCell-root",
+            "width": 105,
+            "right": 599
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButtonBase-root MuiTableSortLabel-root MuiTableSortLabel-directionAsc css-1sukw84-MuiButtonBase-root-MuiTableSortLabel-root",
+            "width": 73,
+            "right": 583
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 579
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 12,
+            "right": 576
+          },
+          {
+            "tag": "TH",
+            "cls": "MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1rfi4rz-MuiTableCell-root",
+            "width": 140,
+            "right": 739
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButtonBase-root MuiTableSortLabel-root MuiTableSortLabel-directionAsc css-1sukw84-MuiButtonBase-root-MuiTableSortLabel-root",
+            "width": 108,
+            "right": 723
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 719
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 12,
+            "right": 716
+          },
+          {
+            "tag": "TH",
+            "cls": "MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-8ukwrn-MuiTableCell-root",
+            "width": 93,
+            "right": 833
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButtonBase-root MuiTableSortLabel-root MuiTableSortLabel-directionAsc css-1sukw84-MuiButtonBase-root-MuiTableSortLabel-root",
+            "width": 61,
+            "right": 817
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 813
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 12,
+            "right": 810
+          },
+          {
+            "tag": "TBODY",
+            "cls": "MuiTableBody-root css-qhwpd6-MuiTableBody-root",
+            "width": 808,
+            "right": 833
+          },
+          {
+            "tag": "TR",
+            "cls": "MuiTableRow-root MuiTableRow-hover css-1awjqw-MuiTableRow-root",
+            "width": 808,
+            "right": 833
+          },
+          {
+            "tag": "TD",
+            "cls": "MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-16hzsy7-MuiTableCell-root",
+            "width": 128,
+            "right": 494
+          },
+          {
+            "tag": "TD",
+            "cls": "MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-16hzsy7-MuiTableCell-root",
+            "width": 105,
+            "right": 599
+          },
+          {
+            "tag": "TD",
+            "cls": "MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-sizeMedium css-c8sv38-MuiTableCell-root",
+            "width": 140,
+            "right": 739
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-qalfly-MuiChip-root",
+            "width": 102,
+            "right": 717
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/user/history"
+    },
+    {
+      "role": "user",
+      "route": "/user/notarization-session",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-user-user-notarization-session-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/user/notarization-session"
+    },
+    {
+      "role": "user",
+      "route": "/user/notarization-session",
+      "width": 390,
+      "height": 844,
+      "file": "after-user-user-notarization-session-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/user/notarization-session"
+    },
+    {
+      "role": "user",
+      "route": "/user/document-wallet",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-user-user-document-wallet-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/user/document-wallet"
+    },
+    {
+      "role": "user",
+      "route": "/user/document-wallet",
+      "width": 390,
+      "height": 844,
+      "file": "after-user-user-document-wallet-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/user/document-wallet"
+    },
+    {
+      "role": "user",
+      "route": "/profile",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-user-profile-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "user",
+      "route": "/profile",
+      "width": 390,
+      "height": 844,
+      "file": "after-user-profile-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "user",
+      "route": "/payment/redirect",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-user-payment-redirect-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    },
+    {
+      "role": "user",
+      "route": "/payment/redirect",
+      "width": 390,
+      "height": 844,
+      "file": "after-user-payment-redirect-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/dashboard",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-notary-notary-dashboard-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/dashboard"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/dashboard",
+      "width": 390,
+      "height": 844,
+      "file": "after-notary-notary-dashboard-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/dashboard"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/pending-notarization-documents",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-notary-notary-pending-notarization-documents-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/pending-notarization-documents"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/pending-notarization-documents",
+      "width": 390,
+      "height": 844,
+      "file": "after-notary-notary-pending-notarization-documents-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/pending-notarization-documents"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/awaiting-signature-documents",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-notary-notary-awaiting-signature-documents-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/awaiting-signature-documents"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/awaiting-signature-documents",
+      "width": 390,
+      "height": 844,
+      "file": "after-notary-notary-awaiting-signature-documents-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/awaiting-signature-documents"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notarization-history",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-notary-notary-notarization-history-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/notarization-history"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notarization-history",
+      "width": 390,
+      "height": 844,
+      "file": "after-notary-notary-notarization-history-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/notarization-history"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notary-session-management",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-notary-notary-notary-session-management-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/notary-session-management"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notary-session-management",
+      "width": 390,
+      "height": 844,
+      "file": "after-notary-notary-notary-session-management-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/notary-session-management"
+    },
+    {
+      "role": "notary",
+      "route": "/profile",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-notary-profile-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "notary",
+      "route": "/profile",
+      "width": 390,
+      "height": 844,
+      "file": "after-notary-profile-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "notary",
+      "route": "/payment/redirect",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-notary-payment-redirect-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    },
+    {
+      "role": "notary",
+      "route": "/payment/redirect",
+      "width": 390,
+      "height": 844,
+      "file": "after-notary-payment-redirect-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/dashboard",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-admin-admin-dashboard-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/dashboard"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/dashboard",
+      "width": 390,
+      "height": 844,
+      "file": "after-admin-admin-dashboard-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/dashboard"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/employee-management",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-admin-admin-employee-management-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/employee-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/employee-management",
+      "width": 390,
+      "height": 844,
+      "file": "after-admin-admin-employee-management-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": [
+          {
+            "tag": "TABLE",
+            "cls": "MuiTable-root MuiTable-stickyHeader css-1mabir0-MuiTable-root",
+            "width": 750,
+            "right": 769
+          },
+          {
+            "tag": "THEAD",
+            "cls": "MuiTableHead-root css-15wwp11-MuiTableHead-root",
+            "width": 750,
+            "right": 769
+          },
+          {
+            "tag": "TR",
+            "cls": "MuiTableRow-root MuiTableRow-head css-i0cf8z-MuiTableRow-root",
+            "width": 750,
+            "right": 769
+          },
+          {
+            "tag": "TH",
+            "cls": "MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1s6incv-MuiTableCell-root",
+            "width": 198,
+            "right": 429
+          },
+          {
+            "tag": "TH",
+            "cls": "MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1s6incv-MuiTableCell-root",
+            "width": 199,
+            "right": 627
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButtonBase-root MuiTableSortLabel-root MuiTableSortLabel-directionAsc css-1sukw84-MuiButtonBase-root-MuiTableSortLabel-root",
+            "width": 91,
+            "right": 535
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 531
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 12,
+            "right": 528
+          },
+          {
+            "tag": "TH",
+            "cls": "MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignLeft MuiTableCell-sizeMedium css-9wghs-MuiTableCell-root",
+            "width": 142,
+            "right": 769
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButtonBase-root MuiTableSortLabel-root MuiTableSortLabel-directionAsc css-1sukw84-MuiButtonBase-root-MuiTableSortLabel-root",
+            "width": 108,
+            "right": 751
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 747
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 12,
+            "right": 744
+          },
+          {
+            "tag": "TBODY",
+            "cls": "MuiTableBody-root css-phfuik-MuiTableBody-root",
+            "width": 750,
+            "right": 769
+          },
+          {
+            "tag": "TR",
+            "cls": "MuiTableRow-root MuiTableRow-hover css-1awjqw-MuiTableRow-root",
+            "width": 750,
+            "right": 769
+          },
+          {
+            "tag": "TD",
+            "cls": "MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-w09ri-MuiTableCell-root",
+            "width": 198,
+            "right": 429
+          },
+          {
+            "tag": "TD",
+            "cls": "MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-w09ri-MuiTableCell-root",
+            "width": 199,
+            "right": 627
+          },
+          {
+            "tag": "TD",
+            "cls": "MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1b47pb8-MuiTableCell-root",
+            "width": 142,
+            "right": 769
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rh03xu",
+            "width": 110,
+            "right": 753
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-vunns4-MuiAvatar-root",
+            "width": 40,
+            "right": 683
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 12,
+            "right": 669
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 10,
+            "right": 668
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-td5tza-MuiTypography-root",
+            "width": 70,
+            "right": 753
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/admin/employee-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/user-management",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-admin-admin-user-management-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/user-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/user-management",
+      "width": 390,
+      "height": 844,
+      "file": "after-admin-admin-user-management-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": [
+          {
+            "tag": "TABLE",
+            "cls": "MuiTable-root MuiTable-stickyHeader css-1mabir0-MuiTable-root",
+            "width": 750,
+            "right": 769
+          },
+          {
+            "tag": "THEAD",
+            "cls": "MuiTableHead-root css-15wwp11-MuiTableHead-root",
+            "width": 750,
+            "right": 769
+          },
+          {
+            "tag": "TR",
+            "cls": "MuiTableRow-root MuiTableRow-head css-i0cf8z-MuiTableRow-root",
+            "width": 750,
+            "right": 769
+          },
+          {
+            "tag": "TH",
+            "cls": "MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1s6incv-MuiTableCell-root",
+            "width": 230,
+            "right": 534
+          },
+          {
+            "tag": "TH",
+            "cls": "MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignLeft MuiTableCell-sizeMedium css-9wghs-MuiTableCell-root",
+            "width": 118,
+            "right": 653
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButtonBase-root MuiTableSortLabel-root MuiTableSortLabel-directionAsc css-1sukw84-MuiButtonBase-root-MuiTableSortLabel-root",
+            "width": 86,
+            "right": 637
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 633
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 12,
+            "right": 630
+          },
+          {
+            "tag": "TH",
+            "cls": "MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1s6incv-MuiTableCell-root",
+            "width": 116,
+            "right": 769
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButtonBase-root MuiTableSortLabel-root MuiTableSortLabel-directionAsc css-1sukw84-MuiButtonBase-root-MuiTableSortLabel-root",
+            "width": 84,
+            "right": 753
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 749
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 12,
+            "right": 746
+          },
+          {
+            "tag": "TBODY",
+            "cls": "MuiTableBody-root css-phfuik-MuiTableBody-root",
+            "width": 750,
+            "right": 769
+          },
+          {
+            "tag": "TR",
+            "cls": "MuiTableRow-root MuiTableRow-hover css-1awjqw-MuiTableRow-root",
+            "width": 750,
+            "right": 769
+          },
+          {
+            "tag": "TD",
+            "cls": "MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-w09ri-MuiTableCell-root",
+            "width": 230,
+            "right": 534
+          },
+          {
+            "tag": "TD",
+            "cls": "MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1b47pb8-MuiTableCell-root",
+            "width": 118,
+            "right": 653
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rh03xu",
+            "width": 86,
+            "right": 637
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-vunns4-MuiAvatar-root",
+            "width": 40,
+            "right": 590
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 12,
+            "right": 576
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 10,
+            "right": 575
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-td5tza-MuiTypography-root",
+            "width": 46,
+            "right": 637
+          },
+          {
+            "tag": "TD",
+            "cls": "MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-w09ri-MuiTableCell-root",
+            "width": 116,
+            "right": 769
+          },
+          {
+            "tag": "TR",
+            "cls": "MuiTableRow-root MuiTableRow-hover css-1awjqw-MuiTableRow-root",
+            "width": 750,
+            "right": 769
+          },
+          {
+            "tag": "TD",
+            "cls": "MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-w09ri-MuiTableCell-root",
+            "width": 230,
+            "right": 534
+          },
+          {
+            "tag": "TD",
+            "cls": "MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeMedium css-1b47pb8-MuiTableCell-root",
+            "width": 118,
+            "right": 653
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/admin/user-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-admin-admin-notary-management-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/notary-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "width": 390,
+      "height": 844,
+      "file": "after-admin-admin-notary-management-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-columnHeaders css-1pmk00y-MuiDataGrid-columnHeaders",
+            "width": 390,
+            "right": 423
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-row--borderBottom css-yrdy0g-MuiDataGrid-columnHeaderRow",
+            "width": 390,
+            "right": 423
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable MuiDataGrid-withBorderColor MuiDataGrid-columnHeader--lastUnpinned MuiDataGrid-columnHeader--last",
+            "width": 50,
+            "right": 423
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-columnHeaderDraggableContainer",
+            "width": 30,
+            "right": 413
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-columnHeaderTitleContainer",
+            "width": 30,
+            "right": 413
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-columnHeaderTitleContainerContent",
+            "width": 28,
+            "right": 411
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-columnHeaderTitle css-1qb993p-MuiDataGrid-columnHeaderTitle",
+            "width": 28,
+            "right": 411
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-ziivga-MuiButtonBase-root-MuiIconButton-root",
+            "width": 44,
+            "right": 457
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 444
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 12,
+            "right": 441
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-columnSeparator MuiDataGrid-columnSeparator--sideRight",
+            "width": 10,
+            "right": 428
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 24,
+            "right": 435
+          },
+          {
+            "tag": "rect",
+            "cls": "svg",
+            "width": 1,
+            "right": 424
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-virtualScrollerContent css-1kwdphh-MuiDataGrid-virtualScrollerContent",
+            "width": 390,
+            "right": 423
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-virtualScrollerRenderZone css-s1v7zr-MuiDataGrid-virtualScrollerRenderZone",
+            "width": 390,
+            "right": 423
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-row MuiDataGrid-row--firstVisible",
+            "width": 390,
+            "right": 423
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-cell MuiDataGrid-cell--textLeft",
+            "width": 50,
+            "right": 423
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1omxmfj",
+            "width": 30,
+            "right": 413
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-tf7uie-MuiTypography-root",
+            "width": 45,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-row MuiDataGrid-row--lastVisible",
+            "width": 390,
+            "right": 423
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-cell MuiDataGrid-cell--textLeft",
+            "width": 50,
+            "right": 423
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1omxmfj",
+            "width": 30,
+            "right": 413
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-tf7uie-MuiTypography-root",
+            "width": 45,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-scrollbarContent css-1baulvz",
+            "width": 1086,
+            "right": 1119
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-130ruzi-MuiTypography-root",
+            "width": 84,
+            "right": 397
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/admin/notary-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/settings",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-admin-admin-settings-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/settings"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/settings",
+      "width": 390,
+      "height": 844,
+      "file": "after-admin-admin-settings-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/settings"
+    },
+    {
+      "role": "admin",
+      "route": "/profile",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-admin-profile-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "admin",
+      "route": "/profile",
+      "width": 390,
+      "height": 844,
+      "file": "after-admin-profile-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "admin",
+      "route": "/payment/redirect",
+      "width": 1440,
+      "height": 1000,
+      "file": "after-admin-payment-redirect-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    },
+    {
+      "role": "admin",
+      "route": "/payment/redirect",
+      "width": 390,
+      "height": 844,
+      "file": "after-admin-payment-redirect-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    }
+  ],
+  "errors": [],
+  "checkedAt": "2026-10-25T00:28:53.589Z"
+}

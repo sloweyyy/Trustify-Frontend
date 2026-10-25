@@ -1,96 +1,49 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import configureStore from 'redux-mock-store';
+import { configureStore } from '@reduxjs/toolkit';
+import { MemoryRouter, useLocation } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import createTrustifyTheme from '../config/theme/createTrustifyTheme';
 import Sidebar from '../components/Sidebar';
+jest.mock('@mui/material/useMediaQuery', () => ({ __esModule: true, default: jest.fn() }));
+const Location = () => <output aria-label="Route">{useLocation().pathname}</output>;
+const setup = (role = 'user', path = '/user/history') => render(
+  <Provider store={configureStore({ reducer: { user: () => ({ user: { role, name: 'Người kiểm tra' } }) } })}>
+    <MemoryRouter initialEntries={[path]}><ThemeProvider theme={createTrustifyTheme()}><Sidebar /><Location /></ThemeProvider></MemoryRouter>
+  </Provider>,
+);
+beforeEach(() => useMediaQuery.mockReturnValue(true));
 
-// Mock store setup
-const mockStore = configureStore([]);
-const initialState = {
-  user: {
-    user: {
-      role: 'user',
-      name: 'Test User',
-    },
-  },
-};
+test.each([['user', 'Lịch sử', '/user/history'], ['notary', 'Tài liệu chờ ký số', '/notary/awaiting-signature-documents'], ['admin', 'Quản lý người dùng', '/admin/user-management'], ['secretary', 'Xác minh hồ sơ', '/verify']])('role %s retains its navigation destinations', (role, name, href) => {
+  setup(role, href);
+  expect(screen.getByRole('link', { name })).toHaveAttribute('href', href);
+  expect(screen.getByRole('link', { name })).toHaveAttribute('aria-current', 'page');
+});
 
-// Mock router hooks
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useLocation: () => ({ pathname: '/dashboard' }),
-  useNavigate: () => jest.fn(),
-}));
+test('collapsed desktop navigation keeps accessible link names', () => {
+  setup();
+  fireEvent.click(screen.getByRole('button', { name: 'Thu gọn menu' }));
+  expect(screen.getByRole('link', { name: 'Lịch sử' })).toBeInTheDocument();
+  expect(screen.queryByText('Lịch sử')).not.toBeInTheDocument();
+});
 
-describe('Sidebar Component', () => {
-  let store;
+test('mobile navigation opens on demand and closes after route changes', async () => {
+  useMediaQuery.mockReturnValue(false);
+  setup('user', '/user/document-wallet');
+  expect(screen.queryByRole('navigation')).not.toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: 'Mở menu điều hướng' }));
+  expect(screen.getByRole('navigation', { name: 'Điều hướng chính' })).toBeInTheDocument();
+  fireEvent.click(screen.getByRole('link', { name: 'Lịch sử' }));
+  await waitFor(() => expect(screen.queryByRole('navigation')).not.toBeInTheDocument());
+  expect(screen.getByLabelText('Route')).toHaveTextContent('/user/history');
+});
 
-  beforeEach(() => {
-    store = mockStore(initialState);
-    jest.clearAllMocks();
-  });
-
-  const renderSidebar = () => {
-    return render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <Sidebar />
-        </BrowserRouter>
-      </Provider>,
-    );
-  };
-
-  describe('Render Tests', () => {
-    it('renders sidebar container', () => {
-      renderSidebar();
-      expect(screen.getByTestId('sidebar-container')).toBeInTheDocument();
-    });
-
-    it('renders user name', () => {
-      renderSidebar();
-      expect(screen.getByText('Test User')).toBeInTheDocument();
-    });
-
-    it('renders menu items based on role', () => {
-      renderSidebar();
-      expect(screen.getByText('Tạo hồ sơ công chứng')).toBeInTheDocument();
-      expect(screen.getByText('Lịch sử')).toBeInTheDocument();
-    });
-  });
-
-  describe('Sidebar State', () => {
-    it('toggles sidebar on button click', () => {
-      renderSidebar();
-      const toggleButton = screen.getByTestId('sidebar-toggle');
-
-      fireEvent.click(toggleButton);
-      expect(screen.getByTestId('sidebar-container')).toHaveStyle({
-        width: '5rem',
-      });
-    });
-  });
-
-  describe('Menu Interactions', () => {
-    it('highlights selected menu item', () => {
-      renderSidebar();
-      const menuItem = screen.getByText('Lịch sử').closest('li');
-
-      fireEvent.click(menuItem);
-      expect(menuItem).toHaveStyle({
-        backgroundColor: expect.any(String),
-      });
-    });
-  });
-
-  describe('Logout Flow', () => {
-    it('shows logout confirmation dialog', () => {
-      renderSidebar();
-      const logoutButton = screen.getByText('Đăng xuất');
-
-      fireEvent.click(logoutButton);
-      expect(screen.getByText('Bạn có chắc chắn muốn đăng xuất?')).toBeInTheDocument();
-    });
-  });
+test('logout cancellation retains the navigation and current route', async () => {
+  setup();
+  fireEvent.click(screen.getByRole('button', { name: 'Đăng xuất' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Ở lại' }));
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+  expect(screen.getByLabelText('Route')).toHaveTextContent('/user/history');
 });

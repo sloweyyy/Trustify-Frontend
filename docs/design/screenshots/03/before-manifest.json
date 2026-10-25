@@ -1,0 +1,2907 @@
+{
+  "results": [
+    {
+      "role": "user",
+      "route": "/user/create-notarization-profile",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-user-user-create-notarization-profile-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/user/create-notarization-profile"
+    },
+    {
+      "role": "user",
+      "route": "/user/create-notarization-profile",
+      "width": 390,
+      "height": 844,
+      "file": "before-user-user-create-notarization-profile-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 1056,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 768,
+            "right": 1056
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-17zy0si",
+            "width": 768,
+            "right": 1056
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-jeuu48",
+            "width": 768,
+            "right": 1056
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiStepper-root MuiStepper-horizontal css-1a9jkgz-MuiStepper-root",
+            "width": 768,
+            "right": 1056
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiStep-root MuiStep-horizontal css-nd0xiu-MuiStep-root",
+            "width": 185,
+            "right": 473
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiStepLabel-root MuiStepLabel-horizontal css-3yr9gi-MuiStepLabel-root",
+            "width": 169,
+            "right": 465
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiStepLabel-labelContainer css-awvswi-MuiStepLabel-labelContainer",
+            "width": 117,
+            "right": 465
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiStepLabel-label Mui-active css-orcube-MuiStepLabel-label",
+            "width": 117,
+            "right": 465
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-mpbj32-MuiTypography-root",
+            "width": 117,
+            "right": 465
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled css-1xh8ig7-MuiStepConnector-root",
+            "width": 120,
+            "right": 593
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiStepConnector-line MuiStepConnector-lineHorizontal css-1rvpmem-MuiStepConnector-line",
+            "width": 120,
+            "right": 593
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiStep-root MuiStep-horizontal css-nd0xiu-MuiStep-root",
+            "width": 170,
+            "right": 764
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiStepLabel-root MuiStepLabel-horizontal Mui-disabled css-3yr9gi-MuiStepLabel-root",
+            "width": 154,
+            "right": 756
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiStepLabel-iconContainer Mui-disabled css-vnkopk-MuiStepLabel-iconContainer",
+            "width": 52,
+            "right": 653
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-g6m8qr-MuiButtonBase-root-MuiIconButton-root",
+            "width": 44,
+            "right": 645
+          },
+          {
+            "tag": "DIV",
+            "cls": "css-436fyv",
+            "width": 24,
+            "right": 635
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiStepLabel-labelContainer css-awvswi-MuiStepLabel-labelContainer",
+            "width": 102,
+            "right": 756
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiStepLabel-label Mui-disabled css-orcube-MuiStepLabel-label",
+            "width": 102,
+            "right": 756
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-14dy53g-MuiTypography-root",
+            "width": 102,
+            "right": 756
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled css-1xh8ig7-MuiStepConnector-root",
+            "width": 120,
+            "right": 884
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiStepConnector-line MuiStepConnector-lineHorizontal css-1rvpmem-MuiStepConnector-line",
+            "width": 120,
+            "right": 884
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiStep-root MuiStep-horizontal css-nd0xiu-MuiStep-root",
+            "width": 173,
+            "right": 1056
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiStepLabel-root MuiStepLabel-horizontal Mui-disabled css-3yr9gi-MuiStepLabel-root",
+            "width": 157,
+            "right": 1048
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiStepLabel-iconContainer Mui-disabled css-vnkopk-MuiStepLabel-iconContainer",
+            "width": 52,
+            "right": 944
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-sizeMedium css-g6m8qr-MuiButtonBase-root-MuiIconButton-root",
+            "width": 44,
+            "right": 936
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/user/create-notarization-profile"
+    },
+    {
+      "role": "user",
+      "route": "/user/history",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-user-user-history-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/user/history"
+    },
+    {
+      "role": "user",
+      "route": "/user/history",
+      "width": 390,
+      "height": 844,
+      "file": "before-user-user-history-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 1146,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 858,
+            "right": 1146
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1fckcrb",
+            "width": 858,
+            "right": 1146
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1ko0f8v",
+            "width": 858,
+            "right": 1146
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-xijiwm",
+            "width": 810,
+            "right": 1122
+          },
+          {
+            "tag": "H6",
+            "cls": "MuiTypography-root MuiTypography-h6 css-16uwlo2-MuiTypography-root",
+            "width": 810,
+            "right": 1122
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-caption css-1hrm68h-MuiTypography-root",
+            "width": 357,
+            "right": 669
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1u9cqy5",
+            "width": 858,
+            "right": 1146
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorWarning MuiAlert-standardWarning MuiAlert-standard css-1wgt3dw-MuiPaper-root-MuiAlert-root",
+            "width": 810,
+            "right": 1122
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiAlert-message css-1pxa9xg-MuiAlert-message",
+            "width": 742,
+            "right": 1105
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body2 css-1jnpd38-MuiTypography-root",
+            "width": 742,
+            "right": 1105
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiAlert-action css-ki1hdl-MuiAlert-action",
+            "width": 776,
+            "right": 1105
+          },
+          {
+            "tag": "A",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedInherit MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorInherit MuiButton-root MuiButton-outlined MuiButton-outlinedInherit MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorInherit css-18jcqg2-MuiButtonBase-root-MuiButton-root",
+            "width": 776,
+            "right": 1105
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-18rj6p5",
+            "width": 858,
+            "right": 1146
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-tbu9cr",
+            "width": 810,
+            "right": 1122
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiFormControl-root MuiTextField-root css-1dzk66z-MuiFormControl-root-MuiTextField-root",
+            "width": 810,
+            "right": 1122
+          },
+          {
+            "tag": "LABEL",
+            "cls": "MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-outlined css-1ql004c-MuiFormLabel-root-MuiInputLabel-root",
+            "width": 76,
+            "right": 402
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedStart css-1rx1yi1-MuiInputBase-root-MuiOutlinedInput-root",
+            "width": 810,
+            "right": 1122
+          },
+          {
+            "tag": "INPUT",
+            "cls": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-14377m1-MuiInputBase-input-MuiOutlinedInput-input",
+            "width": 764,
+            "right": 1122
+          },
+          {
+            "tag": "FIELDSET",
+            "cls": "MuiOutlinedInput-notchedOutline css-xvsqs8-MuiOutlinedInput-notchedOutline",
+            "width": 810,
+            "right": 1122
+          },
+          {
+            "tag": "LEGEND",
+            "cls": "css-kg5swy",
+            "width": 84,
+            "right": 405
+          },
+          {
+            "tag": "SPAN",
+            "cls": "",
+            "width": 84,
+            "right": 405
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-upq7bz",
+            "width": 810,
+            "right": 1122
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-8atqhb",
+            "width": 808,
+            "right": 1121
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1jio5li-MuiPaper-root",
+            "width": 808,
+            "right": 1121
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiTableContainer-root css-rorn0c-MuiTableContainer-root",
+            "width": 808,
+            "right": 1121
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/user/history"
+    },
+    {
+      "role": "user",
+      "route": "/user/notarization-session",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-user-user-notarization-session-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/user/notarization-session"
+    },
+    {
+      "role": "user",
+      "route": "/user/notarization-session",
+      "width": 390,
+      "height": 844,
+      "file": "before-user-user-notarization-session-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 444,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 156,
+            "right": 444
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-14kyfrd",
+            "width": 156,
+            "right": 444
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-3ozd0r",
+            "width": 156,
+            "right": 444
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-xijiwm",
+            "width": 108,
+            "right": 420
+          },
+          {
+            "tag": "H6",
+            "cls": "MuiTypography-root MuiTypography-h6 css-16uwlo2-MuiTypography-root",
+            "width": 108,
+            "right": 420
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-caption css-1hrm68h-MuiTypography-root",
+            "width": 106,
+            "right": 418
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedWhite MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorWhite MuiButton-disableElevation MuiButton-root MuiButton-contained MuiButton-containedWhite MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorWhite MuiButton-disableElevation css-1kndnmg-MuiButtonBase-root-MuiButton-root",
+            "width": 108,
+            "right": 420
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-button css-1fx5iut-MuiTypography-root",
+            "width": 50,
+            "right": 403
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-pu2jug",
+            "width": 156,
+            "right": 444
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-yxu7xx",
+            "width": 124,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-wc1u3g",
+            "width": 92,
+            "right": 412
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiFormControl-root MuiTextField-root css-fkr0k9-MuiFormControl-root-MuiTextField-root",
+            "width": 92,
+            "right": 412
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedStart css-5fjd3v-MuiInputBase-root-MuiOutlinedInput-root",
+            "width": 92,
+            "right": 412
+          },
+          {
+            "tag": "INPUT",
+            "cls": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedStart css-1965fi7-MuiInputBase-input-MuiOutlinedInput-input",
+            "width": 46,
+            "right": 412
+          },
+          {
+            "tag": "FIELDSET",
+            "cls": "MuiOutlinedInput-notchedOutline css-xvsqs8-MuiOutlinedInput-notchedOutline",
+            "width": 92,
+            "right": 412
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-16r1tk9",
+            "width": 92,
+            "right": 412
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body2 css-15h4qg1-MuiTypography-root",
+            "width": 92,
+            "right": 412
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiStack-root css-4cyk79-MuiStack-root",
+            "width": 108,
+            "right": 412
+          },
+          {
+            "tag": "NAV",
+            "cls": "MuiPagination-root MuiPagination-text css-tqm37i-MuiPagination-root",
+            "width": 108,
+            "right": 412
+          },
+          {
+            "tag": "UL",
+            "cls": "MuiPagination-ul css-wjh20t-MuiPagination-ul",
+            "width": 108,
+            "right": 412
+          },
+          {
+            "tag": "LI",
+            "cls": "",
+            "width": 50,
+            "right": 404
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular Mui-disabled MuiPaginationItem-previousNext css-lh5oqu-MuiButtonBase-root-MuiPaginationItem-root",
+            "width": 44,
+            "right": 401
+          },
+          {
+            "tag": "LI",
+            "cls": "",
+            "width": 50,
+            "right": 404
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular Mui-disabled MuiPaginationItem-firstLast css-lh5oqu-MuiButtonBase-root-MuiPaginationItem-root",
+            "width": 44,
+            "right": 401
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/user/notarization-session"
+    },
+    {
+      "role": "user",
+      "route": "/user/document-wallet",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-user-user-document-wallet-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/user/document-wallet"
+    },
+    {
+      "role": "user",
+      "route": "/user/document-wallet",
+      "width": 390,
+      "height": 844,
+      "file": "before-user-user-document-wallet-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 461,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 173,
+            "right": 461
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1i2kxaz",
+            "width": 173,
+            "right": 461
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-19kzrtu",
+            "width": 173,
+            "right": 461
+          },
+          {
+            "tag": "H6",
+            "cls": "MuiTypography-root MuiTypography-h6 css-16uwlo2-MuiTypography-root",
+            "width": 125,
+            "right": 437
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-caption css-1hrm68h-MuiTypography-root",
+            "width": 108,
+            "right": 420
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-zmoccg",
+            "width": 173,
+            "right": 461
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1xzfhvu",
+            "width": 125,
+            "right": 437
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-15vhhhd",
+            "width": 107,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1eaedhe",
+            "width": 20,
+            "right": 428
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1jsy26t-MuiTypography-root",
+            "width": 4,
+            "right": 420
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-15hxmwz",
+            "width": 107,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1ptjmwd",
+            "width": 107,
+            "right": 428
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-15c4soa-MuiButtonBase-root-MuiButton-root",
+            "width": 71,
+            "right": 428
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-ashwnb-MuiTypography-root",
+            "width": 107,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-q1g35j",
+            "width": 107,
+            "right": 428
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-87lcn1-MuiTypography-root",
+            "width": 107,
+            "right": 428
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-body1 css-18qipt8-MuiTypography-root",
+            "width": 83,
+            "right": 428
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-87lcn1-MuiTypography-root",
+            "width": 107,
+            "right": 428
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1cdfeer-MuiTypography-root",
+            "width": 77,
+            "right": 406
+          },
+          {
+            "tag": "HR",
+            "cls": "MuiDivider-root MuiDivider-fullWidth MuiDivider-flexItem css-nh66qk-MuiDivider-root",
+            "width": 107,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-r0wjaa",
+            "width": 107,
+            "right": 428
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-2h2ro6-MuiButtonBase-root-MuiButton-root",
+            "width": 107,
+            "right": 428
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-endIcon MuiButton-iconSizeMedium css-1w1lyga-MuiButton-endIcon",
+            "width": 20,
+            "right": 412
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 20,
+            "right": 412
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 17,
+            "right": 410
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/user/document-wallet"
+    },
+    {
+      "role": "user",
+      "route": "/profile",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-user-profile-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "user",
+      "route": "/profile",
+      "width": 390,
+      "height": 844,
+      "file": "before-user-profile-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 686,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 398,
+            "right": 686
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1m9yp2r",
+            "width": 398,
+            "right": 686
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-15dxkaf",
+            "width": 334,
+            "right": 654
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1cmvgu0",
+            "width": 332,
+            "right": 653
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-evxtd3-MuiAvatar-root",
+            "width": 96,
+            "right": 437
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 72,
+            "right": 425
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 48,
+            "right": 413
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-v5olil",
+            "width": 180,
+            "right": 633
+          },
+          {
+            "tag": "H5",
+            "cls": "MuiTypography-root MuiTypography-h5 css-14hn30m-MuiTypography-root",
+            "width": 180,
+            "right": 633
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-caption css-pnpe4h-MuiTypography-root",
+            "width": 180,
+            "right": 633
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-d598t-MuiButtonBase-root-MuiButton-root",
+            "width": 176,
+            "right": 629
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-h0vgxp-MuiButton-startIcon",
+            "width": 18,
+            "right": 486
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 486
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 18,
+            "right": 486
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1i52a57",
+            "width": 332,
+            "right": 653
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-16e9v8r",
+            "width": 292,
+            "right": 633
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-70qvj9",
+            "width": 250,
+            "right": 612
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-caption css-u5mepp-MuiTypography-root",
+            "width": 114,
+            "right": 476
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1vmaygs",
+            "width": 136,
+            "right": 612
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedWhite MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorWhite MuiButton-root MuiButton-contained MuiButton-containedWhite MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorWhite css-1h9m5qw-MuiButtonBase-root-MuiButton-root",
+            "width": 136,
+            "right": 612
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-h0vgxp-MuiButton-startIcon",
+            "width": 18,
+            "right": 509
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 509
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 14,
+            "right": 507
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-button css-uwpr4a-MuiTypography-root",
+            "width": 78,
+            "right": 595
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1czr4lk",
+            "width": 250,
+            "right": 612
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "user",
+      "route": "/payment/redirect",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-user-payment-redirect-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    },
+    {
+      "role": "user",
+      "route": "/payment/redirect",
+      "width": 390,
+      "height": 844,
+      "file": "before-user-payment-redirect-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 428,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 140,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiContainer-root MuiContainer-maxWidthMd css-u4uvlt-MuiContainer-root",
+            "width": 140,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-9addhc",
+            "width": 108,
+            "right": 412
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-19si5oq",
+            "width": 108,
+            "right": 412
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1aqmyr4-MuiCircularProgress-root",
+            "width": 70,
+            "right": 393
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 70,
+            "right": 393
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/dashboard",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-notary-notary-dashboard-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/dashboard"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/dashboard",
+      "width": 390,
+      "height": 844,
+      "file": "before-notary-notary-dashboard-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 552,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 264,
+            "right": 552
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1dfiipx",
+            "width": 264,
+            "right": 552
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-rnilmw",
+            "width": 200,
+            "right": 520
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1tpqlu2-MuiPaper-root",
+            "width": 200,
+            "right": 520
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1odcbhg-MuiTypography-root",
+            "width": 166,
+            "right": 503
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1wnb7uk-MuiTypography-root",
+            "width": 127,
+            "right": 464
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1tpqlu2-MuiPaper-root",
+            "width": 200,
+            "right": 520
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1odcbhg-MuiTypography-root",
+            "width": 166,
+            "right": 503
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1wnb7uk-MuiTypography-root",
+            "width": 98,
+            "right": 435
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1tpqlu2-MuiPaper-root",
+            "width": 200,
+            "right": 520
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1odcbhg-MuiTypography-root",
+            "width": 166,
+            "right": 503
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1wnb7uk-MuiTypography-root",
+            "width": 147,
+            "right": 484
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-1tpqlu2-MuiPaper-root",
+            "width": 200,
+            "right": 520
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1odcbhg-MuiTypography-root",
+            "width": 166,
+            "right": 503
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-153yjyq-MuiTypography-root",
+            "width": 62,
+            "right": 399
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1wnb7uk-MuiTypography-root",
+            "width": 119,
+            "right": 456
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-gf7let-MuiPaper-root",
+            "width": 200,
+            "right": 520
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-10z0sa5",
+            "width": 150,
+            "right": 495
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-rm7g3t-MuiTypography-root",
+            "width": 106,
+            "right": 451
+          },
+          {
+            "tag": "A",
+            "cls": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1ivs07f-MuiButtonBase-root-MuiIconButton-root",
+            "width": 44,
+            "right": 495
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 24,
+            "right": 485
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 7,
+            "right": 477
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-4k4ug5",
+            "width": 150,
+            "right": 495
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-jelux6",
+            "width": 150,
+            "right": 495
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1kkt86i",
+            "width": 150,
+            "right": 495
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/notary/dashboard"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/pending-notarization-documents",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-notary-notary-pending-notarization-documents-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/pending-notarization-documents"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/pending-notarization-documents",
+      "width": 390,
+      "height": 844,
+      "file": "before-notary-notary-pending-notarization-documents-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 449,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 161,
+            "right": 449
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1g32l5u",
+            "width": 161,
+            "right": 449
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-vtoggv-MuiPaper-root",
+            "width": 129,
+            "right": 433
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-45mq27",
+            "width": 95,
+            "right": 416
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-po1ett-MuiTypography-root",
+            "width": 95,
+            "right": 416
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-18oawlw-MuiTypography-root",
+            "width": 95,
+            "right": 416
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1foixr0",
+            "width": 95,
+            "right": 416
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-gdx7ft",
+            "width": 95,
+            "right": 416
+          },
+          {
+            "tag": "H2",
+            "cls": "MuiTypography-root MuiTypography-h6 css-i0wm1m-MuiTypography-root",
+            "width": 63,
+            "right": 400
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1i9305n-MuiTypography-root",
+            "width": 63,
+            "right": 400
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/notary/pending-notarization-documents"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/awaiting-signature-documents",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-notary-notary-awaiting-signature-documents-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/awaiting-signature-documents"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/awaiting-signature-documents",
+      "width": 390,
+      "height": 844,
+      "file": "before-notary-notary-awaiting-signature-documents-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 449,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 161,
+            "right": 449
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1g32l5u",
+            "width": 161,
+            "right": 449
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 css-vtoggv-MuiPaper-root",
+            "width": 129,
+            "right": 433
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-45mq27",
+            "width": 95,
+            "right": 416
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-po1ett-MuiTypography-root",
+            "width": 95,
+            "right": 416
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-18oawlw-MuiTypography-root",
+            "width": 95,
+            "right": 416
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1foixr0",
+            "width": 95,
+            "right": 416
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-gdx7ft",
+            "width": 95,
+            "right": 416
+          },
+          {
+            "tag": "H2",
+            "cls": "MuiTypography-root MuiTypography-h6 css-i0wm1m-MuiTypography-root",
+            "width": 63,
+            "right": 400
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1i9305n-MuiTypography-root",
+            "width": 63,
+            "right": 400
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/notary/awaiting-signature-documents"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notarization-history",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-notary-notary-notarization-history-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/notarization-history"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notarization-history",
+      "width": 390,
+      "height": 844,
+      "file": "before-notary-notary-notarization-history-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 554,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 266,
+            "right": 554
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1ar5poo",
+            "width": 266,
+            "right": 554
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-i3pbo",
+            "width": 234,
+            "right": 538
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1qto6zw-MuiTypography-root",
+            "width": 234,
+            "right": 538
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-13ecd51",
+            "width": 234,
+            "right": 538
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-v08z5u",
+            "width": 200,
+            "right": 521
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1mubh4x-MuiTypography-root",
+            "width": 156,
+            "right": 477
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-6mz8uq-MuiButtonBase-root-MuiIconButton-root",
+            "width": 44,
+            "right": 521
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 24,
+            "right": 511
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 18,
+            "right": 508
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-g1cp5k",
+            "width": 200,
+            "right": 521
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-11rutgf-MuiFormControl-root-MuiTextField-root",
+            "width": 200,
+            "right": 521
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-ncf8eq-MuiInputBase-root-MuiOutlinedInput-root",
+            "width": 200,
+            "right": 521
+          },
+          {
+            "tag": "INPUT",
+            "cls": "MuiInputBase-input MuiOutlinedInput-input css-puvvea-MuiInputBase-input-MuiOutlinedInput-input",
+            "width": 184,
+            "right": 513
+          },
+          {
+            "tag": "FIELDSET",
+            "cls": "MuiOutlinedInput-notchedOutline css-xvsqs8-MuiOutlinedInput-notchedOutline",
+            "width": 200,
+            "right": 521
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiFormControl-root MuiFormControl-fullWidth css-12ng9fe-MuiFormControl-root",
+            "width": 200,
+            "right": 521
+          },
+          {
+            "tag": "LABEL",
+            "cls": "MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeMedium MuiInputLabel-outlined css-17vm35c-MuiFormLabel-root-MuiInputLabel-root",
+            "width": 93,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1l7qssg-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root",
+            "width": 200,
+            "right": 521
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-x21y59-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input",
+            "width": 200,
+            "right": 521
+          },
+          {
+            "tag": "INPUT",
+            "cls": "MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput",
+            "width": 200,
+            "right": 521
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 24,
+            "right": 514
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 10,
+            "right": 507
+          },
+          {
+            "tag": "FIELDSET",
+            "cls": "MuiOutlinedInput-notchedOutline css-xvsqs8-MuiOutlinedInput-notchedOutline",
+            "width": 200,
+            "right": 521
+          },
+          {
+            "tag": "SPAN",
+            "cls": "",
+            "width": 101,
+            "right": 431
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiFormControl-root MuiFormControl-fullWidth css-12ng9fe-MuiFormControl-root",
+            "width": 200,
+            "right": 521
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/notary/notarization-history"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notary-session-management",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-notary-notary-notary-session-management-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/notary/notary-session-management"
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notary-session-management",
+      "width": 390,
+      "height": 844,
+      "file": "before-notary-notary-notary-session-management-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 636,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 348,
+            "right": 636
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1ar5poo",
+            "width": 348,
+            "right": 636
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-4c94nt",
+            "width": 316,
+            "right": 620
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1qto6zw-MuiTypography-root",
+            "width": 258,
+            "right": 562
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-6vay9e-MuiButtonBase-root-MuiIconButton-root",
+            "width": 44,
+            "right": 620
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 24,
+            "right": 610
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 18,
+            "right": 607
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-j0ozid",
+            "width": 316,
+            "right": 620
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-11rutgf-MuiFormControl-root-MuiTextField-root",
+            "width": 100,
+            "right": 404
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-ncf8eq-MuiInputBase-root-MuiOutlinedInput-root",
+            "width": 100,
+            "right": 404
+          },
+          {
+            "tag": "INPUT",
+            "cls": "MuiInputBase-input MuiOutlinedInput-input css-puvvea-MuiInputBase-input-MuiOutlinedInput-input",
+            "width": 84,
+            "right": 396
+          },
+          {
+            "tag": "FIELDSET",
+            "cls": "MuiOutlinedInput-notchedOutline css-xvsqs8-MuiOutlinedInput-notchedOutline",
+            "width": 100,
+            "right": 404
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiFormControl-root MuiFormControl-fullWidth css-eqy2b7-MuiFormControl-root",
+            "width": 200,
+            "right": 620
+          },
+          {
+            "tag": "LABEL",
+            "cls": "MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeMedium MuiInputLabel-outlined css-1xpwxp8-MuiFormLabel-root-MuiInputLabel-root",
+            "width": 109,
+            "right": 543
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1l7qssg-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root",
+            "width": 200,
+            "right": 620
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-x21y59-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input",
+            "width": 200,
+            "right": 620
+          },
+          {
+            "tag": "INPUT",
+            "cls": "MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput",
+            "width": 200,
+            "right": 620
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 24,
+            "right": 613
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 10,
+            "right": 606
+          },
+          {
+            "tag": "FIELDSET",
+            "cls": "MuiOutlinedInput-notchedOutline css-xvsqs8-MuiOutlinedInput-notchedOutline",
+            "width": 200,
+            "right": 620
+          },
+          {
+            "tag": "LEGEND",
+            "cls": "css-kg5swy",
+            "width": 117,
+            "right": 546
+          },
+          {
+            "tag": "SPAN",
+            "cls": "",
+            "width": 117,
+            "right": 546
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-f16k7",
+            "width": 316,
+            "right": 620
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1lz3w1r",
+            "width": 50,
+            "right": 401
+          },
+          {
+            "tag": "NAV",
+            "cls": "MuiPagination-root MuiPagination-text css-1oj2twp-MuiPagination-root",
+            "width": 50,
+            "right": 401
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/notary/notary-session-management"
+    },
+    {
+      "role": "notary",
+      "route": "/profile",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-notary-profile-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "notary",
+      "route": "/profile",
+      "width": 390,
+      "height": 844,
+      "file": "before-notary-profile-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 686,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 398,
+            "right": 686
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1m9yp2r",
+            "width": 398,
+            "right": 686
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-15dxkaf",
+            "width": 334,
+            "right": 654
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1cmvgu0",
+            "width": 332,
+            "right": 653
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-evxtd3-MuiAvatar-root",
+            "width": 96,
+            "right": 437
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 72,
+            "right": 425
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 48,
+            "right": 413
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-v5olil",
+            "width": 180,
+            "right": 633
+          },
+          {
+            "tag": "H5",
+            "cls": "MuiTypography-root MuiTypography-h5 css-14hn30m-MuiTypography-root",
+            "width": 180,
+            "right": 633
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-caption css-pnpe4h-MuiTypography-root",
+            "width": 180,
+            "right": 633
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-d598t-MuiButtonBase-root-MuiButton-root",
+            "width": 176,
+            "right": 629
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-h0vgxp-MuiButton-startIcon",
+            "width": 18,
+            "right": 486
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 486
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 18,
+            "right": 486
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1i52a57",
+            "width": 332,
+            "right": 653
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-16e9v8r",
+            "width": 292,
+            "right": 633
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-70qvj9",
+            "width": 250,
+            "right": 612
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-caption css-u5mepp-MuiTypography-root",
+            "width": 114,
+            "right": 476
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1vmaygs",
+            "width": 136,
+            "right": 612
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedWhite MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorWhite MuiButton-root MuiButton-contained MuiButton-containedWhite MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorWhite css-1h9m5qw-MuiButtonBase-root-MuiButton-root",
+            "width": 136,
+            "right": 612
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-h0vgxp-MuiButton-startIcon",
+            "width": 18,
+            "right": 509
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 509
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 14,
+            "right": 507
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-button css-uwpr4a-MuiTypography-root",
+            "width": 78,
+            "right": 595
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1czr4lk",
+            "width": 250,
+            "right": 612
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "notary",
+      "route": "/payment/redirect",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-notary-payment-redirect-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    },
+    {
+      "role": "notary",
+      "route": "/payment/redirect",
+      "width": 390,
+      "height": 844,
+      "file": "before-notary-payment-redirect-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 428,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 140,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiContainer-root MuiContainer-maxWidthMd css-u4uvlt-MuiContainer-root",
+            "width": 140,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-9addhc",
+            "width": 108,
+            "right": 412
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-19si5oq",
+            "width": 108,
+            "right": 412
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1aqmyr4-MuiCircularProgress-root",
+            "width": 68,
+            "right": 392
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 68,
+            "right": 392
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/dashboard",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-admin-admin-dashboard-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/dashboard"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/dashboard",
+      "width": 390,
+      "height": 844,
+      "file": "before-admin-admin-dashboard-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 1440,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 1152,
+            "right": 1440
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-alc8zz",
+            "width": 1152,
+            "right": 1440
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-qhydom",
+            "width": 1152,
+            "right": 1440
+          },
+          {
+            "tag": "H6",
+            "cls": "MuiTypography-root MuiTypography-h6 css-s9uet9-MuiTypography-root",
+            "width": 1120,
+            "right": 1424
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1pz9y7c",
+            "width": 1152,
+            "right": 1440
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-151lwhx",
+            "width": 1120,
+            "right": 1424
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-thflsa",
+            "width": 1088,
+            "right": 1408
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 964,
+            "right": 1284
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-rm7g3t-MuiTypography-root",
+            "width": 964,
+            "right": 1284
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1c25e8c-MuiTypography-root",
+            "width": 964,
+            "right": 1284
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-1781p8m-MuiButtonBase-root-MuiButton-root",
+            "width": 92,
+            "right": 1408
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1tn2zf3-MuiButton-startIcon",
+            "width": 20,
+            "right": 1350
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 20,
+            "right": 1350
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 12,
+            "right": 1345
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-1hms7aa-MuiTypography-root",
+            "width": 32,
+            "right": 1390
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-17ky9rb-MuiAutocomplete-root",
+            "width": 326,
+            "right": 646
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-1ppudwt-MuiFormControl-root-MuiTextField-root",
+            "width": 326,
+            "right": 646
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-zrpp82-MuiInputBase-root-MuiOutlinedInput-root",
+            "width": 326,
+            "right": 646
+          },
+          {
+            "tag": "INPUT",
+            "cls": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-oiedha-MuiInputBase-input-MuiOutlinedInput-input",
+            "width": 255,
+            "right": 581
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiAutocomplete-endAdornment css-p1olib-MuiAutocomplete-endAdornment",
+            "width": 84,
+            "right": 637
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-131xqwv-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator",
+            "width": 44,
+            "right": 597
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 20,
+            "right": 585
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 12,
+            "right": 581
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-1swwozf-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator",
+            "width": 44,
+            "right": 639
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 24,
+            "right": 629
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/admin/dashboard"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/employee-management",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-admin-admin-employee-management-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/employee-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/employee-management",
+      "width": 390,
+      "height": 844,
+      "file": "before-admin-admin-employee-management-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 1076,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 788,
+            "right": 1076
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-nwctnf",
+            "width": 788,
+            "right": 1076
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1w0d1bb",
+            "width": 788,
+            "right": 1076
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-xijiwm",
+            "width": 594,
+            "right": 898
+          },
+          {
+            "tag": "H6",
+            "cls": "MuiTypography-root MuiTypography-h6 css-16uwlo2-MuiTypography-root",
+            "width": 594,
+            "right": 898
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-11lqul9-MuiButtonBase-root-MuiButton-root",
+            "width": 154,
+            "right": 1060
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1y3t1eg",
+            "width": 788,
+            "right": 1076
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-868eow",
+            "width": 756,
+            "right": 1060
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-bcpdp3",
+            "width": 235,
+            "right": 564
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1vae7t2",
+            "width": 72,
+            "right": 433
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-70kp5a-MuiAvatar-root",
+            "width": 60,
+            "right": 427
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 40,
+            "right": 417
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 25,
+            "right": 409
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-ld2mnq-MuiTypography-root",
+            "width": 171,
+            "right": 532
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1upcpa5",
+            "width": 423,
+            "right": 1019
+          },
+          {
+            "tag": "CANVAS",
+            "cls": "",
+            "width": 423,
+            "right": 1019
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1ljw75u",
+            "width": 788,
+            "right": 1076
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1ohc276",
+            "width": 768,
+            "right": 1066
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-58hq2g",
+            "width": 582,
+            "right": 880
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1fu7egj-MuiButtonBase-root-MuiButton-root",
+            "width": 136,
+            "right": 517
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1tn2zf3-MuiButton-startIcon",
+            "width": 18,
+            "right": 403
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 403
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 14,
+            "right": 401
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1fu7egj-MuiButtonBase-root-MuiButton-root",
+            "width": 76,
+            "right": 602
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1tn2zf3-MuiButton-startIcon",
+            "width": 18,
+            "right": 547
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/admin/employee-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/user-management",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-admin-admin-user-management-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/user-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/user-management",
+      "width": 390,
+      "height": 844,
+      "file": "before-admin-admin-user-management-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 1076,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 788,
+            "right": 1076
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1m4dwzh",
+            "width": 788,
+            "right": 1076
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-ks2xqc",
+            "width": 788,
+            "right": 1076
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1tyqt84",
+            "width": 788,
+            "right": 1076
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-xijiwm",
+            "width": 740,
+            "right": 1052
+          },
+          {
+            "tag": "H6",
+            "cls": "MuiTypography-root MuiTypography-h6 css-16uwlo2-MuiTypography-root",
+            "width": 740,
+            "right": 1052
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1epacji",
+            "width": 756,
+            "right": 1060
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1qtstkc",
+            "width": 190,
+            "right": 510
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-104y6vs-MuiTypography-root",
+            "width": 158,
+            "right": 494
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-mu0csg",
+            "width": 494,
+            "right": 1044
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1ljw75u",
+            "width": 788,
+            "right": 1076
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1ohc276",
+            "width": 768,
+            "right": 1066
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-58hq2g",
+            "width": 548,
+            "right": 846
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1fu7egj-MuiButtonBase-root-MuiButton-root",
+            "width": 129,
+            "right": 511
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1tn2zf3-MuiButton-startIcon",
+            "width": 18,
+            "right": 403
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 403
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 15,
+            "right": 402
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1fu7egj-MuiButtonBase-root-MuiButton-root",
+            "width": 154,
+            "right": 672
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1tn2zf3-MuiButton-startIcon",
+            "width": 18,
+            "right": 541
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 541
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 15,
+            "right": 539
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1fu7egj-MuiButtonBase-root-MuiButton-root",
+            "width": 166,
+            "right": 846
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeMedium css-1tn2zf3-MuiButton-startIcon",
+            "width": 18,
+            "right": 702
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 702
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 14,
+            "right": 700
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/admin/user-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-admin-admin-notary-management-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/notary-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "width": 390,
+      "height": 844,
+      "file": "before-admin-admin-notary-management-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 1440,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 1152,
+            "right": 1440
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-alc8zz",
+            "width": 1152,
+            "right": 1440
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-qhydom",
+            "width": 1152,
+            "right": 1440
+          },
+          {
+            "tag": "H6",
+            "cls": "MuiTypography-root MuiTypography-h6 css-s9uet9-MuiTypography-root",
+            "width": 1120,
+            "right": 1424
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1toxms2",
+            "width": 1152,
+            "right": 1440
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1qno0xv",
+            "width": 1120,
+            "right": 1424
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1te4891",
+            "width": 536,
+            "right": 856
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-104y6vs-MuiTypography-root",
+            "width": 163,
+            "right": 499
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-muf14",
+            "width": 536,
+            "right": 1408
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1syrr48-MuiAvatar-root",
+            "width": 48,
+            "right": 936
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 32,
+            "right": 928
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 29,
+            "right": 927
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 29,
+            "right": 927
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-deq6jl-MuiTypography-root",
+            "width": 22,
+            "right": 910
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-104y6vs-MuiTypography-root",
+            "width": 210,
+            "right": 1098
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-14ll94q",
+            "width": 1120,
+            "right": 1424
+          },
+          {
+            "tag": "P",
+            "cls": "MuiTypography-root MuiTypography-body1 css-fvxu70-MuiTypography-root",
+            "width": 1088,
+            "right": 1408
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-h8j1ay",
+            "width": 1088,
+            "right": 1408
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-root MuiDataGrid-root--densityStandard MuiDataGrid-withBorderColor css-ii106i-MuiDataGrid-root",
+            "width": 1088,
+            "right": 1408
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiDataGrid-toolbarContainer css-1ytv9am-MuiDataGrid-toolbarContainer",
+            "width": 1086,
+            "right": 1407
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-12zh8ki",
+            "width": 1054,
+            "right": 1391
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-1vsj8dr-MuiButtonBase-root-MuiButton-root",
+            "width": 83,
+            "right": 420
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-o7k0n1-MuiButtonBase-root-MuiButton-root",
+            "width": 105,
+            "right": 524
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-o7k0n1-MuiButtonBase-root-MuiButton-root",
+            "width": 115,
+            "right": 640
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary css-o7k0n1-MuiButtonBase-root-MuiButton-root",
+            "width": 201,
+            "right": 840
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/admin/notary-management"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/settings",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-admin-admin-settings-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/settings"
+    },
+    {
+      "role": "admin",
+      "route": "/admin/settings",
+      "width": 390,
+      "height": 844,
+      "file": "before-admin-admin-settings-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/admin/settings"
+    },
+    {
+      "role": "admin",
+      "route": "/profile",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-admin-profile-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "admin",
+      "route": "/profile",
+      "width": 390,
+      "height": 844,
+      "file": "before-admin-profile-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 686,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 398,
+            "right": 686
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1m9yp2r",
+            "width": 398,
+            "right": 686
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-15dxkaf",
+            "width": 334,
+            "right": 654
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1cmvgu0",
+            "width": 332,
+            "right": 653
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-evxtd3-MuiAvatar-root",
+            "width": 96,
+            "right": 437
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 72,
+            "right": 425
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 48,
+            "right": 413
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-v5olil",
+            "width": 180,
+            "right": 633
+          },
+          {
+            "tag": "H5",
+            "cls": "MuiTypography-root MuiTypography-h5 css-14hn30m-MuiTypography-root",
+            "width": 180,
+            "right": 633
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-caption css-pnpe4h-MuiTypography-root",
+            "width": 180,
+            "right": 633
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeSmall MuiButton-outlinedSizeSmall MuiButton-colorPrimary css-d598t-MuiButtonBase-root-MuiButton-root",
+            "width": 176,
+            "right": 629
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-h0vgxp-MuiButton-startIcon",
+            "width": 18,
+            "right": 486
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 486
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 18,
+            "right": 486
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1i52a57",
+            "width": 332,
+            "right": 653
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-16e9v8r",
+            "width": 292,
+            "right": 633
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-70qvj9",
+            "width": 250,
+            "right": 612
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-caption css-u5mepp-MuiTypography-root",
+            "width": 114,
+            "right": 476
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1vmaygs",
+            "width": 136,
+            "right": 612
+          },
+          {
+            "tag": "BUTTON",
+            "cls": "MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedWhite MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorWhite MuiButton-root MuiButton-contained MuiButton-containedWhite MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorWhite css-1h9m5qw-MuiButtonBase-root-MuiButton-root",
+            "width": 136,
+            "right": 612
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiButton-icon MuiButton-startIcon MuiButton-iconSizeSmall css-h0vgxp-MuiButton-startIcon",
+            "width": 18,
+            "right": 509
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 18,
+            "right": 509
+          },
+          {
+            "tag": "path",
+            "cls": "svg",
+            "width": 14,
+            "right": 507
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiTypography-root MuiTypography-button css-uwpr4a-MuiTypography-root",
+            "width": 78,
+            "right": 595
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1czr4lk",
+            "width": 250,
+            "right": 612
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/profile"
+    },
+    {
+      "role": "admin",
+      "route": "/payment/redirect",
+      "width": 1440,
+      "height": 1000,
+      "file": "before-admin-payment-redirect-desktop.png",
+      "geometry": {
+        "innerWidth": 1440,
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "offenders": []
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    },
+    {
+      "role": "admin",
+      "route": "/payment/redirect",
+      "width": 390,
+      "height": 844,
+      "file": "before-admin-payment-redirect-mobile.png",
+      "geometry": {
+        "innerWidth": 390,
+        "clientWidth": 390,
+        "scrollWidth": 428,
+        "offenders": [
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-1rr4qq7",
+            "width": 140,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiContainer-root MuiContainer-maxWidthMd css-u4uvlt-MuiContainer-root",
+            "width": 140,
+            "right": 428
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-9addhc",
+            "width": 108,
+            "right": 412
+          },
+          {
+            "tag": "DIV",
+            "cls": "MuiBox-root css-19si5oq",
+            "width": 108,
+            "right": 412
+          },
+          {
+            "tag": "SPAN",
+            "cls": "MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1aqmyr4-MuiCircularProgress-root",
+            "width": 66,
+            "right": 391
+          },
+          {
+            "tag": "svg",
+            "cls": "svg",
+            "width": 66,
+            "right": 391
+          }
+        ]
+      },
+      "actualUrl": "http://localhost:3001/payment/redirect"
+    }
+  ],
+  "errors": [],
+  "checkedAt": "2026-10-25T00:25:53.988Z"
+}

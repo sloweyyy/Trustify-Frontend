@@ -60,6 +60,7 @@ const SessionManagement = () => {
                 </Typography>
 
                 <IconButton
+                    aria-label="Bộ lọc phiên công chứng"
                     size="small"
                     sx={{
                         bgcolor: white[50],
@@ -79,6 +80,7 @@ const SessionManagement = () => {
                     display: 'flex',
                     alignItems: 'center',
                     gap: 2,
+                    flexDirection: { xs: 'column', sm: 'row' },
                 }}
             >
                 <TextField
@@ -89,7 +91,7 @@ const SessionManagement = () => {
                         flex: 1,
                         minWidth: { xs: 100, sm: 200 },
                         '& .MuiOutlinedInput-root': {
-                            fontSize: 14,
+                            fontSize: '1rem',
                             padding: '0px 8px',
                             borderRadius: 1,
                             '& fieldset': {
@@ -108,7 +110,7 @@ const SessionManagement = () => {
                         },
                         '& .MuiInputBase-input::placeholder': {
                             color: gray[500],
-                            fontSize: 14,
+                            fontSize: '1rem',
                         },
                     }}
                 />
@@ -116,9 +118,9 @@ const SessionManagement = () => {
                     fullWidth
                     variant="outlined"
                     sx={{
-                        width: 200,
+                        width: { xs: '100%', sm: 200 },
                         '& .MuiOutlinedInput-root': {
-                            fontSize: 14,
+                            fontSize: '1rem',
                             borderRadius: 1,
                             '& fieldset': {
                                 borderColor: black[100],
@@ -135,11 +137,11 @@ const SessionManagement = () => {
                             },
                         },
                         '& .MuiSelect-select': {
-                            fontSize: 14,
+                            fontSize: '1rem',
                         },
                         '& .MuiInputLabel-root': {
                             color: gray[400],
-                            fontSize: 14,
+                            fontSize: '1rem',
                         },
                     }}
                 >
@@ -211,11 +213,7 @@ const SessionManagement = () => {
                     sessions.map((session, index) => (<NotarySessionCard key={index} session={session} />))}
             </Box>
 
-            <Box
-                position={'absolute'}
-                bottom={20}
-                left={'90%'}
-            >
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 3 }}>
                 <Pagination count={pagination?.totalPages !== 0 ? pagination?.totalPages : 1} page={page} onChange={handlePageChange} color="primary" shape="rounded" />
             </Box>
         </Box>

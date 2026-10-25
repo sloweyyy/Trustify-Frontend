@@ -1,0 +1,129 @@
+{
+  "base": "b25ab51901ee58ea9015a9e9d1935660ec3e9298",
+  "viewport": 390,
+  "routeRoleCombinations": [
+    {
+      "role": "user",
+      "route": "/user/create-notarization-profile",
+      "beforeScrollWidth": 1056,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "user",
+      "route": "/user/history",
+      "beforeScrollWidth": 1146,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "user",
+      "route": "/user/notarization-session",
+      "beforeScrollWidth": 444,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "user",
+      "route": "/user/document-wallet",
+      "beforeScrollWidth": 461,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "user",
+      "route": "/profile",
+      "beforeScrollWidth": 686,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "user",
+      "route": "/payment/redirect",
+      "beforeScrollWidth": 428,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/notary/dashboard",
+      "beforeScrollWidth": 552,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/notary/pending-notarization-documents",
+      "beforeScrollWidth": 449,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/notary/awaiting-signature-documents",
+      "beforeScrollWidth": 449,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notarization-history",
+      "beforeScrollWidth": 554,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/notary/notary-session-management",
+      "beforeScrollWidth": 636,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/profile",
+      "beforeScrollWidth": 686,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "notary",
+      "route": "/payment/redirect",
+      "beforeScrollWidth": 428,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/admin/dashboard",
+      "beforeScrollWidth": 1440,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/admin/employee-management",
+      "beforeScrollWidth": 1076,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/admin/user-management",
+      "beforeScrollWidth": 1076,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/admin/notary-management",
+      "beforeScrollWidth": 1440,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/admin/settings",
+      "beforeScrollWidth": 390,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/profile",
+      "beforeScrollWidth": 686,
+      "afterScrollWidth": 390
+    },
+    {
+      "role": "admin",
+      "route": "/payment/redirect",
+      "beforeScrollWidth": 428,
+      "afterScrollWidth": 390
+    }
+  ],
+  "errors": [],
+  "scope": "All registered private routes for the three supplied QA roles, shared profile, payment result without transaction parameters. Legacy secretary blank routes have no supplied QA login; role menu is covered by unit tests.",
+  "localTableScrolling": "Existing table containers may scroll internally; main content is not clipped or given a blanket horizontal scroll container."
+}
