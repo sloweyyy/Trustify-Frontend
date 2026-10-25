@@ -38,7 +38,8 @@ beforeEach(() => {
 
 test('choosing a field without a service shows the existing validation instead of throwing', async () => {
   setup(); await chooseField(); fireEvent.click(screen.getByRole('button', { name: 'Tiếp tục', exact: true }));
-  expect(toast.error).toHaveBeenCalledWith('Vui lòng chọn dịch vụ công chứng.');
+  expect(screen.getByText('Chọn dịch vụ công chứng bạn cần.')).toBeInTheDocument();
+  expect(toast.error).not.toHaveBeenCalled();
   expect(NotarizationService.uploadNotarizationDocument).not.toHaveBeenCalled();
 });
 

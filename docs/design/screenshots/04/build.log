@@ -129,7 +129,7 @@ To ignore, add // eslint-disable-next-line to the line before.
 File sizes after gzip:
 
   753.89 kB         build/static/js/561.fed3c614.chunk.js
-  244.26 kB (+3 B)  build/static/js/main.8fe3f18a.js
+  244.26 kB (-1 B)  build/static/js/main.2dea66f6.js
   93.16 kB          build/static/js/470.2dda5671.chunk.js
   64.83 kB          build/static/js/74.eb122e97.chunk.js
   60.33 kB          build/static/js/461.0d5f31c7.chunk.js
@@ -137,11 +137,11 @@ File sizes after gzip:
   11.84 kB          build/static/js/701.8e08e84b.chunk.js
   11.72 kB          build/static/js/38.8bdc7ae4.chunk.js
   10.93 kB          build/static/js/803.d9727973.chunk.js
-  8.54 kB           build/static/js/139.2687e11a.chunk.js
+  8.53 kB (-13 B)   build/static/js/139.02bcead9.chunk.js
   8.46 kB           build/static/js/942.88896586.chunk.js
   8.27 kB           build/static/js/624.c86b061a.chunk.js
   7.18 kB           build/static/js/532.cfd2bfe1.chunk.js
-  6.6 kB (+6 B)     build/static/js/151.b1f9ab24.chunk.js
+  6.6 kB            build/static/js/151.b1f9ab24.chunk.js
   6.34 kB           build/static/js/800.66e5f7e5.chunk.js
   6.17 kB           build/static/js/87.36d5b4e4.chunk.js
   6.03 kB           build/static/js/335.7fe79355.chunk.js
@@ -153,7 +153,7 @@ File sizes after gzip:
   5.08 kB           build/static/js/252.89f81c9d.chunk.js
   5.01 kB           build/static/js/289.750d37a0.chunk.js
   4.95 kB           build/static/js/760.4bf975ce.chunk.js
-  4.91 kB (+4 B)    build/static/js/452.235b5998.chunk.js
+  4.91 kB           build/static/js/452.235b5998.chunk.js
   4.72 kB           build/static/js/770.cce2a208.chunk.js
   4.69 kB           build/static/js/977.7c89bc7c.chunk.js
   4.1 kB            build/static/js/203.51148def.chunk.js

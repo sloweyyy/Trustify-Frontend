@@ -66,7 +66,7 @@ const NotarizationFormContent = ({ currentStep, uploadedFiles, fieldsAndServices
         <Section title="Thông tin người yêu cầu">
           {requiredFields.map((field) => <CustomTextField key={field.name} {...field} value={valueFor(field.name) ?? ''}
             onChange={handleInputChange} required error={attempted && !valueFor(field.name)}
-            helperText={attempted && !valueFor(field.name) ? `Vui lòng nhập ${field.label.toLowerCase()}.` : field.name === 'amount' ? 'Số bản sao cần công chứng, không phải số tiền thanh toán.' : undefined} />)}
+            helperText={attempted && !valueFor(field.name) ? `Vui lòng nhập ${field.label[0].toLowerCase() + field.label.slice(1)}.` : field.name === 'amount' ? 'Số bản sao cần công chứng, không phải số tiền thanh toán.' : undefined} />)}
         </Section>
         <Section title="Tài liệu cần cung cấp">
           <Typography color="text.secondary">Chọn tài liệu cho từng loại giấy tờ bên dưới.</Typography>

@@ -190,10 +190,8 @@ const CreateNotarizationProfile = () => {
   const handleNext = () => {
     if (currentStep === 0) {
       if (!selectedField) {
-        toast.error('Vui lòng nhập thông tin lĩnh vực công chứng.');
         return;
       } else if (!selectedService || (Array.isArray(selectedService) && selectedService.length === 0)) {
-        toast.error('Vui lòng chọn dịch vụ công chứng.');
         return;
       }
     } else if (currentStep === 1) {
@@ -205,7 +203,6 @@ const CreateNotarizationProfile = () => {
         !requesterInfo.email ||
         !amount
       ) {
-        toast.error('Vui lòng nhập thông tin người yêu cầu.');
         return;
       }
 

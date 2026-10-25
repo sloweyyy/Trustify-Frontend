@@ -4,7 +4,7 @@ Baseline main `2ca180c`. Fourteen paired views cover service selection, informat
 
 Build/CRA ESLint/29 tests pass. JPEG/JPG matching is case-insensitive, original filenames are UI-only and renamed files retain their request format. Native file bytes/sizes, FormData keys/requesterInfo/amount and wallet fileIds/customFileNames are tested. Back navigation retains values. Failed reads retry their existing GET; a failed submission preserves the review and files. Submission tests mock the service; no real hồ sơ was submitted.
 
-The three-step wizard uses one primary action, explicit next-step guidance, heading/first-error focus, inline required-field feedback, readable review rows and mobile attachment spacing. An unreachable fourth payment-success composition was removed; no payment step was added. Services/Redux/routes/dependencies remain unchanged.
+The three-step wizard uses one primary action, explicit next-step guidance, heading/first-error focus, inline required-field feedback without duplicate popup notices, readable review rows and mobile attachment spacing. An unreachable fourth payment-success composition was removed; no payment step was added. Services/Redux/routes/dependencies remain unchanged.
 
 The local browser selected/removed generated JPG/JPEG files and an existing QA wallet document; the controller only changes client state for selection/removal. The request monitor records zero non-auth writes. The earlier assumption that wallet selection itself updates remote metadata was not supported by the controller; no remote metadata method is called here. Vercel all-role QA pending.
 
