@@ -1,8 +1,8 @@
 # Trustify — final before/after galleries
 
-**Frontend source:** merged PR #47, commit `0a9d0f5`. **Overall production gate:** pending the unchanged Admin session-list API failure in [#46](https://github.com/sloweyyy/Trustify-Frontend/issues/46), with the backend maintainer’s fix in Backend PR15 awaiting owner merge.
+**Frontend source:** merged PR #47, commit `0a9d0f5`. **Production API gate passed:** the backend maintainer’s PR15 is merged/live. [Real Admin GET](admin-session-api-recheck.json) returns200 with an empty page; [Admin UI recheck](admin-production-recheck.json) passes at all four widths without retry/error actions, browser errors or writes. The original500 observation is retained as history and resolved in [#46](https://github.com/sloweyyy/Trustify-Frontend/issues/46).
 
-[Open the interactive local gallery](index.html). The original pre-design audit contains36 route/role views + the Public chatbot (74 images). The final audit has43 route/role cases at320/390/768/1440, plus8 assistant checks. Shared authenticated Verify/Payment and the intermediate OAuth loader were not all photographed in the original audit; missing before images are explicitly marked.
+[Open the interactive local gallery](index.html). The original pre-design audit contains36 route/role views + the Public chatbot (74 images). The final audit has43 route/role cases at320/390/768/1440, plus8 assistant checks. The seven shared authenticated Verify/Payment and intermediate OAuth views absent from the original live audit are now reconstructed from untouched source commitd75854a (14 PNGs), clearly labelled as repository-baseline reconstructions, not historical live captures. The unchanged dependency lockfile and current authorized QA API are used; no original source files were edited. [Capture provenance](reconstructed-before.json).
 
 Production Public images are from the merged UI. Authenticated screenshots use anonymized display data, synthetic order codes and IDs; private role images were rendered at34ea3af, the identical visual source of #47 before the nonvisual inherited Autocomplete label correction. The final production DOM audit verifies that correction. Synthetic state fixtures and local-only chatbot fulfillment are labelled. No actual document/session/profile/payment/signature/approval/chat write was submitted.
 
@@ -29,7 +29,7 @@ Production Public images are from the merged UI. Authenticated screenshots use a
 | Đặt lại mật khẩu · `/reset-password` | [Before](../../brand/audit/screenshots/public-reset-password-desktop.png) | [After](../screenshots/final/routes/public-reset-password-desktop.png) | [Before](../../brand/audit/screenshots/public-reset-password-mobile.png) | [After](../screenshots/final/routes/public-reset-password-mobile.png) |
 | Kết quả thanh toán · `/payment/redirect` | [Before](../../brand/audit/screenshots/public-payment-redirect-desktop.png) | [After](../screenshots/final/routes/public-payment-redirect-desktop.png) | [Before](../../brand/audit/screenshots/public-payment-redirect-mobile.png) | [After](../screenshots/final/routes/public-payment-redirect-mobile.png) |
 | Không tìm thấy trang · `/not-a-route` | [Before](../../brand/audit/screenshots/public-not-a-route-desktop.png) | [After](../screenshots/final/routes/public-not-a-route-desktop.png) | [Before](../../brand/audit/screenshots/public-not-a-route-mobile.png) | [After](../screenshots/final/routes/public-not-a-route-mobile.png) |
-| Đang hoàn tất đăng nhập · `/third-party` | Not captured | [After](../screenshots/final/routes/public-third-party-desktop.png) | Not captured | [After](../screenshots/final/routes/public-third-party-mobile.png) |
+| Đang hoàn tất đăng nhập · `/third-party` | [Reconstructed source d758](../screenshots/final/reconstructed-before/public-third-party-desktop.png) | [After](../screenshots/final/routes/public-third-party-desktop.png) | [Reconstructed source d758](../screenshots/final/reconstructed-before/public-third-party-mobile.png) | [After](../screenshots/final/routes/public-third-party-mobile.png) |
 
 ## Người dùng
 
@@ -40,8 +40,8 @@ Production Public images are from the merged UI. Authenticated screenshots use a
 | Phiên công chứng · `/user/notarization-session` | [Before](../../brand/audit/screenshots/user-user-notarization-session-desktop.png) | [After](../screenshots/final/routes/user-user-notarization-session-desktop.png) | [Before](../../brand/audit/screenshots/user-user-notarization-session-mobile.png) | [After](../screenshots/final/routes/user-user-notarization-session-mobile.png) |
 | Ví tài liệu · `/user/document-wallet` | [Before](../../brand/audit/screenshots/user-user-document-wallet-desktop.png) | [After](../screenshots/final/routes/user-user-document-wallet-desktop.png) | [Before](../../brand/audit/screenshots/user-user-document-wallet-mobile.png) | [After](../screenshots/final/routes/user-user-document-wallet-mobile.png) |
 | Thông tin cá nhân · `/profile` | [Before](../../brand/audit/screenshots/user-profile-desktop.png) | [After](../screenshots/final/routes/user-profile-desktop.png) | [Before](../../brand/audit/screenshots/user-profile-mobile.png) | [After](../screenshots/final/routes/user-profile-mobile.png) |
-| Xác minh hồ sơ · `/verify` | Not captured | [After](../screenshots/final/routes/user-verify-desktop.png) | Not captured | [After](../screenshots/final/routes/user-verify-mobile.png) |
-| Kết quả thanh toán · `/payment/redirect` | Not captured | [After](../screenshots/final/routes/user-payment-redirect-desktop.png) | Not captured | [After](../screenshots/final/routes/user-payment-redirect-mobile.png) |
+| Xác minh hồ sơ · `/verify` | [Reconstructed source d758](../screenshots/final/reconstructed-before/user-verify-desktop.png) | [After](../screenshots/final/routes/user-verify-desktop.png) | [Reconstructed source d758](../screenshots/final/reconstructed-before/user-verify-mobile.png) | [After](../screenshots/final/routes/user-verify-mobile.png) |
+| Kết quả thanh toán · `/payment/redirect` | [Reconstructed source d758](../screenshots/final/reconstructed-before/user-payment-redirect-desktop.png) | [After](../screenshots/final/routes/user-payment-redirect-desktop.png) | [Reconstructed source d758](../screenshots/final/reconstructed-before/user-payment-redirect-mobile.png) | [After](../screenshots/final/routes/user-payment-redirect-mobile.png) |
 
 ## Công chứng viên
 
@@ -53,8 +53,8 @@ Production Public images are from the merged UI. Authenticated screenshots use a
 | Quản lý phiên công chứng · `/notary/notary-session-management` | [Before](../../brand/audit/screenshots/notary-notary-notary-session-management-desktop.png) | [After](../screenshots/final/routes/notary-notary-notary-session-management-desktop.png) | [Before](../../brand/audit/screenshots/notary-notary-notary-session-management-mobile.png) | [After](../screenshots/final/routes/notary-notary-notary-session-management-mobile.png) |
 | Lịch sử công chứng · `/notary/notarization-history` | [Before](../../brand/audit/screenshots/notary-notary-notarization-history-desktop.png) | [After](../screenshots/final/routes/notary-notary-notarization-history-desktop.png) | [Before](../../brand/audit/screenshots/notary-notary-notarization-history-mobile.png) | [After](../screenshots/final/routes/notary-notary-notarization-history-mobile.png) |
 | Thông tin cá nhân · `/profile` | [Before](../../brand/audit/screenshots/notary-profile-desktop.png) | [After](../screenshots/final/routes/notary-profile-desktop.png) | [Before](../../brand/audit/screenshots/notary-profile-mobile.png) | [After](../screenshots/final/routes/notary-profile-mobile.png) |
-| Xác minh hồ sơ · `/verify` | Not captured | [After](../screenshots/final/routes/notary-verify-desktop.png) | Not captured | [After](../screenshots/final/routes/notary-verify-mobile.png) |
-| Kết quả thanh toán · `/payment/redirect` | Not captured | [After](../screenshots/final/routes/notary-payment-redirect-desktop.png) | Not captured | [After](../screenshots/final/routes/notary-payment-redirect-mobile.png) |
+| Xác minh hồ sơ · `/verify` | [Reconstructed source d758](../screenshots/final/reconstructed-before/notary-verify-desktop.png) | [After](../screenshots/final/routes/notary-verify-desktop.png) | [Reconstructed source d758](../screenshots/final/reconstructed-before/notary-verify-mobile.png) | [After](../screenshots/final/routes/notary-verify-mobile.png) |
+| Kết quả thanh toán · `/payment/redirect` | [Reconstructed source d758](../screenshots/final/reconstructed-before/notary-payment-redirect-desktop.png) | [After](../screenshots/final/routes/notary-payment-redirect-desktop.png) | [Reconstructed source d758](../screenshots/final/reconstructed-before/notary-payment-redirect-mobile.png) | [After](../screenshots/final/routes/notary-payment-redirect-mobile.png) |
 
 ## Quản trị viên
 
@@ -66,8 +66,8 @@ Production Public images are from the merged UI. Authenticated screenshots use a
 | Quản lý công chứng · `/admin/notary-management` | [Before](../../brand/audit/screenshots/admin-admin-notary-management-desktop.png) | [After](../screenshots/final/routes/admin-admin-notary-management-desktop.png) | [Before](../../brand/audit/screenshots/admin-admin-notary-management-mobile.png) | [After](../screenshots/final/routes/admin-admin-notary-management-mobile.png) |
 | Cài đặt · `/admin/settings` | [Before](../../brand/audit/screenshots/admin-admin-settings-desktop.png) | [After](../screenshots/final/routes/admin-admin-settings-desktop.png) | [Before](../../brand/audit/screenshots/admin-admin-settings-mobile.png) | [After](../screenshots/final/routes/admin-admin-settings-mobile.png) |
 | Thông tin cá nhân · `/profile` | [Before](../../brand/audit/screenshots/admin-profile-desktop.png) | [After](../screenshots/final/routes/admin-profile-desktop.png) | [Before](../../brand/audit/screenshots/admin-profile-mobile.png) | [After](../screenshots/final/routes/admin-profile-mobile.png) |
-| Xác minh hồ sơ · `/verify` | Not captured | [After](../screenshots/final/routes/admin-verify-desktop.png) | Not captured | [After](../screenshots/final/routes/admin-verify-mobile.png) |
-| Kết quả thanh toán · `/payment/redirect` | Not captured | [After](../screenshots/final/routes/admin-payment-redirect-desktop.png) | Not captured | [After](../screenshots/final/routes/admin-payment-redirect-mobile.png) |
+| Xác minh hồ sơ · `/verify` | [Reconstructed source d758](../screenshots/final/reconstructed-before/admin-verify-desktop.png) | [After](../screenshots/final/routes/admin-verify-desktop.png) | [Reconstructed source d758](../screenshots/final/reconstructed-before/admin-verify-mobile.png) | [After](../screenshots/final/routes/admin-verify-mobile.png) |
+| Kết quả thanh toán · `/payment/redirect` | [Reconstructed source d758](../screenshots/final/reconstructed-before/admin-payment-redirect-desktop.png) | [After](../screenshots/final/routes/admin-payment-redirect-desktop.png) | [Reconstructed source d758](../screenshots/final/reconstructed-before/admin-payment-redirect-mobile.png) | [After](../screenshots/final/routes/admin-payment-redirect-mobile.png) |
 
 ## Evidence and limits
 
@@ -82,7 +82,7 @@ Production Public images are from the merged UI. Authenticated screenshots use a
 
 ## Remaining follow-ups
 
-1. **Completion gate:** backend maintainer’s PR15 must be merged/deployed, then repeat the real Admin session GET/UI check and close frontend issue #46. This task does not merge or edit backend code.
+1. **Resolved dependency:** Backend PR15 was merged/deployed by the maintainer. The actual Admin endpoint and UI were rechecked successfully; evidence is linked above. This frontend task did not edit or merge backend code.
 2. PaymentRedirect retains the preexisting unknown/bare-query handling and timer by the approved guardrail; improving the return destination/unknown status is a separate product change. Never test a fabricated live orderCode.
 3. Consider an explicit recipient/document/quantity confirmation for real wallet sharing in a separate behavioral change. Existing handler and eligibility rules were retained.
 4. Existing legal policy wording/contact facts were preserved, not independently revalidated. Fee schedules remain unpublished until authoritative catalog data is provided.
@@ -128,4 +128,15 @@ Production Public images are from the merged UI. Authenticated screenshots use a
 | [#45](https://github.com/sloweyyy/Trustify-Frontend/pull/45) | Design 11b: full-suite tests in CI and final lint cleanup |
 | [#47](https://github.com/sloweyyy/Trustify-Frontend/pull/47) | Design 11c: final responsive and accessibility QA fixes |
 
-The final gallery/report PR will be linked in PROGRESS.md once created. The “Design revamp complete” issue is deliberately not opened while the production API gate remains unresolved.
+Closeout evidence is reviewed in [PR48](https://github.com/sloweyyy/Trustify-Frontend/pull/48). The final completion issue includes the role galleries and implementation PR links after closeout review/merge and the last main-deployment health check.
+
+## Role overview sheets
+
+| Role | Original before | Finished after |
+| --- | --- | --- |
+| Public | [Before](../../brand/audit/public-contact-sheet.png) | [After](public-after-contact-sheet.png) |
+| User | [Before](../../brand/audit/user-contact-sheet.png) | [After](user-after-contact-sheet.png) |
+| Notary | [Before](../../brand/audit/notary-contact-sheet.png) | [After](notary-after-contact-sheet.png) |
+| Admin | [Before](../../brand/audit/admin-contact-sheet.png) | [After](admin-after-contact-sheet.png) |
+
+The gallery now has a before and after view for all43 route/role cases. The original74 live before images remain untouched; the14 reconstructed additions are separate.

@@ -2,7 +2,7 @@
 
 **Giai đoạn 2 · Đã duyệt · 25/10/2026.** Cơ sở: người dùng chọn **logo B — Nét ký tận tâm** và yêu cầu tiếp tục. Giữ burgundy `#AA1D39`, nền giấy ấm, Be Vietnam Pro, giọng “bạn”, khẩu hiệu “Hồ sơ rõ ràng. An tâm từng bước.” từ [brand đã duyệt](brand/brand-identity.md).
 
-Đây là đặc tả và mock tĩnh; chưa sửa production, `public/`, Redux, route, API, `src/services/*` hoặc backend. [Bảng duyệt trực quan](design/index.html) gồm light/dark, mẫu thành phần, mẫu màn hình và wireframe cho từng route. [Audit trước thay đổi](brand/audit/existing-screen-audit.md) có 74 screenshot; không coi mock là screenshot sản phẩm đã triển khai.
+Đây là bản đặc tả đã duyệt trước triển khai; các mock tĩnh là tham chiếu thiết kế. Giao diện đã được triển khai theo đặc tả này; xem [gallery và kết quả kiểm tra cuối](design/final/README.md) và [lịch sử triển khai](design/PROGRESS.md). Redux, route và hợp đồng API được giữ nguyên; backend do bên bảo trì riêng phụ trách. [Bảng duyệt trực quan](design/index.html) gồm light/dark, mẫu thành phần, mẫu màn hình và wireframe cho từng route. [Audit trước thay đổi](brand/audit/existing-screen-audit.md) có 74 screenshot; không coi mock là screenshot sản phẩm đã triển khai.
 
 ## 1. Nguyên tắc
 
