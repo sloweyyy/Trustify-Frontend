@@ -8,4 +8,4 @@ Eight additional history detail pairs cover unapproved/approved output. These ar
 
 Keyboard smoke covers Enter-open, outstanding-signature focus, Escape-close and original-opener focus restoration at 390/720/1440. Contract tests mock the existing FormData submission. The ten mutation handler bodies are retained verbatim; see handler-contract-check.json. Existing creator/participant eligibility, including the legacy empty signature-users branch, remains unchanged.
 
-Session creation/join form interiors remain for the next slice. Preview click-through evidence will be added after deployment.
+Session creation/join form interiors remain for the next slice. Primary Vercel preview Ready; all three roles checked in existing signed-in Chrome. See preview-checks.json and four preview captures.
