@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-25T02:06:26.480Z",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "checks": [
+    "Native allowlist and event preserved",
+    "Device menu >=44px / text >=16px",
+    "Escape returns focus to chooser",
+    "Local File selection and exact removal update count",
+    "Attachment remains within 390px viewport",
+    "Wallet opens/closes with focus restored; no selection",
+    "No non-auth writes or page errors"
+  ],
+  "geometry": {
+    "height": 45.59375,
+    "fontSize": "16px"
+  },
+  "bounds": {
+    "left": 57,
+    "right": 333,
+    "scroll": 274,
+    "width": 274
+  },
+  "writes": [],
+  "errors": []
+}
