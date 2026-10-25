@@ -1,42 +1,16 @@
 import { Paper, Typography } from '@mui/material';
 import React from 'react';
-import { black, gray, white } from '../../config/theme/themePrimitives';
 
 const NotaryAnalyticsCard = ({ title, value, growth, isChange = false, isWeekly = false }) => {
+  const number = Number(growth);
+  const available = growth !== '' && growth != null && Number.isFinite(number);
+  const period = isChange ? 'hôm qua' : isWeekly ? 'tuần trước' : 'tháng trước';
   return (
-    <Paper
-      sx={{
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        overflow: 'hidden',
-        border: `1px solid ${gray[200]}`,
-        padding: 2,
-        gap: 2,
-        borderRadius: 1,
-        boxShadow: '0px 2px 4px -2px rgba(19, 25, 39, 0.12), 0px 4px 4px -2px rgba(19, 25, 39, 0.08)',
-        bgcolor: white[50],
-        minWidth: 200,
-      }}
-    >
-      <Typography sx={{ fontSize: 14, color: black[900], fontWeight: 500, textTransform: 'capitalize' }}>{title}</Typography>
-      <Typography sx={{ fontSize: 24, color: black[900], fontWeight: 500, textTransform: 'capitalize' }}>{value}</Typography>
-      {isChange ? (
-        <Typography sx={{ fontSize: 12, color: black[400], fontWeight: 500, textTransform: 'none' }}>
-          {growth > 0 ? `+${growth}` : growth} so với hôm qua
-        </Typography>
-      ) : isWeekly ? (
-        <Typography sx={{ fontSize: 12, color: black[400], fontWeight: 500, textTransform: 'none' }}>
-          {growth > 0 ? `+${growth}%` : `${growth}%`} so với tuần trước
-        </Typography>
-      ) : (
-        <Typography sx={{ fontSize: 12, color: black[400], fontWeight: 500, textTransform: 'none' }}>
-          {growth > 0 ? `+${growth}%` : `${growth}%`} so với tháng trước
-        </Typography>
-      )}
+    <Paper variant="outlined" sx={{ p: 2, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+      <Typography component="h2" variant="body1" color="text.secondary">{title}</Typography>
+      <Typography component="p" variant="h4" sx={{ overflowWrap: 'anywhere' }}>{value}</Typography>
+      <Typography color="text.secondary">{available ? `${number > 0 ? '+' : ''}${number.toLocaleString('vi-VN')}${isChange ? '' : '%'} so với ${period}` : 'Chưa có dữ liệu so sánh'}</Typography>
     </Paper>
   );
 };
-
 export default NotaryAnalyticsCard;

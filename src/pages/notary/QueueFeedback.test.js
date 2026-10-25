@@ -28,7 +28,7 @@ for (const [Component, status, label] of [[ProcessingDocuments, 'processing', 'p
     NotarizationService.getNotarizationByRole.mockResolvedValue({ documents: [{ id: 'test' }], pagination: { totalPages: 2 } });
     render(<Component />);
     expect(await screen.findByText('Hồ sơ kiểm tra')).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: /page 2/i }));
+    fireEvent.click(screen.getByRole('button', { name: 'Trang 2' }));
     await waitFor(() => expect(NotarizationService.getNotarizationByRole).toHaveBeenLastCalledWith({ status, page: 2, limit: 6 }));
   });
 }

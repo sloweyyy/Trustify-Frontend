@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import NotaryAnalyticsCard from './NotaryAnalyticsCard';
-import { Box, CircularProgress, Typography, Alert } from '@mui/material';
+import { Box } from '@mui/material';
+import { ErrorState, LoadingState } from '../shared/PageFeedback';
 import notaryService from '../../services/notary.service';
 
 const NotaryAnalyticsSession = () => {
@@ -13,8 +14,7 @@ const NotaryAnalyticsSession = () => {
     acceptanceRate: { acceptanceRate: 0, growthPercent: 0 },
   });
 
-  useEffect(() => {
-    const fetchMetrics = async () => {
+  const fetchMetrics = useCallback(async () => {
       try {
         setLoading(true);
         setError(null);
@@ -32,59 +32,42 @@ const NotaryAnalyticsSession = () => {
           acceptanceRate,
         });
       } catch (error) {
-        console.error('Error fetching metrics:', error);
-        const errorMessage = error.response?.data?.message || 'Failed to load dashboard metrics';
-        setError(errorMessage);
+        setError(true);
       } finally {
         setLoading(false);
       }
-    };
-
-    fetchMetrics();
   }, []);
+  useEffect(() => { fetchMetrics(); }, [fetchMetrics]);
 
-  if (loading) {
-    return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', padding: 4 }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
-
-  if (error) {
-    return (
-      <Box sx={{ padding: 2 }}>
-        <Alert severity="error">{error}</Alert>
-      </Box>
-    );
-  }
+  if (loading) return <LoadingState label="Đang tải số liệu…" />;
+  if (error) return <ErrorState title="Chưa thể tải số liệu" description="Bạn có thể thử tải lại số liệu công chứng." onRetry={fetchMetrics} />;
 
   return (
     <Box
       sx={{
         display: 'grid',
         gap: 2,
-        gridTemplateColumns: { xs: '', sm: 'repeat(2, minmax(250px, 1fr))' },
+        gridTemplateColumns: { xs: 'minmax(0, 1fr)', sm: 'repeat(2, minmax(0, 1fr))', xl: 'repeat(4, minmax(0, 1fr))' },
       }}
     >
       <NotaryAnalyticsCard
-        title={'Tổng Số yêu Cầu chờ Xử lý'}
-        value={metrics.processing.total.toLocaleString()}
+        title={'Yêu cầu đang xử lý'}
+        value={metrics.processing.total?.toLocaleString('vi-VN') ?? 'Chưa có số liệu'}
         growth={metrics.processing.growthPercent}
       />
       <NotaryAnalyticsCard
-        title={'Tổng số yêu cầu chờ ký số'}
-        value={metrics.digitalSignature.total.toLocaleString()}
+        title={'Yêu cầu chờ ký số'}
+        value={metrics.digitalSignature.total?.toLocaleString('vi-VN') ?? 'Chưa có số liệu'}
         growth={metrics.digitalSignature.change}
         isChange
       />
       <NotaryAnalyticsCard
-        title={'Tổng số yêu cầu đã xử lý'}
-        value={metrics.notaryApproved.total.toLocaleString()}
+        title={'Yêu cầu đã xử lý'}
+        value={metrics.notaryApproved.total?.toLocaleString('vi-VN') ?? 'Chưa có số liệu'}
         growth={metrics.notaryApproved.growthPercent}
       />
       <NotaryAnalyticsCard
-        title={'Tỉ lệ xác minh thành công'}
+        title={'Tỷ lệ xác minh thành công'}
         value={`${metrics.acceptanceRate.acceptanceRate}%`}
         growth={metrics.acceptanceRate.growthPercent}
         isWeekly

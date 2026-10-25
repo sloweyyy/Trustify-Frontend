@@ -1,0 +1,44 @@
+{
+  "baseline": "1bc96bc6f4187773f7ac4df45045786fee84ef58",
+  "fixture": "Synthetic notary metrics/recent approvals/queue GET fixtures only. No review, approval, signature, upload or payment action. All non-auth writes blocked.",
+  "results": [
+    {
+      "name": "dashboard",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "dashboard",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "processing",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "processing",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "signature",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "signature",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T12:12:41.596Z"
+}
