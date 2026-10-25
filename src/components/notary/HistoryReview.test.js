@@ -11,6 +11,7 @@ const wrapper = ({ children }) => <ThemeProvider theme={createTrustifyTheme()}>{
 const row = (status) => ({ status, signatureImage: 'https://example.com/signature.png', documentId: { id: 'HS-MAU', requesterInfo: { fullName: 'Nguyễn Thị Mỹ' }, files: [], output: [] } });
 test.each([['readyToSign', false, 'Chờ ký số'], ['digitalSignature', false, 'Chờ ký số'], ['processing', false, 'Đang xử lý'], ['completed', true, 'Hoàn tất'], ['rejected', true, 'Bị từ chối']])('%s keeps the legacy decision eligibility and shows canonical label', (status, disabled, label) => {
   render(<DetailHistoryDocumentModal open document={row(status)} onClose={jest.fn()} />, { wrapper });
+  expect(screen.getByRole('dialog', { name: 'Chi tiết hồ sơ công chứng', exact: true })).toBeInTheDocument();
   expect(screen.getByText(label, { exact: true })).toBeInTheDocument();
   expect(screen.getByRole('button', { name: 'Chấp nhận', exact: true }).disabled).toBe(disabled);
   expect(Boolean(screen.queryByAltText('Chữ ký xác nhận của người yêu cầu'))).toBe(status === 'readyToSign');

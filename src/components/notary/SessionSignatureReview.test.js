@@ -11,6 +11,7 @@ const wrapper = ({ children }) => <ThemeProvider theme={createTrustifyTheme()}>{
 const row = (status) => ({ status, approvalStatus: { creator: { signatureImage: 'https://example.com/creator.png' }, users: [{ email: 'qa@example.com', signatureImage: 'https://example.com/user.png' }] }, sessionId: { id: 'PHIEN-MAU', createdBy: { name: 'Nguyễn Thị Mỹ' }, files: [], output: [] } });
 test.each([['readyToSign', false, 'Chờ ký số'], ['digitalSignature', false, 'Chờ ký số'], ['processing', false, 'Đang xử lý'], ['completed', true, 'Hoàn tất'], ['rejected', true, 'Bị từ chối']])('%s keeps the legacy decision eligibility and shows canonical label', (status, disabled, label) => {
   render(<DetailReadyToSignSessionModal open session={row(status)} onClose={jest.fn()} />, { wrapper });
+  expect(screen.getByRole('dialog', { name: 'Chi tiết phiên công chứng', exact: true })).toBeInTheDocument();
   expect(screen.getByText(label, { exact: true })).toBeInTheDocument();
   expect(screen.getByRole('button', { name: 'Chấp nhận', exact: true }).disabled).toBe(disabled);
   expect(Boolean(screen.queryByAltText('Chữ ký người tạo phiên'))).toBe(status === 'readyToSign');

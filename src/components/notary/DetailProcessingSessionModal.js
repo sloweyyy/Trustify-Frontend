@@ -107,8 +107,8 @@ const DetailProcessingSessionModal = ({ open, onClose, session }) => {
   ];
   return (
     <Dialog open={open} onClose={onClose} fullScreen={mobile} fullWidth maxWidth="xl" aria-labelledby={titleId}>
-      <DialogTitle id={titleId} sx={{ pr: 8 }}>
-        Xét duyệt phiên công chứng
+      <DialogTitle id={`${titleId}-header`} sx={{ pr: 8 }}>
+        <Box component="span" id={titleId}>Xét duyệt phiên công chứng</Box>
         <Typography component="span" sx={{ display: 'block', mt: 1, overflowWrap: 'anywhere' }}>Mã phiên: {source?.id}</Typography>
         <Box sx={{ mt: 1 }}><DocumentStatusChip status={session?.status} /></Box>
         <IconButton aria-label="Đóng chi tiết phiên" onClick={onClose} sx={{ position: 'absolute', top: 12, right: 12 }}><CloseRounded /></IconButton>

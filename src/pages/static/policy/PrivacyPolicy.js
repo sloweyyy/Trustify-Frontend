@@ -1,7 +1,6 @@
 import React from 'react';
 import PublicArticle from '../../../components/public/PublicArticle';
 import { Typography, Box, Paper, Grid } from '@mui/material';
-import { dark, gray, primary } from '../../../config/theme/themePrimitives';
 
 
 const PrivacyPolicy = () => {
@@ -13,7 +12,7 @@ const PrivacyPolicy = () => {
             chúng tôi.
           </Typography>
 
-          <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+          <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
             Thông tin chúng tôi thu thập
           </Typography>
           <Typography variant="body1" paragraph sx={{ mb: 3 }}>
@@ -37,8 +36,8 @@ const PrivacyPolicy = () => {
 
           <Grid container spacing={4} sx={{ my: 5 }}>
             <Grid item xs={12} md={6}>
-              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
-                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: 'action.selected', height: '100%' }}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
                   Mục đích sử dụng thông tin
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ mb: 3 }}>
@@ -65,8 +64,8 @@ const PrivacyPolicy = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
-                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: 'action.selected', height: '100%' }}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
                   Bảo mật thông tin
                 </Typography>
                 <Typography variant="body1" paragraph>
@@ -74,7 +73,7 @@ const PrivacyPolicy = () => {
                   khỏi mất mát, truy cập trái phép, tiết lộ, thay đổi hoặc phá hủy. Các biện pháp này bao gồm mã hóa dữ liệu,
                   hạn chế truy cập, và quy trình kiểm soát nội bộ nghiêm ngặt.
                 </Typography>
-                <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={dark[500]} sx={{ mt: 3 }}>
+                <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={'text.primary'} sx={{ mt: 3 }}>
                   Thời gian lưu trữ
                 </Typography>
                 <Typography variant="body1" paragraph>
@@ -85,7 +84,7 @@ const PrivacyPolicy = () => {
             </Grid>
           </Grid>
 
-          <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+          <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
             Quyền của bạn
           </Typography>
           <Typography variant="body1" paragraph sx={{ mb: 3 }}>
@@ -109,7 +108,7 @@ const PrivacyPolicy = () => {
             </Typography>
           </Box>
 
-          <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+          <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
             Thay đổi chính sách bảo mật
           </Typography>
           <Typography variant="body1" paragraph sx={{ mb: 4 }}>
@@ -118,8 +117,8 @@ const PrivacyPolicy = () => {
             thông báo trên trang web hoặc gửi email trực tiếp cho bạn.
           </Typography>
 
-          <Box sx={{ backgroundColor: gray[50], p: { xs: 2, md: 3 }, borderRadius: 2, mt: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+          <Box sx={{ backgroundColor: 'action.hover', p: { xs: 2, md: 3 }, borderRadius: 2, mt: 5 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               Liên hệ với chúng tôi
             </Typography>
             <Typography variant="body1">

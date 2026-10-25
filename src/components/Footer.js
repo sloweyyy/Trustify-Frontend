@@ -15,7 +15,7 @@ const social = [
   { label: 'GitHub', href: 'https://github.com/sloweyyy', icon: <GitHub /> },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sloweyne/', icon: <LinkedIn /> },
 ];
-const linkStyle = { color: 'inherit', display: 'inline-flex', alignItems: 'center', minHeight: 44, overflowWrap: 'anywhere', '&:focus-visible': { outlineColor: 'primary.contrastText' } };
+const linkStyle = { color: 'inherit', display: 'inline-flex', alignItems: 'center', minHeight: 44, minWidth: 44, overflowWrap: 'anywhere', '&:focus-visible': { outlineColor: 'primary.contrastText' } };
 const focusContent = (event) => {
   if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
   window.scrollTo(0, 0);

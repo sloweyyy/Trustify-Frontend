@@ -228,8 +228,9 @@ const EmployeeManagement = () => {
             onChange={(e) => setSearchText(e.target.value)}
             sx={{
               borderRadius: 1,
-              width: { xs: '100%', sm: '20%' },
-              minWidth: { xs: 0, sm: 150 },
+              width: { xs: '100%', sm: 280 },
+              maxWidth: '100%',
+              minWidth: 0,
               '& .MuiInputBase-input': {
                 fontSize: 16,
               },

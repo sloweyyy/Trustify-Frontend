@@ -31,6 +31,7 @@ export const dataDisplayCustomizations = {
     root: ({ theme }) => ({ fontSize: '1rem', lineHeight: 1.6, padding: '14px 16px', borderColor: theme.palette.divider }),
     head: ({ theme }) => ({ fontWeight: 600, color: theme.palette.text.primary, backgroundColor: theme.trustify.subtle }),
   } },
+  MuiTableSortLabel: { styleOverrides: { root: { minHeight: 44, minWidth: 44 } } },
   MuiTableRow: { styleOverrides: { root: { minHeight: 56 } } },
   MuiTablePagination: {
     defaultProps: {

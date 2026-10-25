@@ -83,7 +83,7 @@ export const inputsCustomizations = {
   },
   MuiInputLabel: { styleOverrides: { root: {
     fontSize: '1rem', lineHeight: 1.6,
-    '&.MuiInputLabel-outlined.MuiInputLabel-shrink': { transform: 'translate(14px, -12px) scale(1)' },
+    '&.MuiInputLabel-outlined.MuiInputLabel-shrink': { transform: 'translate(14px, -12px) scale(1)', maxWidth: 'calc(100% - 28px)' },
   } } },
   MuiFormLabel: { styleOverrides: { root: ({ theme }) => ({ fontSize: '1rem', fontWeight: 600, lineHeight: 1.6, color: theme.palette.text.primary }) } },
   MuiFormHelperText: { styleOverrides: { root: { fontSize: '.875rem', lineHeight: 1.6, margin: '4px 0 0' } } },
@@ -92,7 +92,7 @@ export const inputsCustomizations = {
   MuiRadio: { styleOverrides: { root: { minWidth: 44, minHeight: 44, padding: 10 } } },
   MuiSwitch: { styleOverrides: { root: { minHeight: 44 }, switchBase: ({ theme }) => ({ '&.Mui-focusVisible': focusRing(theme) }) } },
   MuiInputAdornment: { styleOverrides: { root: ({ theme }) => ({ color: theme.palette.text.secondary }) } },
-  MuiAutocomplete: { styleOverrides: { inputRoot: { minHeight: 52 }, popupIndicator: { minWidth: 44, minHeight: 44 }, clearIndicator: { minWidth: 44, minHeight: 44 } } },
+  MuiAutocomplete: { defaultProps: { openText: 'Mở danh sách', closeText: 'Đóng danh sách', clearText: 'Xóa lựa chọn', loadingText: 'Đang tải…', noOptionsText: 'Không có lựa chọn phù hợp' }, styleOverrides: { inputRoot: { minHeight: 52 }, popupIndicator: { minWidth: 44, minHeight: 44 }, clearIndicator: { minWidth: 44, minHeight: 44 } } },
   MuiToggleButton: { styleOverrides: { root: ({ theme }) => ({
     minHeight: 44, fontSize: '1rem', textTransform: 'none', padding: '8px 16px',
     '&.Mui-selected': { color: theme.trustify.onSelected, backgroundColor: theme.trustify.selected },

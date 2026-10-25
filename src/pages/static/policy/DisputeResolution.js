@@ -1,7 +1,6 @@
 import React from 'react';
 import PublicArticle from '../../../components/public/PublicArticle';
 import { Typography, Box, Paper, Divider, Grid } from '@mui/material';
-import { dark, gray, primary } from '../../../config/theme/themePrimitives';
 
 import GavelIcon from '@mui/icons-material/Gavel';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -17,8 +16,8 @@ const DisputeResolution = () => {
             minh bạch và hiệu quả.
           </Typography>
 
-          <Box sx={{ backgroundColor: primary[50], borderRadius: 2, p: { xs: 2, md: 3 }, mb: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+          <Box sx={{ backgroundColor: 'action.selected', borderRadius: 2, p: { xs: 2, md: 3 }, mb: 5 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               I. Phạm vi tiếp nhận khiếu nại
             </Typography>
             <Typography variant="body1" paragraph>
@@ -47,7 +46,7 @@ const DisputeResolution = () => {
                       },
                     }}
                   >
-                    <FactCheckIcon sx={{ color: primary[500], mr: 1 }} />
+                    <FactCheckIcon sx={{ color: 'primary.main', mr: 1 }} />
                     <Typography variant="body1">{item}</Typography>
                   </Box>
                 </Grid>
@@ -59,7 +58,7 @@ const DisputeResolution = () => {
 
           <Grid container spacing={4} sx={{ mb: 5 }}>
             <Grid item xs={12} md={6}>
-              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
                 II. Cách thức gửi khiếu nại
               </Typography>
               <Typography variant="body1" paragraph>
@@ -82,8 +81,8 @@ const DisputeResolution = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Box sx={{ backgroundColor: gray[50], p: 3, borderRadius: 2, height: '100%' }}>
-                <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={dark[500]}>
+              <Box sx={{ backgroundColor: 'action.hover', p: 3, borderRadius: 2, height: '100%' }}>
+                <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={'text.primary'}>
                   Thông tin cần cung cấp khi khiếu nại
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ mb: 2 }}>
@@ -117,10 +116,10 @@ const DisputeResolution = () => {
           <Divider sx={{ my: 4 }} />
 
           <Box sx={{ mb: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               III. Quy trình xử lý khiếu nại
             </Typography>
-            <Box sx={{ position: 'relative', pl: 2, borderLeft: `3px solid ${primary[300]}` }}>
+            <Box sx={{ position: 'relative', pl: 2, borderLeft: 3, borderColor: 'primary.main' }}>
               <Box component="ol" sx={{ pl: 3 }}>
                 <Typography component="li" variant="body1" paragraph>
                   <strong>Tiếp nhận và xác nhận:</strong> Trong vòng 24 giờ kể từ khi nhận được khiếu nại, chúng tôi sẽ gửi
@@ -147,10 +146,10 @@ const DisputeResolution = () => {
 
           <Grid container spacing={4} sx={{ mb: 5 }}>
             <Grid item xs={12} md={6}>
-              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
+              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: 'action.selected', height: '100%' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                  <AccessTimeIcon sx={{ fontSize: 30, color: primary[500], mr: 2 }} />
-                  <Typography component="h2" variant="h5" fontWeight={600} color={dark[500]}>
+                  <AccessTimeIcon sx={{ fontSize: 30, color: 'primary.main', mr: 2 }} />
+                  <Typography component="h2" variant="h5" fontWeight={600} color={'text.primary'}>
                     IV. Thời gian xử lý khiếu nại
                   </Typography>
                 </Box>
@@ -171,10 +170,10 @@ const DisputeResolution = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
+              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: 'action.selected', height: '100%' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                  <GavelIcon sx={{ fontSize: 30, color: primary[500], mr: 2 }} />
-                  <Typography component="h2" variant="h5" fontWeight={600} color={dark[500]}>
+                  <GavelIcon sx={{ fontSize: 30, color: 'primary.main', mr: 2 }} />
+                  <Typography component="h2" variant="h5" fontWeight={600} color={'text.primary'}>
                     V. Biện pháp khắc phục
                   </Typography>
                 </Box>
@@ -203,7 +202,7 @@ const DisputeResolution = () => {
           </Grid>
 
           <Box sx={{ mb: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               VI. Giải quyết tranh chấp
             </Typography>
             <Typography variant="body1" paragraph>
@@ -222,7 +221,7 @@ const DisputeResolution = () => {
               ].map((item, index) => (
                 <Grid item xs={12} sm={6} key={index}>
                   <Paper elevation={1} sx={{ p: 3, borderRadius: 2 }}>
-                    <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={dark[500]}>
+                    <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={'text.primary'}>
                       {item.title}
                     </Typography>
                     <Typography variant="body1">{item.desc}</Typography>
@@ -232,8 +231,8 @@ const DisputeResolution = () => {
             </Grid>
           </Box>
 
-          <Box sx={{ backgroundColor: gray[50], p: { xs: 2, md: 3 }, borderRadius: 2, mt: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+          <Box sx={{ backgroundColor: 'action.hover', p: { xs: 2, md: 3 }, borderRadius: 2, mt: 5 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               VII. Liên hệ
             </Typography>
             <Typography variant="body1" paragraph>

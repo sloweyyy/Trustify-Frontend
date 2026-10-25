@@ -1,7 +1,6 @@
 import React from 'react';
 import PublicArticle from '../../../components/public/PublicArticle';
 import { Typography, Box, Paper, Grid } from '@mui/material';
-import { dark, gray, primary } from '../../../config/theme/themePrimitives';
 import SecurityIcon from '@mui/icons-material/Security';
 import LockIcon from '@mui/icons-material/Lock';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
@@ -11,25 +10,25 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 const PaymentSecurity = () => {
   const securityFeatures = [
     {
-      icon: <LockIcon fontSize="large" sx={{ color: primary[500] }} />,
+      icon: <LockIcon fontSize="large" sx={{ color: 'primary.main' }} />,
       title: 'Mã hóa SSL 256-bit',
       description:
         'Tất cả thông tin thanh toán được mã hóa bằng công nghệ SSL 256-bit, tiêu chuẩn bảo mật hàng đầu trong ngành tài chính.',
     },
     {
-      icon: <SecurityIcon fontSize="large" sx={{ color: primary[500] }} />,
+      icon: <SecurityIcon fontSize="large" sx={{ color: 'primary.main' }} />,
       title: 'Xác thực hai lớp',
       description:
         'Hệ thống xác thực hai lớp (2FA) được áp dụng cho tất cả các giao dịch để đảm bảo chỉ bạn mới có thể tiến hành thanh toán.',
     },
     {
-      icon: <VerifiedUserIcon fontSize="large" sx={{ color: primary[500] }} />,
+      icon: <VerifiedUserIcon fontSize="large" sx={{ color: 'primary.main' }} />,
       title: 'Tuân thủ tiêu chuẩn PCI DSS',
       description:
         'Chúng tôi tuân thủ nghiêm ngặt tiêu chuẩn bảo mật dữ liệu ngành thẻ thanh toán (PCI DSS) để bảo vệ thông tin của bạn.',
     },
     {
-      icon: <CreditCardIcon fontSize="large" sx={{ color: primary[500] }} />,
+      icon: <CreditCardIcon fontSize="large" sx={{ color: 'primary.main' }} />,
       title: 'Theo dõi giao dịch thời gian thực',
       description: 'Hệ thống giám sát liên tục phát hiện và ngăn chặn các giao dịch bất thường, bảo vệ bạn khỏi gian lận.',
     },
@@ -43,8 +42,8 @@ const PaymentSecurity = () => {
             vệ an toàn.
           </Typography>
 
-          <Box sx={{ py: 3, mb: 6, backgroundColor: primary[50], borderRadius: 2, p: { xs: 2, md: 3 } }}>
-            <Typography component="h2" variant="h5" fontWeight={600} color={dark[500]} gutterBottom textAlign="center">
+          <Box sx={{ py: 3, mb: 6, backgroundColor: 'action.selected', borderRadius: 2, p: { xs: 2, md: 3 } }}>
+            <Typography component="h2" variant="h5" fontWeight={600} color={'text.primary'} gutterBottom textAlign="center">
               Các tính năng bảo mật hàng đầu
             </Typography>
             <Grid container spacing={4} sx={{ mt: 2 }}>
@@ -68,7 +67,7 @@ const PaymentSecurity = () => {
                         {feature.icon}
                       </Box>
                       <Box>
-                        <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={dark[500]}>
+                        <Typography component="h3" variant="h6" gutterBottom fontWeight={600} color={'text.primary'}>
                           {feature.title}
                         </Typography>
                         <Typography variant="body1">{feature.description}</Typography>
@@ -82,7 +81,7 @@ const PaymentSecurity = () => {
 
           <Grid container spacing={5}>
             <Grid item xs={12} md={6}>
-              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
                 Phương thức thanh toán an toàn
               </Typography>
               <Typography variant="body1" paragraph>
@@ -93,7 +92,7 @@ const PaymentSecurity = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
                 Quy trình xử lý thanh toán
               </Typography>
               <Typography variant="body1" paragraph sx={{ mb: 2 }}>
@@ -114,10 +113,10 @@ const PaymentSecurity = () => {
             </Grid>
           </Grid>
 
-          <Box sx={{ my: 5, py: 4, borderTop: `1px solid ${gray[200]}`, borderBottom: `1px solid ${gray[200]}` }}>
+          <Box sx={{ my: 5, py: 4, borderTop: 1, borderBottom: 1, borderColor: 'divider' }}>
             <Grid container spacing={5}>
               <Grid item xs={12} md={6}>
-                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
                   Lưu trữ thông tin thanh toán
                 </Typography>
                 <Typography variant="body1">
@@ -128,7 +127,7 @@ const PaymentSecurity = () => {
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
                   Bảo vệ khỏi gian lận
                 </Typography>
                 <Typography variant="body1">
@@ -141,7 +140,7 @@ const PaymentSecurity = () => {
           </Box>
 
           <Box sx={{ mb: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               Cam kết hoàn tiền
             </Typography>
             <Typography variant="body1">
@@ -150,8 +149,8 @@ const PaymentSecurity = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ backgroundColor: gray[50], p: { xs: 2, md: 3 }, borderRadius: 2, mt: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+          <Box sx={{ backgroundColor: 'action.hover', p: { xs: 2, md: 3 }, borderRadius: 2, mt: 5 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               Liên hệ hỗ trợ
             </Typography>
             <Typography variant="body1">

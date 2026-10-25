@@ -1,7 +1,6 @@
 import React from 'react';
 import PublicArticle from '../../../components/public/PublicArticle';
 import { Typography, Box, Paper, Grid, Divider } from '@mui/material';
-import { dark, gray, primary } from '../../../config/theme/themePrimitives';
 
 
 const TermsOfService = () => {
@@ -14,8 +13,8 @@ const TermsOfService = () => {
 
           <Grid container spacing={4} sx={{ mb: 6 }}>
             <Grid item xs={12} md={6}>
-              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
-                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: 'action.selected', height: '100%' }}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
                   1. Giới thiệu dịch vụ
                 </Typography>
                 <Typography variant="body1">
@@ -27,8 +26,8 @@ const TermsOfService = () => {
               </Paper>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: primary[50], height: '100%' }}>
-                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+              <Paper elevation={0} sx={{ p: { xs: 2, md: 3 }, borderRadius: 2, backgroundColor: 'action.selected', height: '100%' }}>
+                <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
                   2. Đăng ký và tài khoản
                 </Typography>
                 <Typography variant="body1" sx={{ mb: 2 }}>
@@ -50,7 +49,7 @@ const TermsOfService = () => {
           </Grid>
 
           <Box sx={{ mb: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               3. Quy trình công chứng
             </Typography>
             <Typography variant="body1" paragraph>
@@ -60,8 +59,8 @@ const TermsOfService = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ mb: 5, backgroundColor: gray[50], p: { xs: 2, md: 3 }, borderRadius: 2 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+          <Box sx={{ mb: 5, backgroundColor: 'action.hover', p: { xs: 2, md: 3 }, borderRadius: 2 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               4. Trách nhiệm của người dùng
             </Typography>
             <Typography variant="body1" paragraph>
@@ -90,7 +89,7 @@ const TermsOfService = () => {
 
           <Grid container spacing={4} sx={{ mb: 5 }}>
             <Grid item xs={12} md={6}>
-              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
                 5. Phí dịch vụ và thanh toán
               </Typography>
               <Typography variant="body1">
@@ -100,7 +99,7 @@ const TermsOfService = () => {
               </Typography>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+              <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
                 6. Quyền sở hữu trí tuệ
               </Typography>
               <Typography variant="body1">
@@ -113,7 +112,7 @@ const TermsOfService = () => {
           </Grid>
 
           <Box sx={{ mb: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               7. Giới hạn trách nhiệm
             </Typography>
             <Typography variant="body1">
@@ -125,7 +124,7 @@ const TermsOfService = () => {
           </Box>
 
           <Box sx={{ mb: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               8. Chấm dứt dịch vụ
             </Typography>
             <Typography variant="body1">
@@ -135,8 +134,8 @@ const TermsOfService = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ mb: 5, backgroundColor: primary[50], p: { xs: 2, md: 3 }, borderRadius: 2 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+          <Box sx={{ mb: 5, backgroundColor: 'action.selected', p: { xs: 2, md: 3 }, borderRadius: 2 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               9. Thay đổi điều khoản
             </Typography>
             <Typography variant="body1">
@@ -147,7 +146,7 @@ const TermsOfService = () => {
           </Box>
 
           <Box sx={{ mb: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               10. Luật áp dụng và giải quyết tranh chấp
             </Typography>
             <Typography variant="body1">
@@ -157,8 +156,8 @@ const TermsOfService = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ backgroundColor: gray[50], p: { xs: 2, md: 3 }, borderRadius: 2, mt: 5 }}>
-            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={dark[500]}>
+          <Box sx={{ backgroundColor: 'action.hover', p: { xs: 2, md: 3 }, borderRadius: 2, mt: 5 }}>
+            <Typography component="h2" variant="h5" gutterBottom fontWeight={600} color={'text.primary'}>
               11. Liên hệ
             </Typography>
             <Typography variant="body1">
