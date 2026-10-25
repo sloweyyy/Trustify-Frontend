@@ -1,0 +1,55 @@
+{
+  "baseline": "7654ac1988d37f92b755c35b49c83dedef3d6629",
+  "results": [
+    {
+      "name": "create-header",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "create-actions",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "join",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "members",
+      "size": "desktop",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "name": "create-header",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "create-actions",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "join",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "name": "members",
+      "size": "mobile",
+      "width": 390,
+      "scrollWidth": 390
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T09:32:28.042Z"
+}

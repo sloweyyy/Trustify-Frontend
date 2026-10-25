@@ -1,11 +1,12 @@
-import { Box, Modal, Typography, Button } from '@mui/material';
-import React from 'react';
-import { gray, white } from '../../config/theme/themePrimitives';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Typography, Button, IconButton } from '@mui/material';
+import React, { useId } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
 import SessionService from '../../services/session.service';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const JoinSessionModal = ({ sessionId, open, setOpen }) => {
+  const titleId = useId();
   const handleOnClose = () => setOpen(false);
 
   const onAccept = async () => {
@@ -43,63 +44,17 @@ const JoinSessionModal = ({ sessionId, open, setOpen }) => {
   };
 
   return (
-    <Modal
-      open={open}
-      onClose={handleOnClose}
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        transition: 'all 0.3s',
-      }}
-    >
-      <Box
-        sx={{
-          backgroundImage: `linear-gradient(to right top , ${white[50]}, ${white[100]}, ${white[200]})`,
-          borderRadius: 2,
-          boxShadow: 3,
-          width: { xs: '90%', sm: 400 },
-          p: 3,
-          textAlign: 'center',
-          border: `1px solid ${gray[100]}`,
-          animation: 'fadeIn 0.5s ease-in-out',
-          '@keyframes fadeIn': {
-            '0%': { opacity: 0, transform: 'translateY(20px)' },
-            '100%': { opacity: 1, transform: 'translateY(0)' },
-          },
-        }}
-      >
-        <Typography variant="h5" fontWeight="bold" mb={1} color="primary">
-          Tham gia phiên công chứng
-        </Typography>
-
-        <Typography variant="body2" sx={{ mb: 2, fontSize: 14, fontWeight: 400 }}>
-          Bạn đã được mời vào một phiên công chứng.
-        </Typography>
-
-        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-          <Button
-            variant="outlined"
-            onClick={() => {
-              onReject();
-            }}
-            sx={{ textTransform: 'none', fontWeight: 600, minWidth: 100 }}
-          >
-            Từ chối
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => {
-              onAccept();
-            }}
-            sx={{ textTransform: 'none', fontWeight: 600, minWidth: 100 }}
-          >
-            Chấp nhận
-          </Button>
-        </Box>
-      </Box>
-    </Modal>
+    <Dialog open={open} onClose={handleOnClose} fullWidth maxWidth="xs" aria-labelledby={titleId}>
+      <DialogTitle component="div" id={`${titleId}-header`} sx={{ display: 'flex', alignItems: 'flex-start', gap: 2 }}>
+        <Typography component="h2" variant="h5" id={titleId} sx={{ flex: 1 }}>Tham gia phiên công chứng</Typography>
+        <IconButton aria-label="Đóng lời mời tham gia phiên" onClick={handleOnClose}><CloseIcon /></IconButton>
+      </DialogTitle>
+      <DialogContent><Typography>Bạn được mời tham gia một phiên công chứng. Chọn Chấp nhận để tham gia hoặc Từ chối lời mời.</Typography></DialogContent>
+      <DialogActions sx={{ flexDirection: { xs: 'column-reverse', sm: 'row' }, '& .MuiButton-root': { width: { xs: '100%', sm: 'auto' }, ml: '0 !important' } }}>
+        <Button variant="outlined" onClick={onReject}>Từ chối</Button>
+        <Button variant="contained" onClick={onAccept}>Chấp nhận</Button>
+      </DialogActions>
+    </Dialog>
   );
 };
 

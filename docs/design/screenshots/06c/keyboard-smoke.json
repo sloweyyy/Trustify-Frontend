@@ -1,0 +1,39 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "createFits": true,
+      "joinFits": true,
+      "uniqueIds": true,
+      "body16": true,
+      "primary44": true,
+      "enterOpen": true,
+      "escapeClose": true,
+      "createFocusRestored": true
+    },
+    {
+      "width": 720,
+      "createFits": true,
+      "joinFits": true,
+      "uniqueIds": true,
+      "body16": true,
+      "primary44": true,
+      "enterOpen": true,
+      "escapeClose": true,
+      "createFocusRestored": true
+    },
+    {
+      "width": 1440,
+      "createFits": true,
+      "joinFits": true,
+      "uniqueIds": true,
+      "body16": true,
+      "primary44": true,
+      "enterOpen": true,
+      "escapeClose": true,
+      "createFocusRestored": true
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T09:35:23.454Z"
+}
