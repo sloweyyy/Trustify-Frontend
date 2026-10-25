@@ -2,7 +2,7 @@
 
 Baseline main b9b098a.19 public routes × desktop1440/mobile390 give38 paired views; six additional footer views give44 before/after pairs. The menu has an additional mobile capture. Footer-top/bottom baselines use the same main deployment; initial route baselines were local.
 
-Build, CRA ESLint and10 tests pass. Browser checks verify header/footer bounds at390/720/1280/1440,44px link targets, skip-link focus, Drawer focus trap/Escape restoration and route-close behavior. Footer white text on approved primary.dark has contrast12.76:1. Existing destinations/contact data are retained; no forms submitted, credentials changed or transactions initiated.
+Build, CRA ESLint and11 tests pass. Browser checks verify header/footer bounds at390/720/1280/1440,44px link targets, skip-link focus, Drawer focus trap/Escape restoration and route-close behavior. Footer white text on approved primary.dark has contrast12.76:1. Existing destinations/contact data are retained; no forms submitted, credentials changed or transactions initiated.
 
 Known existing content overflow remains on Home(703px), Services(399px) and User Guide(645px) at390; this PR does not clip it. Header/footer themselves fit the viewport. Those page bodies, old Home governmental-looking copy, and the small existing chatbot launcher remain for Public09/Chatbot10. Vercel preview QA pending.
 
@@ -275,3 +275,5 @@ Known existing content overflow remains on Home(703px), Services(399px) and User
 ![Menu](after-menu-mobile.png)
 
 Pre-review accessibility correction: public Header now sits outside the page-content target. After activating the skip link, the next Tab bypasses the header. Fresh local screenshot/focus/build/ESLint checks pass.
+
+Final pre-review keyboard corrections: internal footer navigation focuses the content wrapper; a page-level Suspense boundary keeps shell transitions alive during lazy route changes. Reproduced overlay issue is resolved; public focus sequence and all20 authenticated route-role390px checks pass. Routes/services/Redux remain unchanged. Updated preview QA pending.

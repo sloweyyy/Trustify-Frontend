@@ -103,6 +103,7 @@ function App() {
         <Box sx={{ display: { xs: 'block', md: isAuthenticated ? 'flex' : 'block' }, minHeight: '100dvh' }}>
           {isAuthenticated ? <Sidebar /> : <Header />}
           <Box component={isAuthenticated ? 'main' : 'div'} id="page-content" tabIndex={-1} sx={{ flex: 1, minWidth: 0, width: '100%' }}>
+            <Suspense fallback={<Loader />}>
             <Routes>
               {/* Public Routes */}
               <Route
@@ -315,6 +316,7 @@ function App() {
 
               <Route path="*" element={<NotFound />} />
             </Routes>
+            </Suspense>
             {!isAuthenticated && <Footer />}
           </Box>
         </Box>

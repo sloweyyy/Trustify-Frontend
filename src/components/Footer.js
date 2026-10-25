@@ -16,11 +16,16 @@ const social = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sloweyne/', icon: <LinkedIn /> },
 ];
 const linkStyle = { color: 'inherit', display: 'inline-flex', alignItems: 'center', minHeight: 44, overflowWrap: 'anywhere', '&:focus-visible': { outlineColor: 'primary.contrastText' } };
+const focusContent = (event) => {
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  window.scrollTo(0, 0);
+  document.getElementById('page-content')?.focus({ preventScroll: true });
+};
 const FooterLinks = ({ title, links }) => (
   <Box component="nav" aria-label={title} sx={{ minWidth: 0 }}>
     <Typography component="h2" variant="h6" sx={{ mb: 1 }}>{title}</Typography>
     <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-      {links.map(([label, to]) => <Box component="li" key={to}><Link component={RouterLink} to={to} onClick={() => window.scrollTo(0, 0)} underline="hover" sx={linkStyle}>{label}</Link></Box>)}
+      {links.map(([label, to]) => <Box component="li" key={to}><Link component={RouterLink} to={to} onClick={focusContent} underline="hover" sx={linkStyle}>{label}</Link></Box>)}
     </Box>
   </Box>
 );
