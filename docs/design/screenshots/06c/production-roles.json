@@ -1,0 +1,32 @@
+{
+  "sha": "355d87f9267fe4086e0cc1671790a4d2449e7db9",
+  "url": "https://trustify-notary.vercel.app",
+  "checks": [
+    {
+      "role": "user",
+      "size": "desktop",
+      "formOpenClose": true,
+      "focusRestored": true,
+      "dialogFits": true
+    },
+    {
+      "role": "user",
+      "size": "mobile",
+      "formOpenClose": true,
+      "focusRestored": true,
+      "dialogFits": true
+    },
+    {
+      "role": "notary",
+      "sessionNavigation": true
+    },
+    {
+      "role": "admin",
+      "verifyNavigation": true
+    }
+  ],
+  "blocked": [],
+  "errors": [],
+  "note": "Read-only all-role verification per Claude review exception on PR26. No invitation ID created or answered on production; those controls tested with local fixtures.",
+  "checkedAt": "2026-10-25T09:51:34.849Z"
+}

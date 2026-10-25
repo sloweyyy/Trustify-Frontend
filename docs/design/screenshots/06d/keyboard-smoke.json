@@ -1,0 +1,27 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "cardFits": true,
+      "keyboardCode": true,
+      "actions44": true,
+      "purchaseOpenClose": true
+    },
+    {
+      "width": 720,
+      "cardFits": true,
+      "keyboardCode": true,
+      "actions44": true,
+      "purchaseOpenClose": true
+    },
+    {
+      "width": 1440,
+      "cardFits": true,
+      "keyboardCode": true,
+      "actions44": true,
+      "purchaseOpenClose": true
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T09:49:09.367Z"
+}
