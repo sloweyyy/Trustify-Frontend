@@ -18,5 +18,10 @@
     ]
   },
   "mutations": "No account saves, document submissions, signatures or payments",
-  "knownGap": "Existing shell overflows mobile; Design 03 acceptance covers all authenticated routes"
+  "knownGap": "Existing shell overflows mobile; Design 03 acceptance covers all authenticated routes",
+  "reviewRound1": {
+    "sourceCommit": "4e1d4f2",
+    "deployment": "https://vercel.com/sloweyyy/trustify-notary/GaRYpuA1rtoiijSQLjA7S5A7Q68z",
+    "checks": "Five associated inputs, solid 1px outlines, session captures at1440/390, cancel without submit"
+  }
 }

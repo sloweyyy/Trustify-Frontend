@@ -2,7 +2,7 @@
 
 Base: main f69e375. Local app with the existing API; desktop 1440×1000, mobile 390×844. Images capture the viewport. No account saves, notarization submissions, signatures or payments were performed.
 
-22 targeted tests, CRA ESLint and `CI=false npm run build` pass. Existing CRA/Browserslist warnings remain. Browser checks cover all three roles, associated labels, leading zeros, city clearing and cancel/reset. Calendar geometry checks confirm 44px days inside its mobile paper.
+23 targeted tests, CRA ESLint and `CI=false npm run build` pass. Existing CRA/Browserslist warnings remain. Browser checks cover all three roles, associated labels, leading zeros, city clearing and cancel/reset. Calendar geometry checks confirm 44px days inside its mobile paper.
 
 Known gap: the existing authenticated shell still overflows at 390px; step 03 must resolve every authenticated route. Upload, stepper, feedback and responsive tables remain separate shared-component slices.
 
@@ -179,3 +179,5 @@ Primary deployment Ready; QA accounts for User, Notary and Admin clicked through
 ![vercel-user-wizard-desktop](vercel-user-wizard-desktop.png)
 
 ![vercel-user-wizard-mobile](vercel-user-wizard-mobile.png)
+
+Review round 1: session form outlines restored and all five labels associated; local and deployed computed border checks pass. Updated Vercel deployment GaRYpuA1rtoiijSQLjA7S5A7Q68z is Ready. Source 4e1d4f2.

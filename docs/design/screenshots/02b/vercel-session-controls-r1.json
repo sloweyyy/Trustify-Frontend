@@ -1,0 +1,52 @@
+[
+  {
+    "label": "Tên phiên công chứng",
+    "fields": [
+      {
+        "borderStyle": "solid",
+        "borderWidth": "1px",
+        "id": ":r1:-name"
+      }
+    ]
+  },
+  {
+    "label": "Số lượng bản sao",
+    "fields": [
+      {
+        "borderStyle": "solid",
+        "borderWidth": "1px",
+        "id": ":r1:-amount"
+      }
+    ]
+  },
+  {
+    "label": "Lĩnh vực công chứng",
+    "fields": [
+      {
+        "borderStyle": "solid",
+        "borderWidth": "1px",
+        "id": ":r1:-field"
+      }
+    ]
+  },
+  {
+    "label": "Dịch vụ công chứng",
+    "fields": [
+      {
+        "borderStyle": "solid",
+        "borderWidth": "1px",
+        "id": ":r1:-service"
+      }
+    ]
+  },
+  {
+    "label": "Thêm khách mời",
+    "fields": [
+      {
+        "borderStyle": "solid",
+        "borderWidth": "1px",
+        "id": ":r1:-guests"
+      }
+    ]
+  }
+]
