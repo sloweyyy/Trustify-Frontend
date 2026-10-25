@@ -1,24 +1,9 @@
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-  Typography,
-  Card,
-  CardContent,
-  Skeleton,
-  IconButton,
-  Tooltip,
-} from '@mui/material';
-import React, { useState, useEffect } from 'react';
-import { black, gray, white } from '../../config/theme/themePrimitives';
+import { Box, Button, FormControl, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@mui/material';
+import React, { useState, useEffect, useCallback, useId } from 'react';
 import HistoryCard from '../../components/notary/HistoryCard';
 import { getDocumentFilterLabel } from '../../utils/documentStatus';
 import NotarizationService from '../../services/notarization.service';
-import { FilterList } from '@mui/icons-material';
+import { EmptyState, ErrorState, LoadingState } from '../../components/shared/PageFeedback';
 
 const NotarizedHistory = () => {
   const [documents, setDocuments] = useState([]);
@@ -32,21 +17,23 @@ const NotarizedHistory = () => {
   });
   const [sortOrder, setSortOrder] = useState('asc');
 
-  useEffect(() => {
-    const fetchDocuments = async () => {
-      try {
-        const response = await NotarizationService.getApproveHistory();
-        if (Array.isArray(response)) setDocuments(response);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchDocuments();
+  const [error, setError] = useState(false);
+  const fieldLabel = useId();
+  const statusLabel = useId();
+  const fetchDocuments = useCallback(async () => {
+    setIsLoading(true);
+    setError(false);
+    try {
+      const response = await NotarizationService.getApproveHistory();
+      if (!Array.isArray(response)) throw new Error('Invalid history response');
+      setDocuments(response);
+    } catch (error) {
+      setError(true);
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
-
+  useEffect(() => { fetchDocuments(); }, [fetchDocuments]);
   useEffect(() => {
     const fields = Array.from(new Set(documents.map((doc) => doc.documentId?.notarizationField?.name)));
     const statuses = Array.from(new Set(documents.map((doc) => doc.status)));
@@ -75,253 +62,35 @@ const NotarizedHistory = () => {
       });
   };
 
-
+  const visible = applyFilter();
   return (
-    <Box sx={{ padding: { xs: 2, sm: 4 } }}>
-      {/* Title */}
-      <Box sx={{ marginBottom: 3 }}>
-        <Typography
-          sx={{
-            fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)',
-            fontWeight: 600,
-            textTransform: 'capitalize',
-          }}
-        >
-          Lịch Sử Công Chứng
-        </Typography>
-      </Box>
-
-      {/* Main Box */}
-      <Box sx={{ p: 2, borderRadius: 1, border: 1, borderColor: gray[200] }}>
-        {/* Header */}
-        <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
-          <Typography
-            sx={{
-              fontSize: 'clamp(0.875rem, 2vw, 1rem)',
-              fontWeight: 600,
-              textTransform: 'capitalize',
-            }}
-          >
-            Tất Cả Yêu Cầu Công Chứng
-          </Typography>
-
-          <Tooltip
-            title={
-              sortOrder === 'asc' ? (
-                <Typography sx={{ fontSize: '12px', fontWeight: 400 }}>Sắp xếp tăng dần</Typography>
-              ) : (
-                <Typography sx={{ fontSize: '12px', fontWeight: 400 }}>Sắp xếp giảm dần</Typography>
-              )
-            }
-            placement="left"
-          >
-            <IconButton
-              size="small"
-              onClick={() => setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc'))}
-              sx={{
-                bgcolor: white[50],
-                border: `1px solid ${gray[200]}`,
-                '&:hover': {
-                  bgcolor: gray[500],
-                  color: white[50],
-                },
-              }}
-            >
-              <FilterList />
-            </IconButton>
-          </Tooltip>
+    <Box sx={{ p: { xs: 2, md: 3 }, minWidth: 0 }}>
+      <Typography component="h1" variant="h4">Lịch sử công chứng</Typography>
+      <Typography color="text.secondary" sx={{ mt: 1, mb: 3 }}>Tra cứu hồ sơ đã tiếp nhận và xem lại chi tiết từng lần xử lý.</Typography>
+      <Paper variant="outlined" sx={{ p: { xs: 2, md: 3 }, minWidth: 0 }}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 2, mb: 3 }}>
+          <Typography component="h2" variant="h6" sx={{ flex: 1 }}>Yêu cầu công chứng</Typography>
+          <Button variant="outlined" onClick={() => setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc'))} aria-label={sortOrder === 'asc' ? 'Đổi sang mới nhất trước' : 'Đổi sang cũ nhất trước'}>{sortOrder === 'asc' ? 'Cũ nhất trước' : 'Mới nhất trước'}</Button>
         </Box>
-
-        {/* Filters */}
-        <Box display="flex" flexWrap="wrap" gap={2} sx={{ mb: 4, flexDirection: { xs: 'column', sm: 'row' } }}>
-          <TextField
-            fullWidth
-            variant="outlined"
-            placeholder="Tìm kiếm yêu cầu công chứng"
-            value={filter.search}
-            onChange={(e) => setFilter({ ...filter, search: e.target.value })}
-            sx={{
-              flex: 1,
-              minWidth: { xs: 100, sm: 200 },
-              '& .MuiOutlinedInput-root': {
-                fontSize: 14,
-                padding: '0px 8px',
-                borderRadius: 1,
-                '& fieldset': {
-                  borderColor: black[100],
-                },
-                '&:hover fieldset': {
-                  borderColor: black[200],
-                },
-                '&.Mui-focused fieldset': {
-                  borderColor: black[900],
-                  borderWidth: 1,
-                },
-                '&:active fieldset': {
-                  borderColor: black[900],
-                },
-              },
-              '& .MuiInputBase-input::placeholder': {
-                color: gray[500],
-                fontSize: 14,
-              },
-            }}
-          />
-          <FormControl
-            fullWidth
-            variant="outlined"
-            sx={{
-              flex: 1,
-              minWidth: { xs: 100, sm: 200 },
-              '& .MuiOutlinedInput-root': {
-                fontSize: 14,
-                borderRadius: 1,
-                '& fieldset': {
-                  borderColor: black[100],
-                },
-                '&:hover fieldset': {
-                  borderColor: black[200],
-                },
-                '&.Mui-focused fieldset': {
-                  borderColor: black[900],
-                  borderWidth: 1,
-                },
-                '&:active fieldset': {
-                  borderColor: black[900],
-                },
-              },
-              '& .MuiSelect-select': {
-                fontSize: 14,
-              },
-              '& .MuiInputLabel-root': {
-                color: gray[400],
-                fontSize: 14,
-              },
-            }}
-          >
-            <InputLabel>Chọn lĩnh vực</InputLabel>
-            <Select
-              value={filter.field}
-              onChange={(e) => setFilter({ ...filter, field: e.target.value })}
-              label="Chọn lĩnh vực"
-              IconComponent={ArrowDropDownIcon}
-            >
-              <MenuItem value="">Tất cả lĩnh vực</MenuItem>
-              {field.map((fieldName, index) => (
-                <MenuItem key={index} value={fieldName}>
-                  {fieldName}
-                </MenuItem>
-              ))}
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: 'minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr)' }, gap: 2, mb: 3 }}>
+          <TextField fullWidth label="Tìm theo tên người yêu cầu" value={filter.search} onChange={(e) => setFilter({ ...filter, search: e.target.value })} />
+          <FormControl fullWidth><InputLabel id={fieldLabel}>Lĩnh vực</InputLabel>
+            <Select labelId={fieldLabel} label="Lĩnh vực" value={filter.field} onChange={(e) => setFilter({ ...filter, field: e.target.value })}>
+              <MenuItem value="">Tất cả lĩnh vực</MenuItem>{field.map((fieldName, index) => <MenuItem key={index} value={fieldName}>{fieldName}</MenuItem>)}
             </Select>
           </FormControl>
-          <FormControl
-            fullWidth
-            variant="outlined"
-            sx={{
-              flex: 1,
-              minWidth: { xs: 100, sm: 200 },
-              '& .MuiOutlinedInput-root': {
-                fontSize: 14,
-                borderRadius: 1,
-                '& fieldset': {
-                  borderColor: black[100],
-                },
-                '&:hover fieldset': {
-                  borderColor: black[200],
-                },
-                '&.Mui-focused fieldset': {
-                  borderColor: black[900],
-                  borderWidth: 1,
-                },
-                '&:active fieldset': {
-                  borderColor: black[900],
-                },
-              },
-              '& .MuiSelect-select': {
-                fontSize: 14,
-              },
-              '& .MuiInputLabel-root': {
-                color: gray[400],
-                fontSize: 14,
-              },
-            }}
-          >
-            <InputLabel>Chọn trạng thái</InputLabel>
-            <Select
-              value={filter.status}
-              onChange={(e) => setFilter({ ...filter, status: e.target.value })}
-              label="Chọn trạng thái"
-              IconComponent={ArrowDropDownIcon}
-            >
-              <MenuItem value="">Tất cả trạng thái</MenuItem>
-              {status.map((statusName, index) => (
-                <MenuItem key={index} value={statusName}>
-                  {getDocumentFilterLabel(statusName)}
-                </MenuItem>
-              ))}
+          <FormControl fullWidth><InputLabel id={statusLabel}>Trạng thái</InputLabel>
+            <Select labelId={statusLabel} label="Trạng thái" value={filter.status} onChange={(e) => setFilter({ ...filter, status: e.target.value })}>
+              <MenuItem value="">Tất cả trạng thái</MenuItem>{status.map((statusName, index) => <MenuItem key={index} value={statusName}>{statusName === 'readyToSign' ? 'Chờ ký số' : getDocumentFilterLabel(statusName)}</MenuItem>)}
             </Select>
           </FormControl>
         </Box>
-
-        {/* Cards */}
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: 'repeat(auto-fill, minmax(200px, 1fr))',
-              sm: 'repeat(auto-fill, minmax(300px, 1fr))',
-            },
-            gap: 2,
-            justifyContent: 'center',
-          }}
-        >
-          {isLoading
-            ? Array.from({ length: 6 }).map((_, index) => (
-                <Box key={index} sx={{ flex: 1, minWidth: { xs: 100, sm: 300 }, minHeight: 180 }}>
-                  <Card
-                    variant="outlined"
-                    sx={{
-                      borderRadius: 1,
-                      bgcolor: white[50],
-                      border: `1px solid ${gray[300]}`,
-                      height: '100%',
-                    }}
-                  >
-                    <CardContent>
-                      <Box
-                        display="flex"
-                        justifyContent="space-between"
-                        alignItems="flex-start"
-                        gap={2}
-                        sx={{ marginBottom: 2 }}
-                      >
-                        <Skeleton variant="text" width="60%" height={20} />
-                        <Skeleton variant="rectangular" width={80} height={30} />
-                      </Box>
-                      <Skeleton variant="text" width="80%" height={20} sx={{ marginBottom: 1 }} />
-                      <Skeleton variant="text" width="70%" height={20} />
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          justifyContent: 'space-between',
-                          alignItems: 'center',
-                          gap: 2,
-                          marginTop: 2,
-                        }}
-                      >
-                        <Skeleton variant="text" width="40%" height={20} />
-                        <Skeleton variant="text" width="50%" height={20} />
-                      </Box>
-                    </CardContent>
-                  </Card>
-                </Box>
-              ))
-            : applyFilter().map((document, index) => <HistoryCard key={index} document={document} />)}
-        </Box>
-      </Box>
+        {isLoading ? <LoadingState label="Đang tải lịch sử công chứng…" /> : error ? <ErrorState title="Chưa thể tải lịch sử" description="Vui lòng thử lại để tải hồ sơ công chứng." onRetry={fetchDocuments} />
+          : !documents.length ? <EmptyState title="Chưa có lịch sử công chứng" description="Hồ sơ bạn tiếp nhận sẽ xuất hiện tại đây." />
+            : !visible.length ? <EmptyState title="Không tìm thấy hồ sơ phù hợp" description="Thử tên khác hoặc thay đổi lĩnh vực và trạng thái." />
+              : <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'minmax(0, 1fr)', lg: 'repeat(2, minmax(0, 1fr))' }, gap: 2 }}>{visible.map((document, index) => <HistoryCard key={index} document={document} />)}</Box>}
+      </Paper>
     </Box>
   );
 };
-
 export default NotarizedHistory;
