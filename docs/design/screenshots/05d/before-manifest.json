@@ -1,0 +1,78 @@
+{
+  "baseline": "a37657d",
+  "fixture": "GET fixtures only; all non-auth writes blocked. Output links not activated; no signature saved. Displayed signature is a synthetic SVG stroke.",
+  "results": [
+    {
+      "state": "ready",
+      "size": "desktop",
+      "width": 1440,
+      "dialogScrollWidth": 1198,
+      "dialogClientWidth": 1198
+    },
+    {
+      "state": "ready",
+      "size": "mobile",
+      "width": 390,
+      "dialogScrollWidth": 388,
+      "dialogClientWidth": 388
+    },
+    {
+      "state": "approved",
+      "size": "desktop",
+      "width": 1440,
+      "dialogScrollWidth": 1198,
+      "dialogClientWidth": 1198
+    },
+    {
+      "state": "approved",
+      "size": "mobile",
+      "width": 390,
+      "dialogScrollWidth": 388,
+      "dialogClientWidth": 388
+    },
+    {
+      "state": "missing",
+      "size": "desktop",
+      "width": 1440,
+      "dialogScrollWidth": 1198,
+      "dialogClientWidth": 1198
+    },
+    {
+      "state": "missing",
+      "size": "mobile",
+      "width": 390,
+      "dialogScrollWidth": 388,
+      "dialogClientWidth": 388
+    },
+    {
+      "state": "note",
+      "size": "desktop",
+      "width": 1440,
+      "dialogScrollWidth": 1198,
+      "dialogClientWidth": 1198
+    },
+    {
+      "state": "note",
+      "size": "mobile",
+      "width": 390,
+      "dialogScrollWidth": 388,
+      "dialogClientWidth": 388
+    },
+    {
+      "state": "empty",
+      "size": "desktop",
+      "width": 1440,
+      "dialogScrollWidth": 1198,
+      "dialogClientWidth": 1198
+    },
+    {
+      "state": "empty",
+      "size": "mobile",
+      "width": 390,
+      "dialogScrollWidth": 388,
+      "dialogClientWidth": 388
+    }
+  ],
+  "blocked": [],
+  "checkedAt": "2026-10-25T04:53:41.508Z"
+}

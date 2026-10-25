@@ -1,0 +1,110 @@
+{
+  "note": "Only synthetic mouse strokes. The signature POST is fulfilled locally; PNG extracted from the existing multipart payload. All other non-auth writes blocked. No real signature reaches backend.",
+  "results": [
+    {
+      "dpr": 1,
+      "original": {
+        "count": 1217,
+        "minX": 81,
+        "minY": 46,
+        "maxX": 485,
+        "maxY": 156,
+        "width": 834,
+        "height": 240,
+        "cssWidth": 834
+      },
+      "narrow": {
+        "count": 620,
+        "minX": 28,
+        "minY": 16,
+        "maxX": 177,
+        "maxY": 57,
+        "width": 304,
+        "height": 240,
+        "cssWidth": 304
+      },
+      "restored": {
+        "count": 1217,
+        "minX": 81,
+        "minY": 46,
+        "maxX": 485,
+        "maxY": 156,
+        "width": 834,
+        "height": 240,
+        "cssWidth": 834
+      },
+      "changedRatio": 2,
+      "changedDpr": {
+        "count": 3866,
+        "minX": 163,
+        "minY": 92,
+        "maxX": 970,
+        "maxY": 312,
+        "width": 1668,
+        "height": 480,
+        "cssWidth": 834
+      },
+      "png": {
+        "width": 405,
+        "height": 111
+      },
+      "localMockSaves": 1,
+      "blockedWrites": [],
+      "errors": [],
+      "calloutGone": true
+    },
+    {
+      "dpr": 2,
+      "original": {
+        "count": 3818,
+        "minX": 163,
+        "minY": 92,
+        "maxX": 970,
+        "maxY": 312,
+        "width": 1668,
+        "height": 480,
+        "cssWidth": 834
+      },
+      "narrow": {
+        "count": 2176,
+        "minX": 57,
+        "minY": 32,
+        "maxX": 354,
+        "maxY": 115,
+        "width": 608,
+        "height": 480,
+        "cssWidth": 304
+      },
+      "restored": {
+        "count": 3818,
+        "minX": 163,
+        "minY": 92,
+        "maxX": 970,
+        "maxY": 312,
+        "width": 1668,
+        "height": 480,
+        "cssWidth": 834
+      },
+      "changedRatio": 1,
+      "changedDpr": {
+        "count": 1205,
+        "minX": 81,
+        "minY": 46,
+        "maxX": 485,
+        "maxY": 156,
+        "width": 834,
+        "height": 240,
+        "cssWidth": 834
+      },
+      "png": {
+        "width": 808,
+        "height": 221
+      },
+      "localMockSaves": 1,
+      "blockedWrites": [],
+      "errors": [],
+      "calloutGone": true
+    }
+  ],
+  "checkedAt": "2026-10-25T05:08:43.537Z"
+}
