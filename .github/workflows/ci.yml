@@ -31,3 +31,4 @@ jobs:
       - run: npm test -- --watchAll=false --maxWorkers=2
         env:
           CI: true
+          TZ: Asia/Ho_Chi_Minh

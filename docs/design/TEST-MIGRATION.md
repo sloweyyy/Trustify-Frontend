@@ -15,3 +15,5 @@ Repairs preserve production behavior:
 The CI workflow adds a test job with two workers for predictable runner resources and keeps the build job. Build now uses CI=true. The requested exact local command remains `CI=true npm test -- --watchAll=false`.
 
 Lint cleanup removes the unused React import from PaymentRoute and the unused USER_EMAIL_ENDPOINT constant. The existing string rejection “Email already exists” is explicitly documented with a single-line no-throw-literal exception: replacing it with Error would change the registration caller contract. Request arguments, URLs, exports and error values remain unchanged. ChatAssistant's warning was already resolved in #43.
+
+CI first-run follow-up: the legacy session-modal display test assumes Vietnam time (09:00Z →16:00). At Claude’s explicit request, CI test job pins TZ=Asia/Ho_Chi_Minh. Preserve the original fixture and application date behavior. The legacy Chatbox pending-state test uses a controlled promise instead of a wall-clock timeout; this verifies the pending state even when a slow/suspended host resumes after the old timeout.
