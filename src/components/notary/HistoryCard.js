@@ -1,109 +1,29 @@
 import React, { useState } from 'react';
-import { Box, Card, CardActionArea, CardContent, Typography } from '@mui/material';
-import { black, gray, white } from '../../config/theme/themePrimitives';
+import { Box, Button, Paper, Typography } from '@mui/material';
 import DetailHistoryDocumentModal from './DetailHistoryDocumentModal';
-import DocumentStatusChip from '../shared/DocumentStatusChip';
-
-const customStyle = {
-  fontSize: 12,
-  fontWeight: 400,
-  color: black[500],
-};
+import DocumentStatusChip, { StatusChip } from '../shared/DocumentStatusChip';
 
 const HistoryCard = ({ document }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
-
-  return (
-    <>
-      <CardActionArea disableRipple sx={{ flex: 1, minWidth: { xs: 200, sm: 300 } }} onClick={handleOpen}>
-        <Card
-          variant="outlined"
-          sx={{
-            borderRadius: 1,
-            bgcolor: white[50],
-            border: `1px solid ${gray[300]}`,
-            height: '100%',
-            ':hover': {
-              boxShadow: '0px 4px 8px rgba(19, 25, 39, 0.08)',
-              border: `1px solid ${gray[900]}`,
-            },
-          }}
-        >
-          <CardContent>
-            <Box display="flex" justifyContent="space-between" alignItems="flex-start">
-              <Box
-                sx={{
-                  flex: 1,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 1,
-                }}
-              >
-                <Typography
-                  sx={{
-                    color: gray[900],
-                    fontSize: 14,
-                    fontWeight: 600,
-                    textTransform: 'none',
-                  }}
-                >
-                  {document.documentId.requesterInfo.fullName}
-                </Typography>
-              </Box>
-              <DocumentStatusChip status={document.status} />
-            </Box>
-            <Box sx={{ mt: 1 }}>
-              <Typography
-                sx={{
-                  fontSize: 14,
-                  fontWeight: 400,
-                  color: black[400],
-                }}
-              >
-                {document.documentId.notarizationField.name}
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                gap: 2,
-                mt: 2,
-              }}
-            >
-              <Typography sx={customStyle}>Mã số:</Typography>
-              <Typography sx={{ ...customStyle, wordWrap: 'break-word', overflow: 'hidden' }}>
-                {document.documentId.id}
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                gap: 2,
-                mt: 2,
-              }}
-            >
-              <Typography sx={customStyle}>Ngày công chứng:</Typography>
-              <Typography sx={customStyle}>{new Date(document.documentId.createdAt).toLocaleDateString('vi-VN')}</Typography>
-            </Box>
-          </CardContent>
-        </Card>
-      </CardActionArea>
-      <DetailHistoryDocumentModal open={open} onClose={handleClose} document={document} />
-    </>
-  );
+  const source = document.documentId;
+  return <>
+    <Paper component="article" variant="outlined" sx={{ p: 2, minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 2, overflowWrap: 'anywhere' }}>
+      <Typography component="h3" variant="h6">{source.requesterInfo.fullName}</Typography>
+      {document.status === 'readyToSign' ? <StatusChip label="Chờ ký số" tone="signature" /> : <DocumentStatusChip status={document.status} />}
+      <Typography>{source.notarizationField.name}</Typography>
+      <Box component="dl" sx={{ m: 0, display: 'grid', gap: 1 }}>
+        <Box><Typography component="dt" color="text.secondary">Mã hồ sơ</Typography><Typography component="dd" sx={{ m: 0 }}>{source.id}</Typography></Box>
+        <Box><Typography component="dt" color="text.secondary">Ngày gửi hồ sơ</Typography><Typography component="dd" sx={{ m: 0 }}>{new Date(source.createdAt).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' })}</Typography></Box>
+      </Box>
+      <Button variant="outlined" onClick={handleOpen} aria-label={`Xem chi tiết hồ sơ ${source.id}`} sx={{ mt: 'auto', width: { xs: '100%', sm: 'auto' } }}>Xem chi tiết</Button>
+    </Paper>
+    <DetailHistoryDocumentModal open={open} onClose={handleClose} document={document} />
+  </>;
 };
-
 export default HistoryCard;
