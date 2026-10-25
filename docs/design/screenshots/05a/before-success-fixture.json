@@ -1,5 +1,5 @@
 {
-  "fixture": "The upload POST is fulfilled locally with status200; all other non-auth writes are blocked. No request reaches the notarization backend.",
+  "fixture": "The upload POST is fulfilled locally with HTTP201 and the actual created-document body; all other non-auth writes are blocked. No request reaches the notarization backend.",
   "results": [
     {
       "size": "desktop",
@@ -22,5 +22,5 @@
     }
   ],
   "blocked": [],
-  "checkedAt": "2026-10-25T03:35:04.497Z"
+  "checkedAt": "2026-10-25T03:45:37.342Z"
 }

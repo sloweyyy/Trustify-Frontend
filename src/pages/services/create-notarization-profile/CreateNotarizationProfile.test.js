@@ -123,8 +123,20 @@ test('an unsuccessful submission preserves review information and files for retr
   fireEvent.change(screen.getByLabelText('Tệp cho Giấy tờ tuỳ thân'), { target: { files: [new File(['sample'], 'sample.pdf', { type: 'application/pdf' })] } });
   fireEvent.click(screen.getByRole('button', { name: 'Tiếp tục', exact: true }));
   fireEvent.click(screen.getByRole('button', { name: 'Gửi hồ sơ', exact: true }));
-  await waitFor(() => expect(toast.error).toHaveBeenCalledWith('Chưa thể gửi hồ sơ. Thông tin đã nhập vẫn ở đây để bạn thử lại.'));
+  await waitFor(() => expect(toast.error).toHaveBeenCalledWith('Chưa thể xác nhận việc gửi hồ sơ. Vui lòng kiểm tra Lịch sử trước khi thử lại.'));
   expect(screen.getByText('Nguyễn Thị Mỹ')).toBeInTheDocument(); expect(screen.getByRole('button', { name: 'Mở tài liệu sample.pdf' })).toBeInTheDocument();
   await waitFor(() => expect(screen.getByRole('button', { name: 'Gửi hồ sơ', exact: true })).toBeEnabled());
   expect(NotarizationService.uploadNotarizationDocument).toHaveBeenCalledTimes(1); expect(toast.success).not.toHaveBeenCalled(); expect(mockNavigate).not.toHaveBeenCalled();
+});
+
+
+test.each(['id', '_id'])('a created-document response (%s) navigates with its ID without requiring a status envelope', async (idKey) => {
+  const createdId = '507f1f77bcf86cd799439011';
+  NotarizationService.uploadNotarizationDocument.mockResolvedValue({ [idKey]: createdId, createdAt: '2026-10-25' });
+  setup(); await chooseField(); await chooseService(); fillInformation();
+  fireEvent.change(screen.getByLabelText('Tệp cho Giấy tờ tuỳ thân'), { target: { files: [new File(['sample'], 'sample.pdf', { type: 'application/pdf' })] } });
+  fireEvent.click(screen.getByRole('button', { name: 'Tiếp tục', exact: true }));
+  fireEvent.click(screen.getByRole('button', { name: 'Gửi hồ sơ', exact: true }));
+  await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('/user/history', { state: { submittedDocumentId: createdId } }));
+  expect(toast.error).not.toHaveBeenCalled(); expect(toast.success).toHaveBeenCalled();
 });

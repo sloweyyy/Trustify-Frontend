@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Box, Button, Card, CardContent, FormControl, IconButton, InputLabel, MenuItem, Select, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TableSortLabel, Typography, useMediaQuery } from '@mui/material';
 import { ArrowDownwardRounded, ArrowUpwardRounded } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ function descendingComparator(a, b, orderBy) {
 function getComparator(order, orderBy) {
   return order === 'desc' ? (a, b) => descendingComparator(a, b, orderBy) : (a, b) => -descendingComparator(a, b, orderBy);
 }
-const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTypes, data, onClearFilters }) => {
+const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTypes, data, onClearFilters, highlightId }) => {
   const mobile = useMediaQuery((theme) => theme.breakpoints.down('md'));
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('profile');
@@ -23,6 +23,9 @@ const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTyp
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [open, setOpen] = useState(false);
   const [notaryId, setNotaryId] = useState('');
+  const highlightRef = useRef(null);
+  const pagedHighlight = useRef(null);
+  const focusedHighlight = useRef(null);
   useEffect(() => { setPage(0); }, [filterStatus, searchText]);
   const filteredRows = useMemo(() => {
     let filtered = [...rows];
@@ -33,8 +36,20 @@ const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTyp
       row.service.toLowerCase().includes(searchText.toLowerCase()));
     return filtered.sort(getComparator(order, orderBy));
   }, [rows, filterStatus, statusTypes.All, searchText, order, orderBy]);
+  useEffect(() => {
+    const index = filteredRows.findIndex((row) => row.profile === highlightId);
+    if (index >= 0 && pagedHighlight.current !== highlightId) {
+      pagedHighlight.current = highlightId; setPage(Math.floor(index / rowsPerPage));
+    }
+  }, [highlightId, filteredRows, rowsPerPage]);
   const currentPage = Math.min(page, Math.max(0, Math.ceil(filteredRows.length / rowsPerPage) - 1));
   const visibleRows = filteredRows.slice(currentPage * rowsPerPage, currentPage * rowsPerPage + rowsPerPage);
+  useEffect(() => {
+    if (highlightRef.current && focusedHighlight.current !== highlightId) {
+      focusedHighlight.current = highlightId; highlightRef.current.focus();
+      highlightRef.current.scrollIntoView?.({ block: 'center' });
+    }
+  }, [highlightId, currentPage, mobile, visibleRows]);
   const requestSort = (property) => { setOrder(orderBy === property && order === 'asc' ? 'desc' : 'asc'); setOrderBy(property); };
   const openRecord = (row) => { setNotaryId(row.profile); setOpen(true); };
   return (
@@ -54,8 +69,8 @@ const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTyp
             </IconButton>
           </Box>
           <Box component="ul" aria-label="Danh sách hồ sơ" sx={{ p: 0, m: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 2 }}>
-            {visibleRows.map((row) => <Card key={row.id} component="li"><CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-              <Box><Typography color="text.secondary">Mã hồ sơ</Typography><Typography component="h2" sx={{ fontWeight: 600, overflowWrap: 'anywhere' }}>{row.profile}</Typography></Box>
+            {visibleRows.map((row) => <Card key={row.id} component="li" ref={row.profile === highlightId ? highlightRef : undefined} tabIndex={row.profile === highlightId ? -1 : undefined} sx={{ borderColor: row.profile === highlightId ? 'primary.main' : 'divider' }}><CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+              <Box>{row.profile === highlightId && <Typography color="primary.main" sx={{ fontWeight: 600 }}>Vừa gửi</Typography>}<Typography color="text.secondary">Mã hồ sơ</Typography><Typography component="h2" sx={{ fontWeight: 600, overflowWrap: 'anywhere' }}>{row.profile}</Typography></Box>
               <Box sx={{ alignSelf: 'flex-start' }}><DocumentStatusChip status={row.status} /></Box>
               <Typography color="text.secondary">Ngày gửi: {row.date}</Typography>
               <Typography sx={{ overflowWrap: 'anywhere' }}>{row.service}</Typography>
@@ -68,8 +83,8 @@ const HistoryDataTable = ({ filterStatus, searchText, rows, headCells, statusTyp
             <TableHead><TableRow>{headCells.map((cell) => <TableCell key={cell.id} sortDirection={orderBy === cell.id ? order : false} sx={{ minWidth: cell.id === 'status' ? 140 : undefined }}>
               <TableSortLabel active={orderBy === cell.id} direction={orderBy === cell.id ? order : 'asc'} onClick={() => requestSort(cell.id)}>{cell.label}</TableSortLabel>
             </TableCell>)}</TableRow></TableHead>
-            <TableBody>{visibleRows.map((row) => <TableRow key={row.id} hover selected={open && row.profile === notaryId} onClick={() => openRecord(row)} sx={{ cursor: 'pointer' }}>
-              <TableCell component="th" scope="row"><Button variant="text" aria-label={`Xem hồ sơ ${row.profile}`} onClick={(event) => { event.stopPropagation(); openRecord(row); }} sx={{ p: 0, textAlign: 'left', justifyContent: 'flex-start', overflowWrap: 'anywhere' }}>{row.profile}</Button></TableCell>
+            <TableBody>{visibleRows.map((row) => <TableRow key={row.id} hover ref={row.profile === highlightId ? highlightRef : undefined} tabIndex={row.profile === highlightId ? -1 : undefined} selected={(open && row.profile === notaryId) || row.profile === highlightId} onClick={() => openRecord(row)} sx={{ cursor: 'pointer' }}>
+              <TableCell component="th" scope="row">{row.profile === highlightId && <Typography color="primary.main" sx={{ fontWeight: 600 }}>Vừa gửi</Typography>}<Button variant="text" aria-label={`Xem hồ sơ ${row.profile}`} onClick={(event) => { event.stopPropagation(); openRecord(row); }} sx={{ p: 0, textAlign: 'left', justifyContent: 'flex-start', overflowWrap: 'anywhere' }}>{row.profile}</Button></TableCell>
               <TableCell>{row.date}</TableCell><TableCell>{row.name}</TableCell><TableCell sx={{ minWidth: 140 }}><DocumentStatusChip status={row.status} /></TableCell><TableCell>{row.service}</TableCell>
             </TableRow>)}</TableBody>
           </Table>

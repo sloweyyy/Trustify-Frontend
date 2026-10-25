@@ -2,7 +2,19 @@
 > trustify@0.1.0 test
 > react-scripts test --watchAll=false --runInBand --runTestsByPath src/components/services/HistoryResponsive.test.js src/tests/components/services/HistoryDataTable.test.js src/components/shared/DocumentStatusFilters.test.js src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js
 
-PASS src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js
+One of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it may break at any time.
+
+babel-preset-react-app is part of the create-react-app project, which
+is not maintianed anymore. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.
+
+PASS src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js (5.168 s)
   ● Console
 
     console.error
@@ -646,18 +658,7 @@ PASS src/components/shared/DocumentStatusFilters.test.js
 
 
 Test Suites: 4 passed, 4 total
-Tests:       34 passed, 34 total
+Tests:       38 passed, 38 total
 Snapshots:   0 total
-Time:        6.134 s
+Time:        7.187 s
 Ran all test suites within paths "src/components/services/HistoryResponsive.test.js", "src/tests/components/services/HistoryDataTable.test.js", "src/components/shared/DocumentStatusFilters.test.js", "src/pages/services/create-notarization-profile/CreateNotarizationProfile.test.js".
-One of your dependencies, babel-preset-react-app, is importing the
-"@babel/plugin-proposal-private-property-in-object" package without
-declaring it in its dependencies. This is currently working because
-"@babel/plugin-proposal-private-property-in-object" is already in your
-node_modules folder for unrelated reasons, but it may break at any time.
-
-babel-preset-react-app is part of the create-react-app project, which
-is not maintianed anymore. It is thus unlikely that this bug will
-ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
-your devDependencies to work around this error. This will make this message
-go away.

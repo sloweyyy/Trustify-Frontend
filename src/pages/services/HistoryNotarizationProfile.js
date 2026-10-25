@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Box, FormControl, InputLabel, MenuItem, Select, Skeleton, Typography, TextField, InputAdornment } from '@mui/material';
+import { Alert, Box, FormControl, InputLabel, MenuItem, Select, Skeleton, Typography, TextField, InputAdornment } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 import StatusFilterButton from '../../components/services/StatusFilterButton';
 import HistoryDataTable from '../../components/services/HistoryDataTable';
 import NotarizationService from '../../services/notarization.service';
@@ -46,6 +47,7 @@ const createData = (id, profile, date, name, status, service) => ({
 });
 
 const HistoryNotarizationProfile = () => {
+  const submittedDocumentId = useLocation().state?.submittedDocumentId;
   const [statusFilter, setStatusFilter] = useState(STATUS_TYPES.All);
   const [statusClicked, setStatusClicked] = useState(STATUS_TYPES.All);
   const [searchText, setSearchText] = useState('');
@@ -102,6 +104,7 @@ const HistoryNotarizationProfile = () => {
     <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', maxWidth: 1280, mx: 'auto', p: { xs: 2, md: 3 }, gap: 3 }}>
       <Box><Typography component="h1" variant="h4">Lịch sử hồ sơ công chứng</Typography>
         <Typography color="text.secondary" sx={{ mt: 1 }}>Theo dõi tiến trình hồ sơ, xem tài liệu và kiểm tra khoản chờ thanh toán.</Typography></Box>
+      {submittedDocumentId && <Alert severity="success">Đã gửi hồ sơ <Box component="span" sx={{ fontWeight: 600, overflowWrap: 'anywhere' }}>{submittedDocumentId}</Box>. Bạn có thể theo dõi tiến trình bên dưới.</Alert>}
       <PendingPayments />
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
         <TextField label="Tìm hồ sơ" placeholder="Nhập mã hồ sơ, tên hoặc dịch vụ" value={searchText} onChange={(event) => setSearchText(event.target.value)} fullWidth
@@ -117,7 +120,7 @@ const HistoryNotarizationProfile = () => {
       </Box>
       {loadingStatus ? <LoadingState label="Đang tải hồ sơ…">{[0, 1, 2].map((index) => <Skeleton key={index} variant="rectangular" height={96} sx={{ mb: 2 }} />)}</LoadingState> : error ?
         <ErrorState title="Chưa thể tải lịch sử hồ sơ" description="Bạn có thể thử tải lại danh sách hồ sơ." onRetry={fetchHistory} /> :
-        <HistoryDataTable filterStatus={statusFilter} searchText={searchText} rows={rows} headCells={HEAD_CELLS} statusTypes={STATUS_TYPES} data={fullData} onClearFilters={clearFilters} />}
+        <HistoryDataTable filterStatus={statusFilter} searchText={searchText} rows={rows} headCells={HEAD_CELLS} statusTypes={STATUS_TYPES} data={fullData} onClearFilters={clearFilters} highlightId={submittedDocumentId} />}
     </Box>
   );
 };

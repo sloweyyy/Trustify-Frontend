@@ -49,3 +49,13 @@ test('payment read failure offers retry without implying that nothing is owed', 
   await waitFor(() => expect(screen.queryByText('Đang kiểm tra khoản chờ thanh toán…')).not.toBeInTheDocument());
   expect(PaymentService.getMyPayments.mock.calls).toEqual([['pending'], ['pending']]); expect(PaymentService.updatePaymentStatus).not.toHaveBeenCalled();
 });
+
+
+test.each([false, true])('a newly submitted ID is revealed once without changing the sort order (%s)', (mobile) => {
+  useMediaQuery.mockReturnValue(mobile); render(<HistoryDataTable rows={rows} headCells={heads} statusTypes={STATUS_TYPES} filterStatus={STATUS_TYPES.All} searchText="" data={[]} highlightId="HS-11" />, { wrapper });
+  expect(screen.getByText('HS-11')).toBeInTheDocument(); expect(screen.getByText('Vừa gửi')).toBeInTheDocument();
+  expect(screen.getByText('11–12 trong 12')).toBeInTheDocument();
+  expect(screen.queryByText('HS-00')).not.toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: 'Trang trước' }));
+  expect(screen.getByText('HS-00')).toBeInTheDocument(); expect(screen.queryByText('HS-11')).not.toBeInTheDocument();
+});
