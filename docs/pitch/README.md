@@ -23,7 +23,7 @@ A12-slide English product pitch for LinkedIn visitors and prospective notary-off
 11. Proposed pilot-readiness gates
 12. Invitation to pilot partners
 
-Current implementation and future proposals are separate. No users, revenue, market size, partnerships, processing times, cost reductions or regulatory approval are invented. The existing 2025 award names/dates/issuers come from the owner's public LinkedIn entries. The UI screenshots show the October2026 redesign, not the 2025 event. Private case examples use synthetic QA records and sample files.
+Current implementation and future proposals are separate. No users, revenue, market size, partnerships, processing times, cost reductions or regulatory approval are invented. The existing 2025 award names/dates/issuers come from the owner's public LinkedIn entries. The UI screenshots show the October 2026 redesign, not the 2025 event. Private case examples use synthetic QA records and sample files.
 
 ## Evidence
 
