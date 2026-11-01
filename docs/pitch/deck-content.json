@@ -7,7 +7,7 @@
       "One workflow for applicants\nand notary offices.",
       "Product pitch\nOctober 2026"
     ],
-    "notes": "Product source: https://github.com/sloweyyy/Trustify-Frontend/blob/main/README.md. Approved brand: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/brand/brand-identity.md. Screenshot: final/routes/public-home-desktop.png, current October2026 UI. Team project established2025. This deck pitches a future pilot, not a launched regulated service."
+    "notes": "Product source: https://github.com/sloweyyy/Trustify-Frontend/blob/main/README.md. Approved brand: https://github.com/sloweyyy/Trustify-Frontend/blob/main/docs/brand/brand-identity.md. Screenshot: final/routes/public-home-desktop.png, current October 2026 UI. Team project established 2025. This deck pitches a future pilot, not a launched regulated service."
   },
   {
     "number": 2,
@@ -133,7 +133,7 @@
       "Web3 & AI Convergence\nVBI Academy\nJanuary 2025",
       "Team NotLikeUs. Recognition earned in 2025. Product screenshots reflect the October 2026 interface."
     ],
-    "notes": "Award names, issuers and dates supplied by the project owner and verified against their existing public LinkedIn Honors entries. https://www.linkedin.com/in/sloweyne/details/honors/. First Prize: Youth Union–Student Association, Faculty of Computer Science and Engineering, International University–VNUHCM, May2025. Top30: VBI Academy, January2025. Hackathon recognition is not evidence of commercial traction or a regulatory endorsement."
+    "notes": "Award names, issuers and dates supplied by the project owner and verified against their existing public LinkedIn Honors entries. https://www.linkedin.com/in/sloweyne/details/honors/. First Prize: Youth Union–Student Association, Faculty of Computer Science and Engineering, International University–VNUHCM, May 2025. Top 30: VBI Academy, January 2025. Hackathon recognition is not evidence of commercial traction or a regulatory endorsement."
   },
   {
     "number": 10,
@@ -179,6 +179,6 @@
       "Meet the project",
       "linkedin.com/in/sloweyne"
     ],
-    "notes": "Call to action proposes discussions with licensed notary offices and product/security reviewers. No existing partnerships or endorsements implied. Demo: https://trustify-notary.vercel.app. Contact: https://www.linkedin.com/in/sloweyne/. Source: https://github.com/sloweyyy/Trustify-Frontend and https://github.com/sloweyyy/Trustify-Backend. The current public demo simulates payments and uses Supabase Storage. Maintainer configuration check: https://github.com/sloweyyy/Trustify-Frontend/pull/50. Deck updated25October2026."
+    "notes": "Call to action proposes discussions with licensed notary offices and product/security reviewers. No existing partnerships or endorsements implied. Demo: https://trustify-notary.vercel.app. Contact: https://www.linkedin.com/in/sloweyne/. Source: https://github.com/sloweyyy/Trustify-Frontend and https://github.com/sloweyyy/Trustify-Backend. The current public demo simulates payments and uses Supabase Storage. Maintainer configuration check: https://github.com/sloweyyy/Trustify-Frontend/pull/50. Deck updated 25 October 2026."
   }
 ]
